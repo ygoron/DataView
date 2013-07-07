@@ -1,0 +1,268 @@
+/* No comment provided by engineer. */
+" Name %@ Already Exists. Please choose a different connection name" = " Name %@ Already Exists. Please choose a different connection name";
+
+/* Label-Path */
+"/Categories" = "/Catégories";
+
+/* Path */
+"/Inbox" = "/Boîte de réception";
+
+/* Label - Path */
+"/Personal Categories" = "/Catégories personnelles";
+
+/* Label- Path */
+"/Personal Folder" = "/Dossier personnel";
+
+/* No comment provided by engineer. */
+"Browser" = "Navigateur";
+
+/* No comment provided by engineer. */
+"Cancel" = "Annuler";
+
+/* Label */
+"Categories" = "Catégories";
+
+/* No comment provided by engineer. */
+"Connection Test" = "Test de connexion";
+
+/* No comment provided by engineer. */
+"Connection Test Failed" = "Le test de connexion a échoué";
+
+/* No comment provided by engineer. */
+"Connection Test Failed in BI" = "Le test de connexion a échoué en BI";
+
+/* No comment provided by engineer. */
+"Delete Document Failed" = "La suppression de document a échoué";
+
+/* No comment provided by engineer. */
+"Deleting objects is not supported in the Lite version. Please purchase a full version on the app store" = "La suppression de documents dans la version Lite n’est pas supportée. Veuillez acheter une version complète dans le magasin d’applications";
+
+/* No comment provided by engineer. */
+"Demo Version" = " Version de démonstration";
+
+/* No comment provided by engineer. */
+"Description not available" = "Description pas disponible";
+
+/* No comment provided by engineer. */
+"Developed by " = "Développé par ";
+
+/* No comment provided by engineer. */
+"Documents" = "Documents";
+
+/* No comment provided by engineer. */
+"E-mail" = "E-mail";
+
+/* No comment provided by engineer. */
+"Enter your password for:" = "Entrez votre mot de passe pour :";
+
+/* No comment provided by engineer. */
+"Failed" = "Echoué";
+
+/* No comment provided by engineer. */
+"Failed to delete document" = "La suppression de document a échoué";
+
+/* No comment provided by engineer. */
+"Failed to Save Connection" = "La sauvegarde de document a échoué";
+
+/* Just Feedback and support. Do not translate email:-) */
+"Feedback and support: support@apos.com\n" = "Commentaires et soutien : support@apos.com\n";
+
+/* No comment provided by engineer. */
+"Feedback and technical support: " = "Commentaires et soutien technique : ";
+
+/* Name- Folders */
+"Folders" = "Dossiers";
+
+/* No comment provided by engineer. */
+"Get Schedule Forms Failed" = "L’obtention de formulaires de programmation a échoué";
+
+/* No comment provided by engineer. */
+"Get Schedule Forms Failed in BI" = " L’obtention de formulaires de programmation a échoué en BI";
+
+/* No comment provided by engineer. */
+"Global Preferences" = "Préférences globales";
+
+/* Title for the header */
+"Historical Instances" = "Instances historiques";
+
+/* Name - Inbox */
+"Inbox" = "Boîte de réception";
+
+/* No comment provided by engineer. */
+"Instance" = "Instance";
+
+/* No comment provided by engineer. */
+"Instances" = "Instances";
+
+/* Demo Version - some functions not allowed */
+"Lite Version" = "Version Lite";
+
+/* No comment provided by engineer. */
+"Load Document Details Failed" = "Le chargement de détailles de document a échoué";
+
+/* No comment provided by engineer. */
+"Load Document Details Failed" = "Le chargement de détailles de document a échoué";
+
+/* No comment provided by engineer. */
+"Load Document Details Failed in BI" = " Le chargement de détailles de document a échoué en BI";
+
+/* No comment provided by engineer. */
+"Load Documents Failed" = " Le chargement de détailles de document a échoué";
+
+/* No comment provided by engineer. */
+"Load Documents Failed in BI" = " Le chargement de détailles de document a échoué en BI";
+
+/* No comment provided by engineer. */
+"Load Objects Failed" = "Le chargement d’objets a échoué";
+
+/* No comment provided by engineer. */
+"Load Objects Failed in BI" = " Le chargement d’objets a échoué en BI";
+
+/* No comment provided by engineer. */
+"Load Open Document URL Failed" = "Le chargement d’URL d’OpenDocument a échoué";
+
+/* No comment provided by engineer. */
+"Load Open Document URL Failed in BI" = " Le chargement d’URL d’OpenDocument a échoué en BI";
+
+/* No comment provided by engineer. */
+"Load Report Failed" = "Le chargement de rapport a échoué";
+
+/* No comment provided by engineer. */
+"Load Report Failed in BI" = "Le chargement de rapport a échoué en BI";
+
+/* Failed */
+"Load Selected Object Failed" = "Le chargement d’objet sélectionné a échoué";
+
+/* No comment provided by engineer. */
+"Load Selected Object Failed in BI" = " Le chargement d’objet sélectionné a échoué en BI";
+
+/* No comment provided by engineer. */
+"Load Universe Failed" = "Le chargement d’univers a échoué";
+
+/* No comment provided by engineer. */
+"Load Universe Failed in BI" = " Le chargement d’univers a échoué en BI";
+
+/* Missing Session Info */
+"No Active Sessions" = "Aucunes sessions actives";
+
+/* No comment provided by engineer. */
+"No Active Sessions Found" = "Aucunes sessions actives trouvées";
+
+/* No comment provided by engineer. */
+"No Description Available" = "Aucunes descriptions disponibles";
+
+/* Object does not have a description */
+"No Description is Available" = "Aucunes descriptions disponibles";
+
+/* No comment provided by engineer. */
+"Ok" = "Ok";
+
+/* OK on alert window */
+"OK" = "OK";
+
+/* Use Open Document Call to View document */
+"Open Document" = "Ouvrir document";
+
+/* No comment provided by engineer. */
+"Password" = "Mot de passe";
+
+/* Label */
+"Personal Categories" = "Catégories personnelles";
+
+/* Label */
+"Personal Folder" = "Dossiers personnels";
+
+/* No comment provided by engineer. */
+"Phone:+1.519.894.2767\n" = "Téléphone:+1.519.894.2767\n";
+
+/* No comment provided by engineer. */
+"Please Create/Enable at least one CMS Session" = "Veuillez créer/activer au moins une session de CMS";
+
+/* Missing Session Info */
+"Please Create/Enable at least one SAP BI Session" = "Veuillez créer/activer au moins une session de SAP BI";
+
+/* No comment provided by engineer. */
+"Please provide session name" = "Veuillez procurer le nom de session";
+
+/* No comment provided by engineer. */
+"Print" = "Imprimer";
+
+/* No comment provided by engineer. */
+"Pull To Refresh" = "Tirer pour actualiser";
+
+/* No comment provided by engineer. */
+"Pull To Refresh Objects List" = "Tirer pour actualiser la liste d’objets";
+
+/* No comment provided by engineer. */
+"Pull To Refresh Universes" = "Tirer pour actualiser les univers";
+
+/* No comment provided by engineer. */
+"Pull To Refresh Webi Documents List" = "Tirer pour actualiser la liste de documents Webi";
+
+/* No comment provided by engineer. */
+"qcJ-5z-gfl.title" = "qcJ-5z-gfl.title";
+
+/* No comment provided by engineer. */
+"Re-Schedule" = "Reprogrammer";
+
+/* No comment provided by engineer. */
+"Reports" = "Rapports";
+
+/* No comment provided by engineer. */
+"Run Now" = "Exécuter maintenant";
+
+/* No comment provided by engineer. */
+"Schedule" = "Programme";
+
+/* No comment provided by engineer. */
+"Schedule Failed" = "La programmation a échoué";
+
+/* No comment provided by engineer. */
+"Schedule Failed in BI" = "La programmation a échoué en BI";
+
+/* No comment provided by engineer. */
+"Schedule Object to Run now" = "Programmer l’objet d’être exécuté maintenant";
+
+/* No comment provided by engineer. */
+"Schedule Report" = "Programmer rapport";
+
+/* No comment provided by engineer. */
+"Server Error" = "Erreur de serveur";
+
+/* No comment provided by engineer. */
+"Server Error:" = "Erreur de serveur :";
+
+/* No comment provided by engineer. */
+"Server Error: " = "Erreur de serveur : ";
+
+/* No comment provided by engineer. */
+"Settings" = "Paramètres";
+
+/* Scheduled with success */
+"Success!" = "Succès!";
+
+/* No comment provided by engineer. */
+"Type" = "Type";
+
+/* No comment provided by engineer. */
+"Universes" = "Univers";
+
+/* No comment provided by engineer. */
+"View" = "Affichage";
+
+/* No comment provided by engineer. */
+"View Instance Using Open Document" = "Afficher l’instance en utilisant OpenDocument";
+
+/* No comment provided by engineer. */
+"View Latest Instance" = "Afficher la dernière instance";
+
+/* No comment provided by engineer. */
+"View Latest Instance Using Open Document" = "Afficher la dernière instance en utilisant OpenDocument";
+
+/* No comment provided by engineer. */
+"View List of Historical Instances/Schedules" = "Afficher la liste des instances/programmations historiques";
+
+/* No comment provided by engineer. */
+"View Object Using Open Document" = "Afficher l’objet en utilisant OpenDocument";
+
+

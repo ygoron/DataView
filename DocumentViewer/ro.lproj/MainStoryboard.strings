@@ -1,0 +1,321 @@
+﻿
+/* Class = "IBUILabel"; text = "Created By"; ObjectID = "19b-RK-HDO"; */
+"19b-RK-HDO.text" = "Creat de";
+
+/* Class = "IBUILabel"; text = "Created"; ObjectID = "1OT-sE-BIy"; */
+"1OT-sE-BIy.text" = "Creat";
+
+/* Class = "IBUILabel"; text = "Inbox"; ObjectID = "1VS-yW-0mr"; */
+"1VS-yW-0mr.text" = "Cutia poștală";
+
+/* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "2tL-nH-faV"; */
+"2tL-nH-faV.title" = "Titlu";
+
+/* Class = "IBUILabel"; text = "More..."; ObjectID = "2tt-cX-Oz2"; */
+"2tt-cX-Oz2.text" = "Mai mult...";
+
+/* Class = "IBUILabel"; text = "id"; ObjectID = "2yd-RL-lxx"; */
+"2yd-RL-lxx.text" = "id";
+
+/* Class = "IBUILabel"; text = "Enterprise Categories"; ObjectID = "3zQ-TR-q3d"; */
+"3zQ-TR-q3d.text" = "Categorii Enterprise";
+
+/* Class = "IBUILabel"; text = "Size"; ObjectID = "4KV-uH-mXD"; */
+"4KV-uH-mXD.text" = "Mărime";
+
+/* Class = "IBUILabel"; text = "WCA "; ObjectID = "4O2-RQ-Ir1"; */
+"4O2-RQ-Ir1.text" = "WCA ";
+
+/* Class = "IBUILabel"; text = "unv"; ObjectID = "4d3-sY-3Ve"; */
+"4d3-sY-3Ve.text" = "unv";
+
+/* Class = "IBUILabel"; text = "Logoff From SAP BI after each transaction. Recommended with limited number of SAP BI licenses . 
+May slow down app performance\n"; ObjectID = "4eo-dM-CxY"; */
+"4eo-dM-CxY.text" = "Deconectează de la SAP BI după fiecare tranzacție. Se recomandă cu un număr limitat de licențe BI. Poate încetinii perfomanța aplicației\n";
+
+/* Class = "IBUISegmentedControl"; 4nr-kF-DcR.segmentTitles[0] = "Enterprise"; ObjectID = "4nr-kF-DcR"; */
+"4nr-kF-DcR.segmentTitles[0]" = "Enterprise";
+
+/* Class = "IBUISegmentedControl"; 4nr-kF-DcR.segmentTitles[1] = "WinAD"; ObjectID = "4nr-kF-DcR"; */
+"4nr-kF-DcR.segmentTitles[1]" = "WinAD";
+
+/* Class = "IBUISegmentedControl"; 4nr-kF-DcR.segmentTitles[2] = "LDAP"; ObjectID = "4nr-kF-DcR"; */
+"4nr-kF-DcR.segmentTitles[2]" = "LDAP";
+
+/* Class = "IBUILabel"; text = "Various Application Settings"; ObjectID = "5WM-b8-8wE"; */
+"5WM-b8-8wE.text" = "Diverse setări de aplicație";
+
+/* Class = "IBUITextField"; text = "50"; ObjectID = "6XN-FD-B9a"; */
+"6XN-FD-B9a.text" = "50";
+
+/* Class = "IBUINavigationItem"; title = "Universes"; ObjectID = "6Z3-Qa-v69"; */
+"6Z3-Qa-v69.title" = "Universuri";
+
+/* Class = "IBUILabel"; text = "Personal"; ObjectID = "7KG-Cd-nGD"; */
+"7KG-Cd-nGD.text" = "Personal";
+
+/* Class = "IBUILabel"; text = "Reports"; ObjectID = "7SB-XT-CYX"; */
+"7SB-XT-CYX.text" = "Rapoarte";
+
+/* Class = "IBUILabel"; text = "Buffer Size"; ObjectID = "7Yf-Y2-oFa"; */
+"7Yf-Y2-oFa.text" = "Mărimea bufferului";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Recurrence"; ObjectID = "8kC-f3-g9B"; */
+"8kC-f3-g9B.headerTitle" = "Recurență";
+
+/* Class = "IBUILabel"; text = "List of Universes and universe classes/objects. Content is for viewing only at this time"; ObjectID = "9f6-Dd-IAv"; */
+"9f6-Dd-IAv.text" = "Listă de universuri și clase/obiecte de univers. Conținutul este doar pentru vedere în momentul de față";
+
+/* Class = "IBUILabel"; text = "Test Connection"; ObjectID = "AQE-m8-siA"; */
+"AQE-m8-siA.text" = "Test de conexie";
+
+/* Class = "IBUILabel"; text = "Instance Name"; ObjectID = "AQz-mP-mcz"; */
+"AQz-mP-mcz.text" = "Nume de instanță";
+
+/* Class = "IBUILabel"; text = "Folders"; ObjectID = "AfL-AW-esp"; */
+"AfL-AW-esp.text" = "Dosare";
+
+/* Class = "IBUISegmentedControl"; AgW-rh-z2U.segmentTitles[0] = "Webi"; ObjectID = "AgW-rh-z2U"; */
+"AgW-rh-z2U.segmentTitles[0]" = "Webi";
+
+/* Class = "IBUISegmentedControl"; AgW-rh-z2U.segmentTitles[1] = "PDF"; ObjectID = "AgW-rh-z2U"; */
+"AgW-rh-z2U.segmentTitles[1]" = "PDF";
+
+/* Class = "IBUISegmentedControl"; AgW-rh-z2U.segmentTitles[2] = "Excel"; ObjectID = "AgW-rh-z2U"; */
+"AgW-rh-z2U.segmentTitles[2]" = "Excel";
+
+/* Class = "IBUILabel"; text = "Once"; ObjectID = "Aq9-2t-pnI"; */
+"Aq9-2t-pnI.text" = "O dată";
+
+/* Class = "IBUILabel"; text = "Maximum number of seconds for network transaction before Timeout Error occurs"; ObjectID = "B1m-n1-3Si"; */
+"B1m-n1-3Si.text" = "Numărul maxim de secunde pentru o tranzacție de rețea până are loc o eroare de timeout";
+
+/* Class = "IBUILabel"; text = "Logoff in Background"; ObjectID = "B6A-m1-qE1"; */
+"B6A-m1-qE1.text" = "Logoff in fundal";
+
+/* Class = "IBUITextField"; placeholder = "[CMS User]"; ObjectID = "B8o-Qb-BTW"; */
+"B8o-Qb-BTW.placeholder" = "[Utilizator CMS]";
+
+/* Class = "IBUITextField"; placeholder = "[Host or IP]"; ObjectID = "Cv8-rf-cDY"; */
+"Cv8-rf-cDY.placeholder" = "[Host sau IP]";
+
+/* Class = "IBUITextField"; text = "30"; ObjectID = "DBg-ag-bqt"; */
+"DBg-ag-bqt.text" = "30";
+
+/* Class = "IBUILabel"; text = "Your Categories"; ObjectID = "DSu-bt-zNr"; */
+"DSu-bt-zNr.text" = "Categoriile dvs.";
+
+/* Class = "IBUILabel"; text = "Browse folders in BI repository"; ObjectID = "FbA-h2-LbU"; */
+"FbA-h2-LbU.text" = "Caută dosare în repertoriul BI";
+
+/* Class = "IBUILabel"; text = "Default"; ObjectID = "HTR-bc-yV7"; */
+"HTR-bc-yV7.text" = "Implicit";
+
+/* Class = "IBUILabel"; text = "Universe Name"; ObjectID = "IQX-b0-wGg"; */
+"IQX-b0-wGg.text" = "Nume de univers";
+
+/* Class = "IBUINavigationItem"; title = "CMS Sessions"; ObjectID = "IY3-Hd-5xi"; */
+"IY3-Hd-5xi.title" = "Sesiuni CMS";
+
+/* Class = "IBUILabel"; text = "Updated On"; ObjectID = "Igz-Fr-uCC"; */
+"Igz-Fr-uCC.text" = "Actualizat în";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Format"; ObjectID = "JZv-aG-GY9"; */
+"JZv-aG-GY9.headerTitle" = "Format";
+
+/* Class = "IBUILabel"; text = "Create Connections to SAP BI Repository"; ObjectID = "KKh-0j-RE3"; */
+"KKh-0j-RE3.text" = "Crează conexii la repertoriul SAP BI";
+
+/* Class = "IBUILabel"; text = "Default"; ObjectID = "L0j-vY-P4a"; */
+"L0j-vY-P4a.text" = "Implicit";
+
+/* Class = "IBUILabel"; text = "APOS BI Mobile Application"; ObjectID = "N7S-Qr-KsY"; */
+"N7S-Qr-KsY.text" = "Aplicația APOS BI Mobile";
+
+/* Class = "IBUILabel"; text = "Preferences"; ObjectID = "NA2-Zi-gai"; */
+"NA2-Zi-gai.text" = "Preferințe";
+
+/* Class = "IBUILabel"; text = "File"; ObjectID = "NG5-Ii-qvr"; */
+"NG5-Ii-qvr.text" = "Fișier";
+
+/* Class = "IBUILabel"; text = "OpenDoc Host"; ObjectID = "NMu-bl-UxD"; */
+"NMu-bl-UxD.text" = "OpenDoc Host";
+
+/* Class = "IBUILabel"; text = "FTP"; ObjectID = "Nmd-HR-6q7"; */
+"Nmd-HR-6q7.text" = "FTP";
+
+/* Class = "IBUITextField"; text = "6405"; ObjectID = "OLO-7C-7La"; */
+"OLO-7C-7La.text" = "6405";
+
+/* Class = "IBUILabel"; text = "Save Password"; ObjectID = "Q3N-MN-v85"; */
+"Q3N-MN-v85.text" = "Salvează parola";
+
+/* Class = "IBUINavigationItem"; title = "Details"; ObjectID = "R6d-LD-IOZ"; */
+"R6d-LD-IOZ.title" = "Detalii";
+
+/* Class = "IBUILabel"; text = "Password"; ObjectID = "R6s-H2-WrI"; */
+"R6s-H2-WrI.text" = "Parola";
+
+/* Class = "IBUITabBarItem"; title = "Universes"; ObjectID = "R7J-P9-hz9"; */
+"R7J-P9-hz9.title" = "Universuri";
+
+/* Class = "IBUITextField"; placeholder = "[/biprws]"; ObjectID = "Rg3-SR-wWx"; */
+"Rg3-SR-wWx.placeholder" = "[/biprws]";
+
+/* Class = "IBUILabel"; text = "Name"; ObjectID = "Rob-hH-Cbh"; */
+"Rob-hH-Cbh.text" = "Nume";
+
+/* Class = "IBUILabel"; text = "Port"; ObjectID = "SDJ-Nz-cDd"; */
+"SDJ-Nz-cDd.text" = "Port";
+
+/* Class = "IBUILabel"; text = "More..."; ObjectID = "SPW-e8-6DH"; */
+"SPW-e8-6DH.text" = "Mai mult...";
+
+/* Class = "IBUILabel"; text = "HTTPS"; ObjectID = "SaX-7n-Pst"; */
+"SaX-7n-Pst.text" = "HTTPS";
+
+/* Class = "IBUILabel"; text = "Updated On"; ObjectID = "T3z-wm-XdQ"; */
+"T3z-wm-XdQ.text" = "Actualizat în";
+
+/* Class = "IBUILabel"; text = "Default"; ObjectID = "U62-Kr-wdp"; */
+"U62-Kr-wdp.text" = "Implicit";
+
+/* Class = "IBUILabel"; text = "id"; ObjectID = "UAf-gA-xF7"; */
+"UAf-gA-xF7.text" = "id";
+
+/* Class = "IBUILabel"; text = "Logoff from SAP BI when app goes into background or sleep
+(except before OpenDocument call)"; ObjectID = "WYN-s4-C0A"; */
+"WYN-s4-C0A.text" = "Logoff de la SAP BI când aplicația se duce în fundal sau doarme (excepție înainte de un apel OpenDocument)";
+
+/* Class = "IBUILabel"; text = "When disabled, SAP BI password will not be saved and will be prompted when required"; ObjectID = "WeM-5b-umO"; */
+"WeM-5b-umO.text" = "Dacă este dezactivat, parola SAP BI no se va salva și se va cere dacă e nevoie";
+
+/* Class = "IBUILabel"; text = "Maximum documents per transaction. \"More\" will appear to fetch next batch of objects"; ObjectID = "XJ3-96-lpA"; */
+"XJ3-96-lpA.text" = "Numărul maxim de documente pe tranzacție. \"Mai mult\" va apare pentru a aduce lotul următor de obiecte";
+
+/* Class = "IBUINavigationItem"; title = "Add Session"; ObjectID = "XRM-x9-xFd"; */
+"XRM-x9-xFd.title" = "Adaugă sesiune";
+
+/* Class = "IBUILabel"; text = "Active"; ObjectID = "YCF-og-8sS"; */
+"YCF-og-8sS.text" = "Activ";
+
+/* Class = "IBUILabel"; text = "CMS Sessions"; ObjectID = "YpG-IY-9qi"; */
+"YpG-IY-9qi.text" = "Sesiuni CMS";
+
+/* Class = "IBUILabel"; text = "Status"; ObjectID = "Z2w-UE-oUM"; */
+"Z2w-UE-oUM.text" = "Stare";
+
+/* Class = "IBUILabel"; text = "REST SDK"; ObjectID = "ZoA-vm-DCi"; */
+"ZoA-vm-DCi.text" = "REST SDK";
+
+/* Class = "IBUILabel"; text = "Description"; ObjectID = "atc-yP-Kum"; */
+"atc-yP-Kum.text" = "Descriere";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Destination"; ObjectID = "ay5-G6-7h1"; */
+"ay5-G6-7h1.headerTitle" = "Destinație";
+
+/* Class = "IBUILabel"; text = "Connection Timeout"; ObjectID = "b5q-Zv-OZ1"; */
+"b5q-Zv-OZ1.text" = "Timeout de conecție";
+
+/* Class = "IBUILabel"; text = "User"; ObjectID = "bAZ-6G-lhh"; */
+"bAZ-6G-lhh.text" = "Utilizator";
+
+/* Class = "IBUILabel"; text = "Personal Categories"; ObjectID = "bsb-fI-DxZ"; */
+"bsb-fI-DxZ.text" = "Categorii personale";
+
+/* Class = "IBUILabel"; text = "Advanced Settings"; ObjectID = "bvJ-CV-vwK"; */
+"bvJ-CV-vwK.text" = "Setări avansate";
+
+/* Class = "IBUITabBarItem"; title = "Settings"; ObjectID = "dj2-bu-JDm"; */
+"dj2-bu-JDm.title" = "Setări";
+
+/* Class = "IBUIButton"; normalTitle = "Schedule"; ObjectID = "e5S-xN-M6H"; */
+"e5S-xN-M6H.normalTitle" = "Programare";
+
+/* Class = "IBUINavigationItem"; title = "Documents"; ObjectID = "e5i-q0-1JW"; */
+"e5i-q0-1JW.title" = "Documente";
+
+/* Class = "IBUITextField"; placeholder = "[Ex:\"Production\", \"Dev\" etc]"; ObjectID = "eCd-2f-CSv"; */
+"eCd-2f-CSv.placeholder" = "[Ex:\"Producție\", \"Dev\" etc]";
+
+/* Class = "IBUILabel"; text = "Size"; ObjectID = "flx-3y-MEs"; */
+"flx-3y-MEs.text" = "Mărime";
+
+/* Class = "IBUILabel"; text = "About"; ObjectID = "fpL-eH-xbk"; */
+"fpL-eH-xbk.text" = "Despre";
+
+/* Class = "IBUILabel"; text = "Server"; ObjectID = "gQg-iQ-DwJ"; */
+"gQg-iQ-DwJ.text" = "Server";
+
+/* Class = "IBUILabel"; text = "Categories"; ObjectID = "gU5-Mi-uYG"; */
+"gU5-Mi-uYG.text" = "Categorii";
+
+/* Class = "IBUILabel"; text = "id"; ObjectID = "gsr-NR-IK5"; */
+"gsr-NR-IK5.text" = "id";
+
+/* Class = "IBUIBarButtonItem"; title = "Close"; ObjectID = "hCv-2D-X8l"; */
+"hCv-2D-X8l.title" = "Închide";
+
+/* Class = "IBUILabel"; text = "REST Webi SDK"; ObjectID = "hG7-ej-7Gu"; */
+"hG7-ej-7Gu.text" = "REST Webi SDK";
+
+/* Class = "IBUITextField"; text = "6405"; ObjectID = "hYd-kg-aBp"; */
+"hYd-kg-aBp.text" = "6405";
+
+/* Class = "IBUILabel"; text = "Mail"; ObjectID = "kMh-dc-K90"; */
+"kMh-dc-K90.text" = "Poștă";
+
+/* Class = "IBUILabel"; text = "Document Name"; ObjectID = "kvk-8F-HFJ"; */
+"kvk-8F-HFJ.text" = "Nume de document";
+
+/* Class = "IBUILabel"; text = "Show Universes"; ObjectID = "laU-gX-F26"; */
+"laU-gX-F26.text" = "Afișează universuri";
+
+/* Class = "IBUITextField"; placeholder = "[/biprws/raylight/v1]"; ObjectID = "mHw-YW-x8J"; */
+"mHw-YW-x8J.placeholder" = "[/biprws/raylight/v1]";
+
+/* Class = "IBUILabel"; text = "Auto Logoff"; ObjectID = "n3G-Uu-tn8"; */
+"n3G-Uu-tn8.text" = "Auto Logoff";
+
+/* Class = "IBUILabel"; text = "Application Information"; ObjectID = "na2-ly-IV7"; */
+"na2-ly-IV7.text" = "Informație de aplicație";
+
+/* Class = "IBUILabel"; text = "Connection Name"; ObjectID = "nhR-fV-iet"; */
+"nhR-fV-iet.text" = "Nume de conexiune";
+
+/* Class = "IBUILabel"; text = "Folder Id:"; ObjectID = "nkw-l4-owh"; */
+"nkw-l4-owh.text" = "ID de dosar:";
+
+/* Class = "IBUILabel"; text = "Your Personal Folder"; ObjectID = "pxN-nf-mVN"; */
+"pxN-nf-mVN.text" = "Dosarul dvs. personal";
+
+/* Class = "IBUITabBarItem"; title = "Browser"; ObjectID = "qcJ-5z-gfl"; */
+"qcJ-5z-gfl.title" = "Browser";
+
+/* Class = "IBUINavigationItem"; title = "Settings"; ObjectID = "rJc-mF-e1C"; */
+"rJc-mF-e1C.title" = "Setări";
+
+/* Class = "IBUITextField"; placeholder = "[BOE Web App Container]"; ObjectID = "sdg-2n-nB9"; */
+"sdg-2n-nB9.placeholder" = "[Container de BOE Web App]";
+
+/* Class = "IBUILabel"; text = "Historical Instances"; ObjectID = "uFO-4l-1gd"; */
+"uFO-4l-1gd.text" = "Instanțe istorice";
+
+/* Class = "IBUITextView"; text = "Path"; ObjectID = "v1e-cx-m9j"; */
+"v1e-cx-m9j.text" = "Rută";
+
+/* Class = "IBUILabel"; text = "Schedule"; ObjectID = "vEV-FQ-LMg"; */
+"vEV-FQ-LMg.text" = "Programare";
+
+/* Class = "IBUILabel"; text = "Port"; ObjectID = "vrg-c6-bca"; */
+"vrg-c6-bca.text" = "Port";
+
+/* Class = "IBUILabel"; text = "Your Personal Inbox"; ObjectID = "wFT-NU-lmc"; */
+"wFT-NU-lmc.text" = "Cutia dvs. poștală personală";
+
+/* Class = "IBUITabBarItem"; title = "Documents"; ObjectID = "y1x-19-qUD"; */
+"y1x-19-qUD.title" = "Documente";
+
+/* Class = "IBUITextField"; placeholder = "[Password]"; ObjectID = "zMe-BI-kxj"; */
+"zMe-BI-kxj.placeholder" = "[Parola]";
+

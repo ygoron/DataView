@@ -1,0 +1,268 @@
+/* No comment provided by engineer. */
+" Name %@ Already Exists. Please choose a different connection name" = " Name %@ Already Exists. Please choose a different connection name";
+
+/* Label-Path */
+"/Categories" = "/Categorie";
+
+/* Path */
+"/Inbox" = "/Inbox";
+
+/* Label - Path */
+"/Personal Categories" = "/Categorie personali";
+
+/* Label- Path */
+"/Personal Folder" = "/Cartella personale";
+
+/* No comment provided by engineer. */
+"Browser" = "Browser";
+
+/* No comment provided by engineer. */
+"Cancel" = "Annullare";
+
+/* Label */
+"Categories" = "Categorie";
+
+/* No comment provided by engineer. */
+"Connection Test" = "Test de connessione";
+
+/* No comment provided by engineer. */
+"Connection Test Failed" = "Test di connessione non riuscito";
+
+/* No comment provided by engineer. */
+"Connection Test Failed in BI" = "Test di connessione non riuscito in BI";
+
+/* No comment provided by engineer. */
+"Delete Document Failed" = "Elimina documento non riuscito";
+
+/* No comment provided by engineer. */
+"Deleting objects is not supported in the Lite version. Please purchase a full version on the app store" = "Eliminazione di oggeti non e supportato nella versione Lite. Si prega di acquistare una versione complete su APP Store";
+
+/* No comment provided by engineer. */
+"Demo Version" = "Versione Demo";
+
+/* No comment provided by engineer. */
+"Description not available" = "Descrizione non disponible";
+
+/* No comment provided by engineer. */
+"Developed by " = "Svilupato da ";
+
+/* No comment provided by engineer. */
+"Documents" = "Documenti";
+
+/* No comment provided by engineer. */
+"E-mail" = "E-mail";
+
+/* No comment provided by engineer. */
+"Enter your password for:" = "Immettere la password per:";
+
+/* No comment provided by engineer. */
+"Failed" = "Non reuscito";
+
+/* No comment provided by engineer. */
+"Failed to delete document" = "Impossibile eliminare il documento";
+
+/* No comment provided by engineer. */
+"Failed to Save Connection" = "Impossibile salvare il collegamento";
+
+/* Just Feedback and support. Do not translate email:-) */
+"Feedback and support: support@apos.com\n" = "Feedback e supporto: support@apos.com\n";
+
+/* No comment provided by engineer. */
+"Feedback and technical support: " = "Feedback e support tecnico: ";
+
+/* Name- Folders */
+"Folders" = "Cartelle";
+
+/* No comment provided by engineer. */
+"Get Schedule Forms Failed" = "Ottenere forme di pianificazione fallito";
+
+/* No comment provided by engineer. */
+"Get Schedule Forms Failed in BI" = "Ottenere forme di pianificazione fallito in BI";
+
+/* No comment provided by engineer. */
+"Global Preferences" = "Preferenze globali";
+
+/* Title for the header */
+"Historical Instances" = "Istanze storiche";
+
+/* Name - Inbox */
+"Inbox" = "Posta in arrivo";
+
+/* No comment provided by engineer. */
+"Instance" = "Istanza";
+
+/* No comment provided by engineer. */
+"Instances" = "Istanze";
+
+/* Demo Version - some functions not allowed */
+"Lite Version" = "Versione Lite";
+
+/* No comment provided by engineer. */
+"Load Document Details Failed" = "Carico dettagli del documento non riuscito";
+
+/* No comment provided by engineer. */
+"Load Document Details Failed" = "Carico detagli del document non riuscito";
+
+/* No comment provided by engineer. */
+"Load Document Details Failed in BI" = "Carico detagli del document non riuscito in BI";
+
+/* No comment provided by engineer. */
+"Load Documents Failed" = "Carico documenti non riuscito";
+
+/* No comment provided by engineer. */
+"Load Documents Failed in BI" = "Carico documenti non riuscito in BI";
+
+/* No comment provided by engineer. */
+"Load Objects Failed" = "Carico oggeti non riuscito";
+
+/* No comment provided by engineer. */
+"Load Objects Failed in BI" = "Carico oggeti non riuscito in BI";
+
+/* No comment provided by engineer. */
+"Load Open Document URL Failed" = "Carico URL de OpenDocument non riuscito";
+
+/* No comment provided by engineer. */
+"Load Open Document URL Failed in BI" = "Carico URL de OpenDocument non riuscito in BI";
+
+/* No comment provided by engineer. */
+"Load Report Failed" = "Carico rapporto non riuscito";
+
+/* No comment provided by engineer. */
+"Load Report Failed in BI" = "Carico rapporto non riuscito in BI";
+
+/* Failed */
+"Load Selected Object Failed" = "Carico oggetti selezionati non riuscito";
+
+/* No comment provided by engineer. */
+"Load Selected Object Failed in BI" = "carico oggetti selezionati non riuscito in BI";
+
+/* No comment provided by engineer. */
+"Load Universe Failed" = "Carico universo non riuscito";
+
+/* No comment provided by engineer. */
+"Load Universe Failed in BI" = "Carico universo non riuscito in BI";
+
+/* Missing Session Info */
+"No Active Sessions" = "Nessun sessioni attive";
+
+/* No comment provided by engineer. */
+"No Active Sessions Found" = "Nessun sessioni attive trovate";
+
+/* No comment provided by engineer. */
+"No Description Available" = "Nessuna descrizione disponibile";
+
+/* Object does not have a description */
+"No Description is Available" = "Nessuna descrizione disponibile";
+
+/* No comment provided by engineer. */
+"Ok" = "Ok";
+
+/* OK on alert window */
+"OK" = "OK";
+
+/* Use Open Document Call to View document */
+"Open Document" = "Aprire il documento";
+
+/* No comment provided by engineer. */
+"Password" = "Password";
+
+/* Label */
+"Personal Categories" = "Categorie personali";
+
+/* Label */
+"Personal Folder" = "Cartella personale";
+
+/* No comment provided by engineer. */
+"Phone:+1.519.894.2767\n" = "Telefono:+1.519.894.2767\n";
+
+/* No comment provided by engineer. */
+"Please Create/Enable at least one CMS Session" = "Si prega di creare/abilitare almeno una sesione CMS";
+
+/* Missing Session Info */
+"Please Create/Enable at least one SAP BI Session" = "Si prega di crare/abilitare almeno una sessione SAP BI";
+
+/* No comment provided by engineer. */
+"Please provide session name" = "Si prega fornire el nome della sessione";
+
+/* No comment provided by engineer. */
+"Print" = "Stampare";
+
+/* No comment provided by engineer. */
+"Pull To Refresh" = "Tirare per aggiornare";
+
+/* No comment provided by engineer. */
+"Pull To Refresh Objects List" = "Tirare per aggiornare l’elenco di oggetti";
+
+/* No comment provided by engineer. */
+"Pull To Refresh Universes" = "Tirare per aggiornare gli universi";
+
+/* No comment provided by engineer. */
+"Pull To Refresh Webi Documents List" = "Tirare per aggiornare l’elenco di documenti Webi";
+
+/* No comment provided by engineer. */
+"qcJ-5z-gfl.title" = "qcJ-5z-gfl.title";
+
+/* No comment provided by engineer. */
+"Re-Schedule" = "Riprogrammare";
+
+/* No comment provided by engineer. */
+"Reports" = "Rapporti";
+
+/* No comment provided by engineer. */
+"Run Now" = "Esegui ora";
+
+/* No comment provided by engineer. */
+"Schedule" = "Programma";
+
+/* No comment provided by engineer. */
+"Schedule Failed" = "Pianificare fallito";
+
+/* No comment provided by engineer. */
+"Schedule Failed in BI" = "Pianificare fallito in BI";
+
+/* No comment provided by engineer. */
+"Schedule Object to Run now" = "Pianificare il oggetto per eseguire ora ";
+
+/* No comment provided by engineer. */
+"Schedule Report" = "Pianificare rapporto";
+
+/* No comment provided by engineer. */
+"Server Error" = "Errore del server";
+
+/* No comment provided by engineer. */
+"Server Error:" = "Errore del server:";
+
+/* No comment provided by engineer. */
+"Server Error: " = "Errore del server: ";
+
+/* No comment provided by engineer. */
+"Settings" = "Impostazioni";
+
+/* Scheduled with success */
+"Success!" = "Successo!";
+
+/* No comment provided by engineer. */
+"Type" = "Tipo";
+
+/* No comment provided by engineer. */
+"Universes" = "Universi";
+
+/* No comment provided by engineer. */
+"View" = "Visualizza";
+
+/* No comment provided by engineer. */
+"View Instance Using Open Document" = "Visualizza istanza utilizzando OpenDocument";
+
+/* No comment provided by engineer. */
+"View Latest Instance" = "Visualizza l’ultima istanza";
+
+/* No comment provided by engineer. */
+"View Latest Instance Using Open Document" = "Visualizza l’ultima istanza utilizzando OpenDocument";
+
+/* No comment provided by engineer. */
+"View List of Historical Instances/Schedules" = "Visualizza l’elenco de istanze/programmi storici";
+
+/* No comment provided by engineer. */
+"View Object Using Open Document" = "Visualizza oggetto utilizando OpenDocument";
+
+

@@ -1,0 +1,269 @@
+/* No comment provided by engineer. */
+" Name %@ Already Exists. Please choose a different connection name" = " Name %@ Already Exists. Please choose a different connection name";
+
+/* Label-Path */
+"/Categories" = "/Categorii";
+
+/* Path */
+"/Inbox" = "/Cutia poștală";
+
+/* Label - Path */
+"/Personal Categories" = "/Categorii personale";
+
+/* Label- Path */
+"/Personal Folder" = "/Dosare personale";
+
+/* No comment provided by engineer. */
+"Browser" = "Browser";
+
+/* No comment provided by engineer. */
+"Cancel" = "Anulează";
+
+/* Label */
+"Categories" = "Categorii";
+
+/* No comment provided by engineer. */
+"Connection Test" = "Test de conexiune";
+
+/* No comment provided by engineer. */
+"Connection Test Failed" = "Testul de conexiune nu a reușit";
+
+/* No comment provided by engineer. */
+"Connection Test Failed in BI" = "Testul de conexiune nu a reușit în BI";
+
+/* No comment provided by engineer. */
+"Delete Document Failed" = "Ștergerea documentului nu a reușit";
+
+/* No comment provided by engineer. */
+"Deleting objects is not supported in the Lite version. Please purchase a full version on the app store" = "Ștergerea obiectelor nu se permite în versiunea Lite. Vă rugăm să cumpărați versiunea completă din App Store";
+
+/* No comment provided by engineer. */
+"Demo Version" = "Versiune Demo";
+
+/* No comment provided by engineer. */
+"Description not available" = "Descrierea nu e disponibilă";
+
+/* No comment provided by engineer. */
+"Developed by " = "Dezvoltat de ";
+
+/* No comment provided by engineer. */
+"Documents" = "Documente";
+
+/* No comment provided by engineer. */
+"E-mail" = "E-mail";
+
+/* No comment provided by engineer. */
+"Enter your password for:" = "Intoduceți parola pentru:";
+
+/* No comment provided by engineer. */
+"Failed" = "Nu a reușit";
+
+/* No comment provided by engineer. */
+"Failed to delete document" = "Nu s-a reușit ștergerea documentului";
+
+/* No comment provided by engineer. */
+"Failed to Save Connection" = "Nu s-a reușit salvarea conexiei";
+
+/* Just Feedback and support. Do not translate email:-) */
+"Feedback and support: support@apos.com\n" = "Feedback și suport: support@apos.com\n";
+
+/* No comment provided by engineer. */
+"Feedback and technical support: " = "Feedback și suport tehnic: ";
+
+/* Name- Folders */
+"Folders" = "Dosare";
+
+/* No comment provided by engineer. */
+"Get Schedule Forms Failed" = "Procurarea formelor de programare nu a reușit";
+
+/* No comment provided by engineer. */
+"Get Schedule Forms Failed in BI" = "Procurarea formelor de programare nu a reușit în BI";
+
+/* No comment provided by engineer. */
+"Global Preferences" = "Preferințe globale";
+
+/* Title for the header */
+"Historical Instances" = "Instanțe istorice";
+
+/* Name - Inbox */
+"Inbox" = "Cutia poștală";
+
+/* No comment provided by engineer. */
+"Instance" = "Instanță";
+
+/* No comment provided by engineer. */
+"Instances" = "Instanțe";
+
+/* Demo Version - some functions not allowed */
+"Lite Version" = "Versiunea Lite";
+
+/* No comment provided by engineer. */
+"Load Document Details Failed" = "Încărcarea detaliilor de document nu a reușit";
+
+/* No comment provided by engineer. */
+"Load Document Details Failed" = "Încărcarea detaliilor de document nu a reușit";
+
+/* No comment provided by engineer. */
+"Load Document Details Failed in BI" = "Încărcarea detaliilor de document nu a reușit în BI";
+
+/* No comment provided by engineer. */
+"Load Documents Failed" = "Incărcarea documentelor nu a reușit";
+
+/* No comment provided by engineer. */
+"Load Documents Failed in BI" = "Încărcarea documetelor nu a reușit în BI";
+
+/* No comment provided by engineer. */
+"Load Objects Failed" = "Încărcarea obiectelor nu a reușit";
+
+/* No comment provided by engineer. */
+"Load Objects Failed in BI" = "Încărcarea obiectelor nu a reușit în BI";
+
+/* No comment provided by engineer. */
+"Load Open Document URL Failed" = "Încarcarea URL-ului OpenDocument nu a reușit";
+
+/* No comment provided by engineer. */
+"Load Open Document URL Failed in BI" = "Încarcarea URL-ului OpenDocument nu a reușit în BI";
+
+/* No comment provided by engineer. */
+"Load Report Failed" = "Încărcarea raportului nu a reușit";
+
+/* No comment provided by engineer. */
+"Load Report Failed in BI" = "Încărcarea raportului nu a reușit în BI";
+
+/* Failed */
+"Load Selected Object Failed" = "Încărcarea obiectelor selecționate nu a reușit";
+
+/* No comment provided by engineer. */
+"Load Selected Object Failed in BI" = "Încărcarea obiectelor selecționate nu a reușit în BI";
+
+/* No comment provided by engineer. */
+"Load Universe Failed" = "Încarcarea universului nu a reușit";
+
+/* No comment provided by engineer. */
+"Load Universe Failed in BI" = "Încărcarea universului nu a reușit în BI";
+
+/* Missing Session Info */
+"No Active Sessions" = "Nici o sesiune activă";
+
+/* No comment provided by engineer. */
+"No Active Sessions Found" = "Nu s-a găsit nici o sesiune activă";
+
+/* No comment provided by engineer. */
+"No Description Available" = "Nu este nici o descriere disponibilă";
+
+/* Object does not have a description */
+"No Description is Available" = "Nici o desriere nu e disponibilă";
+
+/* No comment provided by engineer. */
+"Ok" = "Ok";
+
+/* OK on alert window */
+"OK" = "OK";
+
+/* Use Open Document Call to View document */
+"Open Document" = "Deschide documentul";
+
+/* No comment provided by engineer. */
+"Password" = "Parola";
+
+/* Label */
+"Personal Categories" = "Categorii personale";
+
+/* Label */
+"Personal Folder" = "Dosar personal";
+
+/* No comment provided by engineer. */
+"Phone:+1.519.894.2767\n" = "Telefon:+1.519.894.2767\n";
+
+/* No comment provided by engineer. */
+"Please Create/Enable at least one CMS Session" = "Vă rugăm create/activați cel puțin o sesiune CMS";
+
+/* Missing Session Info */
+"Please Create/Enable at least one SAP BI Session" = "Vă rugăm creați/activați cel puțin o sesiune SAP BI";
+
+/* No comment provided by engineer. */
+"Please provide session name" = "Vă rugăm să funizați numele de sesiune";
+
+/* No comment provided by engineer. */
+"Print" = "Imprimă";
+
+/* No comment provided by engineer. */
+"Pull To Refresh" = "Trage pentru actualizare";
+
+/* No comment provided by engineer. */
+"Pull To Refresh Objects List" = "Trage pentru actualizarea listei de obiecte";
+
+/* No comment provided by engineer. */
+"Pull To Refresh Universes" = "Trage pentru actualizarea universelor";
+
+/* No comment provided by engineer. */
+"Pull To Refresh Webi Documents List" = "Trage pentru actualizarea listei de documente Webi";
+
+/* No comment provided by engineer. */
+"qcJ-5z-gfl.title" = "qcJ-5z-gfl.title";
+
+/* No comment provided by engineer. */
+"Re-Schedule" = "Reprogramează";
+
+/* No comment provided by engineer. */
+"Reports" = "Rapoarte";
+
+/* No comment provided by engineer. */
+"Run Now" = "Execută acum";
+
+/* No comment provided by engineer. */
+"Schedule" = "Programează";
+
+/* No comment provided by engineer. */
+"Schedule Failed" = "Programarea nu a reușit";
+
+/* No comment provided by engineer. */
+"Schedule Failed in BI" = "Programarea nu a reușit în BI";
+
+/* No comment provided by engineer. */
+"Schedule Object to Run now" = "Programează obiectul să se execute acum";
+
+/* No comment provided by engineer. */
+"Schedule Report" = "Programează raportul";
+
+/* No comment provided by engineer. */
+"Server Error" = "Eroare de server";
+
+/* No comment provided by engineer. */
+"Server Error:" = "Eroare de server:";
+
+/* No comment provided by engineer. */
+"Server Error: " = "Eroare de server: ";
+
+/* No comment provided by engineer. */
+"Settings" = "Setări";
+
+
+/* Scheduled with success */
+"Success!" = "Succes!";
+
+/* No comment provided by engineer. */
+"Type" = "Tip";
+
+/* No comment provided by engineer. */
+"Universes" = "Universuri";
+
+/* No comment provided by engineer. */
+"View" = "Vizionează";
+
+/* No comment provided by engineer. */
+"View Instance Using Open Document" = "Vizionează instant folosind OpenDocument";
+
+/* No comment provided by engineer. */
+"View Latest Instance" = "Vizionează ultima instanță";
+
+/* No comment provided by engineer. */
+"View Latest Instance Using Open Document" = "Vizionează ultima instant folosind OpenDocument";
+
+/* No comment provided by engineer. */
+"View List of Historical Instances/Schedules" = "Vizioneaza lista de instanțe/programări istorice";
+
+/* No comment provided by engineer. */
+"View Object Using Open Document" = "Vizionează obiectul folosind OpenDocument";
+
+

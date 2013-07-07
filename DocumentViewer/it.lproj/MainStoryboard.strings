@@ -1,0 +1,322 @@
+﻿
+/* Class = "IBUILabel"; text = "Created By"; ObjectID = "19b-RK-HDO"; */
+"19b-RK-HDO.text" = "Creato da";
+
+/* Class = "IBUILabel"; text = "Created"; ObjectID = "1OT-sE-BIy"; */
+"1OT-sE-BIy.text" = "Creato";
+
+/* Class = "IBUILabel"; text = "Inbox"; ObjectID = "1VS-yW-0mr"; */
+"1VS-yW-0mr.text" = "Posta in arrivo";
+
+/* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "2tL-nH-faV"; */
+"2tL-nH-faV.title" = "Titolo";
+
+/* Class = "IBUILabel"; text = "More..."; ObjectID = "2tt-cX-Oz2"; */
+"2tt-cX-Oz2.text" = "Di più...";
+
+/* Class = "IBUILabel"; text = "id"; ObjectID = "2yd-RL-lxx"; */
+"2yd-RL-lxx.text" = "id";
+
+/* Class = "IBUILabel"; text = "Enterprise Categories"; ObjectID = "3zQ-TR-q3d"; */
+"3zQ-TR-q3d.text" = "Categorie Enterprise";
+
+/* Class = "IBUILabel"; text = "Size"; ObjectID = "4KV-uH-mXD"; */
+"4KV-uH-mXD.text" = "Dimensione";
+
+/* Class = "IBUILabel"; text = "WCA "; ObjectID = "4O2-RQ-Ir1"; */
+"4O2-RQ-Ir1.text" = "WCA ";
+
+/* Class = "IBUILabel"; text = "unv"; ObjectID = "4d3-sY-3Ve"; */
+"4d3-sY-3Ve.text" = "unv";
+
+/* Class = "IBUILabel"; text = "Logoff From SAP BI after each transaction. Recommended with limited number of SAP BI licenses . 
+May slow down app performance\n"; ObjectID = "4eo-dM-CxY"; */
+"4eo-dM-CxY.text" = "Disconessione dal SAP BI dopo ogni transazione. Raccomendato con numero limitato di licenze SAP BI. 
+Può rallentare la performance della app\n";
+
+/* Class = "IBUISegmentedControl"; 4nr-kF-DcR.segmentTitles[0] = "Enterprise"; ObjectID = "4nr-kF-DcR"; */
+"4nr-kF-DcR.segmentTitles[0]" = "Enterprise";
+
+/* Class = "IBUISegmentedControl"; 4nr-kF-DcR.segmentTitles[1] = "WinAD"; ObjectID = "4nr-kF-DcR"; */
+"4nr-kF-DcR.segmentTitles[1]" = "WinAD";
+
+/* Class = "IBUISegmentedControl"; 4nr-kF-DcR.segmentTitles[2] = "LDAP"; ObjectID = "4nr-kF-DcR"; */
+"4nr-kF-DcR.segmentTitles[2]" = "LDAP";
+
+/* Class = "IBUILabel"; text = "Various Application Settings"; ObjectID = "5WM-b8-8wE"; */
+"5WM-b8-8wE.text" = "Varie impostazioni delle applicazioni";
+
+/* Class = "IBUITextField"; text = "50"; ObjectID = "6XN-FD-B9a"; */
+"6XN-FD-B9a.text" = "50";
+
+/* Class = "IBUINavigationItem"; title = "Universes"; ObjectID = "6Z3-Qa-v69"; */
+"6Z3-Qa-v69.title" = "Universi";
+
+/* Class = "IBUILabel"; text = "Personal"; ObjectID = "7KG-Cd-nGD"; */
+"7KG-Cd-nGD.text" = "Personale";
+
+/* Class = "IBUILabel"; text = "Reports"; ObjectID = "7SB-XT-CYX"; */
+"7SB-XT-CYX.text" = "Rapporti";
+
+/* Class = "IBUILabel"; text = "Buffer Size"; ObjectID = "7Yf-Y2-oFa"; */
+"7Yf-Y2-oFa.text" = "Dimensione del buffer";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Recurrence"; ObjectID = "8kC-f3-g9B"; */
+"8kC-f3-g9B.headerTitle" = "Ricorrenza";
+
+/* Class = "IBUILabel"; text = "List of Universes and universe classes/objects. Content is for viewing only at this time"; ObjectID = "9f6-Dd-IAv"; */
+"9f6-Dd-IAv.text" = "Elenco di universi e clase/oggetti de universe. Contenuto è solo per la visualizzazione in questo momento";
+
+/* Class = "IBUILabel"; text = "Test Connection"; ObjectID = "AQE-m8-siA"; */
+"AQE-m8-siA.text" = "Test di connessione";
+
+/* Class = "IBUILabel"; text = "Instance Name"; ObjectID = "AQz-mP-mcz"; */
+"AQz-mP-mcz.text" = "Nome de istanza";
+
+/* Class = "IBUILabel"; text = "Folders"; ObjectID = "AfL-AW-esp"; */
+"AfL-AW-esp.text" = "Cartelle";
+
+/* Class = "IBUISegmentedControl"; AgW-rh-z2U.segmentTitles[0] = "Webi"; ObjectID = "AgW-rh-z2U"; */
+"AgW-rh-z2U.segmentTitles[0]" = "Webi";
+
+/* Class = "IBUISegmentedControl"; AgW-rh-z2U.segmentTitles[1] = "PDF"; ObjectID = "AgW-rh-z2U"; */
+"AgW-rh-z2U.segmentTitles[1]" = "PDF";
+
+/* Class = "IBUISegmentedControl"; AgW-rh-z2U.segmentTitles[2] = "Excel"; ObjectID = "AgW-rh-z2U"; */
+"AgW-rh-z2U.segmentTitles[2]" = "Excel";
+
+/* Class = "IBUILabel"; text = "Once"; ObjectID = "Aq9-2t-pnI"; */
+"Aq9-2t-pnI.text" = "Una volta";
+
+/* Class = "IBUILabel"; text = "Maximum number of seconds for network transaction before Timeout Error occurs"; ObjectID = "B1m-n1-3Si"; */
+"B1m-n1-3Si.text" = "Numero massimo di secondi per la transazione di rete prima che se verifica un errore di timeout";
+
+/* Class = "IBUILabel"; text = "Logoff in Background"; ObjectID = "B6A-m1-qE1"; */
+"B6A-m1-qE1.text" = "Logoff in fondo";
+
+/* Class = "IBUITextField"; placeholder = "[CMS User]"; ObjectID = "B8o-Qb-BTW"; */
+"B8o-Qb-BTW.placeholder" = "[Utilizzatore CMS]";
+
+/* Class = "IBUITextField"; placeholder = "[Host or IP]"; ObjectID = "Cv8-rf-cDY"; */
+"Cv8-rf-cDY.placeholder" = "[Host o IP]";
+
+/* Class = "IBUITextField"; text = "30"; ObjectID = "DBg-ag-bqt"; */
+"DBg-ag-bqt.text" = "30";
+
+/* Class = "IBUILabel"; text = "Your Categories"; ObjectID = "DSu-bt-zNr"; */
+"DSu-bt-zNr.text" = "Vostre categorie";
+
+/* Class = "IBUILabel"; text = "Browse folders in BI repository"; ObjectID = "FbA-h2-LbU"; */
+"FbA-h2-LbU.text" = "Sfoglia le cartelle nel repository BI";
+
+/* Class = "IBUILabel"; text = "Default"; ObjectID = "HTR-bc-yV7"; */
+"HTR-bc-yV7.text" = "Predefinito";
+
+/* Class = "IBUILabel"; text = "Universe Name"; ObjectID = "IQX-b0-wGg"; */
+"IQX-b0-wGg.text" = "Nome de universo";
+
+/* Class = "IBUINavigationItem"; title = "CMS Sessions"; ObjectID = "IY3-Hd-5xi"; */
+"IY3-Hd-5xi.title" = "Sessioni CMS";
+
+/* Class = "IBUILabel"; text = "Updated On"; ObjectID = "Igz-Fr-uCC"; */
+"Igz-Fr-uCC.text" = "Aggiornato il";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Format"; ObjectID = "JZv-aG-GY9"; */
+"JZv-aG-GY9.headerTitle" = "Formato";
+
+/* Class = "IBUILabel"; text = "Create Connections to SAP BI Repository"; ObjectID = "KKh-0j-RE3"; */
+"KKh-0j-RE3.text" = "Creare connessioni al repository SAP BI";
+
+/* Class = "IBUILabel"; text = "Default"; ObjectID = "L0j-vY-P4a"; */
+"L0j-vY-P4a.text" = "Predefinito";
+
+/* Class = "IBUILabel"; text = "APOS BI Mobile Application"; ObjectID = "N7S-Qr-KsY"; */
+"N7S-Qr-KsY.text" = "Aplicazione APOS BI Mobile";
+
+/* Class = "IBUILabel"; text = "Preferences"; ObjectID = "NA2-Zi-gai"; */
+"NA2-Zi-gai.text" = "Preferenze";
+
+/* Class = "IBUILabel"; text = "File"; ObjectID = "NG5-Ii-qvr"; */
+"NG5-Ii-qvr.text" = "File";
+
+/* Class = "IBUILabel"; text = "OpenDoc Host"; ObjectID = "NMu-bl-UxD"; */
+"NMu-bl-UxD.text" = "OpenDoc Host";
+
+/* Class = "IBUILabel"; text = "FTP"; ObjectID = "Nmd-HR-6q7"; */
+"Nmd-HR-6q7.text" = "FTP";
+
+/* Class = "IBUITextField"; text = "6405"; ObjectID = "OLO-7C-7La"; */
+"OLO-7C-7La.text" = "6405";
+
+/* Class = "IBUILabel"; text = "Save Password"; ObjectID = "Q3N-MN-v85"; */
+"Q3N-MN-v85.text" = "Salvar la password";
+
+/* Class = "IBUINavigationItem"; title = "Details"; ObjectID = "R6d-LD-IOZ"; */
+"R6d-LD-IOZ.title" = "Dettagli";
+
+/* Class = "IBUILabel"; text = "Password"; ObjectID = "R6s-H2-WrI"; */
+"R6s-H2-WrI.text" = "Password";
+
+/* Class = "IBUITabBarItem"; title = "Universes"; ObjectID = "R7J-P9-hz9"; */
+"R7J-P9-hz9.title" = "Universi";
+
+/* Class = "IBUITextField"; placeholder = "[/biprws]"; ObjectID = "Rg3-SR-wWx"; */
+"Rg3-SR-wWx.placeholder" = "[/biprws]";
+
+/* Class = "IBUILabel"; text = "Name"; ObjectID = "Rob-hH-Cbh"; */
+"Rob-hH-Cbh.text" = "Nome";
+
+/* Class = "IBUILabel"; text = "Port"; ObjectID = "SDJ-Nz-cDd"; */
+"SDJ-Nz-cDd.text" = "Porto";
+
+/* Class = "IBUILabel"; text = "More..."; ObjectID = "SPW-e8-6DH"; */
+"SPW-e8-6DH.text" = "Di più...";
+
+/* Class = "IBUILabel"; text = "HTTPS"; ObjectID = "SaX-7n-Pst"; */
+"SaX-7n-Pst.text" = "HTTPS";
+
+/* Class = "IBUILabel"; text = "Updated On"; ObjectID = "T3z-wm-XdQ"; */
+"T3z-wm-XdQ.text" = "Updated On";
+
+/* Class = "IBUILabel"; text = "Default"; ObjectID = "U62-Kr-wdp"; */
+"U62-Kr-wdp.text" = "Predefinito";
+
+/* Class = "IBUILabel"; text = "id"; ObjectID = "UAf-gA-xF7"; */
+"UAf-gA-xF7.text" = "id";
+
+/* Class = "IBUILabel"; text = "Logoff from SAP BI when app goes into background or sleep
+(except before OpenDocument call)"; ObjectID = "WYN-s4-C0A"; */
+"WYN-s4-C0A.text" = "Disconnessione dal SAP BI quando l’applicazione passa in secondo piano o sonno (ad eccezione prima di una chiamata di OpenDocument)";
+
+/* Class = "IBUILabel"; text = "When disabled, SAP BI password will not be saved and will be prompted when required"; ObjectID = "WeM-5b-umO"; */
+"WeM-5b-umO.text" = "Quando è disattivata, la password SAP BI non viene salvata e verra richiesto in caso di necessità";
+
+/* Class = "IBUILabel"; text = "Maximum documents per transaction. \"More\" will appear to fetch next batch of objects"; ObjectID = "XJ3-96-lpA"; */
+"XJ3-96-lpA.text" = "Massimo numero di documenti per ogni transazione. \"Di più\" verra visualizzata a prendere il prossimo gruppo di oggetti";
+
+/* Class = "IBUINavigationItem"; title = "Add Session"; ObjectID = "XRM-x9-xFd"; */
+"XRM-x9-xFd.title" = "Aggiungi sessione";
+
+/* Class = "IBUILabel"; text = "Active"; ObjectID = "YCF-og-8sS"; */
+"YCF-og-8sS.text" = "Attivo";
+
+/* Class = "IBUILabel"; text = "CMS Sessions"; ObjectID = "YpG-IY-9qi"; */
+"YpG-IY-9qi.text" = "Sessioni CMS ";
+
+/* Class = "IBUILabel"; text = "Status"; ObjectID = "Z2w-UE-oUM"; */
+"Z2w-UE-oUM.text" = "Status";
+
+/* Class = "IBUILabel"; text = "REST SDK"; ObjectID = "ZoA-vm-DCi"; */
+"ZoA-vm-DCi.text" = "REST SDK";
+
+/* Class = "IBUILabel"; text = "Description"; ObjectID = "atc-yP-Kum"; */
+"atc-yP-Kum.text" = "Descrizione";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Destination"; ObjectID = "ay5-G6-7h1"; */
+"ay5-G6-7h1.headerTitle" = "Destinazione";
+
+/* Class = "IBUILabel"; text = "Connection Timeout"; ObjectID = "b5q-Zv-OZ1"; */
+"b5q-Zv-OZ1.text" = "Timeout di connessione";
+
+/* Class = "IBUILabel"; text = "User"; ObjectID = "bAZ-6G-lhh"; */
+"bAZ-6G-lhh.text" = "Utilizzatore";
+
+/* Class = "IBUILabel"; text = "Personal Categories"; ObjectID = "bsb-fI-DxZ"; */
+"bsb-fI-DxZ.text" = "Categorie personali";
+
+/* Class = "IBUILabel"; text = "Advanced Settings"; ObjectID = "bvJ-CV-vwK"; */
+"bvJ-CV-vwK.text" = " Impostazioni avansati";
+
+/* Class = "IBUITabBarItem"; title = "Settings"; ObjectID = "dj2-bu-JDm"; */
+"dj2-bu-JDm.title" = "Impostazioni";
+
+/* Class = "IBUIButton"; normalTitle = "Schedule"; ObjectID = "e5S-xN-M6H"; */
+"e5S-xN-M6H.normalTitle" = "Programmare";
+
+/* Class = "IBUINavigationItem"; title = "Documents"; ObjectID = "e5i-q0-1JW"; */
+"e5i-q0-1JW.title" = "Documenti";
+
+/* Class = "IBUITextField"; placeholder = "[Ex:\"Production\", \"Dev\" etc]"; ObjectID = "eCd-2f-CSv"; */
+"eCd-2f-CSv.placeholder" = "[Ex:\"Produzione\", \"Dev\" etc]";
+
+/* Class = "IBUILabel"; text = "Size"; ObjectID = "flx-3y-MEs"; */
+"flx-3y-MEs.text" = "Dimensione";
+
+/* Class = "IBUILabel"; text = "About"; ObjectID = "fpL-eH-xbk"; */
+"fpL-eH-xbk.text" = "Circa";
+
+/* Class = "IBUILabel"; text = "Server"; ObjectID = "gQg-iQ-DwJ"; */
+"gQg-iQ-DwJ.text" = "Server";
+
+/* Class = "IBUILabel"; text = "Categories"; ObjectID = "gU5-Mi-uYG"; */
+"gU5-Mi-uYG.text" = "Categorie";
+
+/* Class = "IBUILabel"; text = "id"; ObjectID = "gsr-NR-IK5"; */
+"gsr-NR-IK5.text" = "id";
+
+/* Class = "IBUIBarButtonItem"; title = "Close"; ObjectID = "hCv-2D-X8l"; */
+"hCv-2D-X8l.title" = "Chiudere";
+
+/* Class = "IBUILabel"; text = "REST Webi SDK"; ObjectID = "hG7-ej-7Gu"; */
+"hG7-ej-7Gu.text" = "REST Webi SDK";
+
+/* Class = "IBUITextField"; text = "6405"; ObjectID = "hYd-kg-aBp"; */
+"hYd-kg-aBp.text" = "6405";
+
+/* Class = "IBUILabel"; text = "Mail"; ObjectID = "kMh-dc-K90"; */
+"kMh-dc-K90.text" = "Posta";
+
+/* Class = "IBUILabel"; text = "Document Name"; ObjectID = "kvk-8F-HFJ"; */
+"kvk-8F-HFJ.text" = "Nome di documento";
+
+/* Class = "IBUILabel"; text = "Show Universes"; ObjectID = "laU-gX-F26"; */
+"laU-gX-F26.text" = "Mostra universi";
+
+/* Class = "IBUITextField"; placeholder = "[/biprws/raylight/v1]"; ObjectID = "mHw-YW-x8J"; */
+"mHw-YW-x8J.placeholder" = "[/biprws/raylight/v1]";
+
+/* Class = "IBUILabel"; text = "Auto Logoff"; ObjectID = "n3G-Uu-tn8"; */
+"n3G-Uu-tn8.text" = "Auto logoff";
+
+/* Class = "IBUILabel"; text = "Application Information"; ObjectID = "na2-ly-IV7"; */
+"na2-ly-IV7.text" = "Informazioni sull’applicazione";
+
+/* Class = "IBUILabel"; text = "Connection Name"; ObjectID = "nhR-fV-iet"; */
+"nhR-fV-iet.text" = "Nome della connessione";
+
+/* Class = "IBUILabel"; text = "Folder Id:"; ObjectID = "nkw-l4-owh"; */
+"nkw-l4-owh.text" = "Id della cartella:";
+
+/* Class = "IBUILabel"; text = "Your Personal Folder"; ObjectID = "pxN-nf-mVN"; */
+"pxN-nf-mVN.text" = "Vuostra caretlla personale";
+
+/* Class = "IBUITabBarItem"; title = "Browser"; ObjectID = "qcJ-5z-gfl"; */
+"qcJ-5z-gfl.title" = "Browser";
+
+/* Class = "IBUINavigationItem"; title = "Settings"; ObjectID = "rJc-mF-e1C"; */
+"rJc-mF-e1C.title" = "Impostazioni";
+
+/* Class = "IBUITextField"; placeholder = "[BOE Web App Container]"; ObjectID = "sdg-2n-nB9"; */
+"sdg-2n-nB9.placeholder" = "[Contenitore BOE Web App]";
+
+/* Class = "IBUILabel"; text = "Historical Instances"; ObjectID = "uFO-4l-1gd"; */
+"uFO-4l-1gd.text" = "Istanze storiche";
+
+/* Class = "IBUITextView"; text = "Path"; ObjectID = "v1e-cx-m9j"; */
+"v1e-cx-m9j.text" = "Parcorso";
+
+/* Class = "IBUILabel"; text = "Schedule"; ObjectID = "vEV-FQ-LMg"; */
+"vEV-FQ-LMg.text" = "Programma";
+
+/* Class = "IBUILabel"; text = "Port"; ObjectID = "vrg-c6-bca"; */
+"vrg-c6-bca.text" = "Porta";
+
+/* Class = "IBUILabel"; text = "Your Personal Inbox"; ObjectID = "wFT-NU-lmc"; */
+"wFT-NU-lmc.text" = "Posta in arrive personale";
+
+/* Class = "IBUITabBarItem"; title = "Documents"; ObjectID = "y1x-19-qUD"; */
+"y1x-19-qUD.title" = "Documenti";
+
+/* Class = "IBUITextField"; placeholder = "[Password]"; ObjectID = "zMe-BI-kxj"; */
+"zMe-BI-kxj.placeholder" = "[Password]";
+

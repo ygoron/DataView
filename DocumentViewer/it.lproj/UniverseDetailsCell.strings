@@ -1,0 +1,13 @@
+﻿
+/* Class = "IBUILabel"; text = "Folder Name"; ObjectID = "24"; */
+"24.text" = "Nome della cartella";
+
+/* Class = "IBUILabel"; text = "Folder"; ObjectID = "25"; */
+"25.text" = "Cartella";
+
+/* Class = "IBUILabel"; text = "Description"; ObjectID = "27"; */
+"27.text" = "Descrizione";
+
+/* Class = "IBUILabel"; text = "99"; ObjectID = "58"; */
+"58.text" = "99";
+

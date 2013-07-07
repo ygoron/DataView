@@ -1,0 +1,13 @@
+﻿
+/* Class = "IBUILabel"; text = "Folder Name"; ObjectID = "24"; */
+"24.text" = "Nume de dosar";
+
+/* Class = "IBUILabel"; text = "Folder"; ObjectID = "25"; */
+"25.text" = "Dosar";
+
+/* Class = "IBUILabel"; text = "Description"; ObjectID = "27"; */
+"27.text" = "Descriere";
+
+/* Class = "IBUILabel"; text = "99"; ObjectID = "58"; */
+"58.text" = "99";
+

@@ -1,0 +1,13 @@
+﻿
+/* Class = "IBUILabel"; text = "Folder Name"; ObjectID = "24"; */
+"24.text" = "文件夹名称";
+
+/* Class = "IBUILabel"; text = "Folder"; ObjectID = "25"; */
+"25.text" = "文件夹";
+
+/* Class = "IBUILabel"; text = "Description"; ObjectID = "27"; */
+"27.text" = "猫鼠";
+
+/* Class = "IBUILabel"; text = "99"; ObjectID = "58"; */
+"58.text" = "99";
+
