@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSString *displayPath;
 @property (nonatomic, assign) BOOL isInstance;
 @property (nonatomic, strong) UIStoryboard *myStoryBoard;
+@property (nonatomic, assign) BOOL isSupressShowChildrenOfChildren;
 
 -(void) loadObjects;
 -(void) reLoadObjects;

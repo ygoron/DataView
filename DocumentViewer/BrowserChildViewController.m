@@ -200,7 +200,7 @@
     
     if (isSuccess==YES){
         NSLog(@"Children Objects Received");
-
+        
         NSString *checkPointMesssage=[NSString stringWithFormat:@"%@%d",@"All Children Objects Received. Number Of Objects:",receivedObjects.count];
         [TestFlight passCheckpoint:checkPointMesssage];
         
@@ -302,7 +302,7 @@
         
         InfoObject *infoObject=[_infoObjects objectAtIndex:[indexPath row]];
         // Configure the cell...
-//        NSLog(@"Object id:%d",infoObject.objectId);
+        //        NSLog(@"Object id:%d",infoObject.objectId);
         cell.labelName.text=infoObject.name;
         if (_isInstance==NO){
             if (infoObject.description.length==0)
@@ -314,6 +314,10 @@
         
         cell.labelType.text=infoObject.type;
         [cell.labelType setHidden:YES];
+        if (_isSupressShowChildrenOfChildren==YES) {
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        }
         
         
         if ([infoObject.type isEqualToString:@"Folder"])
@@ -411,6 +415,7 @@
  }
  */
 
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -420,10 +425,12 @@
         [self loadObjects];
     }else{
         InfoObject *objectAtRow=[_infoObjects objectAtIndex:[indexPath row]];
-
-
+        
+        
         [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Object Type Selected:",objectAtRow.type]];
-
+        
+        if (_isSupressShowChildrenOfChildren==YES) return;
+        
         if ([objectAtRow.type isEqualToString:@"Webi"]){
             NSLog (@"Proceed with existing Webi REST API support");
             UIStoryboard *storyboard = _myStoryBoard;

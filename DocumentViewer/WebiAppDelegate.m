@@ -95,15 +95,24 @@
      setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
     
     UIImage *barButton = [[UIImage imageNamed:@"navbar-icon.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    UIImage *barButtonLandscape = [[UIImage imageNamed:@"navbar-icon_landscape.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
     
     [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal
                                           barMetrics:UIBarMetricsDefault];
+
+    [[UIBarButtonItem appearance] setBackgroundImage:barButtonLandscape forState:UIControlStateNormal
+                                          barMetrics:UIBarMetricsLandscapePhone];
+
     
     UIImage *backButton = [[UIImage imageNamed:@"back-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+    UIImage *backButtonLandscape = [[UIImage imageNamed:@"back-button_landscape.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
     
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
                                                     barMetrics:UIBarMetricsDefault];
-    
+
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonLandscape forState:UIControlStateNormal
+                                                    barMetrics:UIBarMetricsLandscapePhone];
+
     
     
     UIImage *minImage = [[UIImage imageNamed:@"slider-track-fill.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];

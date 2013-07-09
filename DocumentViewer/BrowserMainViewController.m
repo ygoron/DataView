@@ -183,6 +183,7 @@
             vc.myStoryBoard=self.storyboard;
             vc.title=NSLocalizedString(@"Personal Categories",@"Label");
             vc.displayPath=NSLocalizedString(@"/Personal Categories",@"Label - Path");
+            vc.isSupressShowChildrenOfChildren=YES;
             [self.navigationController pushViewController:vc animated:YES];
             
         }else if ([cell.reuseIdentifier isEqualToString:@"Cell_Categories"]){
@@ -197,6 +198,7 @@
             vc.urlForChildren=urlChildren;
             vc.currentSession=appDelegate.activeSession;
             vc.myStoryBoard=self.storyboard;
+            vc.isSupressShowChildrenOfChildren=YES;
             vc.title=NSLocalizedString(@"Categories",@"Label");
             vc.displayPath=NSLocalizedString(@"/Categories",@"Label-Path");
             [self.navigationController pushViewController:vc animated:YES];
