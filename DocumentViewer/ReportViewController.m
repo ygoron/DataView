@@ -70,7 +70,7 @@
                                                                                action:@selector(performAction:)];
     
     
-//    self.actionButton = barButton;
+    self.actionButton = barButton;
     self.navigationItem.rightBarButtonItem=barButton;
     
     self.picVisible = NO;
