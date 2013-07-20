@@ -321,3 +321,8 @@ May slow down app performance\n"; ObjectID = "4eo-dM-CxY"; */
 /* Class = "IBUITextField"; placeholder = "[Password]"; ObjectID = "zMe-BI-kxj"; */
 "zMe-BI-kxj.placeholder" = "[パスワード]";
 
+"01b-JG-fDy.text"="Premium Features";
+
+"0Fd-2G-pir.text"="Available in-app purchases";
+
+
