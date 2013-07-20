@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12E55" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Document" representedClassName="Document" syncable="YES">
+        <attribute name="createdby" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descriptiontext" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="folderid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastauthor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refreshonopen" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="scheduled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="reports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Report" inverseName="document" inverseEntity="Report" syncable="YES"/>
+        <relationship name="session" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="documents" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="InAppPurchase" representedClassName="InAppPurchase" syncable="YES">
+        <attribute name="dateofpucrhase" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="productid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Report" representedClassName="Report" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reference" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="document" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Document" inverseName="reports" inverseEntity="Document" syncable="YES"/>
+    </entity>
+    <entity name="Session" representedClassName="Session" syncable="YES">
+        <attribute name="authType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cmsName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cmsToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cypressSDKBase" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isHttps" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isTestedOK" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastTested" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="opendocPort" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="opendocServer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="port" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="webiRestSDKBase" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="documents" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Document" inverseName="session" inverseEntity="Document" syncable="YES"/>
+    </entity>
+    <entity name="Settings" representedClassName="Settings" syncable="YES">
+        <attribute name="autoLogoff" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="fetchDocumentLimit" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isLogoffInBackground" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isOfflineMode" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isSavePassword" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isShowUniverses" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isUseHttpCache" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="networkTimeout" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Document" positionX="-24356" positionY="-12249" width="128" height="285"/>
+        <element name="Report" positionX="-24633" positionY="-12381" width="128" height="105"/>
+        <element name="Session" positionX="-24885" positionY="-12240" width="128" height="285"/>
+        <element name="Settings" positionX="-24939" positionY="-12519" width="128" height="165"/>
+        <element name="InAppPurchase" positionX="160" positionY="192" width="128" height="75"/>
+    </elements>
+</model>

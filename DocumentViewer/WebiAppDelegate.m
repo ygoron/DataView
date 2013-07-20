@@ -16,6 +16,8 @@
 //#import "TestFlight.h"
 #import "GlobalPreferencesConstants.h"
 #import "BI4RestConstants.h"
+#import "Products.h"
+#import "InAppPurchase.h"
 
 
 @implementation WebiAppDelegate
@@ -72,6 +74,7 @@
     
 //    NSLog(@"Language:%@",[[NSLocale preferredLanguages] objectAtIndex:0]);
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Locale:",[[NSLocale preferredLanguages] objectAtIndex:0]]];
+    _isCreateSessionAllowed=[self IsCreateSessionPurchased:self.managedObjectContext];
     
 #ifdef Lite
     [self createAposDemoConnectionAsDefault:YES];
@@ -424,6 +427,28 @@
     
 }
 
+-(BOOL) IsCreateSessionPurchased:(NSManagedObjectContext *)context{
+    //  Set up a predicate (or search criteria) for checking Create Session Purchase
+    NSLog(@"Searching for %@",MANAGE_CONNECTIONS);
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(productid == %@ )", MANAGE_CONNECTIONS];
+    
+    //  Actually run the query in Core Data and return the count of purchases with these details
+    if ([CoreDataHelper countForEntity:@"InAppPurchase" withPredicate:predicate andContext:context] <= 0){
+        NSLog(@"No Purchases Yet");
+        _isCreateSessionAllowed=NO;
+//        NSLog(@"Creating Purchase for Testing");
+//        InAppPurchase *purchase = [NSEntityDescription
+//                             insertNewObjectForEntityForName:@"InAppPurchase"
+//                             inManagedObjectContext:context];
+//        purchase.productid=MANAGE_CONNECTIONS;
+        
+    }else{
+        NSLog(@"Already purchased!");
+                _isCreateSessionAllowed=YES;
+    }
+    
+    return _isCreateSessionAllowed;
+}
 -(Settings *) getGlobalSettingsWithContext:(NSManagedObjectContext *)context{
     NSMutableArray *settings=[CoreDataHelper getObjectsForEntity:@"Settings" withSortKey:nil andSortAscending:YES andContext:self.managedObjectContext];
     Settings *globalPreferences;

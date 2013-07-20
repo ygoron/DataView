@@ -29,10 +29,8 @@
 /* Class = "IBUILabel"; text = "unv"; ObjectID = "4d3-sY-3Ve"; */
 "4d3-sY-3Ve.text" = "unv";
 
-/* Class = "IBUILabel"; text = "Logoff From SAP BI after each transaction. Recommended with limited number of SAP BI licenses . 
-May slow down app performance\n"; ObjectID = "4eo-dM-CxY"; */
-"4eo-dM-CxY.text" = "Logoff From SAP BI after each transaction. Recommended with limited number of SAP BI licenses . 
-May slow down app performance\n";
+/* Class = "IBUILabel"; text = "Logoff From SAP BI after each transaction. Recommended with limited number of SAP BI licenses . \nMay slow down app performance\n"; ObjectID = "4eo-dM-CxY"; */
+"4eo-dM-CxY.text" = "Logoff From SAP BI after each transaction. Recommended with limited number of SAP BI licenses . \nMay slow down app performance\n";
 
 /* Class = "IBUISegmentedControl"; 4nr-kF-DcR.segmentTitles[0] = "Enterprise"; ObjectID = "4nr-kF-DcR"; */
 "4nr-kF-DcR.segmentTitles[0]" = "Enterprise";
@@ -184,10 +182,8 @@ May slow down app performance\n";
 /* Class = "IBUILabel"; text = "id"; ObjectID = "UAf-gA-xF7"; */
 "UAf-gA-xF7.text" = "id";
 
-/* Class = "IBUILabel"; text = "Logoff from SAP BI when app goes into background or sleep
-(except before OpenDocument call)"; ObjectID = "WYN-s4-C0A"; */
-"WYN-s4-C0A.text" = "Logoff from SAP BI when app goes into background or sleep
-(except before OpenDocument call)";
+/* Class = "IBUILabel"; text = "Logoff from SAP BI when app goes into background or sleep\n(except before OpenDocument call)"; ObjectID = "WYN-s4-C0A"; */
+"WYN-s4-C0A.text" = "Logoff from SAP BI when app goes into background or sleep\n(except before OpenDocument call)";
 
 /* Class = "IBUILabel"; text = "When disabled, SAP BI password will not be saved and will be prompted when required"; ObjectID = "WeM-5b-umO"; */
 "WeM-5b-umO.text" = "When disabled, SAP BI password will not be saved and will be prompted when required";
@@ -287,7 +283,6 @@ May slow down app performance\n";
 
 /* Class = "IBUILabel"; text = "Folder Id:"; ObjectID = "nkw-l4-owh"; */
 "nkw-l4-owh.text" = "Folder Id:";
-
 
 /* Class = "IBUILabel"; text = "Your Personal Folder"; ObjectID = "pxN-nf-mVN"; */
 "pxN-nf-mVN.text" = "Your Personal Folder";

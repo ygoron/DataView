@@ -22,6 +22,10 @@
 		9215D54516DFDAC90079A7DA /* DocumentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9215D54416DFDAC90079A7DA /* DocumentDetailsViewController.m */; };
 		921B39C916D816FB00C0CD95 /* DocumentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921B39C816D816FB00C0CD95 /* DocumentCell.m */; };
 		921B39CD16D851F200C0CD95 /* BIGetDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = 921B39CC16D851F200C0CD95 /* BIGetDocuments.m */; };
+		921C0C1F179A166C00F41946 /* InAppPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C0C1E179A166C00F41946 /* InAppPurchase.m */; };
+		921C0C20179A166C00F41946 /* InAppPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C0C1E179A166C00F41946 /* InAppPurchase.m */; };
+		921C0C25179A1A1000F41946 /* Products.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C0C24179A1A1000F41946 /* Products.m */; };
+		921C0C26179A1A1000F41946 /* Products.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C0C24179A1A1000F41946 /* Products.m */; };
 		92285791175EB962002A8456 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 92285790175EB962002A8456 /* Document.m */; };
 		922D14C8176A96430026B5ED /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922D14CB176A96430026B5ED /* MainStoryboard.storyboard */; };
 		922E169F1746FB9E00D55FF4 /* BrowserObjectActionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922E169D1746FB9E00D55FF4 /* BrowserObjectActionsViewController.m */; };
@@ -487,6 +491,12 @@
 		92D530941741763700156923 /* FolderPersonal_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D5307F1741763700156923 /* FolderPersonal_48@2x.png */; };
 		92D530961741763700156923 /* CrystalDoc_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D530801741763700156923 /* CrystalDoc_48.png */; };
 		92D530981741763700156923 /* CrystalDoc_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D530811741763700156923 /* CrystalDoc_48@2x.png */; };
+		92E37E0F179B1F4800797DA8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E37E0E179B1F4800797DA8 /* StoreKit.framework */; };
+		92E37E10179B1F5800797DA8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E37E0E179B1F4800797DA8 /* StoreKit.framework */; };
+		92E37E13179B223100797DA8 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E37E12179B223100797DA8 /* IAPHelper.m */; };
+		92E37E14179B223100797DA8 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E37E12179B223100797DA8 /* IAPHelper.m */; };
+		92E37E17179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E37E16179B265A00797DA8 /* BIMobileIAPHelper.m */; };
+		92E37E18179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E37E16179B265A00797DA8 /* BIMobileIAPHelper.m */; };
 		92E70091171B02E8007953D7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E70090171B02E8007953D7 /* MessageUI.framework */; };
 		92E8C40A16D04FBC00B4D01F /* SessionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C40916D04FBC00B4D01F /* SessionsViewController.m */; };
 		92E8C40D16D0503600B4D01F /* SessionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C40C16D0503600B4D01F /* SessionCell.m */; };
@@ -535,6 +545,11 @@
 		921B39C816D816FB00C0CD95 /* DocumentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentCell.m; sourceTree = "<group>"; };
 		921B39CB16D851F200C0CD95 /* BIGetDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIGetDocuments.h; sourceTree = "<group>"; };
 		921B39CC16D851F200C0CD95 /* BIGetDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIGetDocuments.m; sourceTree = "<group>"; };
+		921C0C14179A117100F41946 /* DocumentViewer 9 - InAppPucrhases.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 9 - InAppPucrhases.xcdatamodel"; sourceTree = "<group>"; };
+		921C0C1D179A166C00F41946 /* InAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchase.h; sourceTree = "<group>"; };
+		921C0C1E179A166C00F41946 /* InAppPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchase.m; sourceTree = "<group>"; };
+		921C0C23179A1A1000F41946 /* Products.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Products.h; sourceTree = "<group>"; };
+		921C0C24179A1A1000F41946 /* Products.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Products.m; sourceTree = "<group>"; };
 		922304A91714411C0039F7F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9228578E175EB7E8002A8456 /* DocumentViewer 8 - SDK Base Points.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 8 - SDK Base Points.xcdatamodel"; sourceTree = "<group>"; };
 		9228578F175EB962002A8456 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -550,7 +565,6 @@
 		923014081720C536002A8C34 /* DocumentViewer 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 2.xcdatamodel"; sourceTree = "<group>"; };
 		9236AE5216DD9B7900ACCB8E /* BIGetDocumentDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIGetDocumentDetails.h; sourceTree = "<group>"; };
 		9236AE5316DD9B7900ACCB8E /* BIGetDocumentDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIGetDocumentDetails.m; sourceTree = "<group>"; };
-		92400650176B9A6A00DF6FD3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		92400653176B9CEB00DF6FD3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		92400655176B9CFF00DF6FD3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9240065C176BA1CD00DF6FD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MoreCell.xib; sourceTree = "<group>"; };
@@ -866,6 +880,12 @@
 		92D5307F1741763700156923 /* FolderPersonal_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FolderPersonal_48@2x.png"; sourceTree = "<group>"; };
 		92D530801741763700156923 /* CrystalDoc_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrystalDoc_48.png; sourceTree = "<group>"; };
 		92D530811741763700156923 /* CrystalDoc_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CrystalDoc_48@2x.png"; sourceTree = "<group>"; };
+		92E37E0E179B1F4800797DA8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		92E37E11179B223100797DA8 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		92E37E12179B223100797DA8 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
+		92E37E15179B265A00797DA8 /* BIMobileIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIMobileIAPHelper.h; sourceTree = "<group>"; };
+		92E37E16179B265A00797DA8 /* BIMobileIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIMobileIAPHelper.m; sourceTree = "<group>"; };
+		92E37E1A179B2ED800797DA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		92E55CA916D5177A00CACACD /* BIConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BIConnector.h; sourceTree = "<group>"; };
 		92E55CAA16D5177A00CACACD /* BIConnector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BIConnector.m; sourceTree = "<group>"; };
 		92E70090171B02E8007953D7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -923,6 +943,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E37E10179B1F5800797DA8 /* StoreKit.framework in Frameworks */,
 				9288ABD51787A9A50048BCF1 /* libz.dylib in Frameworks */,
 				9288ABD61787A9A50048BCF1 /* MessageUI.framework in Frameworks */,
 				9288ABD71787A9A50048BCF1 /* AudioToolbox.framework in Frameworks */,
@@ -939,6 +960,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E37E0F179B1F4800797DA8 /* StoreKit.framework in Frameworks */,
 				92719E4C171F6A3600899D95 /* libz.dylib in Frameworks */,
 				92E70091171B02E8007953D7 /* MessageUI.framework in Frameworks */,
 				92BD122416F8DAA800B84C7C /* AudioToolbox.framework in Frameworks */,
@@ -988,6 +1010,19 @@
 				92E55CAA16D5177A00CACACD /* BIConnector.m */,
 			);
 			name = "REST Classes";
+			sourceTree = "<group>";
+		};
+		921C0C21179A179F00F41946 /* InAppPurchases */ = {
+			isa = PBXGroup;
+			children = (
+				921C0C23179A1A1000F41946 /* Products.h */,
+				921C0C24179A1A1000F41946 /* Products.m */,
+				92E37E11179B223100797DA8 /* IAPHelper.h */,
+				92E37E12179B223100797DA8 /* IAPHelper.m */,
+				92E37E15179B265A00797DA8 /* BIMobileIAPHelper.h */,
+				92E37E16179B265A00797DA8 /* BIMobileIAPHelper.m */,
+			);
+			name = InAppPurchases;
 			sourceTree = "<group>";
 		};
 		9240219D170500760056A87B /* Resources */ = {
@@ -1299,6 +1334,7 @@
 		92ADE94F16CB24D60027BD4D = {
 			isa = PBXGroup;
 			children = (
+				92E37E0E179B1F4800797DA8 /* StoreKit.framework */,
 				92719E4B171F6A3600899D95 /* libz.dylib */,
 				92E70090171B02E8007953D7 /* MessageUI.framework */,
 				922304A91714411C0039F7F5 /* QuartzCore.framework */,
@@ -1340,6 +1376,7 @@
 		92ADE96316CB24D60027BD4D /* DocumentViewer */ = {
 			isa = PBXGroup;
 			children = (
+				921C0C21179A179F00F41946 /* InAppPurchases */,
 				929D1CDB173464190027FDFF /* CypressSDK */,
 				9256264917313C32006CEEB6 /* Browser Navigation */,
 				926A8073172D72770033FB6A /* About */,
@@ -1426,6 +1463,8 @@
 				92A782FD175EBF9600818509 /* Session.h */,
 				92A782FE175EBF9600818509 /* Session.m */,
 				92ADE97516CB24D70027BD4D /* DocumentViewer.xcdatamodeld */,
+				921C0C1D179A166C00F41946 /* InAppPurchase.h */,
+				921C0C1E179A166C00F41946 /* InAppPurchase.m */,
 				9228578F175EB962002A8456 /* Document.h */,
 				92285790175EB962002A8456 /* Document.m */,
 				92ADE98616CB27080027BD4D /* CoreDataHelper.h */,
@@ -2101,6 +2140,10 @@
 				9288ABD11787A9A50048BCF1 /* Document.m in Sources */,
 				9288ABD21787A9A50048BCF1 /* Session.m in Sources */,
 				9288ABD31787A9A50048BCF1 /* Settings.m in Sources */,
+				921C0C20179A166C00F41946 /* InAppPurchase.m in Sources */,
+				921C0C26179A1A1000F41946 /* Products.m in Sources */,
+				92E37E14179B223100797DA8 /* IAPHelper.m in Sources */,
+				92E37E18179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2177,6 +2220,10 @@
 				92285791175EB962002A8456 /* Document.m in Sources */,
 				92A782FF175EBF9600818509 /* Session.m in Sources */,
 				92A78303175EBF9700818509 /* Settings.m in Sources */,
+				921C0C1F179A166C00F41946 /* InAppPurchase.m in Sources */,
+				921C0C25179A1A1000F41946 /* Products.m in Sources */,
+				92E37E13179B223100797DA8 /* IAPHelper.m in Sources */,
+				92E37E17179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2187,7 +2234,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				922D14CC176A964F0026B5ED /* Base */,
-				92400650176B9A6A00DF6FD3 /* en */,
 				92400668176BB36100DF6FD3 /* ru */,
 				92460535176E4E3F00C77FD9 /* fr */,
 				9246053A176E4E6D00C77FD9 /* de */,
@@ -2200,6 +2246,7 @@
 				92F308911770B9C0003D9273 /* ro */,
 				926C96B11782F64C0004A80E /* he */,
 				925DB4C51785A08200EADF40 /* ar */,
+				92E37E1A179B2ED800797DA8 /* en */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -2487,6 +2534,7 @@
 		92ADE97516CB24D70027BD4D /* DocumentViewer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				921C0C14179A117100F41946 /* DocumentViewer 9 - InAppPucrhases.xcdatamodel */,
 				9228578E175EB7E8002A8456 /* DocumentViewer 8 - SDK Base Points.xcdatamodel */,
 				9258A07C17502C4000957384 /* DocumentViewer 7 - Int32.xcdatamodel */,
 				926D9086172B5953008EFC87 /* DocumentViewer 6 - Session AutoLogoff.xcdatamodel */,
@@ -2496,7 +2544,7 @@
 				923014081720C536002A8C34 /* DocumentViewer 2.xcdatamodel */,
 				92ADE97616CB24D70027BD4D /* DocumentViewer.xcdatamodel */,
 			);
-			currentVersion = 9228578E175EB7E8002A8456 /* DocumentViewer 8 - SDK Base Points.xcdatamodel */;
+			currentVersion = 921C0C14179A117100F41946 /* DocumentViewer 9 - InAppPucrhases.xcdatamodel */;
 			name = DocumentViewer.xcdatamodeld;
 			path = DocumentViewer/DocumentViewer.xcdatamodeld;
 			sourceTree = "<group>";

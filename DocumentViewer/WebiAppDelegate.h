@@ -20,7 +20,9 @@
 @property (nonatomic, strong) NSMutableArray *sessions;
 @property (nonatomic,assign) BOOL isUIRefreshRequred;
 @property (nonatomic, assign) BOOL isOpenDocumentUrl;
+@property (nonatomic, assign) BOOL isCreateSessionAllowed;
 @property (nonatomic, strong) Settings *globalSettings;
+
 @property (nonatomic,strong) UIViewController *universeViewController;
 @property (nonatomic,strong) Session *activeSession;
 
@@ -31,6 +33,7 @@
 - (void)iPadInit;
 - (void)iPhoneInit;
 - (Settings *) getGlobalSettingsWithContext: (NSManagedObjectContext *) context;
+-(BOOL) IsCreateSessionPurchased: (NSManagedObjectContext *) context;
 -(void) showHideUniverseController;
 -(void) createAposDemoConnectionAsDefault:(BOOL) isDefault;
 -(Session *) isNameAlreadyExistWithName:(NSString *)name WithSessions:(NSMutableArray *)existingSessions;
