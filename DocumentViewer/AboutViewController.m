@@ -40,16 +40,16 @@
     
     [aboutText appendString:version] ;
     [aboutText appendString:@"\n"];
-    [aboutText appendString:@"http://www.apos.com\n"];
+//    [aboutText appendString:@"http://www.apos.com\n"];
 //    [aboutText appendString:NSLocalizedString(@"Feedback and support: support@apos.com\n",@"Just Feedback and support. Do not translate email:-)")];
-    [aboutText appendString:NSLocalizedString(@"Feedback and technical support: ",nil)];
-    [aboutText appendString:@"support@apos.com\n"];
-    [aboutText appendString:NSLocalizedString(@"Phone:+1.519.894.2767\n",nil)];
-    [aboutText appendString:@"\n"];
+//    [aboutText appendString:NSLocalizedString(@"Feedback and technical support: ",nil)];
+//    [aboutText appendString:@"support@apos.com\n"];
+//    [aboutText appendString:NSLocalizedString(@"Phone:+1.519.894.2767\n",nil)];
+//    [aboutText appendString:@"\n"];
 //    [aboutText appendString:@"100 Conestoga College Blvd., Suite 1118 Kitchener, ON Canada N2P 2N6\n"];
 //    [aboutText appendString:@"\n"];
-    [aboutText appendString:NSLocalizedString(@"Developed by ",nil)];
-    [aboutText appendString:@"Yuri Goron \nygoron@apos.com"];
+//    [aboutText appendString:NSLocalizedString(@"Developed by ",nil)];
+//    [aboutText appendString:@"Yuri Goron \nygoron@apos.com"];
     
     _textViewAboutText.text=aboutText;
 }
