@@ -19,6 +19,8 @@
 		9210E02317482902009183CD /* ObjectInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9210E02217482902009183CD /* ObjectInfoCell.xib */; };
 		9210E02A174862E7009183CD /* ActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9210E029174862E7009183CD /* ActionCell.m */; };
 		9210E02E17486832009183CD /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 9210E02D17486832009183CD /* Action.m */; };
+		9214469A179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92144699179B4ACC005D5659 /* InAppPucrhaseCell.m */; };
+		9214469B179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92144699179B4ACC005D5659 /* InAppPucrhaseCell.m */; };
 		9215D54516DFDAC90079A7DA /* DocumentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9215D54416DFDAC90079A7DA /* DocumentDetailsViewController.m */; };
 		921B39C916D816FB00C0CD95 /* DocumentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921B39C816D816FB00C0CD95 /* DocumentCell.m */; };
 		921B39CD16D851F200C0CD95 /* BIGetDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = 921B39CC16D851F200C0CD95 /* BIGetDocuments.m */; };
@@ -77,6 +79,8 @@
 		9271C757170A4B1B003842EB /* dimension.png in Resources */ = {isa = PBXBuildFile; fileRef = 9271C754170A4B1B003842EB /* dimension.png */; };
 		9271C75B170A5483003842EB /* attribute.png in Resources */ = {isa = PBXBuildFile; fileRef = 9271C75A170A5483003842EB /* attribute.png */; };
 		9271C75D170A557F003842EB /* measure.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9271C75C170A557F003842EB /* measure.jpg */; };
+		92757F53179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757F52179B3A1500C6F93A /* PremiumFeaturesViewController.m */; };
+		92757F54179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757F52179B3A1500C6F93A /* PremiumFeaturesViewController.m */; };
 		927A82D1174A807400EF789B /* BICypressSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 927A82D0174A807400EF789B /* BICypressSchedule.m */; };
 		927A82D5174A8F2900EF789B /* ScheduleUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 927A82D4174A8F2900EF789B /* ScheduleUrl.m */; };
 		9282894917296EBD00CCAB2F /* SettingGears_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9282894517296EBD00CCAB2F /* SettingGears_blue.png */; };
@@ -539,6 +543,8 @@
 		9210E029174862E7009183CD /* ActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionCell.m; sourceTree = "<group>"; };
 		9210E02C17486832009183CD /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		9210E02D17486832009183CD /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
+		92144698179B4ACC005D5659 /* InAppPucrhaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPucrhaseCell.h; sourceTree = "<group>"; };
+		92144699179B4ACC005D5659 /* InAppPucrhaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPucrhaseCell.m; sourceTree = "<group>"; };
 		9215D54316DFDAC90079A7DA /* DocumentDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentDetailsViewController.h; sourceTree = "<group>"; };
 		9215D54416DFDAC90079A7DA /* DocumentDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DocumentDetailsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		921B39C716D816FB00C0CD95 /* DocumentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentCell.h; sourceTree = "<group>"; };
@@ -657,6 +663,8 @@
 		9271C754170A4B1B003842EB /* dimension.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dimension.png; sourceTree = "<group>"; };
 		9271C75A170A5483003842EB /* attribute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attribute.png; sourceTree = "<group>"; };
 		9271C75C170A557F003842EB /* measure.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = measure.jpg; sourceTree = "<group>"; };
+		92757F51179B3A1500C6F93A /* PremiumFeaturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PremiumFeaturesViewController.h; sourceTree = "<group>"; };
+		92757F52179B3A1500C6F93A /* PremiumFeaturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PremiumFeaturesViewController.m; sourceTree = "<group>"; };
 		9278B575176E61E500ECC407 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MoreCell.strings; sourceTree = "<group>"; };
 		9278B576176E61F300ECC407 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MoreCell.strings; sourceTree = "<group>"; };
 		9278B578176E620400ECC407 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/MoreCell.strings; sourceTree = "<group>"; };
@@ -1015,12 +1023,16 @@
 		921C0C21179A179F00F41946 /* InAppPurchases */ = {
 			isa = PBXGroup;
 			children = (
+				92757F51179B3A1500C6F93A /* PremiumFeaturesViewController.h */,
+				92757F52179B3A1500C6F93A /* PremiumFeaturesViewController.m */,
 				921C0C23179A1A1000F41946 /* Products.h */,
 				921C0C24179A1A1000F41946 /* Products.m */,
 				92E37E11179B223100797DA8 /* IAPHelper.h */,
 				92E37E12179B223100797DA8 /* IAPHelper.m */,
 				92E37E15179B265A00797DA8 /* BIMobileIAPHelper.h */,
 				92E37E16179B265A00797DA8 /* BIMobileIAPHelper.m */,
+				92144698179B4ACC005D5659 /* InAppPucrhaseCell.h */,
+				92144699179B4ACC005D5659 /* InAppPucrhaseCell.m */,
 			);
 			name = InAppPurchases;
 			sourceTree = "<group>";
@@ -2144,6 +2156,8 @@
 				921C0C26179A1A1000F41946 /* Products.m in Sources */,
 				92E37E14179B223100797DA8 /* IAPHelper.m in Sources */,
 				92E37E18179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */,
+				92757F54179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
+				9214469B179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2224,6 +2238,8 @@
 				921C0C25179A1A1000F41946 /* Products.m in Sources */,
 				92E37E13179B223100797DA8 /* IAPHelper.m in Sources */,
 				92E37E17179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */,
+				92757F53179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
+				9214469A179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2345,7 +2361,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DocumentViewer/DocumentViewer-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
-				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = Prod;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					Trace,
+					Prod,
+				);
 				INFOPLIST_FILE = "APOS BI Ext copy2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -2363,12 +2382,15 @@
 		9288AC8A1787A9A50048BCF1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yuri Goron";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yuri Goron";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DocumentViewer/DocumentViewer-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
-				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = Prod;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					Prod,
+					Trace,
+				);
 				INFOPLIST_FILE = "APOS BI Ext copy2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -2377,8 +2399,8 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "APOS BI";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "E43AA989-1581-4E69-8C84-9EE8E877A313";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E43AA989-1581-4E69-8C84-9EE8E877A313";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

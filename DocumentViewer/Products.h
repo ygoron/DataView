@@ -10,6 +10,6 @@
 
 @interface Products : NSObject
 
-#define MANAGE_CONNECTIONS @"ManageConnections"
+#define MANAGE_CONNECTIONS @"pm.apos.APOSBI.connectionmanagement"
 
 @end

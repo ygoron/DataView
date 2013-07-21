@@ -7,6 +7,7 @@
 //
 
 #import "BIMobileIAPHelper.h"
+#import "Products.h"
 
 @implementation BIMobileIAPHelper
 
@@ -15,7 +16,7 @@
     static BIMobileIAPHelper * sharedInstance;
     dispatch_once(&once, ^{
         NSSet * productIdentifiers = [NSSet setWithObjects:
-                                      @"pm.apos.APOSBI.connectionmanagement",
+                                      MANAGE_CONNECTIONS,
                                       nil];
         sharedInstance = [[self alloc] initWithProductIdentifiers:productIdentifiers];
     });

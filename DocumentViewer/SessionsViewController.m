@@ -60,7 +60,7 @@
     
     TitleLabel *titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
     self.navigationItem.titleView = titelLabel;
-    titelLabel.text=@"Sessions";
+    titelLabel.text=NSLocalizedString(@"Connections",nil);
     [titelLabel sizeToFit];
     
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%d",@"Sessions List. Session Count: ",self.sessions.count]];

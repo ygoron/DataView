@@ -18,6 +18,8 @@
 #import "BI4RestConstants.h"
 #import "Products.h"
 #import "InAppPurchase.h"
+#import "BIMobileIAPHelper.h"
+#import "PreferencesViewController.h"
 
 
 @implementation WebiAppDelegate
@@ -34,13 +36,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+
+    [BIMobileIAPHelper sharedInstance];
+
 #ifndef Prod
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
     [TestFlight passCheckpoint:@"Device ID Registered"];
 #endif
     
     [TestFlight takeOff:@"a021f062-d6ec-4c4a-9234-22901b218bfb"];
+    
     // The rest of your application:didFinishLaunchingWithOptions method// ...
     
 #ifdef Lite
@@ -52,6 +57,7 @@
 #ifdef Trace
     NSLog(@"Trace is Defined");
 #endif
+    
     [self customizeGlobalTheme];
     
     UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
@@ -105,6 +111,8 @@
 
     [[UIBarButtonItem appearance] setBackgroundImage:barButtonLandscape forState:UIControlStateNormal
                                           barMetrics:UIBarMetricsLandscapePhone];
+    
+    
 
     
     UIImage *backButton = [[UIImage imageNamed:@"back-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
