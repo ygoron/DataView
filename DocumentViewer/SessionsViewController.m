@@ -16,7 +16,10 @@
 #import "BILogoff.h"
 #import "WebiAppDelegate.h"
 #import "BrowserMainViewController.h"
-@interface SessionsViewController ()
+#import "BIMobileIAPHelper.h"
+#import "Products.h"
+#import "PremiumFeaturesViewController.h"
+@interface SessionsViewController () <UIAlertViewDelegate>
 
 @end
 
@@ -107,6 +110,8 @@
     return [sessions count];
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SessionCell *cell=[tableView dequeueReusableCellWithIdentifier:@"SessionCell"];
@@ -118,9 +123,11 @@
     cell.sessionWCALabel.text=[NSString stringWithFormat:@"%@%@%@",session.cmsName,@"\\",session.userName];
     //    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"list-item.png"]];
     if ([session.name isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME]){
+//        cell.userInteractionEnabled=[[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         cell.userInteractionEnabled=NO;
         //        cell.sessionWCALabel.hidden=YES;
-        cell.sessionWCALabel.text=@"Demo CMS connection.";
+        cell.sessionWCALabel.text=@"APOS Mobile CMS connection.";
     }
     if ([session.isEnabled integerValue]==1) {
         [cell.sessionActive setHidden:NO];
@@ -137,9 +144,10 @@
 {
     
     Session *session=[self.sessions objectAtIndex:[indexPath row]];
-    if ([session.name isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME])
+//    if ([session.name isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME] && [[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO)
+        if ([session.name isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME] )
         return NO;
-    else return YES;
+    else return [[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS];
 }
 
 
@@ -149,12 +157,27 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         Session *session=[self.sessions objectAtIndex:[indexPath row]];
+        NSLog(@"Delete Session");
         
         NSPredicate *predicate =[NSPredicate predicateWithFormat:@"name == %@", session.name ];
         [CoreDataHelper deleteAllObjectsForEntity:@"Session" withPredicate:predicate andContext:context];
         [self.sessions removeObjectAtIndex:[indexPath row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
+
+        if (sessions.count==1){
+            NSLog(@"Last Session");
+            if ([[[self.sessions objectAtIndex:0] name] isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME]){
+                NSLog(@"Last Connection is APOS DEMO. Make it Active");
+                
+                [[self.sessions objectAtIndex:0] setIsEnabled:[NSNumber numberWithBool:YES]];
+                appDelegate.activeSession=[self.sessions objectAtIndex:0];
+                self.tabBarController.selectedIndex=0;
+                UINavigationController *navigationController=[[self.tabBarController viewControllers] objectAtIndex:0];
+                [navigationController popToRootViewControllerAnimated:YES];
+
+            }
+        }
+
         if ([session.isEnabled integerValue]==1 && session.cmsToken!=nil){
             NSLog(@"Logoff Deleted Session %@",session.name);
             BILogoff *biLogOff =[[BILogoff alloc]init];
@@ -198,7 +221,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -222,7 +245,7 @@
 	if ([segue.identifier isEqualToString:@"AddSession"])
 	{
         sessionDetailViewController.editedSession=nil;
-        sessionDetailViewController.title=@"BI Connection";
+        sessionDetailViewController.title=NSLocalizedString(@"Connection",nil);
 	}else if ([segue.identifier isEqualToString:@"EditSession"]){
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -236,20 +259,34 @@
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     NSLog(@"Selectior:%@",NSStringFromSelector(_cmd));
+//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//    if ([[[sessions objectAtIndex:[indexPath row]] name]isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME]) return NO;
+    
 	if ([identifier isEqualToString:@"AddSession"]||[identifier isEqualToString:@"EditSession"]){
-#ifdef Lite
-        [TestFlight passCheckpoint:@"Tried to create new Session in Lite Version"];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Lite Version" message:@"Creating a new CMS connection is not supported in the Lite version. Please purchase a full version on the app store" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        [alertView show];
-        return NO;
-# else
-        return YES;
-#endif
+        if ([[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO){
+            [TestFlight passCheckpoint:@"Tried to create new Session without purchasing"];
+            //            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Lite Version" message:@"Creating a new CMS connection is not supported in the Lite version. Please purchase a full version on the app store" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"In-App Purchase Required",nil) message:NSLocalizedString(@"To connect to your own SAP BusinessObjects system please purchase this in-app feature",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil) otherButtonTitles:NSLocalizedString(@"View",nil), nil];
+            [alertView show];
+            return NO;
+        }else
+            return YES;
     }
     
     return YES;
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Button Clicked: %d",buttonIndex);
+    if (buttonIndex==1){
+        NSLog(@"Process view in app purchases");
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+        PremiumFeaturesViewController *vc = (PremiumFeaturesViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"InAppPurchases"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+}
 -(void) sessionDetailViewControllerDidCancel:(SessionDetailViewController *)controller{
     NSLog(@"Dismissed!");
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -275,10 +312,10 @@
     //    [self.sessions replaceObjectAtIndex:[indexPath row] withObject:session];
     //    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
-
+    
     Session *oldSession=appDelegate.activeSession;
     NSLog(@"Old Session Name %@,New Session Name %@",oldSession.name,session.name);
-
+    
     [self.tableView reloadData];
     [self saveContext];
     [appDelegate refreshSessions];
@@ -291,16 +328,14 @@
     if ([oldSession.name caseInsensitiveCompare:session.name]!=NSOrderedSame){
         NSLog(@"Session switched from %@ to %@",oldSession.name,session.name);
         [TestFlight passCheckpoint:@"Default Session Switched"];
-                self.tabBarController.selectedIndex=0;
-                
         self.tabBarController.selectedIndex=0;
-            UINavigationController *navigationController=[[self.tabBarController viewControllers] objectAtIndex:0];
+        UINavigationController *navigationController=[[self.tabBarController viewControllers] objectAtIndex:0];
         [navigationController popToRootViewControllerAnimated:YES];
-//            BrowserMainViewController *vc=[[navigationController viewControllers] objectAtIndex:0];
-
-       
+        //            BrowserMainViewController *vc=[[navigationController viewControllers] objectAtIndex:0];
+        
+        
     }
-
+    
     [TestFlight passCheckpoint:@"Session Updated"];
 }
 
@@ -322,15 +357,10 @@
 {
     if (self.isSwitchToDocumentsViewAllowed){
         self.tabBarController.selectedIndex=0;
-        //        UINavigationController *navigationController=[[self.tabBarController viewControllers] objectAtIndex:0];
-        //        BrowserMainViewController *vc=[[navigationController viewControllers] objectAtIndex:0];
-        //
-        //        if (vc){
-        //            //            Session *currentSession=[self.sessions objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-        //            //            if ([vc.currentSession.name isEqualToString:currentSession.name])
-        //        }else{
-        //            NSLog(@"Documents View Controller is nil");
-        //        }
+        UINavigationController *navigationController=[[self.tabBarController viewControllers] objectAtIndex:0];
+        [navigationController popToRootViewControllerAnimated:YES];
+        NSLog(@"Switched to root");
+
     }
     
 }

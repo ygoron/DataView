@@ -2363,7 +2363,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
 					Trace,
-					Prod,
+					Not_A_PROD,
 				);
 				INFOPLIST_FILE = "APOS BI Ext copy2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -2388,7 +2388,7 @@
 				GCC_PREFIX_HEADER = "DocumentViewer/DocumentViewer-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
-					Prod,
+					NOT_A_Prod,
 					Trace,
 				);
 				INFOPLIST_FILE = "APOS BI Ext copy2-Info.plist";
@@ -2452,8 +2452,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yuri Goron";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yuri Goron";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -2462,8 +2462,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "E43AA989-1581-4E69-8C84-9EE8E877A313";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E43AA989-1581-4E69-8C84-9EE8E877A313";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

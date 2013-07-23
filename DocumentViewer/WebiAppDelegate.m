@@ -16,10 +16,10 @@
 //#import "TestFlight.h"
 #import "GlobalPreferencesConstants.h"
 #import "BI4RestConstants.h"
-#import "Products.h"
 #import "InAppPurchase.h"
 #import "BIMobileIAPHelper.h"
 #import "PreferencesViewController.h"
+#import "Products.h"
 
 
 @implementation WebiAppDelegate
@@ -36,9 +36,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    
     [BIMobileIAPHelper sharedInstance];
-
+    
 #ifndef Prod
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
     [TestFlight passCheckpoint:@"Device ID Registered"];
@@ -78,13 +78,13 @@
     
     
     
-//    NSLog(@"Language:%@",[[NSLocale preferredLanguages] objectAtIndex:0]);
+    //    NSLog(@"Language:%@",[[NSLocale preferredLanguages] objectAtIndex:0]);
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Locale:",[[NSLocale preferredLanguages] objectAtIndex:0]]];
-    _isCreateSessionAllowed=[self IsCreateSessionPurchased:self.managedObjectContext];
     
-#ifdef Lite
-    [self createAposDemoConnectionAsDefault:YES];
-#endif
+    
+    if ([[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO){
+        [self createAposDemoConnectionAsDefault:YES];
+    }
     
     
     
@@ -108,22 +108,22 @@
     
     [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal
                                           barMetrics:UIBarMetricsDefault];
-
+    
     [[UIBarButtonItem appearance] setBackgroundImage:barButtonLandscape forState:UIControlStateNormal
                                           barMetrics:UIBarMetricsLandscapePhone];
     
     
-
+    
     
     UIImage *backButton = [[UIImage imageNamed:@"back-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
     UIImage *backButtonLandscape = [[UIImage imageNamed:@"back-button_landscape.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
     
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
                                                     barMetrics:UIBarMetricsDefault];
-
+    
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonLandscape forState:UIControlStateNormal
                                                     barMetrics:UIBarMetricsLandscapePhone];
-
+    
     
     
     UIImage *minImage = [[UIImage imageNamed:@"slider-track-fill.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
@@ -435,28 +435,28 @@
     
 }
 
--(BOOL) IsCreateSessionPurchased:(NSManagedObjectContext *)context{
-    //  Set up a predicate (or search criteria) for checking Create Session Purchase
-    NSLog(@"Searching for %@",MANAGE_CONNECTIONS);
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(productid == %@ )", MANAGE_CONNECTIONS];
-    
-    //  Actually run the query in Core Data and return the count of purchases with these details
-    if ([CoreDataHelper countForEntity:@"InAppPurchase" withPredicate:predicate andContext:context] <= 0){
-        NSLog(@"No Purchases Yet");
-        _isCreateSessionAllowed=NO;
-//        NSLog(@"Creating Purchase for Testing");
-//        InAppPurchase *purchase = [NSEntityDescription
-//                             insertNewObjectForEntityForName:@"InAppPurchase"
-//                             inManagedObjectContext:context];
-//        purchase.productid=MANAGE_CONNECTIONS;
-        
-    }else{
-        NSLog(@"Already purchased!");
-                _isCreateSessionAllowed=YES;
-    }
-    
-    return _isCreateSessionAllowed;
-}
+//-(BOOL) IsCreateSessionPurchased:(NSManagedObjectContext *)context{
+//    //  Set up a predicate (or search criteria) for checking Create Session Purchase
+//    NSLog(@"Searching for %@",MANAGE_CONNECTIONS);
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(productid == %@ )", MANAGE_CONNECTIONS];
+//
+//    //  Actually run the query in Core Data and return the count of purchases with these details
+//    if ([CoreDataHelper countForEntity:@"InAppPurchase" withPredicate:predicate andContext:context] <= 0){
+//        NSLog(@"No Purchases Yet");
+//        _isCreateSessionAllowed=NO;
+////        NSLog(@"Creating Purchase for Testing");
+////        InAppPurchase *purchase = [NSEntityDescription
+////                             insertNewObjectForEntityForName:@"InAppPurchase"
+////                             inManagedObjectContext:context];
+////        purchase.productid=MANAGE_CONNECTIONS;
+//
+//    }else{
+//        NSLog(@"Already purchased!");
+//                _isCreateSessionAllowed=YES;
+//    }
+//
+//    return _isCreateSessionAllowed;
+//}
 -(Settings *) getGlobalSettingsWithContext:(NSManagedObjectContext *)context{
     NSMutableArray *settings=[CoreDataHelper getObjectsForEntity:@"Settings" withSortKey:nil andSortAscending:YES andContext:self.managedObjectContext];
     Settings *globalPreferences;

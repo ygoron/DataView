@@ -68,7 +68,7 @@
 }
 
 - (void)restoreTapped:(id)sender {
-    NSlog (@"Restore Transaction tapped");
+    NSLog (@"Restore Transaction tapped");
     [[BIMobileIAPHelper sharedInstance] restoreCompletedTransactions];
 }
 

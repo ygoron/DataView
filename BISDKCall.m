@@ -12,6 +12,7 @@
 #import "CypressResponseHeader.h"
 #import "BILogoff.h"
 #import "InfoObject.h"
+#import "GlobalPreferencesConstants.h"
 
 @implementation BISDKCall
 {
@@ -126,22 +127,22 @@
     if ([response respondsToSelector:@selector(statusCode)])
     {
         _statusCode = [((NSHTTPURLResponse *)response) statusCode];
-//        if (statusCode  ==404)
-//        {
-//            [connection cancel];  // stop connecting; no more delegate messages
-//            NSLog(@"didReceiveResponse statusCode with %i", statusCode);
-//
-//            NSMutableDictionary* details = [NSMutableDictionary dictionary];
-//            [details setValue:[NSString stringWithFormat:@"%@%d",@"Server Error: ",statusCode]  forKey:NSLocalizedDescriptionKey];
-//            
-//            _connectorError =[NSError errorWithDomain:@"Failed" code:statusCode userInfo:details];
-//            [self.delegate cypressCallForChildren:self withResponse:nil isSuccess:NO withChildrenObjects:nil];
-//        }
-//        else{
-//            responseData = [[NSMutableData alloc] init];
-//        }
-            responseData = [[NSMutableData alloc] init];
-
+        //        if (statusCode  ==404)
+        //        {
+        //            [connection cancel];  // stop connecting; no more delegate messages
+        //            NSLog(@"didReceiveResponse statusCode with %i", statusCode);
+        //
+        //            NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        //            [details setValue:[NSString stringWithFormat:@"%@%d",@"Server Error: ",statusCode]  forKey:NSLocalizedDescriptionKey];
+        //
+        //            _connectorError =[NSError errorWithDomain:@"Failed" code:statusCode userInfo:details];
+        //            [self.delegate cypressCallForChildren:self withResponse:nil isSuccess:NO withChildrenObjects:nil];
+        //        }
+        //        else{
+        //            responseData = [[NSMutableData alloc] init];
+        //        }
+        responseData = [[NSMutableData alloc] init];
+        
         
     }
     
@@ -164,7 +165,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connectionDidFinishLoading");
     NSLog(@"Succeeded! Received %d bytes of data",[responseData length]);
-
+    
 #ifdef Trace
     NSString *receivedString = [[NSString alloc]  initWithData:responseData
                                                       encoding:NSUTF8StringEncoding];
@@ -223,8 +224,8 @@
                     NSLog(@"Next %@",responseHeader.next);
                 }
             }
-
-
+            
+            
             
             
             
@@ -243,7 +244,7 @@
                             infoObject.metaDataUrl=[NSURL URLWithString:[self parseLevelName:@"__metadata" subLevel:@"uri" withDictionary:entry]];
                             if ([entry objectForKey:@"id"]){
                                 infoObject.objectId= [[entry objectForKey:@"id"] intValue];
-                                NSLog(@"InfoObject Id %d",infoObject.objectId);
+                                NSLog(@"InfoObject Id %d, Name: %@",infoObject.objectId,infoObject.name=[entry objectForKey:@"name"]);
                             }
                             if ([entry objectForKey:@"cuid"]) infoObject.cuid=[entry objectForKey:@"cuid"];
                             if ([entry objectForKey:@"description"]) infoObject.description=[entry objectForKey:@"description"];
@@ -254,6 +255,8 @@
                             
                             if (_isFilterByUserName==YES && [infoObject.name caseInsensitiveCompare:_biSession.userName]!=NSOrderedSame){
                                 NSLog(@"Skipping Object with name %@",infoObject.name);
+                            }else if([infoObject.name caseInsensitiveCompare: DEFAULT_APOS_SPECIAL_FOLDER]==NSOrderedSame ){
+                                NSLog(@"Skipping Special Folder with name %@",infoObject.name);
                             }else
                                 [infoObjects addObject:infoObject];
                             
@@ -279,7 +282,7 @@
                         NSLog(@"Schdeuling Forms %@",selectedObject.scheduleFormsUrl);
                     }
                 }
-
+                
                 if ([responseDic objectForKey:@"openDocument"]){
                     if ([[responseDic objectForKey:@"openDocument"] isKindOfClass:[NSDictionary class]]){
                         NSDictionary *deferred=[responseDic objectForKey:@"openDocument"];
@@ -295,12 +298,12 @@
                         NSLog(@"Open Doc %@",selectedObject.openDoc);
                     }
                 }
-
                 
                 
-
-
-
+                
+                
+                
+                
                 if ([responseDic objectForKey:@"id"]) {
                     selectedObject.objectId=[[responseDic objectForKey:@"id"] intValue];
                     NSLog(@"InfoObject Id %d",selectedObject.objectId);

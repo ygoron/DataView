@@ -209,12 +209,43 @@
         NSLog(@"Editing Session: %@",self.sessionNameTextField.text);
         [self setSession:editedSession];
         [self disableOtherSession:editedSession WithAllSessions:self.allSessions];
+        BILogoff *biLogoff=[[BILogoff alloc] init];
+        [biLogoff logoffSession:appDelegate.activeSession withToken:appDelegate.activeSession.cmsToken];
+        [self checkEnabledSessionInSessions:self.allSessions];
         [self.delegate sessionDetailsViewController:self didUpdateSession:editedSession atIndex:editedIndexPath];
+
+        
     }
+    
+    
     
     
 }
 
+-(void) checkEnabledSessionInSessions: (NSMutableArray *)existingSessions
+{
+    BOOL isAtLeastOneSessionEnabled=NO;
+    for (Session *session in existingSessions) {
+        if ([session.isEnabled boolValue]==YES){
+            isAtLeastOneSessionEnabled=YES;
+            break;
+        }
+    }
+    
+    if (isAtLeastOneSessionEnabled==NO){
+        NSLog(@"No Enabled Session. Enable the first one");
+        if (existingSessions.count>0){
+            [[existingSessions objectAtIndex:0] setIsEnabled:[NSNumber numberWithBool:YES]];
+              appDelegate.activeSession=[existingSessions objectAtIndex:0];
+              appDelegate.activeSession.cmsToken=nil;
+            [appDelegate.activeSession setIsTestedOK:[NSNumber numberWithBool:YES]];
+              NSLog(@"First Session Enabled. Name:%@",appDelegate.activeSession.name);
+
+              
+        }
+    }
+    
+}
 -(BOOL) isNameAlreadyExistWithName:(NSString *)name WithSessions:(NSMutableArray *)existingSessions
 {
     for (Session *session in existingSessions) {
@@ -262,7 +293,7 @@
         session.cypressSDKBase=self.newSession.cypressSDKBase;
         session.webiRestSDKBase=self.newSession.webiRestSDKBase;
     }
-
+    
     
     session.isTestedOK=[NSNumber numberWithBool:NO];
     self.isNewSessionTestedOK=NO;

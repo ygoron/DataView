@@ -33,7 +33,6 @@
 - (void)iPadInit;
 - (void)iPhoneInit;
 - (Settings *) getGlobalSettingsWithContext: (NSManagedObjectContext *) context;
--(BOOL) IsCreateSessionPurchased: (NSManagedObjectContext *) context;
 -(void) showHideUniverseController;
 -(void) createAposDemoConnectionAsDefault:(BOOL) isDefault;
 -(Session *) isNameAlreadyExistWithName:(NSString *)name WithSessions:(NSMutableArray *)existingSessions;
