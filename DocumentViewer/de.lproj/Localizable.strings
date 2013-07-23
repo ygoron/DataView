@@ -266,12 +266,10 @@
 "View Object Using Open Document" = "Objekt unter Verwendung von OpenDocument anseheh";
 
 
-
-"Restore" = "Restore";
-"Connections"="Connections";
-"In-App Purchase Required" = "In-App Purchase Required";
-"To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "To connect to your own SAP BusinessObjects system please purchase this in-app feature";
-"Connection" = "Connection";
-
+"Restore" = "Wiederherstellen";
+"Connections"="Verbindungen";
+"In-App Purchase Required" = "In-App-Einkauf erforderlich";
+"To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "Um sich zu Ihrem egenen SAP-BusinessObjects-System zu verbinden, kaufen Sie bitte diese in-app-Feature";
+"Connection" = "Verbindung";
 
 

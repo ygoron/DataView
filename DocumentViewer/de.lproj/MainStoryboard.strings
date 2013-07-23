@@ -321,12 +321,9 @@ Kann die App-Leistung verlangsamen\n";
 /* Class = "IBUITextField"; placeholder = "[Password]"; ObjectID = "zMe-BI-kxj"; */
 "zMe-BI-kxj.placeholder" = "[Kennwort]";
 
-"01b-JG-fDy.text"="Premium Features";
-
-"0Fd-2G-pir.text"="Available in-app purchases";
-
-"fUw-Oa-Ulb.title"="Premium Features";
-
+"01b-JG-fDy.text"="Premium-Features";
+"0Fd-2G-pir.text"="Erhältliche In-App-Einkäufe";
+"fUw-Oa-Ulb.title"="Premium-Features";
 
 
 

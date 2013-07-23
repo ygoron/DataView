@@ -1,4 +1,4 @@
-﻿
+
 /* Class = "IBUILabel"; text = "Created By"; ObjectID = "19b-RK-HDO"; */
 "19b-RK-HDO.text" = "Creat de";
 
@@ -319,10 +319,7 @@ May slow down app performance\n"; ObjectID = "4eo-dM-CxY"; */
 /* Class = "IBUITextField"; placeholder = "[Password]"; ObjectID = "zMe-BI-kxj"; */
 "zMe-BI-kxj.placeholder" = "[Parola]";
 
-"01b-JG-fDy.text"="Premium Features";
-
-"0Fd-2G-pir.text"="Available in-app purchases";
-
-"fUw-Oa-Ulb.title"="Premium Features";
-
+"01b-JG-fDy.text"="Funcții premium";
+"0Fd-2G-pir.text"="Achiziții în-app disponibile ";
+"fUw-Oa-Ulb.title"="Funcții premium";
 

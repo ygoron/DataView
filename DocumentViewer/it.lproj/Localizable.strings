@@ -267,11 +267,10 @@
 
 
 
-"Restore" = "Restore";
-"Connections"="Connections";
-"In-App Purchase Required" = "In-App Purchase Required";
-"To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "To connect to your own SAP BusinessObjects system please purchase this in-app feature";
-"Connection" = "Connection";
-
+"Restore" = "Ristabilire";
+"Connections"="Connessioni";
+"In-App Purchase Required" = "Acquisto in-app necessaria";
+"To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "Per connettersi al proprio sistema SAP BusinessObjects da acquistare questa funzionalità in-applicazione";
+"Connection" = "Connessione";
 
 
