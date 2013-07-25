@@ -39,6 +39,9 @@
     BOOL isReportsRefreshing;
     int openDocumentId;
     Session *activeSession;
+    BOOL isOpenWholeDocument;
+    Document *documentToOpen;
+    ReportExportFormat exportFormat;
     
     
 }
@@ -54,6 +57,10 @@
     self = [super initWithStyle:style];
     if (self) {
         isInstance=NO;
+        isOpenWholeDocument=NO;
+        documentToOpen=nil;
+        exportFormat=FormatPDF;
+        
     }
     return self;
 }
@@ -427,33 +434,6 @@
      */
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSLog (@"Seque: %@",segue.identifier);
-
-    [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Webi Document Action:",segue.identifier]];
-
-	if ([segue.identifier isEqualToString:@"ExportReport_Ident"])
-	{
-        
-        UINavigationController *nav=segue.destinationViewController;
-//        ReportViewController    *reportExportView =segue.destinationViewController;
-        ReportViewController    *reportExportView =[nav.viewControllers objectAtIndex:0];
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        reportExportView.report=[[self.document.reports allObjects] objectAtIndex:[indexPath row]];
-        
-	}else if ([segue.identifier isEqualToString:@"ScheduleDetail_Ident"]){
-        ScheduleDetailViewController *scheduleDetail= segue.destinationViewController;
-        scheduleDetail.document=self.document;
-        
-    }else if ([segue.identifier isEqualToString:@"ShowScheduleScene_Ident"]){
-        ScheduleWebiViewController *scheduleWebi= segue.destinationViewController;
-        scheduleWebi.document=self.document;
-        
-    }
-    
-    
-}
 
 - (void)performAction:(id)sender {
     
@@ -493,11 +473,70 @@
             [TestFlight passCheckpoint:@"View Webi in OpenDoc Action"];
             [self openInSafari];
             break;
+        case 1:
+            [TestFlight passCheckpoint:@"View Document in PDF"];
+            [self exportDocumentWithFormat: FormatPDF];
+            break;
+        case 2:
+            [TestFlight passCheckpoint:@"Export to Excel"];
+            [self exportDocumentWithFormat: FormatEXCEL];
+            break;
+            
             
             
         default:
             break;
     }
+}
+-(void) exportDocumentWithFormat: (ReportExportFormat) format
+{
+    
+    //    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+    //    ReportViewController *rvc = (ReportViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"ReportView"];
+    
+    isOpenWholeDocument=YES;
+    documentToOpen=_document;
+    //    rvc.exportFormat=FormatPDF;
+    exportFormat=format;
+    //    [self.navigationController pushViewController:rvc animated:YES];
+    [self performSegueWithIdentifier:@"ExportReport_Ident" sender:self];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog (@"Seque: %@",segue.identifier);
+    
+    [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Webi Document Action:",segue.identifier]];
+    
+	if ([segue.identifier isEqualToString:@"ExportReport_Ident"])
+	{
+        
+        UINavigationController *nav=segue.destinationViewController;
+        //        ReportViewController    *reportExportView =segue.destinationViewController;
+        ReportViewController    *reportExportView =[nav.viewControllers objectAtIndex:0];
+        reportExportView.exportFormat=FormatPDF;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        reportExportView.report=[[self.document.reports allObjects] objectAtIndex:[indexPath row]];
+        reportExportView.titleText=reportExportView.report.name;
+        if (isOpenWholeDocument==YES){
+            reportExportView.isOpenWholeDocument=isOpenWholeDocument;
+            reportExportView.document=documentToOpen;
+            reportExportView.exportFormat=exportFormat;
+            reportExportView.titleText=documentToOpen.name;
+        }
+    isOpenWholeDocument=NO;
+	}else if ([segue.identifier isEqualToString:@"ScheduleDetail_Ident"]){
+        ScheduleDetailViewController *scheduleDetail= segue.destinationViewController;
+        scheduleDetail.document=self.document;
+        
+    }else if ([segue.identifier isEqualToString:@"ShowScheduleScene_Ident"]){
+        ScheduleWebiViewController *scheduleWebi= segue.destinationViewController;
+        scheduleWebi.document=self.document;
+        
+    }
+    
+    
 }
 
 - (void)printInteractionControllerDidPresentPrinterOptions:(UIPrintInteractionController *)printInteractionController {
@@ -600,7 +639,7 @@
                         delegate:self
                         cancelButtonTitle:cancelButtonTitle
                         destructiveButtonTitle:nil
-                        otherButtonTitles:NSLocalizedString(@"Open Document",@"Use Open Document Call to View document"), nil];
+                        otherButtonTitles:NSLocalizedString(@"Open Document",@"Use Open Document Call to View document"), NSLocalizedString(@"View Document in PDF",@"Export Document in PDF"),NSLocalizedString(@"Export to Excel",@"Export Document to Excel"),nil];
     }
     
     return _actionSheet;

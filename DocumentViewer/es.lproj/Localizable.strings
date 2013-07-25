@@ -267,12 +267,13 @@
 /* No comment provided by engineer. */
 "View Object Using Open Document" = "Ver objetos utilizando OpenDocument";
 
-
-
 "Restore" = "Restaurar";
 "Connections"="Conecciones";
 "In-App Purchase Required" = "Compras en-aplicación requeridas ";
 "To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "Para conectarse a su sistema SAP BusinessObjects, por favor, compre esta función en-aplicación";
 "Connection" = "Conexión ";
+
+"View Document in PDF"="View Document in PDF";
+"Export to Excel"="Export to Excel";
 
 

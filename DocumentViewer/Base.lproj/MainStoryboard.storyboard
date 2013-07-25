@@ -118,7 +118,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="DocumentDetail_Ident" id="x4n-fz-y7E" customClass="DocumentDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="BXW-6W-5hd">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -265,7 +265,7 @@
         <!--Report View Controller-->
         <scene sceneID="JV3-hL-VXi">
             <objects>
-                <viewController id="FiS-hB-dyK" customClass="ReportViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReportView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FiS-hB-dyK" customClass="ReportViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="slr-ro-k6a">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -299,7 +299,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="ScheduleDetailes_Ident" id="5lH-TT-bva" customClass="ScheduleDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Wy5-E2-xsJ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -361,7 +361,7 @@
             <objects>
                 <tableViewController id="o7K-Vx-5T3" customClass="ScheduleWebiViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fvb-Bj-vwg">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -485,7 +485,7 @@
             <objects>
                 <tableViewController id="nPY-eX-XtU" customClass="DestinationViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dhj-rh-BbW">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -1009,7 +1009,7 @@
         <scene sceneID="9ar-9G-Ga0">
             <objects>
                 <navigationController id="vdc-QX-Pej" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="DCD8E841-884B-4F9C-958B-15E2D72CAB20" id="dj2-bu-JDm"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="1E766260-DAFA-4471-AD97-A02C69631ED0" id="dj2-bu-JDm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vtf-Vr-VA2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1839,7 +1839,8 @@
         <!--Navigation Controller-->
         <scene sceneID="YBO-wC-yqg">
             <objects>
-                <navigationController id="Adh-Nt-Lcw" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9Y-2K-91F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="NavControllerView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Adh-Nt-Lcw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vsy-jk-9BU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1850,16 +1851,12 @@
                         <segue destination="FiS-hB-dyK" kind="relationship" relationship="rootViewController" id="E4A-HI-u7M"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9Y-2K-91F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3649" y="261"/>
         </scene>
     </scenes>
     <resources>
-        <image name="APOS_Logo.jpg" width="169" height="34"/>
-        <image name="CategoriesPersonal_48.png" width="24" height="24"/>
-        <image name="Categories_48.png" width="24" height="24"/>
-        <image name="DCD8E841-884B-4F9C-958B-15E2D72CAB20" width="30" height="30">
+        <image name="1E766260-DAFA-4471-AD97-A02C69631ED0" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1989,6 +1986,9 @@ qwCtALIAtQC3ALkAuwC9AMIA2QDbAN0b/xwEHA8cGBwrHC8cQhxNHFYcWxxjHGYcaxx6HH4chRyNHJoc
 nxyhHKMcqBywHLMcuBzAHMMc1RzYHN0AAAAAAAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAc3w
 </mutableData>
         </image>
+        <image name="APOS_Logo.jpg" width="169" height="34"/>
+        <image name="CategoriesPersonal_48.png" width="24" height="24"/>
+        <image name="Categories_48.png" width="24" height="24"/>
         <image name="FolderPersonal_48.png" width="24" height="24"/>
         <image name="Folder_48.png" width="24" height="24"/>
         <image name="Inbox_48.png" width="24" height="24"/>
@@ -2132,7 +2132,6 @@ nxyhHKMcqBywHLMcuBzAHMMc1RzYHN0AAAAAAAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAc3w
         <class className="SessionsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SessionsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="buttonAddNewSession:"/>
                 <relationship kind="outlet" name="buttonAddSession" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
@@ -2162,7 +2161,7 @@ nxyhHKMcqBywHLMcuBzAHMMc1RzYHN0AAAAAAAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAc3w
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Nke-qc-HzF"/>
+        <segue reference="Bfa-9f-mJU"/>
         <segue reference="C31-GM-2cO"/>
     </inferredMetricsTieBreakers>
 </document>

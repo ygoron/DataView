@@ -8,12 +8,13 @@
 
 #import "ReportViewController.h"
 #import "BIExportReport.h"
-#import "TitleLabel.h"
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import "Document.h"
 #import "Session.h"
 #import "WebiAppDelegate.h"
+#import "TitleLabel.h"
+
 
 
 @interface ReportViewController ()
@@ -24,15 +25,15 @@
 
 @implementation ReportViewController{
     UIActivityIndicatorView *spinner;
-    ReportExportFormat exportFormat;
     NSString *exportFilePath;
+    TitleLabel *titleLabel;
 }
 
-@synthesize navigationBar;
-@synthesize actionButton;
-@synthesize actionSheet=_actionSheet;
-@synthesize picVisible;
-@synthesize reportHtmlString;
+//@synthesize navigationBar;
+//@synthesize actionButton;
+//@synthesize actionSheet=_actionSheet;
+//@synthesize picVisible;
+//@synthesize reportHtmlString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,11 +56,9 @@
     NSLog(@"Title:%@",self.report.name);
     //    self.navigationBar.topItem.title=self.report.name;
     
-    TitleLabel *titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
+    titleLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
     //    self.navigationBar.topItem.titleView=titelLabel;
-    self.navigationItem.titleView=titelLabel;
-    titelLabel.text=self.report.name;
-    [titelLabel sizeToFit];
+    self.navigationItem.titleView=titleLabel;
     
     
     self.webView.delegate=self;
@@ -75,10 +74,27 @@
     
     self.picVisible = NO;
     
-    [self loadWebView:self.report];
+    
+    if (_isOpenWholeDocument==NO) {
+//        titelLabel.text=self.report.name;
+//        [titelLabel sizeToFit];
+        [self loadWebViewWithReport:self.report];
+    }
+    else {
+//        titelLabel.text=_document.name;
+//        [titelLabel sizeToFit];
+        [self loadWebViewWithDocument:_document];
+        
+    }
     
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSLog(@"View will appear with title:%@",_titleText);
+    titleLabel.text=_titleText;
+    [titleLabel sizeToFit];
+}
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -86,7 +102,11 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSLog(@"View Loaded Title:%@",self.report.name);
+    NSLog(@"Finish ViewDidFinishLoad");
+    if (_isOpenWholeDocument==NO)
+        NSLog(@"View Loaded Title:%@",self.report.name);
+    else
+        NSLog(@"View Loaded Title:%@",self.document.name);
     self.webView.scalesPageToFit=YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
@@ -108,33 +128,50 @@
 }
 
 
--(void) loadWebView:(Report *) report{
+-(void) loadWebViewWithReport:(Report *) report{
     [spinner startAnimating];
+    NSLog (@"Load Web View For Format:%d",_exportFormat);
     WebiAppDelegate *appDelegate= (id)[[UIApplication sharedApplication] delegate];
     BIExportReport *exportReport=[[BIExportReport alloc]init];
     exportReport.delegate=self;
+    exportReport.exportFormat=_exportFormat;
     exportReport.biSession=appDelegate.activeSession;
     //    [exportReport exportReport:report withFormat:FormatHTML];
-    [exportReport exportReport:report withFormat:FormatPDF];
+    [exportReport exportReport:report withFormat:_exportFormat];
 }
 
--(void)biExportReportPdf:(BIExportReport *)biExportReport isSuccess:(BOOL)isSuccess filePath:(NSString *)filePath{
+-(void) loadWebViewWithDocument:(Document *) document{
+    [spinner startAnimating];
+    NSLog (@"Load Web View For Format:%d",_exportFormat);
+    WebiAppDelegate *appDelegate= (id)[[UIApplication sharedApplication] delegate];
+    BIExportReport *exportReport=[[BIExportReport alloc]init];
+    exportReport.delegate=self;
+    exportReport.exportFormat=_exportFormat;
+    exportReport.biSession=appDelegate.activeSession;
+    //    [exportReport exportReport:report withFormat:FormatHTML];
+    [exportReport exportDocument:document withFormat:_exportFormat];
+}
+
+-(void)biExportReportExternalFormat:(BIExportReport *)biExportReport isSuccess:(BOOL)isSuccess filePath:(NSString *)filePath WithFormat:(ReportExportFormat)format
+{
     [spinner stopAnimating];
     
     exportFilePath=filePath;
-    exportFormat=FormatPDF;
+    //    exportFormat=FormatPDF;
+    _exportFormat=format;
     
     NSURL *url = [NSURL fileURLWithPath:filePath];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView setUserInteractionEnabled:YES];
     [self.webView setDelegate:self];
     self.webView.scalesPageToFit = YES;
+    NSLog(@"Load Request With URL %@",url);
     [self.webView loadRequest:requestObj];
     
 }
 -(void) biExportReport:(BIExportReport *)biExportReport isSuccess:(BOOL)isSuccess html:(NSString *)htmlString{
     [spinner stopAnimating];
-    exportFormat=FormatHTML;
+    _exportFormat=FormatHTML;
     
     if (isSuccess==YES){
         NSLog(@"Documents Received");
@@ -277,7 +314,7 @@
         viewController.mailComposeDelegate = self;
         
         [viewController setSubject:[NSString stringWithFormat:@"%@ - APOS BI Viewer Mobile App",self.report.name]];
-        switch (exportFormat) {
+        switch (_exportFormat) {
             case FormatHTML:
             {
                 if (self.reportHtmlString!=nil){

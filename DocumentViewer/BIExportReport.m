@@ -16,6 +16,7 @@
 {
     BIConnector *connector;
     WebiAppDelegate *appDelegate;
+    BOOL _isDocument;
 }
 
 @synthesize connectorError;
@@ -29,6 +30,7 @@
 -(void) exportReport:(Report *)report withFormat:(ReportExportFormat)format{
     NSLog(@"Export report ID:%@ With Session:%@",report.id,report.document.session.name);
     
+    _isDocument=NO;
     appDelegate = (id)[[UIApplication sharedApplication] delegate];
     self.currentToken=self.biSession.cmsToken;
     
@@ -51,6 +53,31 @@
     
 }
 
+-(void) exportDocument:(Document *)document withFormat:(ReportExportFormat)format
+{
+    NSLog(@"Export Document ID:%@ With Session:%@",document.id, document.session.name);
+    _isDocument=YES;
+    
+    appDelegate = (id)[[UIApplication sharedApplication] delegate];
+    _currentToken=self.biSession.cmsToken;
+    
+    document.session=self.biSession;
+    _document=document;
+    _exportFormat=format;
+    // Get Token First
+    if (document.session.cmsToken==nil){
+        NSLog(@"CMS Token is NULL - create new one");
+        connector=[[BIConnector alloc]init];
+        connector.delegate=self;
+        [connector getCmsTokenWithSession:document.session];
+    }else{
+        NSLog(@"CMS Token is NOT NULL - Process With Existing Token");
+        [self processHttpRequestForSessionWithDocument:document];
+        
+    }
+    
+    
+}
 #pragma mark getToken Completed
 
 -(void) biConnector:(BIConnector *)biConnector didCreateCmsToken:(NSString *)cmsToken forSession:(Session *)session{
@@ -58,7 +85,8 @@
     if(cmsToken!=nil){
         NSLog(@"Token Receieved:%@",cmsToken);
         self.currentToken=cmsToken;
-        [self processHttpRequestForSession:self.report];
+        if (_isDocument==NO)[self processHttpRequestForSession:self.report];
+        else          [self processHttpRequestForSessionWithDocument:_document];
         
     }else if (biConnector.connectorError!=nil){
         self.connectorError=biConnector.connectorError ;
@@ -71,6 +99,50 @@
     }else{
         [self.delegate biExportReport:self isSuccess:NO html:nil];
     }
+    
+}
+
+
+# pragma mark Export Report
+
+-(void) processHttpRequestForSessionWithDocument: (Document *) document
+{
+    
+    self.biSession=document.session;
+    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",self.currentToken,@"\""];
+    NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:[self getExportDocumentUrl:document]];
+    
+    NSLog(@"Process with URL: %@",[request URL]);
+    NSLog(@"Token:%@",cmsToken);
+    
+    NSLog(@"Timeout Preference Value:%@",appDelegate.globalSettings.networkTimeout);
+    [request setTimeoutInterval:[appDelegate.globalSettings.networkTimeout doubleValue ]];
+    
+    
+    [request setHTTPMethod:@"GET"];
+    
+    switch (self.exportFormat) {
+        case FormatHTML:
+            [request setValue:@"text/html" forHTTPHeaderField:@"Accept"];
+            NSLog(@"HTML Header");
+            break;
+        case FormatPDF:
+            [request setValue:@"application/pdf" forHTTPHeaderField:@"Accept"];
+            NSLog(@"PDF Header");
+            break;
+            
+        case FormatEXCEL:
+            [request setValue:@"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" forHTTPHeaderField:@"Accept"];
+            NSLog(@"Excel Header");
+            break;
+            
+        default:
+            [request setValue:@"text/html" forHTTPHeaderField:@"Accept"];
+            break;
+    }
+    
+    [request setValue:cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
+    (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
     
 }
 
@@ -90,25 +162,49 @@
     
     
     [request setHTTPMethod:@"GET"];
-//    if (self.exportFormat==FormatHTML)
+    //    if (self.exportFormat==FormatHTML)
     
-        switch (self.exportFormat) {
-            case FormatHTML:
-                [request setValue:@"text/html" forHTTPHeaderField:@"Accept"];
-                NSLog(@"HTML Header");
-                break;
-            case FormatPDF:
-                [request setValue:@"application/pdf" forHTTPHeaderField:@"Accept"];
-                NSLog(@"PDF Header");
-                break;
-            default:
-                [request setValue:@"text/html" forHTTPHeaderField:@"Accept"];
-                break;
-        }
+    switch (self.exportFormat) {
+        case FormatHTML:
+            [request setValue:@"text/html" forHTTPHeaderField:@"Accept"];
+            NSLog(@"HTML Header");
+            break;
+        case FormatPDF:
+            [request setValue:@"application/pdf" forHTTPHeaderField:@"Accept"];
+            NSLog(@"PDF Header");
+            break;
+        case FormatEXCEL:
+            [request setValue:@"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" forHTTPHeaderField:@"Accept"];
+            NSLog(@"Excel Header");
+            break;
+            
+        default:
+            [request setValue:@"text/html" forHTTPHeaderField:@"Accept"];
+            break;
+    }
     
     [request setValue:cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
     (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
     
+}
+
+
+# pragma mark getExportDocument URL
+
+-(NSURL *) getExportDocumentUrl: (Document *) document{
+    NSLog (@"Export Document URL For Report id:%@",document.id);
+    NSURL *getExportDocumentUrl;
+    
+    NSString *host=[NSString stringWithFormat: @"%@:%@",document.session.cmsName,document.session.port] ;
+    if ([document.session.isHttps integerValue]==1){
+        getExportDocumentUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@",document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[document.id stringValue],@"/pages"]];
+    }
+    else{
+        getExportDocumentUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@",document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[document.id stringValue],@"/pages"]];
+        
+    }
+    NSLog(@"URL:%@",getExportDocumentUrl);
+    return  getExportDocumentUrl;
 }
 
 # pragma mark getExportReport URL
@@ -118,17 +214,11 @@
     NSURL *getExportReportUrl;
     NSString *host=[NSString stringWithFormat: @"%@:%@",report.document.session.cmsName,report.document.session.port] ;
     if ([report.document.session.isHttps integerValue]==1){
-//        getExportReportUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@",report.document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[report.document.id stringValue],@"/reports/",report.id]];
-        
         getExportReportUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@%@",report.document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[report.document.id stringValue],@"/reports/",report.id,@"/pages"]];
-
-        //        getExportReportUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@",getDocumentsPath,@"/",report.document.id,@"/reports/",report.id,@"/pages/2"]];
     }
     else{
-//        getExportReportUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@",report.document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[report.document.id stringValue],@"/reports/",report.id]];
         getExportReportUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@%@",report.document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[report.document.id stringValue],@"/reports/",report.id,@"/pages"]];
-
-        //        getExportReportUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@",getDocumentsPath,@"/",report.document.id,@"/reports/",report.id,@"/pages/2"]];
+        
     }
     NSLog(@"URL:%@",getExportReportUrl);
     return  getExportReportUrl;
@@ -190,10 +280,32 @@
     NSLog(@"Export Report: connectionDidFinishLoading");
     NSLog(@"Export Report Succeeded! Received %d bytes of data",[responseData length]);
     NSString *filePath ;
-    if (_exportFormat==FormatPDF){
+    if (_exportFormat==FormatPDF || _exportFormat==FormatEXCEL){
         NSArray *paths =       NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
         NSString *documentsPath = [paths objectAtIndex:0];
-        filePath = [documentsPath stringByAppendingPathComponent:@"ExportReport.pdf"];
+        NSError *error;
+        NSFileManager *fileMgr = [NSFileManager defaultManager];
+        if (_exportFormat==FormatPDF){
+            filePath = [documentsPath stringByAppendingPathComponent:@"ExportReport.pdf"];
+        }
+        else if (_exportFormat==FormatEXCEL){
+            filePath = [documentsPath stringByAppendingPathComponent:@"ExportReport.xlsx"];
+        }
+        
+        if (filePath!=nil){
+            if([fileMgr fileExistsAtPath:filePath]) {
+                NSLog(@"File Exist:%@",filePath);
+                if ([fileMgr removeItemAtPath:filePath error:&error] != YES)
+                    NSLog(@"Unable to delete file: %@%@", filePath,[error localizedDescription]);
+                else{
+                    NSLog(@"File %@ - deleted",filePath);
+                    
+                }
+            }else{
+                NSLog(@"File does not exist:%@",filePath);
+            }
+        }
+        
         [responseData writeToFile:filePath atomically:YES];
         NSLog(@"File Created:%@",filePath);
     }
@@ -218,7 +330,8 @@
                 [self.delegate biExportReport:self isSuccess:YES html:receivedString];
                 break;
             case FormatPDF:
-                [self.delegate biExportReportPdf:self isSuccess:YES filePath:filePath];
+            case FormatEXCEL:
+                [self.delegate biExportReportExternalFormat:self isSuccess:YES filePath:filePath WithFormat:_exportFormat];
         }
     }
     

@@ -265,12 +265,13 @@
 /* No comment provided by engineer. */
 "View Object Using Open Document" = "OpenDocument を使用するとオブジェクトを表示";
 
-
 "Restore" = "復元";
 "Connections"="接続";
 "In-App Purchase Required" = "必要があるｱﾌﾟﾘ内購入";
 "To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "個人の SAP BusinessObjects ｼｽﾃﾑに接続するには、このあぷりけーしょんないのふぃーちゃをご購入ください";
 "Connection" = "接続";
 
+"View Document in PDF"="View Document in PDF";
+"Export to Excel"="Export to Excel";
 
 

@@ -14,15 +14,17 @@
 
 @protocol BIExportReportDelegate <NSObject>
 
+typedef enum ReportExportFormat {
+    FormatHTML = 0,
+    FormatPDF =1,
+    FormatEXCEL=2
+} ReportExportFormat;
+
 - (void) biExportReport: (BIExportReport *) biExportReport isSuccess:(BOOL) isSuccess html:(NSString *) htmlString;
-- (void) biExportReportPdf: (BIExportReport *) biExportReport isSuccess:(BOOL) isSuccess filePath:(NSString *) filePath;
+- (void) biExportReportExternalFormat: (BIExportReport *) biExportReport isSuccess:(BOOL) isSuccess filePath:(NSString *) filePath WithFormat:(ReportExportFormat) format;
 
 @end
 
-typedef enum ReportExportFormat {
-    FormatHTML = 0,
-    FormatPDF =1
-} ReportExportFormat;
 
 
 @interface BIExportReport : NSObject <NSURLConnectionDelegate, BIConnectorDelegate>
@@ -38,6 +40,7 @@ typedef enum ReportExportFormat {
 @property (strong, nonatomic)   NSString *boxiError;
 @property (strong, nonatomic)   Session *biSession;
 @property (strong, nonatomic)   Report *report;
+@property (strong, nonatomic)   Document *document;
 @property   ReportExportFormat exportFormat;
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) NSString *currentToken;
@@ -45,6 +48,7 @@ typedef enum ReportExportFormat {
 
 @property (nonatomic, weak) id <BIExportReportDelegate> delegate;
 
+-(void) exportDocument: (Document *) document withFormat: (ReportExportFormat) format;
 -(void) exportReport: (Report *) report withFormat: (ReportExportFormat) format;
 -(void) logoOffIfNeeded;
 

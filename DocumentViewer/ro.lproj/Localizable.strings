@@ -266,13 +266,13 @@
 /* No comment provided by engineer. */
 "View Object Using Open Document" = "Vizionează obiectul folosind OpenDocument";
 
-
-
 "Restore" = "Restaurează";
 "Connections"="Conexiuni";
 "In-App Purchase Required" = "Achiziție în-App Purchase necesară";
 "To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "Pentru a vă conecta la propriul sistem SAP BusinessObjects, cumparați această funcție in-app";
 "Connection" = "Conexiune";
 
+"View Document in PDF"="View Document in PDF";
+"Export to Excel"="Export to Excel";
 
 
