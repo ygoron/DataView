@@ -67,6 +67,7 @@
     
     
     
+    
 }
 
 -(void) reloadOpenDocView
@@ -78,13 +79,44 @@
 }
 -(void) loadOpenDocumentWithUrl:(NSURL *)url
 {
+    
     [spinner startAnimating];
-    NSLog(@"Open Document URL: %@",[_openDocUrl absoluteString]);
-    NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:url];
+    NSMutableURLRequest *request;
+    
+    if ([_infoObject.type isEqualToString:@"CrystalReport"]){
+        
+        NSString *crViewer;
+        if ([_currentSession.isHttps boolValue]==YES){
+            
+            crViewer=[NSString stringWithFormat:@"%@%@%@%@%@%d%@%@%@%@",@"https://",url.host,@":",url.port,@"/BOE/CrystalReports/viewrpt.cwr?id=",_infoObject.objectId,@"&export_fmt=u2fpdf%3a0&Cmd=export&dpi=96&apsuser=",_currentSession.userName,@"&apspassword=",_currentSession.password];
+            
+        }else{
+            crViewer=[NSString stringWithFormat:@"%@%@%@%@%@%d%@%@%@%@",@"http://",url.host,@":",url.port,@"/BOE/CrystalReports/viewrpt.cwr?id=",_infoObject.objectId,@"&export_fmt=u2fpdf%3a0&Cmd=export&dpi=96&apsuser=",_currentSession.userName,@"&apspassword=",_currentSession.password];
+            
+        }
+        NSLog(@"New CWR URL:%@",crViewer);
+        NSURL *crViewerUrl=[NSURL URLWithString:crViewer];
+        request = [NSMutableURLRequest  requestWithURL:crViewerUrl];
+    }else{
+//        NSLog(@"Open Document URL: %@",[_openDocUrl absoluteString]);
+//        NSLog(@"Open Document URL: %@",[url absoluteString]);
+//        request = [NSMutableURLRequest  requestWithURL:url];
+        
+        //    NSString *encodedToken=[_cmsToken stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        //    NSString *newUrlString=@"http://win-eiggairfoum:8080/BOE/CrystalReports/viewrpt.cwr?id=67794&export_fmt=u2fpdf%3a0&Cmd=export&dpi=96";
+        
+        NSString *urlString=[NSString stringWithFormat:@"%@%@",[url absoluteString],@"&sOutputFormat=H"];
+        NSLog(@"URL:%@",urlString);
+        NSURL *newURL=[NSURL URLWithString:urlString];
+        request = [NSMutableURLRequest  requestWithURL:newURL];
+        
+    }
+    
     [request setHTTPMethod:@"GET"];
     [request setValue:_cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
     
     [_webiView loadRequest:request];
+
 }
 
 -(void) getOpenDocumentUrl

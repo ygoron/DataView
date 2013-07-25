@@ -12,6 +12,7 @@
 @interface OpenDocumentViewController : UIViewController <UIWebViewDelegate,CypressSDKDelegate,BIConnectorDelegate>
 @property (nonatomic,strong) NSURL *openDocUrl;
 @property (nonatomic, assign) BOOL isGetOpenDocRequired;
+@property (strong, nonatomic) InfoObject *infoObject;
 @property (strong, nonatomic) IBOutlet UIWebView *webiView;
 @property (strong, nonatomic) NSString *cmsToken;
 @property (strong, nonatomic) Session *currentSession;

@@ -418,6 +418,7 @@
             opdv.cmsToken=_currentSession.cmsToken;
             opdv.currentSession=_currentSession;
             opdv.isGetOpenDocRequired=NO;
+            opdv.infoObject=_selectedObject;
             [self.navigationController pushViewController:opdv animated:YES];
             
         }else if ([actionCell.labelActionName.text isEqualToString:NSLocalizedString(@"View Latest Instance",nil)]){

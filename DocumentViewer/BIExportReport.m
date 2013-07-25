@@ -118,11 +118,16 @@
     NSURL *getExportReportUrl;
     NSString *host=[NSString stringWithFormat: @"%@:%@",report.document.session.cmsName,report.document.session.port] ;
     if ([report.document.session.isHttps integerValue]==1){
-        getExportReportUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@",report.document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[report.document.id stringValue],@"/reports/",report.id]];
+//        getExportReportUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@",report.document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[report.document.id stringValue],@"/reports/",report.id]];
+        
+        getExportReportUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@%@",report.document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[report.document.id stringValue],@"/reports/",report.id,@"/pages"]];
+
         //        getExportReportUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@",getDocumentsPath,@"/",report.document.id,@"/reports/",report.id,@"/pages/2"]];
     }
     else{
-        getExportReportUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@",report.document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[report.document.id stringValue],@"/reports/",report.id]];
+//        getExportReportUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@",report.document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[report.document.id stringValue],@"/reports/",report.id]];
+        getExportReportUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@%@",report.document.session.webiRestSDKBase,getDocumentsPathPoint,@"/",[report.document.id stringValue],@"/reports/",report.id,@"/pages"]];
+
         //        getExportReportUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@%@",getDocumentsPath,@"/",report.document.id,@"/reports/",report.id,@"/pages/2"]];
     }
     NSLog(@"URL:%@",getExportReportUrl);

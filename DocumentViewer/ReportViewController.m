@@ -56,7 +56,7 @@
     //    self.navigationBar.topItem.title=self.report.name;
     
     TitleLabel *titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
-//    self.navigationBar.topItem.titleView=titelLabel;
+    //    self.navigationBar.topItem.titleView=titelLabel;
     self.navigationItem.titleView=titelLabel;
     titelLabel.text=self.report.name;
     [titelLabel sizeToFit];
@@ -120,10 +120,10 @@
 
 -(void)biExportReportPdf:(BIExportReport *)biExportReport isSuccess:(BOOL)isSuccess filePath:(NSString *)filePath{
     [spinner stopAnimating];
-
+    
     exportFilePath=filePath;
     exportFormat=FormatPDF;
-
+    
     NSURL *url = [NSURL fileURLWithPath:filePath];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView setUserInteractionEnabled:YES];
@@ -300,7 +300,7 @@
                 break;
         }
         
-//        [self presentModalViewController:viewController animated:YES];
+        //        [self presentModalViewController:viewController animated:YES];
         [self presentViewController:viewController animated:YES completion:nil];
     }
 }
@@ -338,7 +338,7 @@
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
-//	[self dismissModalViewControllerAnimated:YES];
+    //	[self dismissModalViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)printInteractionControllerDidPresentPrinterOptions:(UIPrintInteractionController *)printInteractionController {
@@ -364,6 +364,16 @@
         
         if ([self.actionSheet isVisible]) {
             [self.actionSheet dismissWithClickedButtonIndex:-1 animated:NO];
+        }
+    }
+    
+    if (exportFilePath!=nil){
+        NSError *error;
+        NSFileManager *fileMgr = [NSFileManager defaultManager];
+        if ([fileMgr removeItemAtPath:exportFilePath error:&error] != YES)
+            NSLog(@"Unable to delete file: %@", [error localizedDescription]);
+        else{
+            NSLog(@"File %@ - deleted",exportFilePath);
         }
     }
 }
