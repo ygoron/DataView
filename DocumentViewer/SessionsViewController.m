@@ -19,6 +19,8 @@
 #import "BIMobileIAPHelper.h"
 #import "Products.h"
 #import "PremiumFeaturesViewController.h"
+#import "DocumentsViewController.h"
+#import "UniversesListViewController.h"
 @interface SessionsViewController () <UIAlertViewDelegate>
 
 @end
@@ -328,6 +330,47 @@
     if ([oldSession.name caseInsensitiveCompare:session.name]!=NSOrderedSame){
         NSLog(@"Session switched from %@ to %@",oldSession.name,session.name);
         [TestFlight passCheckpoint:@"Default Session Switched"];
+        
+        
+        NSLog(@"Reset Document List if active");
+        
+        UINavigationController *documentsListNavController=[[self.tabBarController viewControllers] objectAtIndex:1];
+        
+        if ([[documentsListNavController viewControllers] count]>0){
+            DocumentsViewController *documentView= [[documentsListNavController viewControllers]objectAtIndex:0];
+            
+            if ([documentView isKindOfClass:[DocumentsViewController class]]){
+                NSLog(@"DocumentsViewController Controller!");
+                documentView.grouppedDocuments=nil;
+                [documentView.tableView reloadData];
+                documentView.titleLabel.text=@"";
+            }else{
+                NSLog(@"Child View Controler is nil");
+            }
+            
+        }
+        
+        
+        NSLog(@"Reset Universe List if active");
+        
+        UINavigationController *universeListNavController=[[self.tabBarController viewControllers] objectAtIndex:2];
+        
+        if ([[universeListNavController viewControllers] count]>0){
+            UniversesListViewController *universeListView= [[universeListNavController viewControllers]objectAtIndex:0];
+            
+            if ([universeListView isKindOfClass:[UniversesListViewController class]]){
+                NSLog(@"UniversesListViewController Controller!");
+                universeListView.universes=nil;
+                [universeListView.tableView reloadData];
+            }else{
+                NSLog(@"Child View Controler is nil");
+            }
+            
+        }
+
+        
+        
+        
         self.tabBarController.selectedIndex=0;
         UINavigationController *navigationController=[[self.tabBarController viewControllers] objectAtIndex:0];
         [navigationController popToRootViewControllerAnimated:YES];
@@ -356,6 +399,7 @@
 -(void) switchToDocumentListWithRefresh
 {
     if (self.isSwitchToDocumentsViewAllowed){
+        
         self.tabBarController.selectedIndex=0;
         UINavigationController *navigationController=[[self.tabBarController viewControllers] objectAtIndex:0];
         [navigationController popToRootViewControllerAnimated:YES];
@@ -371,6 +415,7 @@
 }
 
 -(BOOL) isSwitchToDocumentsViewAllowed{
+    if (sessions.count==1) return YES; // In case only One Session left (Demo) --> reset
     for (Session *session in sessions) {
         NSLog(@"IsSession Tested %@, isEnabled: %@",session.isTestedOK,session.isEnabled);
         if ([session.isTestedOK intValue]==1 && [session.isEnabled intValue]==1) {
