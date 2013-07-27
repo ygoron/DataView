@@ -271,7 +271,6 @@
 "To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "個人の SAP BusinessObjects ｼｽﾃﾑに接続するには、このあぷりけーしょんないのふぃーちゃをご購入ください";
 "Connection" = "接続";
 
-"View Document in PDF"="View Document in PDF";
-"Export to Excel"="Export to Excel";
-
+"View Document in PDF"="PDF 書式でﾄﾞｷｭﾒﾝﾄを表示する";
+"Export to Excel"="Excel にｴｸｽﾎﾟｰﾄ";
 

@@ -510,22 +510,25 @@
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Webi Document Action:",segue.identifier]];
     
 	if ([segue.identifier isEqualToString:@"ExportReport_Ident"])
+
 	{
-        
         UINavigationController *nav=segue.destinationViewController;
-        //        ReportViewController    *reportExportView =segue.destinationViewController;
         ReportViewController    *reportExportView =[nav.viewControllers objectAtIndex:0];
-        reportExportView.exportFormat=FormatPDF;
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        reportExportView.report=[[self.document.reports allObjects] objectAtIndex:[indexPath row]];
-        reportExportView.titleText=reportExportView.report.name;
-        if (isOpenWholeDocument==YES){
+
+        if (!isOpenWholeDocument==YES){
+            //        ReportViewController    *reportExportView =segue.destinationViewController;
+            reportExportView.exportFormat=FormatPDF;
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            reportExportView.report=[[self.document.reports allObjects] objectAtIndex:[indexPath row]];
+            reportExportView.titleText=reportExportView.report.name;
+        }
+        else {
             reportExportView.isOpenWholeDocument=isOpenWholeDocument;
             reportExportView.document=documentToOpen;
             reportExportView.exportFormat=exportFormat;
             reportExportView.titleText=documentToOpen.name;
         }
-    isOpenWholeDocument=NO;
+        isOpenWholeDocument=NO;
 	}else if ([segue.identifier isEqualToString:@"ScheduleDetail_Ident"]){
         ScheduleDetailViewController *scheduleDetail= segue.destinationViewController;
         scheduleDetail.document=self.document;
@@ -634,12 +637,23 @@
             cancelButtonTitle = nil;
         }
         
+        NSLog(@"Reports: %d",_document.reports.count);
+        if (_document.reports.count>0){
         _actionSheet = [[UIActionSheet alloc]
                         initWithTitle:nil
                         delegate:self
                         cancelButtonTitle:cancelButtonTitle
                         destructiveButtonTitle:nil
                         otherButtonTitles:NSLocalizedString(@"Open Document",@"Use Open Document Call to View document"), NSLocalizedString(@"View Document in PDF",@"Export Document in PDF"),NSLocalizedString(@"Export to Excel",@"Export Document to Excel"),nil];
+        }else{
+            _actionSheet = [[UIActionSheet alloc]
+                            initWithTitle:nil
+                            delegate:self
+                            cancelButtonTitle:cancelButtonTitle
+                            destructiveButtonTitle:nil
+                            otherButtonTitles:NSLocalizedString(@"Open Document",@"Use Open Document Call to View document"), nil];
+            
+        }
     }
     
     return _actionSheet;

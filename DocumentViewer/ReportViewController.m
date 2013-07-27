@@ -83,6 +83,8 @@
     else {
 //        titelLabel.text=_document.name;
 //        [titelLabel sizeToFit];
+
+        
         [self loadWebViewWithDocument:_document];
         
     }
@@ -97,6 +99,7 @@
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
+    NSLog(@"Start Loading");
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
@@ -147,6 +150,7 @@
     BIExportReport *exportReport=[[BIExportReport alloc]init];
     exportReport.delegate=self;
     exportReport.exportFormat=_exportFormat;
+    appDelegate.activeSession.cmsToken=nil; // Fixed Error - The requested URL is not found
     exportReport.biSession=appDelegate.activeSession;
     //    [exportReport exportReport:report withFormat:FormatHTML];
     [exportReport exportDocument:document withFormat:_exportFormat];

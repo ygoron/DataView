@@ -123,7 +123,7 @@
     cell.sessionWCALabel.text=[NSString stringWithFormat:@"%@%@%@",session.cmsName,@"\\",session.userName];
     //    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"list-item.png"]];
     if ([session.name isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME]){
-//        cell.userInteractionEnabled=[[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS];
+        //        cell.userInteractionEnabled=[[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         cell.userInteractionEnabled=NO;
         //        cell.sessionWCALabel.hidden=YES;
@@ -144,8 +144,8 @@
 {
     
     Session *session=[self.sessions objectAtIndex:[indexPath row]];
-//    if ([session.name isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME] && [[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO)
-        if ([session.name isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME] )
+    //    if ([session.name isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME] && [[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO)
+    if ([session.name isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME] )
         return NO;
     else return [[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS];
 }
@@ -163,7 +163,7 @@
         [CoreDataHelper deleteAllObjectsForEntity:@"Session" withPredicate:predicate andContext:context];
         [self.sessions removeObjectAtIndex:[indexPath row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
+        
         if (sessions.count==1){
             NSLog(@"Last Session");
             if ([[[self.sessions objectAtIndex:0] name] isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME]){
@@ -174,10 +174,10 @@
                 self.tabBarController.selectedIndex=0;
                 UINavigationController *navigationController=[[self.tabBarController viewControllers] objectAtIndex:0];
                 [navigationController popToRootViewControllerAnimated:YES];
-
+                
             }
         }
-
+        
         if ([session.isEnabled integerValue]==1 && session.cmsToken!=nil){
             NSLog(@"Logoff Deleted Session %@",session.name);
             BILogoff *biLogOff =[[BILogoff alloc]init];
@@ -259,8 +259,8 @@
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     NSLog(@"Selectior:%@",NSStringFromSelector(_cmd));
-//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//    if ([[[sessions objectAtIndex:[indexPath row]] name]isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME]) return NO;
+    //    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    //    if ([[[sessions objectAtIndex:[indexPath row]] name]isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME]) return NO;
     
 	if ([identifier isEqualToString:@"AddSession"]||[identifier isEqualToString:@"EditSession"]){
         if ([[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO){
@@ -360,7 +360,7 @@
         UINavigationController *navigationController=[[self.tabBarController viewControllers] objectAtIndex:0];
         [navigationController popToRootViewControllerAnimated:YES];
         NSLog(@"Switched to root");
-
+        
     }
     
 }

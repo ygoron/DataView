@@ -60,9 +60,11 @@
     //    if ([appDelegate.globalSettings.autoLogoff boolValue]==YES) [self createCmsTokenForSession:_currentSession];
     //    else [self reloadOpenDocView];
     
+    
     BILogoff *biLogoff=[[BILogoff alloc] init];
     biLogoff.biSession=_currentSession;
-    [biLogoff logoffSessionSync:_currentSession withToken:_cmsToken];
+//    [biLogoff logoffSessionSync:_currentSession withToken:_cmsToken];
+    [biLogoff logoffSession:_currentSession withToken:_cmsToken];
     [self createCmsTokenForSession:_currentSession];
     
     
@@ -79,7 +81,7 @@
 }
 -(void) loadOpenDocumentWithUrl:(NSURL *)url
 {
-    
+ 
     [spinner startAnimating];
     NSMutableURLRequest *request;
     
@@ -193,8 +195,8 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+ 
 }
-
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [spinner stopAnimating];
@@ -230,7 +232,8 @@
 -(void) logoffWithSession:(Session *)session{
     if (_cmsToken!=nil){
         BILogoff *biLogoff=[[BILogoff alloc] init];
-        [biLogoff logoffSessionSync:session withToken:_cmsToken];
+//        [biLogoff logoffSessionSync:session withToken:_cmsToken];
+        [biLogoff logoffSession:session withToken:_cmsToken];
         NSLog(@"Logoff Session:%@",session.name);
     }
     
