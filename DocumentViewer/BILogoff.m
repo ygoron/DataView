@@ -36,7 +36,7 @@
     [request setValue:@"application/xml" forHTTPHeaderField:@"Content-Type"];
     [request setValue:token forHTTPHeaderField:SAP_HTTP_TOKEN];
     [request setValue:[NSString stringWithFormat:@"%d", 0] forHTTPHeaderField:@"Content-Length"];
-
+    session.cmsToken=nil;
 //    NSString *returnString = [[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding];
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Logoff (Sync) Completed:",[[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding]]];
 //    NSLog(@"return String:%@",returnString);
@@ -95,6 +95,7 @@
     NSLog(@"Succeeded! Received %d bytes of data",[responseData length]);
 //    NSString *receivedString = [[NSString alloc]  initWithData:responseData encoding:NSUTF8StringEncoding];
 //    NSLog(@"Get Logoff Data:,%@",receivedString );
+    _biSession.cmsToken=nil;
         [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Logoff (Async) Completed:",[[NSString alloc]  initWithData:responseData encoding:NSUTF8StringEncoding]]];
     [self.delegate biLogoff:self didLogoff:YES ];
 

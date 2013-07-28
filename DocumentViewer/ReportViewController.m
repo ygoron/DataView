@@ -139,6 +139,7 @@
     exportReport.delegate=self;
     exportReport.exportFormat=_exportFormat;
     exportReport.biSession=appDelegate.activeSession;
+//       appDelegate.activeSession.cmsToken=nil; // Fixed Error - The requested URL is not found
     //    [exportReport exportReport:report withFormat:FormatHTML];
     [exportReport exportReport:report withFormat:_exportFormat];
 }
@@ -150,7 +151,8 @@
     BIExportReport *exportReport=[[BIExportReport alloc]init];
     exportReport.delegate=self;
     exportReport.exportFormat=_exportFormat;
-    appDelegate.activeSession.cmsToken=nil; // Fixed Error - The requested URL is not found
+//    appDelegate.activeSession.cmsToken=nil; // Fixed Error - The requested URL is not found
+    
     exportReport.biSession=appDelegate.activeSession;
     //    [exportReport exportReport:report withFormat:FormatHTML];
     [exportReport exportDocument:document withFormat:_exportFormat];
