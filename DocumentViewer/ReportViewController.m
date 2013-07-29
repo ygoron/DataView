@@ -74,16 +74,18 @@
     
     self.picVisible = NO;
     
+ [self.actionButton setEnabled:NO];
+    
     
     if (_isOpenWholeDocument==NO) {
-//        titelLabel.text=self.report.name;
-//        [titelLabel sizeToFit];
+        //        titelLabel.text=self.report.name;
+        //        [titelLabel sizeToFit];
         [self loadWebViewWithReport:self.report];
     }
     else {
-//        titelLabel.text=_document.name;
-//        [titelLabel sizeToFit];
-
+        //        titelLabel.text=_document.name;
+        //        [titelLabel sizeToFit];
+        
         
         [self loadWebViewWithDocument:_document];
         
@@ -101,6 +103,7 @@
 {
     NSLog(@"Start Loading");
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [self.actionButton setEnabled:NO];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -112,6 +115,7 @@
         NSLog(@"View Loaded Title:%@",self.document.name);
     self.webView.scalesPageToFit=YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self.actionButton setEnabled:YES];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -139,7 +143,7 @@
     exportReport.delegate=self;
     exportReport.exportFormat=_exportFormat;
     exportReport.biSession=appDelegate.activeSession;
-//       appDelegate.activeSession.cmsToken=nil; // Fixed Error - The requested URL is not found
+    //       appDelegate.activeSession.cmsToken=nil; // Fixed Error - The requested URL is not found
     //    [exportReport exportReport:report withFormat:FormatHTML];
     [exportReport exportReport:report withFormat:_exportFormat];
 }
@@ -151,7 +155,7 @@
     BIExportReport *exportReport=[[BIExportReport alloc]init];
     exportReport.delegate=self;
     exportReport.exportFormat=_exportFormat;
-//    appDelegate.activeSession.cmsToken=nil; // Fixed Error - The requested URL is not found
+    //    appDelegate.activeSession.cmsToken=nil; // Fixed Error - The requested URL is not found
     
     exportReport.biSession=appDelegate.activeSession;
     //    [exportReport exportReport:report withFormat:FormatHTML];

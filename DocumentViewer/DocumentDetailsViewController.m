@@ -103,6 +103,7 @@
         
         [self.navigationItem setRightBarButtonItem:barButton animated:NO];
         self.actionButton = barButton;
+        [self.actionButton setEnabled:NO];
     }
     self.picVisible = NO;
     
@@ -197,6 +198,7 @@
     isReportsRefreshing=NO;
     if (isDocumentRefreshing==NO) {
         [spinner stopAnimating];
+        [self.actionButton setEnabled:YES];
         NSLog(@"Both requestes Finished. Get Document Details First");
         //        [self logoOffIfNeeded];
         NSLog(@"Finishing Loading DocumentDetails 2");
@@ -215,6 +217,7 @@
     
     if (self.isExternalFormat==NO){
         isReportsRefreshing=YES;
+        [self.actionButton setEnabled:NO];
         BIGetReports *biGetReports=[[BIGetReports alloc]init];
         biGetReports.delegate=self;
         biGetReports.context=context;
@@ -510,11 +513,11 @@
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Webi Document Action:",segue.identifier]];
     
 	if ([segue.identifier isEqualToString:@"ExportReport_Ident"])
-
+        
 	{
         UINavigationController *nav=segue.destinationViewController;
         ReportViewController    *reportExportView =[nav.viewControllers objectAtIndex:0];
-
+        
         if (!isOpenWholeDocument==YES){
             //        ReportViewController    *reportExportView =segue.destinationViewController;
             reportExportView.exportFormat=FormatPDF;
@@ -638,13 +641,14 @@
         }
         
         NSLog(@"Reports: %d",_document.reports.count);
-        if (_document.reports.count>0){
-        _actionSheet = [[UIActionSheet alloc]
-                        initWithTitle:nil
-                        delegate:self
-                        cancelButtonTitle:cancelButtonTitle
-                        destructiveButtonTitle:nil
-                        otherButtonTitles:NSLocalizedString(@"Open Document",@"Use Open Document Call to View document"), NSLocalizedString(@"View Document in PDF",@"Export Document in PDF"),NSLocalizedString(@"Export to Excel",@"Export Document to Excel"),nil];
+        //        if (_document.reports.count>0){
+        if (self.isExternalFormat==NO){
+            _actionSheet = [[UIActionSheet alloc]
+                            initWithTitle:nil
+                            delegate:self
+                            cancelButtonTitle:cancelButtonTitle
+                            destructiveButtonTitle:nil
+                            otherButtonTitles:NSLocalizedString(@"Open Document",@"Use Open Document Call to View document"), NSLocalizedString(@"View Document in PDF",@"Export Document in PDF"),NSLocalizedString(@"Export to Excel",@"Export Document to Excel"),nil];
         }else{
             _actionSheet = [[UIActionSheet alloc]
                             initWithTitle:nil
