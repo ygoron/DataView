@@ -80,6 +80,15 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     
 }
 
+- (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error;
+{
+    NSLog(@"Error :%@",error.description);
+    
+}
+- (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue;
+{
+    NSLog(@"Restore Finished");
+}
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
     
     NSLog(@"Failed to load list of products.");

@@ -78,7 +78,7 @@
     grouppedDocuments=[[NSMutableArray alloc] initWithCapacity:50];
     //    id appDelegate = (id)[[UIApplication sharedApplication] delegate];
     
-    appDelegate= (id)[[UIApplication sharedApplication] delegate];
+    appDelegate= (id)[[UIApplication sharedApplication] delegate]; 
     context = [appDelegate managedObjectContext];
     offset=0;
     isDataLoded=NO;
@@ -334,6 +334,8 @@
 {
     
     
+        appDelegate= (id)[[UIApplication sharedApplication] delegate];
+      
     if ([indexPath section]<self.grouppedDocuments.count){
         DocumentCell *cell=[tableView dequeueReusableCellWithIdentifier:@"DocumentCell_Ident"];
         Document *document=[[[self.grouppedDocuments objectAtIndex:indexPath.section] objectForKey:@"values"] objectAtIndex:indexPath.row];
@@ -401,6 +403,8 @@
         Document *doc=[[[self.grouppedDocuments objectAtIndex:indexPath.section] objectForKey:@"values"] objectAtIndex:indexPath.row];
         NSLog(@"Deleting document name %@",doc.name);
         [[[self.grouppedDocuments objectAtIndex:indexPath.section] objectForKey:@"values"] removeObject:doc];
+
+        if (doc.session==nil) doc.session=appDelegate.activeSession;
         BIDeleteDocument *biDeletDocument=[[BIDeleteDocument alloc]init];
         biDeletDocument.delegate=self;
         [biDeletDocument deleteDocument:[doc.id  integerValue] withSession:doc.session ];
