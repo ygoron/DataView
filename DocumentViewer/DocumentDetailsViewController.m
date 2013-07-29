@@ -224,6 +224,7 @@
         [biGetReports getReportsForDocument:self.document];
     }else{
         isReportsRefreshing=NO;
+        [self.actionButton setEnabled:YES];
     }
     
     
@@ -466,16 +467,19 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
+
+    if (actionSheet.cancelButtonIndex==buttonIndex) return ;
     switch (buttonIndex) {
             //        case 0:
             //            [self openInBrowser];
             //            break;
-            
+        
+
         case 0:
             [TestFlight passCheckpoint:@"View Webi in OpenDoc Action"];
             [self openInSafari];
             break;
+            
         case 1:
             [TestFlight passCheckpoint:@"View Document in PDF"];
             [self exportDocumentWithFormat: FormatPDF];
