@@ -44,7 +44,20 @@
     [TestFlight passCheckpoint:@"Device ID Registered"];
 #endif
     
-    [TestFlight takeOff:@"a021f062-d6ec-4c4a-9234-22901b218bfb"];
+//    [TestFlight takeOff:@"a021f062-d6ec-4c4a-9234-22901b218bfb"];
+    
+    
+
+#ifdef AllFeaturesPurchased
+    [TestFlight takeOff:@"c055a92a-0135-4717-9236-9afc2800d512"];
+    NSLog (@"Internal Version with All Features Purchased");
+#else
+    [TestFlight takeOff:@"90a4b6e7-e01a-4b4d-bbee-00c59a25aab8"];
+        NSLog (@"App Store Version");
+#endif
+    
+
+    
     
     // The rest of your application:didFinishLaunchingWithOptions method// ...
     
@@ -82,9 +95,11 @@
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Locale:",[[NSLocale preferredLanguages] objectAtIndex:0]]];
     
     
-    if ([[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO){
+//    if ([[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO){
+//#ifndef AllFeaturesPurchased
         [self createAposDemoConnectionAsDefault:YES];
-    }
+//#endif
+//    }
     
     
     

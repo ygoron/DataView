@@ -1,28 +1,12 @@
-## 1.3
+## 1.2.6 - June 11, 2013
 
-### 1.3.0-beta.2
+- Fixed a bug with crash reporting on iOS 7
 
-- Pause all network traffic if server is not reachable
+## 1.2.5 - May 1, 2013
 
-Bugs Fixed
-
-- CoreTelephony crash work around: this is a workaround of a iOS bug that causes deallocated instances of `CTTelephonyNetworkInfo` to receive notifications which causes crashes. Core Telephony is used to retrieve the device's mobile carrier.
-- Fixed addrinfo memory leak
-
-### 1.3.0-beta.1
-
-Improvements
-
-- ARC
-- All public TestFlight methods may be called from any thread or dispatch_queue
-- All public TestFlight methods (except for TFLog) are asynchronous, so there is never a wait on them
-- TestFlight never uses more than 1 network connection at a time
-- All network traffic is grouped together, sent at once, and transferred in MessagePack. This results in using less bandwidth and less network calls.
-
-Removed
-
-- Removed Questions
-- Removed Feedback View (along with backtrace option)
+- Removed any access to mac address
+- Added AdSupport.framework requirement
+    - AdSupport.framework is automatically loaded on iOS 6.0+ if not weak linked with app
 
 ## 1.2.4 - February 19, 2013
 

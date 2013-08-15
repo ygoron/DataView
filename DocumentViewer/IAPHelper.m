@@ -38,6 +38,10 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         _purchasedProductIdentifiers = [NSMutableSet set];
         for (NSString * productIdentifier in _productIdentifiers) {
             BOOL productPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:productIdentifier];
+#ifdef AllFeaturesPurchased
+            [_purchasedProductIdentifiers addObject:productIdentifier];
+#endif
+            
             if (productPurchased) {
                 [_purchasedProductIdentifiers addObject:productIdentifier];
                 NSLog(@"Previously purchased: %@", productIdentifier);

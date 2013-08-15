@@ -281,7 +281,7 @@
 - (void)testConnection{
     NSLog(@"Test Connection");
     connector=[[BIConnector alloc]init];
-    connector.timeOut=3;
+    connector.timeOut=10;
     Session *session = [NSEntityDescription
                         insertNewObjectForEntityForName:@"Session"
                         inManagedObjectContext:context];

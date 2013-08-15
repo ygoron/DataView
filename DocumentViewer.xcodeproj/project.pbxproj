@@ -2356,12 +2356,15 @@
 		9288AC891787A9A50048BCF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DocumentViewer/DocumentViewer-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
-				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = Prod;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					Trace,
+					Not_Prod,
+				);
 				INFOPLIST_FILE = "APOS BI Ext copy2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -2475,6 +2478,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 					Trace,
+					AllFeaturesPurchased,
 				);
 				INFOPLIST_FILE = "DocumentViewer/DocumentViewer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -2498,7 +2502,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DocumentViewer/DocumentViewer-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
-				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = Trace;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					Trace,
+					AllFeaturesPurchased,
+				);
 				INFOPLIST_FILE = "DocumentViewer/DocumentViewer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
