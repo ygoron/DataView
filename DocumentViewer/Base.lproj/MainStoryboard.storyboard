@@ -1009,7 +1009,7 @@
         <scene sceneID="9ar-9G-Ga0">
             <objects>
                 <navigationController id="vdc-QX-Pej" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="1AAF20EE-0518-41CA-A953-FFB7374B93F9" id="dj2-bu-JDm"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="64076A14-9818-47E1-97CD-CB9DF4172ED1" id="dj2-bu-JDm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vtf-Vr-VA2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1856,7 +1856,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1AAF20EE-0518-41CA-A953-FFB7374B93F9" width="30" height="30">
+        <image name="64076A14-9818-47E1-97CD-CB9DF4172ED1" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
