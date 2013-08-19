@@ -9,6 +9,7 @@
 #import "PreferencesViewController.h"
 #import "TitleLabel.h"
 #import "WebiAppDelegate.h"
+#import "SharedUtils.h"
 
 @interface PreferencesViewController ()
 
@@ -86,6 +87,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    [SharedUtils adjustLabelLeftMarginForIpadForBoldFontInTableView:self.tableView];
+    [SharedUtils adjustRighMarginsForIpad:self.tableView.constraints];
+    [super viewWillAppear:animated];
 }
 
 

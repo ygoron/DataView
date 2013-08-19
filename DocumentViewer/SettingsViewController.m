@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "TitleLabel.h"
 #import "SessionsViewController.h"
+#import "SharedUtils.h"
 
 @interface SettingsViewController ()
 
@@ -25,6 +26,11 @@
     return self;
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+        [SharedUtils adjustLabelLeftMarginForIpadForBoldFontInTableView:self.tableView];
+
+[super viewDidAppear:animated];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

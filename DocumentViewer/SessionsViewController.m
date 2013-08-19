@@ -21,6 +21,7 @@
 #import "PremiumFeaturesViewController.h"
 #import "DocumentsViewController.h"
 #import "UniversesListViewController.h"
+#import "SharedUtils.h"
 @interface SessionsViewController () <UIAlertViewDelegate>
 
 @end
@@ -93,6 +94,12 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    
+    [SharedUtils adjustLabelLeftMarginForIpadForBoldFontInTableView:self.tableView];
+    [super viewWillAppear:animated];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -137,6 +144,9 @@
     else {
         [cell.sessionActive setHidden:YES];
     }
+    
+    [SharedUtils adjustRighMarginsForIpad:cell.constraints];
+    
     return cell;
 }
 
@@ -367,7 +377,7 @@
             }
             
         }
-
+        
         
         
         

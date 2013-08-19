@@ -17,6 +17,7 @@
 #import "FormatWebi.h"
 #import "TitleLabel.h"
 #import "WebiAppDelegate.h"
+#import "SharedUtils.h"
 @interface ScheduleWebiViewController ()
 
 @end
@@ -36,6 +37,12 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    [SharedUtils adjustLabelLeftMarginForIpadForBoldFontInTableView:self.tableView];
+    [SharedUtils adjustRighMarginsForIpad:self.tableView.constraints];
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad

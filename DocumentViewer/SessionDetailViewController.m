@@ -14,6 +14,7 @@
 #import "TitleLabel.h"
 #import "AdvancedSessionSettingsViewController.h"
 #import "WebiAppDelegate.h"
+#import "SharedUtils.h"
 
 @interface SessionDetailViewController ()
 
@@ -44,6 +45,11 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [SharedUtils adjustLabelLeftMarginForIpadForBoldFontInTableView:self.tableView];
+    [SharedUtils adjustRighMarginsForIpad:self.tableView.constraints];
+    [super viewWillAppear:animated];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

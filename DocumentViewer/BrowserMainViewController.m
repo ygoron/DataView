@@ -10,6 +10,7 @@
 #import "BrowserChildViewController.h"
 #import "WebiAppDelegate.h"
 #import "BI4RestConstants.h"
+#import "SharedUtils.h"
 
 @interface BrowserMainViewController ()
 
@@ -37,10 +38,15 @@
         titelLabel.text=appDelegate.activeSession.name;
         self.navigationItem.titleView = titelLabel;
         [titelLabel sizeToFit];
-        [super viewDidAppear:animated];
+        
+        
+        [SharedUtils adjustImageLeftMarginForIpadInTableView:self.tableView];
+        
     }else{
         NSLog(@"No Active Session");
     }
+    
+    [super viewDidAppear:animated];
     
 }
 - (void)viewDidLoad
@@ -50,11 +56,8 @@
     
     titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
     
-    UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
-    
-    if (idiom == UIUserInterfaceIdiomPad) {
-        [_inboxH setConstant:50];
-    }
+    //        [_inboxH setConstant:50];
+    //    }
     //    UIView *myImage=_imageView;
     //    UIView *myInboxLabel=_inboxLabel;
     //    UIView *myTable=self.tableView;
