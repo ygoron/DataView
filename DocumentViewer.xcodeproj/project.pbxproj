@@ -70,6 +70,8 @@
 		927149311749B13500851389 /* Excel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 927149261749B13500851389 /* Excel@2x.png */; };
 		927149351749B21400851389 /* BlankDoc_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 927149331749B21400851389 /* BlankDoc_48.png */; };
 		927149371749B21400851389 /* BlankDoc_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 927149341749B21400851389 /* BlankDoc_48@2x.png */; };
+		92716BDC17BE7B4600CE3DA2 /* SharedUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92716BDB17BE7B4600CE3DA2 /* SharedUtils.m */; };
+		92716BDD17BE7B4600CE3DA2 /* SharedUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92716BDB17BE7B4600CE3DA2 /* SharedUtils.m */; };
 		92719E48171F69A100899D95 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92719E44171F69A100899D95 /* libTestFlight.a */; };
 		92719E49171F69A100899D95 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 92719E45171F69A100899D95 /* README.md */; };
 		92719E4A171F69A100899D95 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 92719E46171F69A100899D95 /* release_notes.md */; };
@@ -653,6 +655,8 @@
 		927149261749B13500851389 /* Excel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Excel@2x.png"; sourceTree = "<group>"; };
 		927149331749B21400851389 /* BlankDoc_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlankDoc_48.png; sourceTree = "<group>"; };
 		927149341749B21400851389 /* BlankDoc_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlankDoc_48@2x.png"; sourceTree = "<group>"; };
+		92716BDA17BE7B4600CE3DA2 /* SharedUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedUtils.h; sourceTree = "<group>"; };
+		92716BDB17BE7B4600CE3DA2 /* SharedUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedUtils.m; sourceTree = "<group>"; };
 		92719E44171F69A100899D95 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		92719E45171F69A100899D95 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		92719E46171F69A100899D95 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -1411,6 +1415,8 @@
 				92ADE98B16CB2A920027BD4D /* LogonViewController.h */,
 				92ADE98C16CB2A920027BD4D /* LogonViewController.m */,
 				922D14CB176A96430026B5ED /* MainStoryboard.storyboard */,
+				92716BDA17BE7B4600CE3DA2 /* SharedUtils.h */,
+				92716BDB17BE7B4600CE3DA2 /* SharedUtils.m */,
 			);
 			path = DocumentViewer;
 			sourceTree = "<group>";
@@ -2158,6 +2164,7 @@
 				92E37E18179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */,
 				92757F54179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
 				9214469B179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
+				92716BDD17BE7B4600CE3DA2 /* SharedUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2240,6 +2247,7 @@
 				92E37E17179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */,
 				92757F53179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
 				9214469A179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
+				92716BDC17BE7B4600CE3DA2 /* SharedUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
