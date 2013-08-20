@@ -20,6 +20,7 @@
 #import "OpenDocumentViewController.h"
 #import "BrowserMainViewController.h"
 #import "BI4RestConstants.h"
+#import "SharedUtils.h"
 @interface DocumentDetailsViewController ()
 
 
@@ -64,6 +65,7 @@
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -117,6 +119,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+-(void) viewWillAppear:(BOOL)animated{
+    [SharedUtils adjustLabelLeftMarginForIpadForBoldFontInTableView:self.tableView];
+    [SharedUtils adjustRighMarginsForIpad:self.tableView.constraints];
+    [super viewWillAppear:animated];
+}
+
 
 #pragma mark Load Document Details from BOE
 -(void) loadDocumentDetails{

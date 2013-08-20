@@ -11,5 +11,12 @@
 
 @interface BrowserMainViewController : UITableViewController
 
+
 +(NSURL *) buildUrlFromSession: (Session *) session forEntity:(NSString *) entity withPageSize: (int) pageSize;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UILabel *inboxLabel;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *inboxH;
+
+
+
 @end

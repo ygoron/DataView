@@ -51,7 +51,8 @@
     
     spinner = [[UIActivityIndicatorView alloc]  initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     spinner.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin);
-    spinner.center = CGPointMake(self.webView.bounds.size.width / 2.0f, self.webView.bounds.size.height / 2.0f);
+    spinner.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
+//    spinner.center = CGPointMake(self.webView.bounds.size.width / 2.0f, self.webView.bounds.size.height / 2.0f);
     //    spinner.center = CGPointMake(160, 240);
     NSLog(@"Title:%@",self.report.name);
     //    self.navigationBar.topItem.title=self.report.name;

@@ -10,6 +10,7 @@
 #import "BrowserChildViewController.h"
 #import "WebiAppDelegate.h"
 #import "BI4RestConstants.h"
+#import "SharedUtils.h"
 
 @interface BrowserMainViewController ()
 
@@ -37,10 +38,15 @@
         titelLabel.text=appDelegate.activeSession.name;
         self.navigationItem.titleView = titelLabel;
         [titelLabel sizeToFit];
-        [super viewDidAppear:animated];
+        
+        
+        [SharedUtils adjustImageLeftMarginForIpadInTableView:self.tableView];
+        
     }else{
         NSLog(@"No Active Session");
     }
+    
+    [super viewDidAppear:animated];
     
 }
 - (void)viewDidLoad
@@ -49,6 +55,18 @@
     appDelegate= (id)[[UIApplication sharedApplication] delegate];
     
     titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
+    
+    //        [_inboxH setConstant:50];
+    //    }
+    //    UIView *myImage=_imageView;
+    //    UIView *myInboxLabel=_inboxLabel;
+    //    UIView *myTable=self.tableView;
+    //    NSDictionary *viewsDictionary =    NSDictionaryOfVariableBindings(myImage,myInboxLabel,myTable);
+    //    [self.view addConstraints:[NSLayoutConstraint
+    //                               constraintsWithVisualFormat:@"|-(100@1000)-[myImage]-50-[myInboxLabel]"
+    //                               options:0
+    //                               metrics:nil
+    //                               views:viewsDictionary]];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -118,7 +136,7 @@
         if ([cell.reuseIdentifier isEqualToString:@"Cell_Folders"]){
             
             [TestFlight passCheckpoint:@"Folders View Selected"];
-
+            
             BrowserChildViewController *vc=[[BrowserChildViewController alloc] initWithNibName:@"BrowserChildViewController" bundle:nil];
             NSURL *urlChildren=[BrowserMainViewController buildUrlFromSession:appDelegate.activeSession forEntity:rootFolderChildrenPoint withPageSize:[appDelegate.globalSettings.fetchDocumentLimit intValue]];
             NSURL *urlSelected=[BrowserMainViewController buildUrlFromSession:appDelegate.activeSession forEntity:rootFolderPoint withPageSize:[appDelegate.globalSettings.fetchDocumentLimit intValue]];
@@ -133,7 +151,7 @@
         } else if ([cell.reuseIdentifier isEqualToString:@"Cell_Inbox"]){
             
             [TestFlight passCheckpoint:@"Inbox View Selected"];
-
+            
             BrowserChildViewController *vc=[[BrowserChildViewController alloc] initWithNibName:@"BrowserChildViewController" bundle:nil];
             NSURL *urlChildren=[BrowserMainViewController buildUrlFromSession:appDelegate.activeSession forEntity:inboxesChildrenPoint withPageSize:[appDelegate.globalSettings.fetchDocumentLimit intValue]];
             NSURL *urlSelected=[BrowserMainViewController buildUrlFromSession:appDelegate.activeSession forEntity:inboxesPoint withPageSize:[appDelegate.globalSettings.fetchDocumentLimit intValue]];
@@ -151,7 +169,7 @@
             
         }else if ([cell.reuseIdentifier isEqualToString:@"Cell_Personal"]){
             [TestFlight passCheckpoint:@"Personal Folder View Selected"];
-
+            
             BrowserChildViewController *vc=[[BrowserChildViewController alloc] initWithNibName:@"BrowserChildViewController" bundle:nil];
             NSURL *urlChildren=[BrowserMainViewController buildUrlFromSession:appDelegate.activeSession forEntity:userFoldersChildrenPoint withPageSize:[appDelegate.globalSettings.fetchDocumentLimit intValue]];
             
@@ -169,7 +187,7 @@
             
         }else if ([cell.reuseIdentifier isEqualToString:@"Cell_PersonalCategories"]){
             [TestFlight passCheckpoint:@"Personal Categories View Selected"];
-
+            
             BrowserChildViewController *vc=[[BrowserChildViewController alloc] initWithNibName:@"BrowserChildViewController" bundle:nil];
             NSURL *urlChildren=[BrowserMainViewController buildUrlFromSession:appDelegate.activeSession forEntity:personalCategoriesChildrenPoint withPageSize:[appDelegate.globalSettings.fetchDocumentLimit intValue]];
             
@@ -188,7 +206,7 @@
             
         }else if ([cell.reuseIdentifier isEqualToString:@"Cell_Categories"]){
             [TestFlight passCheckpoint:@"Enterprise Categories View Selected"];
-
+            
             BrowserChildViewController *vc=[[BrowserChildViewController alloc] initWithNibName:@"BrowserChildViewController" bundle:nil];
             NSURL *urlChildren=[BrowserMainViewController buildUrlFromSession:appDelegate.activeSession forEntity:categoriesChildrenPoint withPageSize:[appDelegate.globalSettings.fetchDocumentLimit intValue]];
             
