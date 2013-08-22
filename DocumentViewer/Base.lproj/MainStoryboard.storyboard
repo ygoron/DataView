@@ -438,7 +438,7 @@
                             <tableViewSection headerTitle="Destination" id="ay5-G6-7h1">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Destination_Ident" rowHeight="40" id="7iX-yb-Ljb">
-                                        <rect key="frame" x="0.0" y="46" width="320" height="41"/>
+                                        <rect key="frame" x="0.0" y="46" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="39"/>
@@ -469,7 +469,7 @@
                             <tableViewSection headerTitle="Format" id="JZv-aG-GY9">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Format_Ident" rowHeight="56" id="QNm-8d-a6s">
-                                        <rect key="frame" x="0.0" y="133" width="320" height="57"/>
+                                        <rect key="frame" x="0.0" y="133" width="320" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="55"/>
@@ -500,7 +500,7 @@
                             <tableViewSection headerTitle="Recurrence" id="8kC-f3-g9B">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recurrence_Ident" rowHeight="40" id="rXj-BF-5DA">
-                                        <rect key="frame" x="0.0" y="236" width="320" height="41"/>
+                                        <rect key="frame" x="0.0" y="236" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="39"/>
@@ -528,7 +528,7 @@
                             <tableViewSection id="esA-JD-mtn">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="40" id="xEw-Yn-wgN">
-                                        <rect key="frame" x="0.0" y="297" width="320" height="41"/>
+                                        <rect key="frame" x="0.0" y="297" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="39"/>
@@ -1263,7 +1263,7 @@
         <scene sceneID="9ar-9G-Ga0">
             <objects>
                 <navigationController id="vdc-QX-Pej" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="3AC1A1F9-2B5F-459F-98FE-C8D471468510" id="dj2-bu-JDm"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="5F111DC4-66BD-4AB6-84F8-80EEEBF4788C" id="dj2-bu-JDm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vtf-Vr-VA2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1659,7 +1659,8 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="39" id="uQN-Qg-T0c"/>
                                                     </constraints>
-                                                    <string key="text">Logoff From SAP BI after each transaction. Recommended with limited number of SAP BI licenses .  May slow down app performance
+                                                    <string key="text">Logoff From SAP BI after each transaction. Recommended with limited number of SAP BI licenses . 
+May slow down app performance
 </string>
                                                     <fontDescription key="fontDescription" name="Helvetica-LightOblique" family="Helvetica" pointSize="11"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1772,7 +1773,7 @@
                             <tableViewSection id="ZMv-oQ-czo">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="6c3-Wl-98f" customClass="SessionCell">
-                                        <rect key="frame" x="0.0" y="10" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="10" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -1811,7 +1812,7 @@
                             <tableViewSection id="TVQ-g4-ev9">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="134" id="D3b-51-sho">
-                                        <rect key="frame" x="0.0" y="70" width="320" height="136"/>
+                                        <rect key="frame" x="0.0" y="70" width="320" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="133"/>
@@ -1941,7 +1942,7 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="42" id="0wR-BO-141">
-                                        <rect key="frame" x="0.0" y="265" width="320" height="43"/>
+                                        <rect key="frame" x="0.0" y="265" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="41"/>
@@ -1978,7 +1979,7 @@
                             <tableViewSection id="5xh-ml-gAF">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="42" id="FNF-yv-7OW">
-                                        <rect key="frame" x="0.0" y="322" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="322" width="320" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="41"/>
@@ -2009,7 +2010,7 @@
                             <tableViewSection id="24x-P1-64s">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TestConnection_Ident" rowHeight="42" id="QyQ-bm-dDR">
-                                        <rect key="frame" x="0.0" y="380" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="380" width="320" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="41"/>
@@ -2039,7 +2040,7 @@
                             <tableViewSection id="FBK-Rj-jo8">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TestConnection_Ident" rowHeight="42" id="QHZ-92-niY">
-                                        <rect key="frame" x="0.0" y="438" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="438" width="320" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="41"/>
@@ -2330,7 +2331,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3AC1A1F9-2B5F-459F-98FE-C8D471468510" width="30" height="30">
+        <image name="5F111DC4-66BD-4AB6-84F8-80EEEBF4788C" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2469,173 +2470,6 @@ nxyhHKMcqBywHLMcuBzAHMMc1RzYHN0AAAAAAAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAc3w
         <image name="UnvDoc_48.png" width="24" height="24"/>
         <image name="WebiDoc_48.png" width="24" height="24"/>
     </resources>
-    <classes>
-        <class className="AboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="textViewAboutText" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="AdvancedSessionSettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AdvancedSessionSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="textFieldOpenDocPort" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textFieldRESTBase" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textFieldRESTWebiBase" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textfieldOpenDocHost" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BrowserMainViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowserMainViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="inboxH" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="inboxLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DestinationViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DestinationViewController.h"/>
-        </class>
-        <class className="DocumentCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DocumentCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="documentDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="documentIDLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="documentNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DocumentDetailsCell" superclassName="DocumentCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DocumentDetailsCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="labelCreated" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelPath" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelSize" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelUpdated" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textViewPath" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="DocumentDetailsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DocumentDetailsViewController.h"/>
-        </class>
-        <class className="DocumentsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DocumentsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonRefresh:"/>
-            </relationships>
-        </class>
-        <class className="InAppPucrhaseCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InAppPucrhaseCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="productDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="productNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PreferencesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreferencesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="fetchSizeEditEnded:"/>
-                <relationship kind="action" name="refreshUniverseTab:"/>
-                <relationship kind="action" name="sliderValueChanged:"/>
-                <relationship kind="outlet" name="autoLogoffSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="logoffInBackgrndSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="savePasswordSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="showUniversesSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="sliderFetch" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="textFetchSize" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textTimeout" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="PremiumFeaturesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PremiumFeaturesViewController.h"/>
-        </class>
-        <class className="ReportViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReportViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeView:"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="ScheduleDetailCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScheduleDetailCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="scheduleLabelFormat" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scheduleLabelId" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scheduleLabelName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scheduleLabelStatus" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ScheduleDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScheduleDetailViewController.h"/>
-        </class>
-        <class className="ScheduleWebiViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScheduleWebiViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="scheduleDocumentTouch:"/>
-                <relationship kind="outlet" name="scheduleDocumentButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="segmentedControlFormat" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="SessionCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SessionCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="sessionActive" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sessionNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sessionWCALabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SessionDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SessionDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="labelDefault" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelHTTPS" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelPassword" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelPort" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelServerName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelTestConnection" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="labelUserName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sessionHttpsSwitchControl" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="sessionIsEnbaledSwitchControl" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="sessionNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sessionPortControl" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sessionSegmentedControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="sessionUserNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sessionUserPasswordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sessionWCATextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SessionsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SessionsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="buttonAddSession" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="SettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-        </class>
-        <class className="UniverseCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UniverseCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageOfUnv" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="lableFolderId" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lableType" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="univernameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="universeIdLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="UniversesListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UniversesListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshUniverseList:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

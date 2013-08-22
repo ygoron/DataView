@@ -160,6 +160,7 @@
     
     exportReport.biSession=appDelegate.activeSession;
     //    [exportReport exportReport:report withFormat:FormatHTML];
+    NSLog(@"Document Name:%@",document.name);
     [exportReport exportDocument:document withFormat:_exportFormat];
 }
 
@@ -324,7 +325,8 @@
         MFMailComposeViewController *viewController = [[MFMailComposeViewController alloc] init];
         viewController.mailComposeDelegate = self;
         
-        [viewController setSubject:[NSString stringWithFormat:@"%@ - APOS BI Viewer Mobile App",self.report.name]];
+//        [viewController setSubject:[NSString stringWithFormat:@"%@ - APOS BI Viewer Mobile App",self.report.name]];
+        [viewController setSubject:[NSString stringWithFormat:@"%@ - APOS BI Viewer Mobile App",(self.report.name==nil)?_titleText:self.report.name]];
         switch (_exportFormat) {
             case FormatHTML:
             {
@@ -335,12 +337,13 @@
                 break;
                 
             case FormatPDF:
+            case FormatEXCEL:
                 
             {
                 NSLog(@"Sending File:%@",exportFilePath);
                 NSURL *pdfURL= [NSURL fileURLWithPath:exportFilePath];
                 NSData *data = [NSData dataWithContentsOfURL:pdfURL];
-                [viewController addAttachmentData:data mimeType:@"application/pdf" fileName:[NSString stringWithFormat:@"%@%@",_report.name,@".pdf"]];
+                [viewController addAttachmentData:data mimeType:(_exportFormat==FormatPDF)?@"application/pdf":@"application/vnd.ms-excel" fileName:[NSString stringWithFormat:@"%@%@",(self.report.name==nil)?_titleText:self.report.name,(_exportFormat==FormatPDF)?@".pdf":@".xlsx"]];
                 
             }
                 break;
