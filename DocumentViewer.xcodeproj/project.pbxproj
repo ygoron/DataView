@@ -2380,7 +2380,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/DocumentViewer/TestFlightSDK1-1\"",
 					"\"$(SRCROOT)/TestFlightSDK2\"",
 				);
 				PRODUCT_NAME = "APOS BI";
@@ -2404,7 +2403,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/DocumentViewer/TestFlightSDK1-1\"",
 					"\"$(SRCROOT)/TestFlightSDK2\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
@@ -2497,7 +2495,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/DocumentViewer/TestFlightSDK1-1\"",
 					"\"$(SRCROOT)/TestFlightSDK2\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2524,7 +2521,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/DocumentViewer/TestFlightSDK1-1\"",
 					"\"$(SRCROOT)/TestFlightSDK2\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;

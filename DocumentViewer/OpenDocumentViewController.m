@@ -142,6 +142,8 @@
     
     [request setHTTPMethod:@"GET"];
     [request setValue:_cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
+
+//    [request setValue:@"application/pdf" forHTTPHeaderField:@"Accept"];
     
     [_webiView loadRequest:request];
     
@@ -226,7 +228,10 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [spinner stopAnimating];
-    NSLog(@"Webi View Loaded Title");
+    NSData *responseData = [[webView request] HTTPBody];
+    
+    NSString* responseString = [[NSString alloc] initWithData:responseData encoding:NSNonLossyASCIIStringEncoding];
+    NSLog(@"Webi View Loaded. Loading? %d,URL : %@, Respone: %@",webView.loading,webView.request.mainDocumentURL.absoluteString,responseString);
     _webiView.scalesPageToFit=YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
