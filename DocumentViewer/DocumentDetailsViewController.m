@@ -21,6 +21,7 @@
 #import "BrowserMainViewController.h"
 #import "BI4RestConstants.h"
 #import "SharedUtils.h"
+#import "OpenDocumentUrlManager.h"
 @interface DocumentDetailsViewController ()
 
 
@@ -599,15 +600,39 @@
     //        openDocumentURL=[NSString stringWithFormat:@"https://%@:%@/BOE/OpenDocument/opendoc/openDocument.jsp?iDocID=%d",activeSession.opendocServer,activeSession.opendocPort,id];
     //    else  openDocumentURL=[NSString stringWithFormat:@"http://%@:%@/BOE/OpenDocument/opendoc/openDocument.jsp?iDocID=%d",activeSession.opendocServer,activeSession.opendocPort,id];
     
+    
     NSURL *urlSelected=[BrowserMainViewController buildUrlFromSession:appDelegate.activeSession forEntity:[NSString stringWithFormat:@"%@%d",infoStorePoint,_document.id.intValue ] withPageSize:[appDelegate.globalSettings.fetchDocumentLimit intValue]];
+    
+    if (self.isInstance && self.isExternalFormat){
+        
+        
+        OpenDocumentViewController *opdv=[[OpenDocumentViewController alloc] init];
+        //            NSURL *openDocUrl=[NSURL URLWithString: [NSString stringWithFormat:@"%@",_selectedObject.openDoc]];
+        opdv.openDocUrl=urlSelected;
+        opdv.cmsToken=activeSession.cmsToken;
+        opdv.currentSession=activeSession;
+        opdv.isGetOpenDocRequired=NO;
+        opdv.isOpenDocumentManager=YES;
+        opdv.objectId=document.id;
+        [self.navigationController pushViewController:opdv animated:YES];
+
+        
+    
+//           NSString *newURL=@"http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&bttoken=MDAwRDAPLazZpXWNdXWdjPUpmY1g4QExRQWlBZ1JjOTAEQ&appKind=OpenDocument&appCUID=AZXgyG8_ue9OtYITUhGG.wg&service=%2FOpenDocument%2FappService.do&loc=en&pvl=en_US&actId=4070&objIds=113483&containerId=110231&bttoken=MDAwRDAPLazZpXWNdXWdjPUpmY1g4QExRQWlBZ1JjOTAEQ&isApplication=true&trustedAuthErrorMsg=&pref=maxOpageU%3D10%3BmaxOpageUt%3D200%3BmaxOpageC%3D10%3Btz%3DAmerica%2FNew_York%3BmUnit%3Dinch%3BshowFilters%3Dtrue%3BsmtpFrom%3Dtrue%3BpromptForUnsavedData%3Dtrue%3B&streamContent=true";
+    }
+    
+
+
+
+//    NSURL *urlSelected=[[NSURL alloc]initWithString:newURL];
     
     
     //        NSString *openDocumentURL=[NSString stringWithFormat:@"http://%@:8080/BOE/OpenDocument/opendoc/openDocument.jsp?token=%@&iDocID=%d&sViewer=html&sOutputFormat=H",session.cmsName,encodedToken,documentId];
     //    NSURL *url=[NSURL URLWithString:openDocumentURL];
     
-    NSLog(@"URL Selected: %@", urlSelected);
     
-    if (urlSelected) {
+    else if (urlSelected) {
+        NSLog(@"URL Selected: %@", urlSelected);
         
         OpenDocumentViewController *opdv=[[OpenDocumentViewController alloc] init];
         //            NSURL *openDocUrl=[NSURL URLWithString: [NSString stringWithFormat:@"%@",_selectedObject.openDoc]];
@@ -615,6 +640,7 @@
         opdv.cmsToken=activeSession.cmsToken;
         opdv.currentSession=activeSession;
         opdv.isGetOpenDocRequired=YES;
+        opdv.isOpenDocumentManager=NO;
         [self.navigationController pushViewController:opdv animated:YES];
         
         
@@ -627,7 +653,24 @@
     
     
 }
+-(void)openDocHackView:(OpenDocumentUrlManager *)openDocManager IsSuccess:(BOOL)isSuccess WithUrl:(NSURL *)url LogOffUrl:(NSURL *)logoffUrl withBTToken:(NSString *)bttoken
+{
+    OpenDocumentViewController *opdv=[[OpenDocumentViewController alloc] init];
+    //            NSURL *openDocUrl=[NSURL URLWithString: [NSString stringWithFormat:@"%@",_selectedObject.openDoc]];
+    
+    opdv.openDocUrl=url;
+    
+    NSString *newUrlString=[NSString stringWithFormat:@"%@&bttoken=%@", [logoffUrl absoluteString],bttoken ];
 
+    NSURL *newUrl=[[NSURL alloc] initWithString:newUrlString];
+    opdv.logoffUrl=newUrl;
+    opdv.cmsToken=activeSession.cmsToken;
+    opdv.currentSession=activeSession;
+    opdv.isGetOpenDocRequired=NO;
+    opdv.isOpenDocumentManager=YES;
+    [self.navigationController pushViewController:opdv animated:YES];
+    
+}
 -(void) createTokenAndLaunchOpenDocWithSession:(Session *)session forDocument: (Document *) document;
 {
     BIConnector *biConnector=[[BIConnector alloc]init];

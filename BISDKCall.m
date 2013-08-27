@@ -325,6 +325,7 @@
         connector.delegate=self;
         [connector getCmsTokenWithSession:self.biSession];
     }else{
+        NSLog(@"Calling Delegates. Is Children? %d",isChildren);
         if (isChildren==YES)
             [self.delegate cypressCallForChildren:self withResponse:responseHeader isSuccess:isSucess withChildrenObjects:infoObjects];
         else{

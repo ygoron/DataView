@@ -11,6 +11,7 @@
 #import "BIGetDocumentDetails.h"
 #import "BIGetReports.h"
 
+
 @interface DocumentDetailsViewController : UITableViewController <BIGetDocumentDetailsDelegate,BIGetReportsDelegate,UIActionSheetDelegate, BIConnectorDelegate>
 @property (nonatomic, strong) Document *document;
 @property (nonatomic, assign) BOOL isInstance;

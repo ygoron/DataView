@@ -8,14 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "BISDKCall.h"
+#import "OpenDocumentUrlManager.h"
 
-@interface OpenDocumentViewController : UIViewController <UIWebViewDelegate,CypressSDKDelegate,BIConnectorDelegate>
+
+@interface OpenDocumentViewController : UIViewController <UIWebViewDelegate,CypressSDKDelegate,BIConnectorDelegate,OpenDocDelegate>
 @property (nonatomic,strong) NSURL *openDocUrl;
+@property (nonatomic,strong) NSURL *logoffUrl;
 @property (nonatomic, assign) BOOL isGetOpenDocRequired;
+@property (nonatomic, strong) NSNumber *objectId;
+@property (nonatomic, assign) BOOL isOpenDocumentManager;
 @property (strong, nonatomic) InfoObject *infoObject;
 @property (strong, nonatomic) IBOutlet UIWebView *webiView;
 @property (strong, nonatomic) NSString *cmsToken;
 @property (strong, nonatomic) Session *currentSession;
+
+
 
 -(void) reloadOpenDocView;
 -(void)loadOpenDocumentWithUrl: (NSURL *) url;
