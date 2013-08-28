@@ -150,10 +150,14 @@
 {
     
     NSLog(@"Generate 4.0 http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?");
-    NSString *webiViewUrl=[NSString stringWithFormat:@"http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&bttoken=%@&appKind=OpenDocument&appCUID=AZXgyG8_ue9OtYITUhGG.wg&service=/OpenDocument/appService.do&loc=en&pvl=en_US&actId=4070&objIds=113483&containerId=110231&bttoken=%@Application=true&trustedAuthErrorMsg=&pref=maxOpageU=10;maxOpageUt=200;maxOpageC=10;tz=America/New_York;mUnit=inch;showFilters=true;smtpFrom=true;promptForUnsavedData=true;&streamContent=true",bttoken,bttoken];
+
+    
+//    NSString *webiViewUrl=[NSString stringWithFormat:@"http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&bttoken=%@&appKind=OpenDocument&appCUID=AZXgyG8_ue9OtYITUhGG.wg&service=/OpenDocument/appService.do&loc=en&pvl=en_US&actId=4070&objIds=113483&containerId=110231&isApplication=true&trustedAuthErrorMsg=&pref=maxOpageU=10;maxOpageUt=200;maxOpageC=10;tz=America/New_York;mUnit=inch;showFilters=true;smtpFrom=true;promptForUnsavedData=true;&streamContent=true",bttoken];
     
     
     
+    
+     NSString *webiViewUrl=[NSString stringWithFormat:@"http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&appKind=OpenDocument&appCUID=AZXgyG8_ue9OtYITUhGG.wg&service=%%2FOpenDocument%%2FappService.do&loc=en&pvl=en_US&actId=4070&objIds=113483&containerId=110231&bttoken=%@&isApplication=true&trustedAuthErrorMsg=&pref=maxOpageU%%3D10%%3BmaxOpageUt%%3D200%%3BmaxOpageC%%3D10%%3Btz%%3DAmerica%%2FNew_York%%3BmUnit%%3Dinch%%3BshowFilters%%3Dtrue%%3BsmtpFrom%%3Dtrue%%3BpromptForUnsavedData%%3Dtrue%%3B",bttoken];
     
 //    if (_currentSession.isHttps==[NSNumber numberWithBool:YES])
 //        webiViewUrl=[NSString stringWithFormat:@"https://%@:%d/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&streamContent=true&bttoken=%@&objIds=113483&service=/OpenDocument/appService.do",url.host,[url.port intValue],bttoken];
