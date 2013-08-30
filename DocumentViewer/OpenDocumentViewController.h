@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BISDKCall.h"
-#import "OpenDocumentUrlManager.h"
 
 
-@interface OpenDocumentViewController : UIViewController <UIWebViewDelegate,CypressSDKDelegate,BIConnectorDelegate,OpenDocDelegate>
+@interface OpenDocumentViewController : UIViewController <UIWebViewDelegate,CypressSDKDelegate,BIConnectorDelegate>
 @property (nonatomic,strong) NSURL *openDocUrl;
+@property (nonatomic,strong) NSURL *selectedObjectUrl;
 @property (nonatomic,strong) NSURL *logoffUrl;
 @property (nonatomic, assign) BOOL isGetOpenDocRequired;
 @property (nonatomic, strong) NSNumber *objectId;

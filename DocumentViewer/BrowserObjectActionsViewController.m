@@ -415,6 +415,7 @@
             OpenDocumentViewController *opdv=[[OpenDocumentViewController alloc] init];
 //            NSURL *openDocUrl=[NSURL URLWithString: [NSString stringWithFormat:@"%@",_selectedObject.openDoc]];
             opdv.openDocUrl=_selectedObject.openDoc;
+            opdv.isOpenDocumentManager=YES;
             opdv.cmsToken=_currentSession.cmsToken;
             opdv.currentSession=_currentSession;
             opdv.isGetOpenDocRequired=NO;
@@ -422,10 +423,11 @@
             [self.navigationController pushViewController:opdv animated:YES];
             
         }else if ([actionCell.labelActionName.text isEqualToString:NSLocalizedString(@"View Latest Instance",nil)]){
-            NSLog (@"Open Document Call");
+            NSLog (@"Open Document Call -View Latest Instance. Latest instance Object. URL:%@",[_selectedObject.latestInstanceUrl absoluteString]);
             OpenDocumentViewController *opdv=[[OpenDocumentViewController alloc] init];
             NSURL *getOpenDocUrl=_selectedObject.latestInstanceUrl;
             opdv.openDocUrl=getOpenDocUrl;
+            opdv.selectedObjectUrl=_selectedObject.latestInstanceUrl;
             opdv.cmsToken=_currentSession.cmsToken;
             opdv.currentSession=_currentSession;
             opdv.isGetOpenDocRequired=YES;

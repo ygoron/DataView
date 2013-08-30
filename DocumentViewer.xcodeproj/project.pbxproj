@@ -22,8 +22,6 @@
 		9214469A179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92144699179B4ACC005D5659 /* InAppPucrhaseCell.m */; };
 		9214469B179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92144699179B4ACC005D5659 /* InAppPucrhaseCell.m */; };
 		9215D54516DFDAC90079A7DA /* DocumentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9215D54416DFDAC90079A7DA /* DocumentDetailsViewController.m */; };
-		9216C65517C79E0E00D3F266 /* OpenDocumentUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9216C65417C79E0E00D3F266 /* OpenDocumentUrlManager.m */; };
-		9216C65617C79E0E00D3F266 /* OpenDocumentUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9216C65417C79E0E00D3F266 /* OpenDocumentUrlManager.m */; };
 		921B39C916D816FB00C0CD95 /* DocumentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 921B39C816D816FB00C0CD95 /* DocumentCell.m */; };
 		921B39CD16D851F200C0CD95 /* BIGetDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = 921B39CC16D851F200C0CD95 /* BIGetDocuments.m */; };
 		921C0C1F179A166C00F41946 /* InAppPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C0C1E179A166C00F41946 /* InAppPurchase.m */; };
@@ -551,8 +549,6 @@
 		92144699179B4ACC005D5659 /* InAppPucrhaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPucrhaseCell.m; sourceTree = "<group>"; };
 		9215D54316DFDAC90079A7DA /* DocumentDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentDetailsViewController.h; sourceTree = "<group>"; };
 		9215D54416DFDAC90079A7DA /* DocumentDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DocumentDetailsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		9216C65317C79E0E00D3F266 /* OpenDocumentUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenDocumentUrlManager.h; sourceTree = "<group>"; };
-		9216C65417C79E0E00D3F266 /* OpenDocumentUrlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenDocumentUrlManager.m; sourceTree = "<group>"; };
 		921B39C716D816FB00C0CD95 /* DocumentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentCell.h; sourceTree = "<group>"; };
 		921B39C816D816FB00C0CD95 /* DocumentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentCell.m; sourceTree = "<group>"; };
 		921B39CB16D851F200C0CD95 /* BIGetDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIGetDocuments.h; sourceTree = "<group>"; };
@@ -1100,8 +1096,6 @@
 				9271491A17498B6800851389 /* OpenDocumentViewController.h */,
 				9271491B17498B6800851389 /* OpenDocumentViewController.m */,
 				9271491C17498B6800851389 /* OpenDocumentViewController.xib */,
-				9216C65317C79E0E00D3F266 /* OpenDocumentUrlManager.h */,
-				9216C65417C79E0E00D3F266 /* OpenDocumentUrlManager.m */,
 			);
 			name = "Browser Navigation";
 			sourceTree = "<group>";
@@ -2174,7 +2168,6 @@
 				92757F54179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
 				9214469B179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
 				92716BDD17BE7B4600CE3DA2 /* SharedUtils.m in Sources */,
-				9216C65617C79E0E00D3F266 /* OpenDocumentUrlManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2258,7 +2251,6 @@
 				92757F53179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
 				9214469A179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
 				92716BDC17BE7B4600CE3DA2 /* SharedUtils.m in Sources */,
-				9216C65517C79E0E00D3F266 /* OpenDocumentUrlManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

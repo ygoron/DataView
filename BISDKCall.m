@@ -192,6 +192,7 @@
     if ([[responseDic allKeys] containsObject:JSON_RESP_ERROR_CODE]){
         self.boxiError=[responseDic objectForKey:JSON_RESP_ERROR_MESSAGE];
         isSucess=NO;
+        NSLog (@"Boxi Error:%@",_boxiError);
     }
     else{
         self.boxiError=nil;

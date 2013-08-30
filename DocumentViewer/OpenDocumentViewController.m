@@ -22,8 +22,10 @@
     UIActivityIndicatorView *spinner;
     WebiAppDelegate *appDelegate;
     BOOL isBTokenFound;
-    OpenDocumentUrlManager *urlManager;
-
+    BOOL isGetWebiView;
+    NSNumber *actdId;
+    NSNumber *objectID;
+    
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,7 +46,7 @@
     self.navigationItem.titleView = titelLabel;
     [titelLabel sizeToFit];
     _webiView.delegate=self;
-    
+    isGetWebiView=NO;
     spinner = [[UIActivityIndicatorView alloc]  initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     spinner.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin);
     spinner.center = CGPointMake(_webiView.bounds.size.width / 2.0f, _webiView.bounds.size.height / 2.0f);
@@ -63,26 +65,7 @@
     //    if ([appDelegate.globalSettings.autoLogoff boolValue]==YES) [self createCmsTokenForSession:_currentSession];
     //    else [self reloadOpenDocView];
     
-
-    if (_isOpenDocumentManager==NO){
-        BILogoff *biLogoff=[[BILogoff alloc] init];
-        biLogoff.biSession=_currentSession;
-        [biLogoff logoffSessionSync:_currentSession withToken:_cmsToken];
-        
-
-        //        [biLogoff logoffSession:_currentSession withToken:_cmsToken];
-        [self createCmsTokenForSession:_currentSession];
-    }else{
-        [spinner startAnimating];
-        urlManager=[[OpenDocumentUrlManager alloc] init];
-        urlManager.webiAppDelegate=appDelegate;
-        urlManager.objectId=_objectId;
-        urlManager.delegate=self;
-        urlManager.currentSession=appDelegate.activeSession;
-        [urlManager getBTToken];
-        
-
-    }
+    
     //    }else{
     //
     //        BILogoff *biLogoff=[[BILogoff alloc] init];
@@ -94,16 +77,38 @@
     //    }
     //
     
+    [self initLoadRequest];
+    
     
 }
 
 -(void) initLoadRequest
 {
+    if (_isOpenDocumentManager==NO){
+        
+        BILogoff *biLogoff=[[BILogoff alloc] init];
+        biLogoff.biSession=_currentSession;
+        [biLogoff logoffSessionSync:_currentSession withToken:_cmsToken];
+        
+        
+        //        [biLogoff logoffSession:_currentSession withToken:_cmsToken];
+        [self createCmsTokenForSession:_currentSession];
+    }else{
+        [spinner startAnimating];
+        NSLog(@"Using OpenDocument Manager");
+        isGetWebiView=YES;
+        if (_openDocUrl==nil)
+            [self getOpenDocumentUrl];
+        else
+            [self getWebiViewWithUrl:_openDocUrl];
+        
+        
+    }
     
-    BILogoff *biLogoff=[[BILogoff alloc] init];
-    //    biLogoff.biSession=_currentSession;
-    [biLogoff logoffSessionSync:_currentSession withToken:_cmsToken];
-    [self createCmsTokenForSession:_currentSession];
+    //    BILogoff *biLogoff=[[BILogoff alloc] init];
+    //    //    biLogoff.biSession=_currentSession;
+    //    [biLogoff logoffSessionSync:_currentSession withToken:_cmsToken];
+    //    [self createCmsTokenForSession:_currentSession];
     
 }
 -(void) reloadOpenDocView
@@ -115,58 +120,28 @@
     
 }
 
--(void) openDocHackView:(OpenDocumentUrlManager *)openDocManager IsSuccess:(BOOL)isSuccess WithUrl:(NSURL *)url LogOffUrl:(NSURL *)logoffUrl withBTToken:(NSString *)bttoken
-{
-    
-}
--(void) getBTToken:(OpenDocumentUrlManager *)openDocManeger IsSuccess:(BOOL)isSuccess LogOffUrl:(NSURL *)logoffUrl withBTToken:(NSString *)bttoken WithOpenDocURL:(NSURL *)openDocUrl
-{
-    if (isSuccess==YES){
-        NSLog (@"Success. BTToken=%@",bttoken);
-        
-//                   NSString *newURL=@"http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&bttoken=MDAwRDAPLazZpXWNdXWdjPUpmY1g4QExRQWlBZ1JjOTAEQ&appKind=OpenDocument&appCUID=AZXgyG8_ue9OtYITUhGG.wg&service=%2FOpenDocument%2FappService.do&loc=en&pvl=en_US&actId=4070&objIds=113483&containerId=110231&bttoken=MDAwRDAPLazZpXWNdXWdjPUpmY1g4QExRQWlBZ1JjOTAEQ&isApplication=true&trustedAuthErrorMsg=&pref=maxOpageU%3D10%3BmaxOpageUt%3D200%3BmaxOpageC%3D10%3Btz%3DAmerica%2FNew_York%3BmUnit%3Dinch%3BshowFilters%3Dtrue%3BsmtpFrom%3Dtrue%3BpromptForUnsavedData%3Dtrue%3B&streamContent=true";
-        
-        NSURL *url=[self getLogonWebiViewDoWithOpenDocUrl:openDocUrl WithBttoken:bttoken];
-        NSLog(@"Preparing URL:%@",url);
-        
-        NSMutableURLRequest *request=[[NSMutableURLRequest alloc]initWithURL:url];
-        [request setHTTPMethod:@"GET"];
-        [request setValue:_cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
-
-        [_webiView loadRequest:request];
-        
-    }
-
-        
-        
-    else
-    {
-        NSLog (@"BTToken Failed");
-    }
-}
-
 
 -(NSURL *)getLogonWebiViewDoWithOpenDocUrl: (NSURL *) url WithBttoken: (NSString *) bttoken
 {
     
     NSLog(@"Generate 4.0 http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?");
-
-    
-//    NSString *webiViewUrl=[NSString stringWithFormat:@"http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&bttoken=%@&appKind=OpenDocument&appCUID=AZXgyG8_ue9OtYITUhGG.wg&service=/OpenDocument/appService.do&loc=en&pvl=en_US&actId=4070&objIds=113483&containerId=110231&isApplication=true&trustedAuthErrorMsg=&pref=maxOpageU=10;maxOpageUt=200;maxOpageC=10;tz=America/New_York;mUnit=inch;showFilters=true;smtpFrom=true;promptForUnsavedData=true;&streamContent=true",bttoken];
     
     
+    //    NSString *webiViewUrl=[NSString stringWithFormat:@"http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&bttoken=%@&appKind=OpenDocument&appCUID=AZXgyG8_ue9OtYITUhGG.wg&service=/OpenDocument/appService.do&loc=en&pvl=en_US&actId=4070&objIds=113483&containerId=110231&isApplication=true&trustedAuthErrorMsg=&pref=maxOpageU=10;maxOpageUt=200;maxOpageC=10;tz=America/New_York;mUnit=inch;showFilters=true;smtpFrom=true;promptForUnsavedData=true;&streamContent=true",bttoken];
     
     
-     NSString *webiViewUrl=[NSString stringWithFormat:@"http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&appKind=OpenDocument&appCUID=AZXgyG8_ue9OtYITUhGG.wg&service=%%2FOpenDocument%%2FappService.do&loc=en&pvl=en_US&actId=4070&objIds=113483&containerId=110231&bttoken=%@&isApplication=true&trustedAuthErrorMsg=&pref=maxOpageU%%3D10%%3BmaxOpageUt%%3D200%%3BmaxOpageC%%3D10%%3Btz%%3DAmerica%%2FNew_York%%3BmUnit%%3Dinch%%3BshowFilters%%3Dtrue%%3BsmtpFrom%%3Dtrue%%3BpromptForUnsavedData%%3Dtrue%%3B",bttoken];
     
-//    if (_currentSession.isHttps==[NSNumber numberWithBool:YES])
-//        webiViewUrl=[NSString stringWithFormat:@"https://%@:%d/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&streamContent=true&bttoken=%@&objIds=113483&service=/OpenDocument/appService.do",url.host,[url.port intValue],bttoken];
-//    
-//    
-//    
-//    else
-//        webiViewUrl=[NSString stringWithFormat:@"http://%@:%d/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&streamContent=true&bttoken=%@&objIds=113483&service=/OpenDocument/appService.do",url.host,[url.port intValue],bttoken];
-//    
+    
+    NSString *webiViewUrl=[NSString stringWithFormat:@"http://win-eiggairfoum:8080/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&appKind=OpenDocument&appCUID=AZXgyG8_ue9OtYITUhGG.wg&service=%%2FOpenDocument%%2FappService.do&loc=en&pvl=en_US&actId=4070&objIds=113483&containerId=110231&bttoken=%@&isApplication=true&trustedAuthErrorMsg=&pref=maxOpageU%%3D10%%3BmaxOpageUt%%3D200%%3BmaxOpageC%%3D10%%3Btz%%3DAmerica%%2FNew_York%%3BmUnit%%3Dinch%%3BshowFilters%%3Dtrue%%3BsmtpFrom%%3Dtrue%%3BpromptForUnsavedData%%3Dtrue%%3B",bttoken];
+    
+    //    if (_currentSession.isHttps==[NSNumber numberWithBool:YES])
+    //        webiViewUrl=[NSString stringWithFormat:@"https://%@:%d/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&streamContent=true&bttoken=%@&objIds=113483&service=/OpenDocument/appService.do",url.host,[url.port intValue],bttoken];
+    //
+    //
+    //
+    //    else
+    //        webiViewUrl=[NSString stringWithFormat:@"http://%@:%d/BOE/OpenDocument/1308030928/AnalyticalReporting/WebiView.do?bypassLatestInstance=true&cafWebSesInit=true&streamContent=true&bttoken=%@&objIds=113483&service=/OpenDocument/appService.do",url.host,[url.port intValue],bttoken];
+    //
     return [[NSURL alloc] initWithString:webiViewUrl];
     
 }
@@ -237,7 +212,7 @@
     biGetOpenDocUrl.delegate=self;
     biGetOpenDocUrl.biSession=_currentSession;
     biGetOpenDocUrl.isFilterByUserName=NO;
-    [biGetOpenDocUrl getSelectedObjectForSession:_currentSession withUrl:_openDocUrl];
+    [biGetOpenDocUrl getSelectedObjectForSession:_currentSession withUrl:_selectedObjectUrl];
     
 }
 -(void) createCmsTokenForSession:(Session *)session
@@ -265,7 +240,11 @@
         
         NSLog(@"Got URL:%@",[receivedObject.openDoc absoluteString]);
         if (receivedObject.openDoc){
-            [self loadOpenDocumentWithUrl:receivedObject.openDoc];
+            if (isGetWebiView==NO)
+                [self loadOpenDocumentWithUrl:receivedObject.openDoc];
+            else{
+                [self getWebiViewWithUrl:receivedObject.openDoc];
+            }
         }else{
             NSLog(@"Open Document URL is Null. Try to build opendocument URL based on Advanced Settings");
             NSString *openDocumentURL;
@@ -276,7 +255,10 @@
             NSURL *url=[NSURL URLWithString:openDocumentURL];
             NSLog(@"Created Open Doc: %@ for Type:%@",[url absoluteString],receivedObject.type);
             
-            [self loadOpenDocumentWithUrl:url];
+            if (isGetWebiView==NO)
+                [self loadOpenDocumentWithUrl:url];
+            else
+                [self getWebiViewWithUrl:url];
             
             
             
@@ -304,6 +286,18 @@
     
     
 }
+
+-(void) getWebiViewWithUrl: (NSURL *) url
+{
+    _openDocUrl=url;
+    NSMutableURLRequest *urlRequest=[[NSMutableURLRequest alloc] initWithURL:url];
+    [urlRequest setHTTPMethod:@"GET"];
+    [urlRequest setValue:_currentSession.cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
+    isGetWebiView=YES;
+    _webiView.delegate=self;
+    [_webiView loadRequest:urlRequest];
+}
+
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -311,20 +305,77 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [spinner stopAnimating];
-    _webiView.scalesPageToFit=YES;
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    if (_isOpenDocumentManager==YES){
-////        [self logoffWithSession:appDelegate.activeSession];
-//        NSLog (@"Logoff URL:%@",_logoffUrl);
-//        NSMutableURLRequest *request=[[NSMutableURLRequest alloc] initWithURL:_logoffUrl];
-//        [request setHTTPMethod:@"GET"];
-//        NSLog(@"Logoff URL:%@",_logoffUrl);
-//        //        (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
-//        [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Logoff (Sync) Completed:",[[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding]]];
+    if (isGetWebiView==NO){
+        [spinner stopAnimating];
+        _webiView.scalesPageToFit=YES;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+    }else{
+        // Parsing reponse to get btttoken
+        
+        NSLog(@"Original Open Doc Url:%@",[_openDocUrl absoluteString]);
+        NSString *html = [webView stringByEvaluatingJavaScriptFromString: @"document.all[0].innerHTML"];
+        NSLog(@"Content:%@",html);
+        
+        //        NSArray *inQuotes = [html componentsSeparatedByString:@"\""];
+        NSArray *lines = [html componentsSeparatedByString:@"\n"];
+        //        NSLog(@"URL Component: %@",lines);
+        
+        for (NSString *line in lines) {
+            NSLog(@"Line:%@",line);
+            NSRange bttPosition=[line rangeOfString:@"&bttoken" options:NSCaseInsensitiveSearch];
+            
+            
+            
+            
+            
+            if (!(bttPosition.location==NSNotFound)){
+                
+                NSArray *inQuotes=[line componentsSeparatedByString:@"\""];
+                
+                NSURL *url=[[NSURL alloc] initWithString:[inQuotes objectAtIndex:1]];
+                NSLog(@"Found URL:%@",url);
+                [webView stopLoading];
+                
+                NSArray *inCommas=[line componentsSeparatedByString:@","];
+                
+                actdId=[self getNumberFromStringArray:inCommas WithIndex:2 removeString:@"\""];
+                objectID=[self getNumberFromStringArray:inCommas WithIndex:3 removeString:@"\""];
+                
+                //                NSString *appendString=@"&appKind=OpenDocument&loc=en&pvl=en_US&actId=4070&objIds=113483&isApplication=true&streamContent=true";
+                NSString *appendString=[[NSString alloc]initWithFormat: @"&appKind=OpenDocument&loc=en&pvl=en_US&actId=%@&objIds=%@&isApplication=true&streamContent=true",actdId,objectID ];
+                
+                
+                NSString *newUrlString=[NSString stringWithFormat:@"%@://%@:%@%@%@%@",  _openDocUrl.scheme,_openDocUrl.host,_openDocUrl.port,@"/BOE/OpenDocument/1308030928/",[[url absoluteString] substringFromIndex:6],appendString];
+                
+                NSLog("New URL:%@",newUrlString);
+                url=[[NSURL alloc]initWithString:newUrlString];
+                isGetWebiView=NO;
+                NSMutableURLRequest *request=[[NSMutableURLRequest alloc] initWithURL:url];
+                [_webiView loadRequest:request];
+                break;
+                
+            }
+            
+        }
         
     }
-
+    
+}
+-(NSNumber *) getNumberFromStringArray: (NSArray *) strings WithIndex: (int) index removeString: (NSString *) removeString
+{
+    
+    
+    if ([strings  objectAtIndex:index]){
+        
+        NSString *cleanString= [[strings  objectAtIndex:index] stringByReplacingOccurrencesOfString:removeString withString:@""];
+        NSScanner *scanner = [NSScanner scannerWithString:cleanString];
+        BOOL isNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
+        
+        if (isNumeric==YES) NSLog(@"Found %@. Integer Value:%@",cleanString,[NSNumber numberWithInt:[cleanString integerValue]]);
+        return [NSNumber numberWithInt:[cleanString integerValue]];
+    }
+    return 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -342,7 +393,7 @@
 {
     NSLog(@"View Will Disapper - Logoff");
     [self logoffWithSession: _currentSession];
-   
+    
 }
 -(void) logoOffIfNeeded{
     if ([appDelegate.globalSettings.autoLogoff integerValue]==1){
