@@ -329,7 +329,21 @@
             
             
             
+            
             if (!(bttPosition.location==NSNotFound)){
+                
+                NSString *bttoken=@"";
+                NSArray *inq=[line componentsSeparatedByString:@"&"];
+                for (NSString *string in inq) {
+                    NSLog(@"String in quotes:%@",string);
+                    if ([string hasPrefix:@"bttoken"]) {
+                        bttoken=[string substringFromIndex:8];
+                        NSLog(@"BTToken Found:%@",bttoken);
+                    }
+                }
+                
+                
+                
                 
                 NSArray *inQuotes=[line componentsSeparatedByString:@"\""];
                 
@@ -342,17 +356,38 @@
                 actdId=[self getNumberFromStringArray:inCommas WithIndex:2 removeString:@"\""];
                 objectID=[self getNumberFromStringArray:inCommas WithIndex:3 removeString:@"\""];
                 
-                //                NSString *appendString=@"&appKind=OpenDocument&loc=en&pvl=en_US&actId=4070&objIds=113483&isApplication=true&streamContent=true";
-                NSString *appendString=[[NSString alloc]initWithFormat: @"&appKind=OpenDocument&loc=en&pvl=en_US&actId=%@&objIds=%@&isApplication=true&streamContent=true",actdId,objectID ];
-                
-                
-                NSString *newUrlString=[NSString stringWithFormat:@"%@://%@:%@%@%@%@",  _openDocUrl.scheme,_openDocUrl.host,_openDocUrl.port,@"/BOE/OpenDocument/1308030928/",[[url absoluteString] substringFromIndex:6],appendString];
-                
-                NSLog("New URL:%@",newUrlString);
-                url=[[NSURL alloc]initWithString:newUrlString];
-                isGetWebiView=NO;
-                NSMutableURLRequest *request=[[NSMutableURLRequest alloc] initWithURL:url];
-                [_webiView loadRequest:request];
+                if ([actdId intValue]>0 ){
+                    
+                    NSLog(@"4.0 Code?");
+                    
+                    //                NSString *appendString=@"&appKind=OpenDocument&loc=en&pvl=en_US&actId=4070&objIds=113483&isApplication=true&streamContent=true";
+                    NSString *appendString=[[NSString alloc]initWithFormat: @"&appKind=OpenDocument&loc=en&pvl=en_US&actId=%@&objIds=%@&isApplication=true&streamContent=true",actdId,objectID ];
+                    
+                    
+                    NSString *newUrlString=[NSString stringWithFormat:@"%@://%@:%@%@%@%@",  _openDocUrl.scheme,_openDocUrl.host,_openDocUrl.port,@"/BOE/OpenDocument/1308030928/",[[url absoluteString] substringFromIndex:6],appendString];
+                    
+                    NSLog("New URL:%@",newUrlString);
+                    url=[[NSURL alloc]initWithString:newUrlString];
+                    isGetWebiView=NO;
+                    NSMutableURLRequest *request=[[NSMutableURLRequest alloc] initWithURL:url];
+                    [_webiView loadRequest:request];
+                }else{
+                    NSLog(@"4.1 Code?");
+                    
+
+
+                    
+                    NSString *urlString=[NSString stringWithFormat:@"http://win-bi41rampup:8080/BOE/portal/1308290047/AnalyticalReporting/jsp/common/webiViewFormatInstance.jsp?bypassLatestInstance=true&cafWebSesInit=true&bttoken=%@&opendocTarget=infoviewOpenDocFrame&appKind=InfoView&service=/InfoView/common/appService.do&loc=en&pvl=en_US&ctx=standalone&actId=4469&objIds=7044&containerId=6157&objIdStr=7044&streamContent=true",bttoken];
+                    
+                    NSLog("New URL:%@",urlString);
+                    url=[[NSURL alloc]initWithString:urlString];
+                    isGetWebiView=NO;
+                    NSMutableURLRequest *request=[[NSMutableURLRequest alloc] initWithURL:url];
+                    [_webiView loadRequest:request];
+                    
+                    
+                    
+                }
                 break;
                 
             }
@@ -365,17 +400,19 @@
 -(NSNumber *) getNumberFromStringArray: (NSArray *) strings WithIndex: (int) index removeString: (NSString *) removeString
 {
     
-    
-    if ([strings  objectAtIndex:index]){
+    if (index <=[strings count]-1){
         
-        NSString *cleanString= [[strings  objectAtIndex:index] stringByReplacingOccurrencesOfString:removeString withString:@""];
-        NSScanner *scanner = [NSScanner scannerWithString:cleanString];
-        BOOL isNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
-        
-        if (isNumeric==YES) NSLog(@"Found %@. Integer Value:%@",cleanString,[NSNumber numberWithInt:[cleanString integerValue]]);
-        return [NSNumber numberWithInt:[cleanString integerValue]];
+        if ([strings  objectAtIndex:index]){
+            
+            NSString *cleanString= [[strings  objectAtIndex:index] stringByReplacingOccurrencesOfString:removeString withString:@""];
+            NSScanner *scanner = [NSScanner scannerWithString:cleanString];
+            BOOL isNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
+            
+            if (isNumeric==YES) NSLog(@"Found %@. Integer Value:%@",cleanString,[NSNumber numberWithInt:[cleanString integerValue]]);
+            return [NSNumber numberWithInt:[cleanString integerValue]];
+        }
     }
-    return 0;
+    return [NSNumber numberWithInt:0];
 }
 
 - (void)didReceiveMemoryWarning

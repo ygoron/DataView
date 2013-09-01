@@ -257,7 +257,15 @@
     ScheduleDetails *scheduleDetails=[[ScheduleDetails alloc]init];
     scheduleDetails.scheduleId =[[jsonString objectForKey:@"id"] integerValue];
     scheduleDetails.scheduleName =[jsonString objectForKey:@"name"];
-    scheduleDetails.scheduleStatus =[jsonString objectForKey:@"status"];
+    if ([[jsonString objectForKey:@"status"] isKindOfClass:[NSDictionary class]]){
+//        NSLog(@"4.1 SP1 Response");
+        NSDictionary *statusDic=[jsonString objectForKey:@"status"];
+        scheduleDetails.scheduleStatus =[statusDic objectForKey:@"$"];
+        
+    }else{
+//        NSLog(@"4.0 Response");
+        scheduleDetails.scheduleStatus =[jsonString objectForKey:@"status"];
+    }
     scheduleDetails.scheduleFormat =[jsonString objectForKey:@"format"];
     NSDictionary *formatDic=[jsonString objectForKey:@"format"];
     scheduleDetails.scheduleFormat=[formatDic objectForKey:@"@type"];
