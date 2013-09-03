@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import  "Settings.h"
 #import "Session.h"
+#import "MobileBIService.h"
 
 @interface WebiAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -22,6 +23,9 @@
 @property (nonatomic, assign) BOOL isOpenDocumentUrl;
 @property (nonatomic, assign) BOOL isCreateSessionAllowed;
 @property (nonatomic, strong) Settings *globalSettings;
+@property (nonatomic, strong) MobileBIService *mobileService;
+@property (nonatomic, strong) MobileSession *mobileSession;
+
 
 @property (nonatomic,strong) UIViewController *universeViewController;
 @property (nonatomic,strong) Session *activeSession;

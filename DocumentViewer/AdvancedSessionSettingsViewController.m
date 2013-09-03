@@ -8,6 +8,7 @@
 
 #import "AdvancedSessionSettingsViewController.h"
 #import "TitleLabel.h"
+#import "SharedUtils.h"
 
 @interface AdvancedSessionSettingsViewController ()
 
@@ -32,6 +33,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [SharedUtils adjustLabelLeftMarginForIpadForBoldFontInTableView:self.tableView];
+    [SharedUtils adjustRighMarginsForIpad:self.tableView.constraints];
+
     
     UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
     UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
@@ -69,6 +74,8 @@
     self.textFieldOpenDocPort.text=[session.opendocPort stringValue];
     _textFieldRESTBase.text=session.cypressSDKBase;
     _textFieldRESTWebiBase.text=session.webiRestSDKBase;
+    _textFieldMobiPath.text=session.mobileBIServiceBase;
+    _textFieldMobiPort.text=[session.mobileBIServicePort stringValue];
     [super viewWillAppear:animated];
 
 
@@ -148,6 +155,8 @@
     session.opendocPort=[NSNumber numberWithInt:[self.textFieldOpenDocPort.text intValue] ];
     session.cypressSDKBase=_textFieldRESTBase.text;
     session.webiRestSDKBase=_textFieldRESTWebiBase.text;
+    session.mobileBIServiceBase=_textFieldMobiPath.text;
+    session.mobileBIServicePort=[NSNumber numberWithInt:[_textFieldMobiPort.text intValue]];
     [super viewWillDisappear:animated];
     
 }

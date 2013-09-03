@@ -289,10 +289,10 @@
         else if (tabBarController.tabBar.items.count==3)
             tabBarController.selectedIndex=2;
     }
-
-[self onlyOneSessionEnabled];
-
-
+    
+    [self onlyOneSessionEnabled];
+    
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -307,6 +307,7 @@
 
 -(void) biLoggoff{
     
+    
     NSLog(@"Sessions count:%d",sessions.count);
     for (Session *session in sessions) {
         if ([session.isEnabled intValue]==1){
@@ -317,14 +318,20 @@
                 //                NSLog(@"Set Token to Nil");
                 
                 BILogoff *logOff=[[BILogoff alloc]init];
-                //                [logOff logoffSession:session withToken:session.cmsToken];
-                [logOff logoffSessionSync:session withToken:session.cmsToken];
+                [logOff logoffSession:session withToken:session.cmsToken];
+                //                [logOff logoffSessionSync:session withToken:session.cmsToken];
                 session.cmsToken=nil;
                 NSLog(@"Token was set to nil");
                 
             }
         }
     }
+    
+    if (_mobileService!=nil) {
+        [_mobileService mobileLogoff];
+    }
+    _mobileSession=nil;
+    
     
 }
 
@@ -632,6 +639,13 @@
                     NSLog(@"Webi SDK  Base is not set");
                     session.webiRestSDKBase=webiRestSDKPoint_Default;
                 }
+                if (session.mobileBIServiceBase<=0){
+                    session.mobileBIServiceBase=mobileServiceBase;
+                }
+                if (session.mobileBIServicePort <=0){
+                    [session setMobileBIServicePort:[NSNumber  numberWithInt:mobileServicePort]];
+                }
+                
                 self.activeSession=session;
                 
                 NSLog(@"Active Session:%@",self.activeSession.name);

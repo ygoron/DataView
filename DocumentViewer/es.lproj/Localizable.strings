@@ -276,3 +276,8 @@
 "View Document in PDF"="Ver documento en PDF";
 "Export to Excel"="Exportar a formato Excel";
 
+/* New Strings for DashBoard */
+
+"Dashboard Failed" = "Dashboard Failed";
+
+

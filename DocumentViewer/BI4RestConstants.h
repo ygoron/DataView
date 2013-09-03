@@ -15,6 +15,8 @@
 #define AUTH_LDAP @"secLDAP"
 #define cypressSDKPoint_Default @"/biprws"
 #define webiRestSDKPoint_Default @"/biprws/raylight/v1"
+#define mobileServiceBase @"/MobileBIService/MessageHandlerServlet"
+#define mobileServicePort 8080
 
 #define logonPathPoint @"/logon/long"
 #define logoffPathPoint @"/logoff"

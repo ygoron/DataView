@@ -19,6 +19,8 @@
 #import "OpenDocumentViewController.h"
 #import "BICypressSchedule.h"
 #import "ScheduleUrl.h"
+#import "DashboardViewController.h"
+
 @interface BrowserObjectActionsViewController ()
 
 @end
@@ -33,8 +35,8 @@
     NSMutableArray *objectInfos;
     NSMutableArray *descAndPaths;
     BICypressSchedule *biSchedule;
-        SystemSoundID soundID;
-
+    SystemSoundID soundID;
+    
     
 }
 
@@ -95,7 +97,7 @@
     appDelegate= (id)[[UIApplication sharedApplication] delegate];
     
     biSchedule=[[BICypressSchedule alloc]init];
-
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -196,7 +198,7 @@
         [spinner stopAnimating];
         
         NSLog(@"Selected Object Received ID: %d",receivedObject.objectId);
-//        [TestFlight passCheckpoint:@"Selected Object Received"];
+        //        [TestFlight passCheckpoint:@"Selected Object Received"];
         _selectedObject=receivedObject;
         
         if (_selectedObject.childrenUrl!=nil){
@@ -339,12 +341,12 @@
         
         Action *action=[actions objectAtIndex:[indexPath row]];
         actionCell.labelActionName.text=action.name;
-//        actionCell.labelActionDescription.text=action.description;
+        //        actionCell.labelActionDescription.text=action.description;
         if ([action.name isEqualToString:NSLocalizedString(@"Run Now",nil)]) {
-//            actionCell.labelActionName.textAlignment=NSTextAlignmentCenter;
-//            actionCell.labelActionDescription.textAlignment=NSTextAlignmentCenter;
-//         [actionCell setAccessoryType:UITableViewCellAccessoryNone];
-//            [actionCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            //            actionCell.labelActionName.textAlignment=NSTextAlignmentCenter;
+            //            actionCell.labelActionDescription.textAlignment=NSTextAlignmentCenter;
+            //         [actionCell setAccessoryType:UITableViewCellAccessoryNone];
+            //            [actionCell setSelectionStyle:UITableViewCellSelectionStyleNone];
         }
         return actionCell;
     }
@@ -411,16 +413,27 @@
             [self.navigationController pushViewController:vc animated:YES];
             
         }else if ([actionCell.labelActionName.text isEqualToString:NSLocalizedString(@"View",nil)]){
-            NSLog (@"Open Document Call");
-            OpenDocumentViewController *opdv=[[OpenDocumentViewController alloc] init];
-//            NSURL *openDocUrl=[NSURL URLWithString: [NSString stringWithFormat:@"%@",_selectedObject.openDoc]];
-            opdv.openDocUrl=_selectedObject.openDoc;
-            opdv.isOpenDocumentManager=YES;
-            opdv.cmsToken=_currentSession.cmsToken;
-            opdv.currentSession=_currentSession;
-            opdv.isGetOpenDocRequired=NO;
-            opdv.infoObject=_selectedObject;
-            [self.navigationController pushViewController:opdv animated:YES];
+            if (![_selectedObject.type isEqualToString:@"XL.XcelsiusEnterprise"]){
+                NSLog (@"Open Document Call");
+                OpenDocumentViewController *opdv=[[OpenDocumentViewController alloc] init];
+                //            NSURL *openDocUrl=[NSURL URLWithString: [NSString stringWithFormat:@"%@",_selectedObject.openDoc]];
+                opdv.openDocUrl=_selectedObject.openDoc;
+                opdv.isOpenDocumentManager=YES;
+                opdv.cmsToken=_currentSession.cmsToken;
+                opdv.currentSession=_currentSession;
+                opdv.isGetOpenDocRequired=NO;
+                opdv.infoObject=_selectedObject;
+                [self.navigationController pushViewController:opdv animated:YES];
+            }else{
+                
+                NSLog(@"DashBoard Viewer");
+                DashboardViewController *dvc= [[DashboardViewController alloc] initWithNibName:@"DashboardViewController" bundle:nil];
+                [dvc setDashboardCuid:_selectedObject.cuid];
+                [dvc setTitle:_selectedObject.name];
+                [self.navigationController pushViewController:dvc animated:YES];
+                
+            }
+            
             
         }else if ([actionCell.labelActionName.text isEqualToString:NSLocalizedString(@"View Latest Instance",nil)]){
             NSLog (@"Open Document Call -View Latest Instance. Latest instance Object. URL:%@",[_selectedObject.latestInstanceUrl absoluteString]);
@@ -456,23 +469,23 @@
     NSLog(@"Schedule Urls Received. Count: %d",urls.count);
     // Find Run Now URL
     if (isSucess){
-    NSURL *runNowUrl;
-    for (ScheduleUrl *scheduleUrl in urls) {
-        if ([scheduleUrl.name isEqualToString:@"Now"]){
-            runNowUrl=scheduleUrl.url;
-            break;
+        NSURL *runNowUrl;
+        for (ScheduleUrl *scheduleUrl in urls) {
+            if ([scheduleUrl.name isEqualToString:@"Now"]){
+                runNowUrl=scheduleUrl.url;
+                break;
+            }
         }
-    }
-    
-    if (runNowUrl!=nil){
-        NSArray *keys = [NSArray arrayWithObjects:@"retriesAllowed", @"retryIntervalInSeconds", nil];
-        NSArray *objects = [NSArray arrayWithObjects:@"0", @"1800", nil];
         
-        NSLog(@"Objects %@",objects);
-        NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
-
-        [biSchedule scheduleWithUrl:runNowUrl withData:jsonDictionary forSession:_currentSession];
-    }
+        if (runNowUrl!=nil){
+            NSArray *keys = [NSArray arrayWithObjects:@"retriesAllowed", @"retryIntervalInSeconds", nil];
+            NSArray *objects = [NSArray arrayWithObjects:@"0", @"1800", nil];
+            
+            NSLog(@"Objects %@",objects);
+            NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+            
+            [biSchedule scheduleWithUrl:runNowUrl withData:jsonDictionary forSession:_currentSession];
+        }
     }    else if (biSchedule.connectorError!=nil){
         UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Get Schedule Forms Failed",nil) message:[biSchedule.connectorError localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -486,7 +499,7 @@
         [alert show];
         
     }
-
+    
     
 }
 -(void) scheduleResult:(BICypressSchedule *)biCypressSchedule withData:(NSDictionary *)data withUrl:(NSURL *)scheduleUrl isSuccess:(BOOL)isSucess
@@ -500,20 +513,20 @@
                                                                                     pathForResource: @"ScheduleSound" ofType:@"wav"]], &soundID);
         AudioServicesPlaySystemSound(soundID);
         AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
-
-
+        
+        
     }        else if (biSchedule.connectorError!=nil){
-            UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed",nil) message:[biSchedule.connectorError localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            
-        }else if (biSchedule.boxiError!=nil){
-            UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed in BI",nil) message:biSchedule.boxiError delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            
-        } else{
-            UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed",nil) message:NSLocalizedString(@"Server Error",nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            
-        }
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed",nil) message:[biSchedule.connectorError localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }else if (biSchedule.boxiError!=nil){
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed in BI",nil) message:biSchedule.boxiError delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    } else{
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed",nil) message:NSLocalizedString(@"Server Error",nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
 }
 @end

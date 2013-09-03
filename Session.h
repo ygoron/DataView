@@ -2,8 +2,8 @@
 //  Session.h
 //  DocumentViewer
 //
-//  Created by Yuri Goron on 2013-06-04.
-//  Copyright (c) 2013 Data View Systems. All rights reserved.
+//  Created by Yuri Goron on 2013-09-02.
+//  Copyright (c) 2013 APOS Systems. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString * authType;
 @property (nonatomic, retain) NSString * cmsName;
 @property (nonatomic, retain) NSString * cmsToken;
+@property (nonatomic, retain) NSString * cypressSDKBase;
 @property (nonatomic, retain) NSNumber * isEnabled;
 @property (nonatomic, retain) NSNumber * isHttps;
 @property (nonatomic, retain) NSNumber * isTestedOK;
@@ -26,8 +27,9 @@
 @property (nonatomic, retain) NSString * password;
 @property (nonatomic, retain) NSNumber * port;
 @property (nonatomic, retain) NSString * userName;
-@property (nonatomic, retain) NSString * cypressSDKBase;
 @property (nonatomic, retain) NSString * webiRestSDKBase;
+@property (nonatomic, retain) NSString * mobileBIServiceBase;
+@property (nonatomic, retain) NSNumber * mobileBIServicePort;
 @property (nonatomic, retain) NSSet *documents;
 @end
 

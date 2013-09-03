@@ -274,3 +274,8 @@
 "View Document in PDF"="PDF 書式でﾄﾞｷｭﾒﾝﾄを表示する";
 "Export to Excel"="Excel にｴｸｽﾎﾟｰﾄ";
 
+/* New Strings for DashBoard */
+
+"Dashboard Failed" = "Dashboard Failed";
+
+

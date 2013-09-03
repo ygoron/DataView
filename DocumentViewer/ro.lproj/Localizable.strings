@@ -275,3 +275,8 @@
 "View Document in PDF"="Vezi documentul în format PDF";
 "Export to Excel"="Exportă în format Excel";
 
+/* New Strings for DashBoard */
+
+"Dashboard Failed" = "Dashboard Failed";
+
+

@@ -28,6 +28,24 @@
 		921C0C20179A166C00F41946 /* InAppPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C0C1E179A166C00F41946 /* InAppPurchase.m */; };
 		921C0C25179A1A1000F41946 /* Products.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C0C24179A1A1000F41946 /* Products.m */; };
 		921C0C26179A1A1000F41946 /* Products.m in Sources */ = {isa = PBXBuildFile; fileRef = 921C0C24179A1A1000F41946 /* Products.m */; };
+		921E2E3B17D4FBA400AEEF16 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E3917D4FBA400AEEF16 /* DashboardViewController.m */; };
+		921E2E3C17D4FBA400AEEF16 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E3917D4FBA400AEEF16 /* DashboardViewController.m */; };
+		921E2E3D17D4FBA400AEEF16 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921E2E3A17D4FBA400AEEF16 /* DashboardViewController.xib */; };
+		921E2E3E17D4FBA400AEEF16 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921E2E3A17D4FBA400AEEF16 /* DashboardViewController.xib */; };
+		921E2E4217D5033C00AEEF16 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4117D5033C00AEEF16 /* Session.m */; };
+		921E2E4317D5033C00AEEF16 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4117D5033C00AEEF16 /* Session.m */; };
+		921E2E4617D51E1600AEEF16 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4517D51E1600AEEF16 /* NSData+Base64.m */; };
+		921E2E4717D51E1600AEEF16 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4517D51E1600AEEF16 /* NSData+Base64.m */; };
+		921E2E5517D52C4E00AEEF16 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4B17D52C4E00AEEF16 /* ioapi.c */; };
+		921E2E5617D52C4E00AEEF16 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4B17D52C4E00AEEF16 /* ioapi.c */; };
+		921E2E5717D52C4E00AEEF16 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4D17D52C4E00AEEF16 /* mztools.c */; };
+		921E2E5817D52C4E00AEEF16 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4D17D52C4E00AEEF16 /* mztools.c */; };
+		921E2E5917D52C4E00AEEF16 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4F17D52C4E00AEEF16 /* unzip.c */; };
+		921E2E5A17D52C4E00AEEF16 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4F17D52C4E00AEEF16 /* unzip.c */; };
+		921E2E5B17D52C4E00AEEF16 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E5117D52C4E00AEEF16 /* zip.c */; };
+		921E2E5C17D52C4E00AEEF16 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E5117D52C4E00AEEF16 /* zip.c */; };
+		921E2E5D17D52C4E00AEEF16 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E5417D52C4E00AEEF16 /* SSZipArchive.m */; };
+		921E2E5E17D52C4E00AEEF16 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E5417D52C4E00AEEF16 /* SSZipArchive.m */; };
 		92285791175EB962002A8456 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 92285790175EB962002A8456 /* Document.m */; };
 		922D14C8176A96430026B5ED /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922D14CB176A96430026B5ED /* MainStoryboard.storyboard */; };
 		922E169F1746FB9E00D55FF4 /* BrowserObjectActionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922E169D1746FB9E00D55FF4 /* BrowserObjectActionsViewController.m */; };
@@ -163,7 +181,6 @@
 		9288ABCF1787A9A50048BCF1 /* BICypressSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 927A82D0174A807400EF789B /* BICypressSchedule.m */; };
 		9288ABD01787A9A50048BCF1 /* ScheduleUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 927A82D4174A8F2900EF789B /* ScheduleUrl.m */; };
 		9288ABD11787A9A50048BCF1 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 92285790175EB962002A8456 /* Document.m */; };
-		9288ABD21787A9A50048BCF1 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A782FE175EBF9600818509 /* Session.m */; };
 		9288ABD31787A9A50048BCF1 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A78302175EBF9700818509 /* Settings.m */; };
 		9288ABD51787A9A50048BCF1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92719E4B171F6A3600899D95 /* libz.dylib */; };
 		9288ABD61787A9A50048BCF1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E70090171B02E8007953D7 /* MessageUI.framework */; };
@@ -435,7 +452,6 @@
 		929D1CE2173467860027FDFF /* CypressResponseHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CE1173467860027FDFF /* CypressResponseHeader.m */; };
 		929D1CE6173479730027FDFF /* InfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CE5173479730027FDFF /* InfoObject.m */; };
 		929FC31717090D0500747435 /* Folder-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 929FC31617090D0500747435 /* Folder-1.png */; };
-		92A782FF175EBF9600818509 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A782FE175EBF9600818509 /* Session.m */; };
 		92A78303175EBF9700818509 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A78302175EBF9700818509 /* Settings.m */; };
 		92ADE95C16CB24D60027BD4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE95B16CB24D60027BD4D /* UIKit.framework */; };
 		92ADE95E16CB24D60027BD4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE95D16CB24D60027BD4D /* Foundation.framework */; };
@@ -460,6 +476,16 @@
 		92B2C330172811D8000B275A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B2C32F172811D8000B275A /* Icon-72.png */; };
 		92B2C332172811DD000B275A /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B2C331172811DD000B275A /* Icon-72@2x.png */; };
 		92B90BDC16D6AF5B00A3F1B7 /* BILogoff.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B90BDB16D6AF5B00A3F1B7 /* BILogoff.m */; };
+		92B9F28617D37A5D006E7ABC /* MobileBIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F28517D37A5D006E7ABC /* MobileBIService.m */; };
+		92B9F28717D37A5D006E7ABC /* MobileBIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F28517D37A5D006E7ABC /* MobileBIService.m */; };
+		92B9F28A17D37B1C006E7ABC /* MobileSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F28917D37B1C006E7ABC /* MobileSession.m */; };
+		92B9F28B17D37B1C006E7ABC /* MobileSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F28917D37B1C006E7ABC /* MobileSession.m */; };
+		92B9F29317D3823A006E7ABC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B9F29217D3823A006E7ABC /* SenTestingKit.framework */; };
+		92B9F29417D3823A006E7ABC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE95B16CB24D60027BD4D /* UIKit.framework */; };
+		92B9F29517D3823A006E7ABC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE95D16CB24D60027BD4D /* Foundation.framework */; };
+		92B9F29B17D3823B006E7ABC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92B9F29917D3823B006E7ABC /* InfoPlist.strings */; };
+		92B9F29E17D3823B006E7ABC /* BIMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F29D17D3823B006E7ABC /* BIMobileTests.m */; };
+		92B9F2AD17D396D0006E7ABC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE96116CB24D60027BD4D /* CoreData.framework */; };
 		92BD122116F8D02E00B84C7C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BD122016F8D02E00B84C7C /* AVFoundation.framework */; };
 		92BD122416F8DAA800B84C7C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BD122216F8D32B00B84C7C /* AudioToolbox.framework */; };
 		92C730CB178CA4000016EAB7 /* back-button_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C730C7178CA4000016EAB7 /* back-button_landscape.png */; };
@@ -525,6 +551,16 @@
 		92FE2E37173F22A500AEEB01 /* BrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FE2E36173F22A500AEEB01 /* BrowserCell.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		92B9F2AA17D38E12006E7ABC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92ADE95016CB24D60027BD4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92ADE95716CB24D60027BD4D;
+			remoteInfo = "APOS BI Ext";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		920DB49616E17F3F001D3546 /* BIExportReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIExportReport.h; sourceTree = "<group>"; };
 		920DB49716E17F3F001D3546 /* BIExportReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIExportReport.m; sourceTree = "<group>"; };
@@ -558,6 +594,25 @@
 		921C0C1E179A166C00F41946 /* InAppPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchase.m; sourceTree = "<group>"; };
 		921C0C23179A1A1000F41946 /* Products.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Products.h; sourceTree = "<group>"; };
 		921C0C24179A1A1000F41946 /* Products.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Products.m; sourceTree = "<group>"; };
+		921E2E3817D4FBA400AEEF16 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
+		921E2E3917D4FBA400AEEF16 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		921E2E3A17D4FBA400AEEF16 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
+		921E2E3F17D5027F00AEEF16 /* DocumentViewer 10 - MobileServices.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DocumentViewer 10 - MobileServices.xcdatamodel"; sourceTree = "<group>"; };
+		921E2E4017D5033C00AEEF16 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		921E2E4117D5033C00AEEF16 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		921E2E4417D51E1600AEEF16 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		921E2E4517D51E1600AEEF16 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		921E2E4A17D52C4E00AEEF16 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		921E2E4B17D52C4E00AEEF16 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		921E2E4C17D52C4E00AEEF16 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		921E2E4D17D52C4E00AEEF16 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		921E2E4E17D52C4E00AEEF16 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		921E2E4F17D52C4E00AEEF16 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		921E2E5017D52C4E00AEEF16 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		921E2E5117D52C4E00AEEF16 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		921E2E5217D52C4E00AEEF16 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		921E2E5317D52C4E00AEEF16 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
+		921E2E5417D52C4E00AEEF16 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		922304A91714411C0039F7F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9228578E175EB7E8002A8456 /* DocumentViewer 8 - SDK Base Points.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 8 - SDK Base Points.xcdatamodel"; sourceTree = "<group>"; };
 		9228578F175EB962002A8456 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -814,8 +869,6 @@
 		929D1CE4173479730027FDFF /* InfoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoObject.h; sourceTree = "<group>"; };
 		929D1CE5173479730027FDFF /* InfoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoObject.m; sourceTree = "<group>"; };
 		929FC31617090D0500747435 /* Folder-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-1.png"; sourceTree = "<group>"; };
-		92A782FD175EBF9600818509 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
-		92A782FE175EBF9600818509 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		92A78301175EBF9700818509 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		92A78302175EBF9700818509 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		92ADE95816CB24D60027BD4D /* APOS BI Ext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APOS BI Ext.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -861,6 +914,19 @@
 		92B3FB451782F903007D9CC9 /* he */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/UniverseDetailsCell.strings; sourceTree = "<group>"; };
 		92B90BDA16D6AF5B00A3F1B7 /* BILogoff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BILogoff.h; sourceTree = "<group>"; };
 		92B90BDB16D6AF5B00A3F1B7 /* BILogoff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BILogoff.m; sourceTree = "<group>"; };
+		92B9F28417D37A5D006E7ABC /* MobileBIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileBIService.h; sourceTree = "<group>"; };
+		92B9F28517D37A5D006E7ABC /* MobileBIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileBIService.m; sourceTree = "<group>"; };
+		92B9F28817D37B1C006E7ABC /* MobileSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileSession.h; sourceTree = "<group>"; };
+		92B9F28917D37B1C006E7ABC /* MobileSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileSession.m; sourceTree = "<group>"; };
+		92B9F29117D3823A006E7ABC /* BIMobileTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BIMobileTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92B9F29217D3823A006E7ABC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		92B9F29817D3823B006E7ABC /* BIMobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BIMobileTests-Info.plist"; sourceTree = "<group>"; };
+		92B9F29A17D3823B006E7ABC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		92B9F29C17D3823B006E7ABC /* BIMobileTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BIMobileTests.h; sourceTree = "<group>"; };
+		92B9F29D17D3823B006E7ABC /* BIMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BIMobileTests.m; sourceTree = "<group>"; };
+		92B9F29F17D3823B006E7ABC /* BIMobileTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BIMobileTests-Prefix.pch"; sourceTree = "<group>"; };
+		92B9F2A317D389F7006E7ABC /* DocumentViewer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DocumentViewer.xcodeproj; sourceTree = "<group>"; };
+		92B9F2A817D38DE7006E7ABC /* project.pbxproj */ = {isa = PBXFileReference; lastKnownFileType = text.pbxproject; name = project.pbxproj; path = DocumentViewer.xcodeproj/project.pbxproj; sourceTree = "<group>"; };
 		92BD122016F8D02E00B84C7C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		92BD122216F8D32B00B84C7C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		92C730C7178CA4000016EAB7 /* back-button_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-button_landscape.png"; sourceTree = "<group>"; };
@@ -987,6 +1053,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		92B9F28D17D3823A006E7ABC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92B9F2AD17D396D0006E7ABC /* CoreData.framework in Frameworks */,
+				92B9F29317D3823A006E7ABC /* SenTestingKit.framework in Frameworks */,
+				92B9F29417D3823A006E7ABC /* UIKit.framework in Frameworks */,
+				92B9F29517D3823A006E7ABC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -1041,6 +1118,32 @@
 				92144699179B4ACC005D5659 /* InAppPucrhaseCell.m */,
 			);
 			name = InAppPurchases;
+			sourceTree = "<group>";
+		};
+		921E2E4817D52C2500AEEF16 /* sszip */ = {
+			isa = PBXGroup;
+			children = (
+				921E2E4917D52C4E00AEEF16 /* minizip */,
+				921E2E5317D52C4E00AEEF16 /* SSZipArchive.h */,
+				921E2E5417D52C4E00AEEF16 /* SSZipArchive.m */,
+			);
+			name = sszip;
+			sourceTree = "<group>";
+		};
+		921E2E4917D52C4E00AEEF16 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				921E2E4A17D52C4E00AEEF16 /* crypt.h */,
+				921E2E4B17D52C4E00AEEF16 /* ioapi.c */,
+				921E2E4C17D52C4E00AEEF16 /* ioapi.h */,
+				921E2E4D17D52C4E00AEEF16 /* mztools.c */,
+				921E2E4E17D52C4E00AEEF16 /* mztools.h */,
+				921E2E4F17D52C4E00AEEF16 /* unzip.c */,
+				921E2E5017D52C4E00AEEF16 /* unzip.h */,
+				921E2E5117D52C4E00AEEF16 /* zip.c */,
+				921E2E5217D52C4E00AEEF16 /* zip.h */,
+			);
+			path = minizip;
 			sourceTree = "<group>";
 		};
 		9240219D170500760056A87B /* Resources */ = {
@@ -1353,6 +1456,9 @@
 		92ADE94F16CB24D60027BD4D = {
 			isa = PBXGroup;
 			children = (
+				921E2E4817D52C2500AEEF16 /* sszip */,
+				92B9F2A817D38DE7006E7ABC /* project.pbxproj */,
+				92B9F2A317D389F7006E7ABC /* DocumentViewer.xcodeproj */,
 				9265537717C5775D001848EA /* TestFlightSDK2 */,
 				92E37E0E179B1F4800797DA8 /* StoreKit.framework */,
 				92719E4B171F6A3600899D95 /* libz.dylib */,
@@ -1361,6 +1467,7 @@
 				92ADE97D16CB25130027BD4D /* Core Data */,
 				92ADE96316CB24D60027BD4D /* DocumentViewer */,
 				92ADE96416CB24D70027BD4D /* Supporting Files */,
+				92B9F29617D3823A006E7ABC /* BIMobileTests */,
 				92ADE95A16CB24D60027BD4D /* Frameworks */,
 				92ADE95916CB24D60027BD4D /* Products */,
 				92828ED31729859B00CCAB2F /* APOS BI copy-Info.plist */,
@@ -1376,6 +1483,7 @@
 			children = (
 				92ADE95816CB24D60027BD4D /* APOS BI Ext.app */,
 				9288AC8B1787A9A50048BCF1 /* APOS BI.app */,
+				92B9F29117D3823A006E7ABC /* BIMobileTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1389,6 +1497,7 @@
 				92ADE95D16CB24D60027BD4D /* Foundation.framework */,
 				92ADE95F16CB24D60027BD4D /* CoreGraphics.framework */,
 				92ADE96116CB24D60027BD4D /* CoreData.framework */,
+				92B9F29217D3823A006E7ABC /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1396,6 +1505,7 @@
 		92ADE96316CB24D60027BD4D /* DocumentViewer */ = {
 			isa = PBXGroup;
 			children = (
+				92B9F28317D379DC006E7ABC /* Dashboard */,
 				921C0C21179A179F00F41946 /* InAppPurchases */,
 				929D1CDB173464190027FDFF /* CypressSDK */,
 				9256264917313C32006CEEB6 /* Browser Navigation */,
@@ -1481,9 +1591,9 @@
 			children = (
 				92A78301175EBF9700818509 /* Settings.h */,
 				92A78302175EBF9700818509 /* Settings.m */,
-				92A782FD175EBF9600818509 /* Session.h */,
-				92A782FE175EBF9600818509 /* Session.m */,
 				92ADE97516CB24D70027BD4D /* DocumentViewer.xcdatamodeld */,
+				921E2E4017D5033C00AEEF16 /* Session.h */,
+				921E2E4117D5033C00AEEF16 /* Session.m */,
 				921C0C1D179A166C00F41946 /* InAppPurchase.h */,
 				921C0C1E179A166C00F41946 /* InAppPurchase.m */,
 				9228578F175EB962002A8456 /* Document.h */,
@@ -1582,6 +1692,47 @@
 			name = UniverseDetail;
 			sourceTree = "<group>";
 		};
+		92B9F28317D379DC006E7ABC /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				921E2E4417D51E1600AEEF16 /* NSData+Base64.h */,
+				921E2E4517D51E1600AEEF16 /* NSData+Base64.m */,
+				92B9F28417D37A5D006E7ABC /* MobileBIService.h */,
+				92B9F28517D37A5D006E7ABC /* MobileBIService.m */,
+				92B9F28817D37B1C006E7ABC /* MobileSession.h */,
+				92B9F28917D37B1C006E7ABC /* MobileSession.m */,
+				921E2E3817D4FBA400AEEF16 /* DashboardViewController.h */,
+				921E2E3917D4FBA400AEEF16 /* DashboardViewController.m */,
+				921E2E3A17D4FBA400AEEF16 /* DashboardViewController.xib */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		92B9F29617D3823A006E7ABC /* BIMobileTests */ = {
+			isa = PBXGroup;
+			children = (
+				92B9F29C17D3823B006E7ABC /* BIMobileTests.h */,
+				92B9F29D17D3823B006E7ABC /* BIMobileTests.m */,
+				92B9F29717D3823B006E7ABC /* Supporting Files */,
+			);
+			path = BIMobileTests;
+			sourceTree = "<group>";
+		};
+		92B9F29717D3823B006E7ABC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				92B9F29817D3823B006E7ABC /* BIMobileTests-Info.plist */,
+				92B9F29917D3823B006E7ABC /* InfoPlist.strings */,
+				92B9F29F17D3823B006E7ABC /* BIMobileTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92B9F2A417D389F7006E7ABC /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
 		92CA91F9172830F1000AD6DD /* Tab Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -1655,6 +1806,25 @@
 			productReference = 92ADE95816CB24D60027BD4D /* APOS BI Ext.app */;
 			productType = "com.apple.product-type.application";
 		};
+		92B9F29017D3823A006E7ABC /* BIMobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92B9F2A017D3823B006E7ABC /* Build configuration list for PBXNativeTarget "BIMobileTests" */;
+			buildPhases = (
+				92B9F28C17D3823A006E7ABC /* Sources */,
+				92B9F28D17D3823A006E7ABC /* Frameworks */,
+				92B9F28E17D3823A006E7ABC /* Resources */,
+				92B9F28F17D3823A006E7ABC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92B9F2AB17D38E12006E7ABC /* PBXTargetDependency */,
+			);
+			name = BIMobileTests;
+			productName = BIMobileTests;
+			productReference = 92B9F29117D3823A006E7ABC /* BIMobileTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1689,10 +1859,17 @@
 			mainGroup = 92ADE94F16CB24D60027BD4D;
 			productRefGroup = 92ADE95916CB24D60027BD4D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 92B9F2A417D389F7006E7ABC /* Products */;
+					ProjectRef = 92B9F2A317D389F7006E7ABC /* DocumentViewer.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				92ADE95716CB24D60027BD4D /* APOS BI Ext */,
 				9288AB8D1787A9A50048BCF1 /* APOS BI */,
+				92B9F29017D3823A006E7ABC /* BIMobileTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1874,6 +2051,7 @@
 				92C730DA178CA4000016EAB7 /* navbar-icon_landscape@2x.png in Resources */,
 				9265538117C5775D001848EA /* README.md in Resources */,
 				9265538317C5775D001848EA /* release_notes.md in Resources */,
+				921E2E3E17D4FBA400AEEF16 /* DashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2053,6 +2231,15 @@
 				92C730D7178CA4000016EAB7 /* navbar-icon_landscape@2x.png in Resources */,
 				9265538017C5775D001848EA /* README.md in Resources */,
 				9265538217C5775D001848EA /* release_notes.md in Resources */,
+				921E2E3D17D4FBA400AEEF16 /* DashboardViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B9F28E17D3823A006E7ABC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92B9F29B17D3823B006E7ABC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2084,6 +2271,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
+		92B9F28F17D3823A006E7ABC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2159,7 +2359,6 @@
 				9288ABCF1787A9A50048BCF1 /* BICypressSchedule.m in Sources */,
 				9288ABD01787A9A50048BCF1 /* ScheduleUrl.m in Sources */,
 				9288ABD11787A9A50048BCF1 /* Document.m in Sources */,
-				9288ABD21787A9A50048BCF1 /* Session.m in Sources */,
 				9288ABD31787A9A50048BCF1 /* Settings.m in Sources */,
 				921C0C20179A166C00F41946 /* InAppPurchase.m in Sources */,
 				921C0C26179A1A1000F41946 /* Products.m in Sources */,
@@ -2168,6 +2367,16 @@
 				92757F54179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
 				9214469B179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
 				92716BDD17BE7B4600CE3DA2 /* SharedUtils.m in Sources */,
+				92B9F28717D37A5D006E7ABC /* MobileBIService.m in Sources */,
+				92B9F28B17D37B1C006E7ABC /* MobileSession.m in Sources */,
+				921E2E3C17D4FBA400AEEF16 /* DashboardViewController.m in Sources */,
+				921E2E4317D5033C00AEEF16 /* Session.m in Sources */,
+				921E2E4717D51E1600AEEF16 /* NSData+Base64.m in Sources */,
+				921E2E5617D52C4E00AEEF16 /* ioapi.c in Sources */,
+				921E2E5817D52C4E00AEEF16 /* mztools.c in Sources */,
+				921E2E5A17D52C4E00AEEF16 /* unzip.c in Sources */,
+				921E2E5C17D52C4E00AEEF16 /* zip.c in Sources */,
+				921E2E5E17D52C4E00AEEF16 /* SSZipArchive.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2242,7 +2451,6 @@
 				927A82D1174A807400EF789B /* BICypressSchedule.m in Sources */,
 				927A82D5174A8F2900EF789B /* ScheduleUrl.m in Sources */,
 				92285791175EB962002A8456 /* Document.m in Sources */,
-				92A782FF175EBF9600818509 /* Session.m in Sources */,
 				92A78303175EBF9700818509 /* Settings.m in Sources */,
 				921C0C1F179A166C00F41946 /* InAppPurchase.m in Sources */,
 				921C0C25179A1A1000F41946 /* Products.m in Sources */,
@@ -2251,10 +2459,36 @@
 				92757F53179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
 				9214469A179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
 				92716BDC17BE7B4600CE3DA2 /* SharedUtils.m in Sources */,
+				92B9F28617D37A5D006E7ABC /* MobileBIService.m in Sources */,
+				92B9F28A17D37B1C006E7ABC /* MobileSession.m in Sources */,
+				921E2E3B17D4FBA400AEEF16 /* DashboardViewController.m in Sources */,
+				921E2E4217D5033C00AEEF16 /* Session.m in Sources */,
+				921E2E4617D51E1600AEEF16 /* NSData+Base64.m in Sources */,
+				921E2E5517D52C4E00AEEF16 /* ioapi.c in Sources */,
+				921E2E5717D52C4E00AEEF16 /* mztools.c in Sources */,
+				921E2E5917D52C4E00AEEF16 /* unzip.c in Sources */,
+				921E2E5B17D52C4E00AEEF16 /* zip.c in Sources */,
+				921E2E5D17D52C4E00AEEF16 /* SSZipArchive.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B9F28C17D3823A006E7ABC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92B9F29E17D3823B006E7ABC /* BIMobileTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92B9F2AB17D38E12006E7ABC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92ADE95716CB24D60027BD4D /* APOS BI Ext */;
+			targetProxy = 92B9F2AA17D38E12006E7ABC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		922D14CB176A96430026B5ED /* MainStoryboard.storyboard */ = {
@@ -2359,6 +2593,14 @@
 				925DB4C41785A05D00EADF40 /* ar */,
 			);
 			name = UniverseDetailsCell.xib;
+			sourceTree = "<group>";
+		};
+		92B9F29917D3823B006E7ABC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92B9F29A17D3823B006E7ABC /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2532,6 +2774,42 @@
 			};
 			name = Release;
 		};
+		92B9F2A117D3823B006E7ABC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/APOS BI Ext.app/APOS BI Ext";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BIMobileTests/BIMobileTests-Prefix.pch";
+				INFOPLIST_FILE = "BIMobileTests/BIMobileTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		92B9F2A217D3823B006E7ABC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/APOS BI Ext.app/APOS BI Ext";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BIMobileTests/BIMobileTests-Prefix.pch";
+				INFOPLIST_FILE = "BIMobileTests/BIMobileTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2562,6 +2840,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		92B9F2A017D3823B006E7ABC /* Build configuration list for PBXNativeTarget "BIMobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92B9F2A117D3823B006E7ABC /* Debug */,
+				92B9F2A217D3823B006E7ABC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
@@ -2569,6 +2856,7 @@
 			isa = XCVersionGroup;
 			children = (
 				921C0C14179A117100F41946 /* DocumentViewer 9 - InAppPucrhases.xcdatamodel */,
+				921E2E3F17D5027F00AEEF16 /* DocumentViewer 10 - MobileServices.xcdatamodel */,
 				9228578E175EB7E8002A8456 /* DocumentViewer 8 - SDK Base Points.xcdatamodel */,
 				9258A07C17502C4000957384 /* DocumentViewer 7 - Int32.xcdatamodel */,
 				926D9086172B5953008EFC87 /* DocumentViewer 6 - Session AutoLogoff.xcdatamodel */,
@@ -2578,7 +2866,7 @@
 				923014081720C536002A8C34 /* DocumentViewer 2.xcdatamodel */,
 				92ADE97616CB24D70027BD4D /* DocumentViewer.xcdatamodel */,
 			);
-			currentVersion = 921C0C14179A117100F41946 /* DocumentViewer 9 - InAppPucrhases.xcdatamodel */;
+			currentVersion = 921E2E3F17D5027F00AEEF16 /* DocumentViewer 10 - MobileServices.xcdatamodel */;
 			name = DocumentViewer.xcdatamodeld;
 			path = DocumentViewer/DocumentViewer.xcdatamodeld;
 			sourceTree = "<group>";
