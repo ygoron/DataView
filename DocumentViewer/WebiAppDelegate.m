@@ -20,6 +20,7 @@
 #import "BIMobileIAPHelper.h"
 #import "PreferencesViewController.h"
 #import "Products.h"
+#import "MobileBIService.h"
 
 
 @implementation WebiAppDelegate
@@ -560,10 +561,14 @@
         aposDemoSession.isEnabled=[NSNumber numberWithInt:[DEFAULT_APOS_DEMO_CONNECTION_ENABLED intValue]];
     aposDemoSession.port=[NSNumber numberWithInt:[DEFAULT_APOS_DEMO_CONNECTION_PORT intValue]];
     aposDemoSession.opendocPort=[NSNumber numberWithInt:[DEFAULT_APOS_DEMO_CONNECTION_OPENDOC_PORT intValue]];
-    aposDemoSession.cmsNameEx=DEFAULT_APOS_DEMO_CMS_NAME;
     aposDemoSession.opendocServer=DEFAULT_APOS_DEMO_CONNECTION_OPENDOC_SERVER;
     aposDemoSession.cypressSDKBase=cypressSDKPoint_Default;
     aposDemoSession.webiRestSDKBase=webiRestSDKPoint_Default;
+    
+    aposDemoSession.mobileBIServicePort=[NSNumber numberWithInt:mobileServicePort];
+    aposDemoSession.mobileBIServiceBase=mobileServiceBase;
+    aposDemoSession.cmsNameEx=DEFAULT_APOS_DEMO_CMS_NAME;
+
     
     
     
