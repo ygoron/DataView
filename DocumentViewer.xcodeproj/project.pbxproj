@@ -191,7 +191,6 @@
 		9288ABDB1787A9A50048BCF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE95F16CB24D60027BD4D /* CoreGraphics.framework */; };
 		9288ABDC1787A9A50048BCF1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE96116CB24D60027BD4D /* CoreData.framework */; };
 		9288ABE01787A9A50048BCF1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922D14CB176A96430026B5ED /* MainStoryboard.storyboard */; };
-		9288ABE11787A9A50048BCF1 /* webi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92F8335916ECB8C90074C404 /* webi.jpg */; };
 		9288ABE21787A9A50048BCF1 /* ding-ding-small-bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9251997A16F90BCC0069D191 /* ding-ding-small-bell.wav */; };
 		9288ABE31787A9A50048BCF1 /* ScheduleSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9251997C16F90F950069D191 /* ScheduleSound.wav */; };
 		9288ABE41787A9A50048BCF1 /* universe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92ADF0071707653E0056B72F /* universe.jpg */; };
@@ -543,7 +542,6 @@
 		92F30A3C1784F9E00014B290 /* ipad-menubar-left__landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F30A2E1784F9E00014B290 /* ipad-menubar-left__landscape@2x.png */; };
 		92F30A3E1784F9E00014B290 /* navbar__landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F30A2F1784F9E00014B290 /* navbar__landscape@2x.png */; };
 		92F4677617249F4C0048252B /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F4677517249F4C0048252B /* PreferencesViewController.m */; };
-		92F8335A16ECB8C90074C404 /* webi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92F8335916ECB8C90074C404 /* webi.jpg */; };
 		92F8335D16ECCA4D0074C404 /* ScheduleWebiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8335C16ECCA4D0074C404 /* ScheduleWebiViewController.m */; };
 		92F90E3616FE2DEA00FA501A /* BIDeleteDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F90E3516FE2DEA00FA501A /* BIDeleteDocument.m */; };
 		92F90E3916FE3D4C00FA501A /* DeleteStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F90E3816FE3D4B00FA501A /* DeleteStatus.m */; };
@@ -597,7 +595,7 @@
 		921E2E3817D4FBA400AEEF16 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		921E2E3917D4FBA400AEEF16 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		921E2E3A17D4FBA400AEEF16 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
-		921E2E3F17D5027F00AEEF16 /* DocumentViewer 10 - MobileServices.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DocumentViewer 10 - MobileServices.xcdatamodel"; sourceTree = "<group>"; };
+		921E2E3F17D5027F00AEEF16 /* DocumentViewer 10 - MobileServices.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 10 - MobileServices.xcdatamodel"; sourceTree = "<group>"; };
 		921E2E4017D5033C00AEEF16 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		921E2E4117D5033C00AEEF16 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		921E2E4417D51E1600AEEF16 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -1006,7 +1004,6 @@
 		92F4676C17248B090048252B /* DocumentViewer 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 4.xcdatamodel"; sourceTree = "<group>"; };
 		92F4677417249F4C0048252B /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		92F4677517249F4C0048252B /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
-		92F8335916ECB8C90074C404 /* webi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = webi.jpg; sourceTree = SOURCE_ROOT; };
 		92F8335B16ECCA4D0074C404 /* ScheduleWebiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleWebiViewController.h; sourceTree = "<group>"; };
 		92F8335C16ECCA4D0074C404 /* ScheduleWebiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleWebiViewController.m; sourceTree = "<group>"; };
 		92F90E3416FE2DEA00FA501A /* BIDeleteDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIDeleteDocument.h; sourceTree = "<group>"; };
@@ -1566,7 +1563,6 @@
 				92CA921017283459000AD6DD /* unv_16-256.png */,
 				92CA921117283459000AD6DD /* unx_16-256.png */,
 				92CA920E17283370000AD6DD /* webi_16-256.png */,
-				92F8335916ECB8C90074C404 /* webi.jpg */,
 				92ADF0071707653E0056B72F /* universe.jpg */,
 				9271C75C170A557F003842EB /* measure.jpg */,
 				9271C75A170A5483003842EB /* attribute.png */,
@@ -1880,7 +1876,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9288ABE01787A9A50048BCF1 /* MainStoryboard.storyboard in Resources */,
-				9288ABE11787A9A50048BCF1 /* webi.jpg in Resources */,
 				9288ABE21787A9A50048BCF1 /* ding-ding-small-bell.wav in Resources */,
 				9288ABE31787A9A50048BCF1 /* ScheduleSound.wav in Resources */,
 				9288ABE41787A9A50048BCF1 /* universe.jpg in Resources */,
@@ -2060,7 +2055,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				922D14C8176A96430026B5ED /* MainStoryboard.storyboard in Resources */,
-				92F8335A16ECB8C90074C404 /* webi.jpg in Resources */,
 				9251997B16F90BCC0069D191 /* ding-ding-small-bell.wav in Resources */,
 				9251997D16F90F950069D191 /* ScheduleSound.wav in Resources */,
 				92ADF0081707653E0056B72F /* universe.jpg in Resources */,

@@ -152,9 +152,11 @@
     if (isSuccess==YES){
         NSLog(@"Display html:%@",filePath);
         [_webiView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:filePath]]];
+            [TestFlight passCheckpoint:@"Dashboard received with Success"];
     }
     else{
             [spinner stopAnimating];
+        [TestFlight passCheckpoint:@"Dashboard Failed"];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         UIAlertView *alert= [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Dashboard Failed",nil) message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];

@@ -276,7 +276,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportsList_Ident" textLabel="7SB-XT-CYX" rowHeight="44" style="IBUITableViewCellStyleDefault" id="RTJ-xy-yrT">
-                                <rect key="frame" x="0.0" y="281" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="281" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -438,7 +438,7 @@
                             <tableViewSection headerTitle="Destination" id="ay5-G6-7h1">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Destination_Ident" rowHeight="40" id="7iX-yb-Ljb">
-                                        <rect key="frame" x="0.0" y="46" width="320" height="41"/>
+                                        <rect key="frame" x="0.0" y="46" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="39"/>
@@ -469,7 +469,7 @@
                             <tableViewSection headerTitle="Format" id="JZv-aG-GY9">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Format_Ident" rowHeight="56" id="QNm-8d-a6s">
-                                        <rect key="frame" x="0.0" y="133" width="320" height="57"/>
+                                        <rect key="frame" x="0.0" y="133" width="320" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="55"/>
@@ -500,7 +500,7 @@
                             <tableViewSection headerTitle="Recurrence" id="8kC-f3-g9B">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recurrence_Ident" rowHeight="40" id="rXj-BF-5DA">
-                                        <rect key="frame" x="0.0" y="236" width="320" height="41"/>
+                                        <rect key="frame" x="0.0" y="236" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="39"/>
@@ -528,7 +528,7 @@
                             <tableViewSection id="esA-JD-mtn">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="40" id="xEw-Yn-wgN">
-                                        <rect key="frame" x="0.0" y="297" width="320" height="41"/>
+                                        <rect key="frame" x="0.0" y="297" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="39"/>
@@ -1263,7 +1263,7 @@
         <scene sceneID="9ar-9G-Ga0">
             <objects>
                 <navigationController id="vdc-QX-Pej" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="9D62E9A0-7651-4D1B-8ADB-881BEC2FCC0E" id="dj2-bu-JDm"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="00952910-66A7-4040-BA77-4D8C089E32DB" id="dj2-bu-JDm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vtf-Vr-VA2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2405,7 +2405,7 @@ May slow down app performance
         </scene>
     </scenes>
     <resources>
-        <image name="9D62E9A0-7651-4D1B-8ADB-881BEC2FCC0E" width="30" height="30">
+        <image name="00952910-66A7-4040-BA77-4D8C089E32DB" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

@@ -101,7 +101,7 @@
                            inManagedObjectContext:context];
         self.newSession.cypressSDKBase=cypressSDKPoint_Default;
         self.newSession.webiRestSDKBase=webiRestSDKPoint_Default;
-        
+        self.newSession.mobileBIServicePort=[NSNumber numberWithInt:mobileServicePort];
         
     }
     

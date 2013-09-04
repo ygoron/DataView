@@ -50,7 +50,8 @@
     
 
     [self cutsomizeTextField:self.textFieldOpenDocPort];
-    [self cutsomizeTextField:self.textfieldOpenDocHost];
+//    [self cutsomizeTextField:self.textfieldOpenDocHost];
+    [self cutsomizeTextField:self.textFieldMobiPort];
 
     
     tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];

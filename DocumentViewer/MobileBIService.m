@@ -34,7 +34,10 @@
     
     NSString *device =[self getDevice];
     
-    NSString *bodyString=[[NSString alloc] initWithFormat:@"requestSrc=%@&data=<LogonCredentials username=\"%@\" password=\"%@\" cms=\"%@\" auth=\"%@\" fetchUserInfo=\"true\" fetchSerializedSession=\"true\" lang=\"en\" />&message=CredentialsMessage",device,session.userName,session.password,session.cmsName,session.authType];
+    //    NSString *bodyString=[[NSString alloc] initWithFormat:@"requestSrc=%@&data=<LogonCredentials username=\"%@\" password=\"%@\" cms=\"%@\" auth=\"%@\" fetchUserInfo=\"true\" fetchSerializedSession=\"true\" lang=\"en\" />&message=CredentialsMessage",device,session.userName,session.password,session.cmsName,session.authType];
+    NSString *bodyString=[[NSString alloc] initWithFormat:@"requestSrc=%@&data=<LogonCredentials username=\"%@\" password=\"%@\" cms=\"%@\" auth=\"%@\" locale=\"en_CA\" fetchUserInfo=\"true\" fetchSerializedSession=\"true\" lang=\"en\" />&message=CredentialsMessage",device,session.userName,session.password,session.cmsName,session.authType];
+    
+    
     
     NSLog(@"Data to Send:%@",bodyString);
     
@@ -276,8 +279,16 @@
                                                                            error:&error];
                 
                 if (fileContentString) {
-                    NSString *replacementString=[[NSString alloc] initWithFormat:@"this._ceSerializedSession =\"%@\";",mobileSession.serializedSession];
-                    NSString *replacedString = [fileContentString stringByReplacingOccurrencesOfString:MOBILE_JS_STRING_TO_RERPLACE                                                                                   withString:replacementString];
+                    NSLog(@"Replace 40");
+                    NSString *replacementString40=[[NSString alloc] initWithFormat:@"this._ceSerializedSession =\"%@\";",mobileSession.serializedSession];
+                    NSString *replacedString = [fileContentString stringByReplacingOccurrencesOfString:MOBILE_JS_STRING_TO_RERPLACE40                                                                                   withString:replacementString40];
+                    
+                    NSLog(@"Replace 41");
+                    
+                    NSString *replacementString41=[[NSString alloc] initWithFormat:@"this._loginSerializedSession =\"%@\";",mobileSession.serializedSession];
+                    replacedString = [fileContentString stringByReplacingOccurrencesOfString:MOBILE_JS_STRING_TO_RERPLACE41                                                                                   withString:replacementString41];
+                    
+                    
                     error=nil;
                     
                     [replacedString writeToFile:file_1js atomically:YES encoding:NSUTF8StringEncoding error:&error];

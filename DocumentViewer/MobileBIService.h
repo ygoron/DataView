@@ -15,7 +15,9 @@
 #define MOBILE_FUNCTION_LOGON 0
 #define MOBILE_FUNCTION_LOGOFF 1
 #define MOBILE_FUNCTION_GET_DASHBOARD 2
-#define MOBILE_JS_STRING_TO_RERPLACE @"this._ceSerializedSession=this._connectionAPI.getInitParameter(l.PARAM_CE_SERIALIZED_SESSION);"
+#define MOBILE_JS_STRING_TO_RERPLACE40 @"this._ceSerializedSession=this._connectionAPI.getInitParameter(l.PARAM_CE_SERIALIZED_SESSION);"
+#define MOBILE_JS_STRING_TO_RERPLACE41 @"this._loginSerializedSession=c.loginSerializedSession;"
+
 
 
 
