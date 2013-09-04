@@ -2,7 +2,7 @@
 //  Session.m
 //  DocumentViewer
 //
-//  Created by Yuri Goron on 2013-09-02.
+//  Created by Yuri Goron on 2013-09-04.
 //  Copyright (c) 2013 APOS Systems. All rights reserved.
 //
 
@@ -20,6 +20,8 @@
 @dynamic isHttps;
 @dynamic isTestedOK;
 @dynamic lastTested;
+@dynamic mobileBIServiceBase;
+@dynamic mobileBIServicePort;
 @dynamic name;
 @dynamic opendocPort;
 @dynamic opendocServer;
@@ -27,8 +29,7 @@
 @dynamic port;
 @dynamic userName;
 @dynamic webiRestSDKBase;
-@dynamic mobileBIServiceBase;
-@dynamic mobileBIServicePort;
+@dynamic cmsNameEx;
 @dynamic documents;
 
 @end

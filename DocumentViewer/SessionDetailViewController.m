@@ -15,6 +15,8 @@
 #import "AdvancedSessionSettingsViewController.h"
 #import "WebiAppDelegate.h"
 #import "SharedUtils.h"
+#import "GlobalPreferencesConstants.h"
+
 
 @interface SessionDetailViewController ()
 
@@ -101,7 +103,11 @@
                            inManagedObjectContext:context];
         self.newSession.cypressSDKBase=cypressSDKPoint_Default;
         self.newSession.webiRestSDKBase=webiRestSDKPoint_Default;
+        self.newSession.mobileBIServiceBase=mobileServiceBase;
         self.newSession.mobileBIServicePort=[NSNumber numberWithInt:mobileServicePort];
+        self.newSession.cmsNameEx=DEFAULT_CMS_NAME;
+
+
         
     }
     

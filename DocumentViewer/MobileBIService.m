@@ -24,6 +24,7 @@
     MobileSession *mobileSession;
     NSMutableString *currentStringValue;
     NSString *mobileSessionStatus;
+    NSString *errorText;
 }
 
 
@@ -35,7 +36,7 @@
     NSString *device =[self getDevice];
     
     //    NSString *bodyString=[[NSString alloc] initWithFormat:@"requestSrc=%@&data=<LogonCredentials username=\"%@\" password=\"%@\" cms=\"%@\" auth=\"%@\" fetchUserInfo=\"true\" fetchSerializedSession=\"true\" lang=\"en\" />&message=CredentialsMessage",device,session.userName,session.password,session.cmsName,session.authType];
-    NSString *bodyString=[[NSString alloc] initWithFormat:@"requestSrc=%@&data=<LogonCredentials username=\"%@\" password=\"%@\" cms=\"%@\" auth=\"%@\" locale=\"en_CA\" fetchUserInfo=\"true\" fetchSerializedSession=\"true\" lang=\"en\" />&message=CredentialsMessage",device,session.userName,session.password,session.cmsName,session.authType];
+    NSString *bodyString=[[NSString alloc] initWithFormat:@"requestSrc=%@&data=<LogonCredentials username=\"%@\" password=\"%@\" cms=\"%@\" auth=\"%@\" locale=\"en_CA\" fetchUserInfo=\"true\" fetchSerializedSession=\"true\" lang=\"en\" />&message=CredentialsMessage",device,session.userName,session.password,session.cmsNameEx,session.authType];
     
     
     
@@ -162,7 +163,7 @@
     NSLog(@"BI Mobile Service Call didFailWithError %@",[error localizedDescription]);
     _connectorError =[[NSError alloc] init];
     _connectorError=error;
-    [_delegate sessionReceived:self isSuccess:NO WithMobileSession:nil];
+    [_delegate sessionReceived:self isSuccess:NO WithMobileSession:nil WithErrorText:[error localizedDescription]];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -181,11 +182,11 @@
         BOOL isParseSuccess=[xmlParser parse];
         NSLog(@"Is Parse Success:%d",isParseSuccess);
         if ([mobileSessionStatus isEqualToString:@"success"]){
-            [_delegate sessionReceived:self isSuccess:YES WithMobileSession:mobileSession];
+            [_delegate sessionReceived:self isSuccess:YES WithMobileSession:mobileSession WithErrorText:nil];
             
         }else
             
-            [_delegate sessionReceived:self isSuccess:NO WithMobileSession:nil];
+            [_delegate sessionReceived:self isSuccess:NO WithMobileSession:nil WithErrorText:errorText];
         
     }
     else if (functionCode==MOBILE_FUNCTION_LOGOFF)
@@ -342,6 +343,14 @@
     }
     if ([elementName isEqualToString:@"version"] && [mobileSessionStatus isEqualToString:@"success"]){
         mobileSession.productVersion=[attributeDict objectForKey:@"productVersion"];
+    }
+    
+}
+-(void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    NSLog(@"Current String Value:%@",currentStringValue);
+    if ([elementName isEqualToString:@"Result"] && ![mobileSessionStatus isEqualToString:@"Success"]){
+        errorText=currentStringValue;
     }
     
 }

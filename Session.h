@@ -2,7 +2,7 @@
 //  Session.h
 //  DocumentViewer
 //
-//  Created by Yuri Goron on 2013-09-02.
+//  Created by Yuri Goron on 2013-09-04.
 //  Copyright (c) 2013 APOS Systems. All rights reserved.
 //
 
@@ -21,6 +21,8 @@
 @property (nonatomic, retain) NSNumber * isHttps;
 @property (nonatomic, retain) NSNumber * isTestedOK;
 @property (nonatomic, retain) NSDate * lastTested;
+@property (nonatomic, retain) NSString * mobileBIServiceBase;
+@property (nonatomic, retain) NSNumber * mobileBIServicePort;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * opendocPort;
 @property (nonatomic, retain) NSString * opendocServer;
@@ -28,8 +30,7 @@
 @property (nonatomic, retain) NSNumber * port;
 @property (nonatomic, retain) NSString * userName;
 @property (nonatomic, retain) NSString * webiRestSDKBase;
-@property (nonatomic, retain) NSString * mobileBIServiceBase;
-@property (nonatomic, retain) NSNumber * mobileBIServicePort;
+@property (nonatomic, retain) NSString * cmsNameEx;
 @property (nonatomic, retain) NSSet *documents;
 @end
 

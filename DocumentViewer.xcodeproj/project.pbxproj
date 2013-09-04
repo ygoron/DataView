@@ -15,6 +15,8 @@
 		920F03C2171783AE006AC40E /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 920F03C1171783AE006AC40E /* Default-Landscape@2x~ipad.png */; };
 		920F03C4171783B4006AC40E /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 920F03C3171783B4006AC40E /* Default-Landscape~ipad.png */; };
 		920FBD511712384600B6A1BF /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920FBD501712384600B6A1BF /* SettingsViewController.m */; };
+		92100E2817D7B16500CF99A8 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 92100E2717D7B16500CF99A8 /* Session.m */; };
+		92100E2917D7B16500CF99A8 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 92100E2717D7B16500CF99A8 /* Session.m */; };
 		9210E020174828D3009183CD /* ObjectInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9210E01F174828D3009183CD /* ObjectInfoCell.m */; };
 		9210E02317482902009183CD /* ObjectInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9210E02217482902009183CD /* ObjectInfoCell.xib */; };
 		9210E02A174862E7009183CD /* ActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9210E029174862E7009183CD /* ActionCell.m */; };
@@ -32,8 +34,6 @@
 		921E2E3C17D4FBA400AEEF16 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E3917D4FBA400AEEF16 /* DashboardViewController.m */; };
 		921E2E3D17D4FBA400AEEF16 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921E2E3A17D4FBA400AEEF16 /* DashboardViewController.xib */; };
 		921E2E3E17D4FBA400AEEF16 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921E2E3A17D4FBA400AEEF16 /* DashboardViewController.xib */; };
-		921E2E4217D5033C00AEEF16 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4117D5033C00AEEF16 /* Session.m */; };
-		921E2E4317D5033C00AEEF16 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4117D5033C00AEEF16 /* Session.m */; };
 		921E2E4617D51E1600AEEF16 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4517D51E1600AEEF16 /* NSData+Base64.m */; };
 		921E2E4717D51E1600AEEF16 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4517D51E1600AEEF16 /* NSData+Base64.m */; };
 		921E2E5517D52C4E00AEEF16 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E4B17D52C4E00AEEF16 /* ioapi.c */; };
@@ -572,6 +572,9 @@
 		920F03C3171783B4006AC40E /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		920FBD4F1712384600B6A1BF /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		920FBD501712384600B6A1BF /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		92100E2517D7B0DE00CF99A8 /* DocumentViewer 11 - MobileServices - CMS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DocumentViewer 11 - MobileServices - CMS.xcdatamodel"; sourceTree = "<group>"; };
+		92100E2617D7B16500CF99A8 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		92100E2717D7B16500CF99A8 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		9210E01E174828D3009183CD /* ObjectInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectInfoCell.h; sourceTree = "<group>"; };
 		9210E01F174828D3009183CD /* ObjectInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectInfoCell.m; sourceTree = "<group>"; };
 		9210E02217482902009183CD /* ObjectInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectInfoCell.xib; sourceTree = "<group>"; };
@@ -596,8 +599,6 @@
 		921E2E3917D4FBA400AEEF16 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		921E2E3A17D4FBA400AEEF16 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		921E2E3F17D5027F00AEEF16 /* DocumentViewer 10 - MobileServices.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 10 - MobileServices.xcdatamodel"; sourceTree = "<group>"; };
-		921E2E4017D5033C00AEEF16 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
-		921E2E4117D5033C00AEEF16 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		921E2E4417D51E1600AEEF16 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		921E2E4517D51E1600AEEF16 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		921E2E4A17D52C4E00AEEF16 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
@@ -1587,9 +1588,9 @@
 			children = (
 				92A78301175EBF9700818509 /* Settings.h */,
 				92A78302175EBF9700818509 /* Settings.m */,
+				92100E2617D7B16500CF99A8 /* Session.h */,
+				92100E2717D7B16500CF99A8 /* Session.m */,
 				92ADE97516CB24D70027BD4D /* DocumentViewer.xcdatamodeld */,
-				921E2E4017D5033C00AEEF16 /* Session.h */,
-				921E2E4117D5033C00AEEF16 /* Session.m */,
 				921C0C1D179A166C00F41946 /* InAppPurchase.h */,
 				921C0C1E179A166C00F41946 /* InAppPurchase.m */,
 				9228578F175EB962002A8456 /* Document.h */,
@@ -2364,13 +2365,13 @@
 				92B9F28717D37A5D006E7ABC /* MobileBIService.m in Sources */,
 				92B9F28B17D37B1C006E7ABC /* MobileSession.m in Sources */,
 				921E2E3C17D4FBA400AEEF16 /* DashboardViewController.m in Sources */,
-				921E2E4317D5033C00AEEF16 /* Session.m in Sources */,
 				921E2E4717D51E1600AEEF16 /* NSData+Base64.m in Sources */,
 				921E2E5617D52C4E00AEEF16 /* ioapi.c in Sources */,
 				921E2E5817D52C4E00AEEF16 /* mztools.c in Sources */,
 				921E2E5A17D52C4E00AEEF16 /* unzip.c in Sources */,
 				921E2E5C17D52C4E00AEEF16 /* zip.c in Sources */,
 				921E2E5E17D52C4E00AEEF16 /* SSZipArchive.m in Sources */,
+				92100E2917D7B16500CF99A8 /* Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2456,13 +2457,13 @@
 				92B9F28617D37A5D006E7ABC /* MobileBIService.m in Sources */,
 				92B9F28A17D37B1C006E7ABC /* MobileSession.m in Sources */,
 				921E2E3B17D4FBA400AEEF16 /* DashboardViewController.m in Sources */,
-				921E2E4217D5033C00AEEF16 /* Session.m in Sources */,
 				921E2E4617D51E1600AEEF16 /* NSData+Base64.m in Sources */,
 				921E2E5517D52C4E00AEEF16 /* ioapi.c in Sources */,
 				921E2E5717D52C4E00AEEF16 /* mztools.c in Sources */,
 				921E2E5917D52C4E00AEEF16 /* unzip.c in Sources */,
 				921E2E5B17D52C4E00AEEF16 /* zip.c in Sources */,
 				921E2E5D17D52C4E00AEEF16 /* SSZipArchive.m in Sources */,
+				92100E2817D7B16500CF99A8 /* Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2849,6 +2850,7 @@
 		92ADE97516CB24D70027BD4D /* DocumentViewer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				92100E2517D7B0DE00CF99A8 /* DocumentViewer 11 - MobileServices - CMS.xcdatamodel */,
 				921C0C14179A117100F41946 /* DocumentViewer 9 - InAppPucrhases.xcdatamodel */,
 				921E2E3F17D5027F00AEEF16 /* DocumentViewer 10 - MobileServices.xcdatamodel */,
 				9228578E175EB7E8002A8456 /* DocumentViewer 8 - SDK Base Points.xcdatamodel */,
@@ -2860,7 +2862,7 @@
 				923014081720C536002A8C34 /* DocumentViewer 2.xcdatamodel */,
 				92ADE97616CB24D70027BD4D /* DocumentViewer.xcdatamodel */,
 			);
-			currentVersion = 921E2E3F17D5027F00AEEF16 /* DocumentViewer 10 - MobileServices.xcdatamodel */;
+			currentVersion = 92100E2517D7B0DE00CF99A8 /* DocumentViewer 11 - MobileServices - CMS.xcdatamodel */;
 			name = DocumentViewer.xcdatamodeld;
 			path = DocumentViewer/DocumentViewer.xcdatamodeld;
 			sourceTree = "<group>";

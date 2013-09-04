@@ -58,14 +58,24 @@
     }
     
 }
--(void) sessionReceived:(MobileBIService *)mobileService isSuccess:(BOOL)isSuccess WithMobileSession:(MobileSession *)mobileSession
+-(void) sessionReceived:(MobileBIService *)mobileService isSuccess:(BOOL)isSuccess WithMobileSession:(MobileSession *)mobileSession WithErrorText:(NSString *)textString
 {
     NSLog(@"Is Session Received:%d",isSuccess);
     
-    NSLog(@"Logon Token:%@",mobileSession.logonToken);
-    NSLog(@"Product Version:%@",mobileSession.productVersion);
-    appDelegate.mobileSession=mobileSession;
-    [mobileService getDashboardWithCUID:_dashboardCuid WithMobileSession:mobileSession];
+    if (isSuccess==YES){
+        NSLog(@"Logon Token:%@",mobileSession.logonToken);
+        NSLog(@"Product Version:%@",mobileSession.productVersion);
+        
+        appDelegate.mobileSession=mobileSession;
+        [mobileService getDashboardWithCUID:_dashboardCuid WithMobileSession:mobileSession];
+    }else{
+        [spinner stopAnimating];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        [TestFlight passCheckpoint:@"Dashboard Failed"];
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Dashboard Failed",nil) message:textString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
     
 }
 
@@ -92,7 +102,7 @@
                                               action:@selector(loadDashBoard)];
     _webiView.delegate=self;
     _webiView.scalesPageToFit=YES;
-
+    
     self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:refreshButton, nil];
     
     
@@ -108,14 +118,14 @@
 -(void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-
+    
     [self deletFileWithPath:_zipFile];
     [self deletFileWithPath:_dashboardFolder];
-
+    
     appDelegate.mobileSession=nil;
     [appDelegate.mobileService mobileLogoff];
-
-
+    
+    
 }
 -(void) deletFileWithPath: (NSString *) filePath
 {
@@ -152,10 +162,10 @@
     if (isSuccess==YES){
         NSLog(@"Display html:%@",filePath);
         [_webiView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:filePath]]];
-            [TestFlight passCheckpoint:@"Dashboard received with Success"];
+        [TestFlight passCheckpoint:@"Dashboard received with Success"];
     }
     else{
-            [spinner stopAnimating];
+        [spinner stopAnimating];
         [TestFlight passCheckpoint:@"Dashboard Failed"];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         UIAlertView *alert= [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Dashboard Failed",nil) message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];

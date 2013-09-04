@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *textFieldRESTWebiBase;
 @property (strong, nonatomic) IBOutlet UITextField *textFieldMobiPath;
 @property (strong, nonatomic) IBOutlet UITextField *textFieldMobiPort;
+@property (strong, nonatomic) IBOutlet UITextField *textCmsNameEx;
 
 @property (strong, nonatomic) Session *session;
 @end

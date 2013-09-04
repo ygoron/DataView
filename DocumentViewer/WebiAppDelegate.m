@@ -560,6 +560,7 @@
         aposDemoSession.isEnabled=[NSNumber numberWithInt:[DEFAULT_APOS_DEMO_CONNECTION_ENABLED intValue]];
     aposDemoSession.port=[NSNumber numberWithInt:[DEFAULT_APOS_DEMO_CONNECTION_PORT intValue]];
     aposDemoSession.opendocPort=[NSNumber numberWithInt:[DEFAULT_APOS_DEMO_CONNECTION_OPENDOC_PORT intValue]];
+    aposDemoSession.cmsNameEx=DEFAULT_APOS_DEMO_CMS_NAME;
     aposDemoSession.opendocServer=DEFAULT_APOS_DEMO_CONNECTION_OPENDOC_SERVER;
     aposDemoSession.cypressSDKBase=cypressSDKPoint_Default;
     aposDemoSession.webiRestSDKBase=webiRestSDKPoint_Default;
@@ -631,6 +632,12 @@
             [sessionsToDelete addObject:session];
         }else{
             if ([session.isEnabled intValue]==1){
+                
+                if (session.cmsNameEx.length <=0){
+                    NSLog(@"CMS Name is not set");
+                    session.cmsNameEx=DEFAULT_CMS_NAME;
+                }
+
                 if (session.cypressSDKBase.length <=0){
                     NSLog(@"Cypress SDK Base is not set");
                     session.cypressSDKBase=cypressSDKPoint_Default;

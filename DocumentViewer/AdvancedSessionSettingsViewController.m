@@ -70,6 +70,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 -(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
     NSLog(@"View Will Appear. Cypress SDK Base:%@",session.cypressSDKBase);
     self.textfieldOpenDocHost.text=session.opendocServer;
     self.textFieldOpenDocPort.text=[session.opendocPort stringValue];
@@ -77,7 +79,7 @@
     _textFieldRESTWebiBase.text=session.webiRestSDKBase;
     _textFieldMobiPath.text=session.mobileBIServiceBase;
     _textFieldMobiPort.text=[session.mobileBIServicePort stringValue];
-    [super viewWillAppear:animated];
+    _textCmsNameEx.text=session.cmsNameEx;
 
 
 }
@@ -158,6 +160,7 @@
     session.webiRestSDKBase=_textFieldRESTWebiBase.text;
     session.mobileBIServiceBase=_textFieldMobiPath.text;
     session.mobileBIServicePort=[NSNumber numberWithInt:[_textFieldMobiPort.text intValue]];
+    session.cmsNameEx=_textCmsNameEx.text;
     [super viewWillDisappear:animated];
     
 }

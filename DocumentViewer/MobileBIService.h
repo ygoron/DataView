@@ -23,7 +23,7 @@
 
 @protocol MobileBiServiceDelegate <NSObject, NSURLConnectionDelegate>
 
--(void) sessionReceived: (MobileBIService *) mobileService isSuccess:(BOOL) isSuccess WithMobileSession:(MobileSession *) mobileSession;
+-(void) sessionReceived: (MobileBIService *) mobileService isSuccess:(BOOL) isSuccess WithMobileSession:(MobileSession *) mobileSession WithErrorText:(NSString *) textString;
 
 -(void) logoffCompleted: (MobileBIService *) mobileService isSuccess:(BOOL) isSuccess;
 
