@@ -348,6 +348,8 @@
         else if ([infoObject.type isEqualToString:@"Category"])
             [cell.imageViewIcon setImage:[UIImage imageNamed:@"Categories_48.png"]];
         
+        else if ([infoObject.type isEqualToString:@"XL.XcelsiusEnterprise"])
+            [cell.imageViewIcon setImage:[UIImage imageNamed:@"DashboardDoc_48.png"]];
         else
         {
             [cell.imageViewIcon setImage:[UIImage imageNamed:@"BlankDoc_48.png"]];
