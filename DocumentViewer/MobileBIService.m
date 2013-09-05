@@ -170,23 +170,27 @@
     NSLog(@"connectionDidFinishLoading");
     NSLog(@"Succeeded! Received %d bytes of data",[responseData length]);
     
+#ifndef Prod
     NSString *receivedString = [[NSString alloc]  initWithData:responseData
                                                       encoding:NSUTF8StringEncoding];
     //    int length=([receivedString length])<MAX_DISPLAY_HTTP_STRING?[receivedString length]:MAX_DISPLAY_HTTP_STRING;
     NSLog(@"Mobile Service Data:%@",receivedString);
+#endif
     if (functionCode== MOBILE_FUNCTION_LOGON){
         
         NSXMLParser *xmlParser=[[NSXMLParser alloc] initWithData:responseData];
         
         [xmlParser setDelegate:self];
-        BOOL isParseSuccess=[xmlParser parse];
-        NSLog(@"Is Parse Success:%d",isParseSuccess);
+        
+        [xmlParser parse];
         if ([mobileSessionStatus isEqualToString:@"success"]){
+            NSLog(@"Parsed With Success");
             [_delegate sessionReceived:self isSuccess:YES WithMobileSession:mobileSession WithErrorText:nil];
             
-        }else
-            
+        }else{
+            NSLog(@"Parsing Failed");
             [_delegate sessionReceived:self isSuccess:NO WithMobileSession:nil WithErrorText:errorText];
+        }
         
     }
     else if (functionCode==MOBILE_FUNCTION_LOGOFF)

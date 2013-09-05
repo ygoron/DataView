@@ -37,11 +37,15 @@
     [request setValue:token forHTTPHeaderField:SAP_HTTP_TOKEN];
     [request setValue:[NSString stringWithFormat:@"%d", 0] forHTTPHeaderField:@"Content-Length"];
     session.cmsToken=nil;
-    
+
+#ifndef Prod
     NSString *returnString = [[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding];
-    
-//    [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Logoff (Sync) Completed:",[[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding]]];
     NSLog(@"return String:%@",returnString);
+#else
+    (void) [[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding];
+#endif
+
+//    [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Logoff (Sync) Completed:",[[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding]]];
 }
 
 -(void) logoffSession:(Session *)session withToken:(NSString *)token{

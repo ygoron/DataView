@@ -275,9 +275,7 @@
 "Export to Excel"="Exporter au format Excel";
 
 /* New Strings for DashBoard */
-
-"Dashboard Failed" = "Dashboard Failed";
-
+"Dashboard Failed" = "Le tableau de bord échoué";
 
 
 
