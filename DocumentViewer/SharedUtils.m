@@ -31,7 +31,58 @@
 }
 
 
-
++(void) adjustImageLeftMarginForIpadInTableViewCell:(UITableViewCell *)tableViewCell
+{
+    for (NSLayoutConstraint *constraint in [tableViewCell constraints] ) {
+        
+        if ([constraint.firstItem isKindOfClass:[UISegmentedControl class]] || [constraint.firstItem isKindOfClass:[UISlider class]]){
+            if (constraint.firstAttribute==NSLayoutAttributeLeading){
+                constraint.constant=IPAD_GROUPPED_TABLE_OFFSET;
+            }
+            
+        }else
+            if ([constraint.firstItem isKindOfClass:[UILabel class]]){
+                UILabel *myLabel=constraint.firstItem;
+                if ([myLabel.font.fontName rangeOfString:@"Bold"].length > 0){
+                    if (constraint.firstAttribute==NSLayoutAttributeLeading){
+                        constraint.constant=IPAD_GROUPPED_TABLE_OFFSET;
+                        
+                    }
+                    
+                }
+            }else if (constraint.firstAttribute==NSLayoutAttributeTrailing){
+                constraint.constant=IPAD_GROUPPED_TABLE_OFFSET;
+            }
+        
+    }
+    
+}
++(void) adjustImageLeftMarginForIpadInTableViewAnyLeftObjectsInCell:(UITableViewCell *)tableViewCell
+{
+    
+    UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
+    if (idiom == UIUserInterfaceIdiomPad) {
+        
+        for (NSLayoutConstraint *constraint in [tableViewCell constraints] ) {
+            
+            if ([constraint.firstItem isKindOfClass:[UISegmentedControl class]] || [constraint.firstItem isKindOfClass:[UISlider class]]){
+                if (constraint.firstAttribute==NSLayoutAttributeLeading){
+                    constraint.constant=IPAD_GROUPPED_TABLE_OFFSET;
+                }
+                
+            }else
+                if ([constraint.firstItem isKindOfClass:[UILabel class]]){
+                    if (constraint.firstAttribute==NSLayoutAttributeLeading){
+                        constraint.constant=IPAD_GROUPPED_TABLE_OFFSET;
+                    }
+                }else if (constraint.firstAttribute==NSLayoutAttributeTrailing){
+                    constraint.constant=IPAD_GROUPPED_TABLE_OFFSET;
+                }
+            
+        }
+    }
+    
+}
 +(void) adjustLabelLeftMarginForIpadForBoldFontInTableView:(UITableView *)tableView{
     {
         UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
@@ -41,27 +92,7 @@
                 for (int rowIndex=0; rowIndex <[tableView numberOfRowsInSection:sectionIndex]; rowIndex++) {
                     
                     UITableViewCell *cell = (UITableViewCell*)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex]];
-                    for (NSLayoutConstraint *constraint in [cell constraints] ) {
-                        
-                        if ([constraint.firstItem isKindOfClass:[UISegmentedControl class]] || [constraint.firstItem isKindOfClass:[UISlider class]]){
-                            if (constraint.firstAttribute==NSLayoutAttributeLeading){
-                                constraint.constant=IPAD_GROUPPED_TABLE_OFFSET;
-                            }
-                            
-                        }else
-                            if ([constraint.firstItem isKindOfClass:[UILabel class]]){
-                                UILabel *myLabel=constraint.firstItem;
-                                if ([myLabel.font.fontName rangeOfString:@"Bold"].length > 0){
-                                    if (constraint.firstAttribute==NSLayoutAttributeLeading){
-                                        constraint.constant=IPAD_GROUPPED_TABLE_OFFSET;
-                                    }
-                                    
-                                }
-                            }else if (constraint.firstAttribute==NSLayoutAttributeTrailing){
-                                constraint.constant=IPAD_GROUPPED_TABLE_OFFSET;
-                            }
-                        
-                    }
+                    [self adjustImageLeftMarginForIpadInTableViewCell:cell];
                 }
                 
             }

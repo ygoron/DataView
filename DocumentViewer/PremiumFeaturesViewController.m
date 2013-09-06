@@ -11,6 +11,8 @@
 #import <StoreKit/StoreKit.h>
 #import "InAppPucrhaseCell.h"
 #import "TitleLabel.h"
+#import "SharedUtils.h"
+#import "Products.h"
 
 @interface PremiumFeaturesViewController ()
 {
@@ -34,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     
     UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
     UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
@@ -47,9 +49,9 @@
     
     TitleLabel *titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
     self.navigationItem.titleView = titelLabel;
-    titelLabel.text=NSLocalizedString(@"Connections",nil);
+    titelLabel.text=NSLocalizedString(@"Purchases",nil);
     [titelLabel sizeToFit];
-
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     [self reload];
@@ -62,7 +64,7 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -73,7 +75,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -82,12 +86,12 @@
 
 - (void)productPurchased:(NSNotification *)notification {
     
-    NSString * productIdentifier = notification.object;
+//    NSString * productIdentifier = notification.object;
     [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-        if ([product.productIdentifier isEqualToString:productIdentifier]) {
+//        if ([product.productIdentifier isEqualToString:productIdentifier]) {
             [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-            *stop = YES;
-        }
+//            *stop = YES;
+//        }
     }];
     
 }
@@ -119,6 +123,7 @@
     return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
@@ -143,21 +148,27 @@
         [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
         buyButton.frame = CGRectMake(0, 0, 54, 32);
-//        [buyButton setTitle:@"Buy" forState:UIControlStateNormal];
+        //        [buyButton setTitle:@"Buy" forState:UIControlStateNormal];
         [buyButton setTitle:[_priceFormatter stringFromNumber:product.price] forState:UIControlStateNormal];
         buyButton.tag = indexPath.row;
         [buyButton addTarget:self action:@selector(buyButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (![product.productIdentifier isEqualToString:MANAGE_CONNECTIONS] && [[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO){
+            [buyButton setEnabled:NO];
+        }
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.accessoryView = buyButton;
     }
-
+    
     
     cell.productNameLabel.text = product.localizedTitle;
     cell.productDescriptionLabel.text=product.localizedDescription;
-    
+    [SharedUtils adjustImageLeftMarginForIpadInTableViewAnyLeftObjectsInCell:cell];
     
     return cell;
 }
+
+
 - (void)buyButtonTapped:(id)sender {
     
     UIButton *buyButton = (UIButton *)sender;
@@ -168,43 +179,43 @@
     
 }
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 

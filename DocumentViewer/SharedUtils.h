@@ -12,6 +12,8 @@
 #define IPAD_GROUPPED_TABLE_OFFSET 60
 
 +(void) adjustImageLeftMarginForIpadInTableView: (UITableView *) tableView;
++(void) adjustImageLeftMarginForIpadInTableViewCell: (UITableViewCell *) tableViewCell;
++(void) adjustImageLeftMarginForIpadInTableViewAnyLeftObjectsInCell: (UITableViewCell *) tableViewCell;
 +(void) adjustLabelLeftMarginForIpadForBoldFontInTableView: (UITableView *) tableView;
 +(void) adjustRighMarginsForIpad: (NSArray *) constraints;
 

@@ -13,6 +13,7 @@
 #import "PremiumFeaturesViewController.h"
 #import "BIMobileIAPHelper.h"
 #import "Products.h"
+#import "GlobalPreferencesConstants.h"
 
 @interface DashboardViewController ()
 
@@ -41,7 +42,8 @@
 
 -(void)loadDashBoard
 {
-    if ([[BIMobileIAPHelper sharedInstance] productPurchased:DASHBOARD_SUPPORT]==NO){
+    
+    if ([[BIMobileIAPHelper sharedInstance] productPurchased:DASHBOARD_SUPPORT]==NO  &&     ![appDelegate.activeSession.name isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME]){
         [TestFlight passCheckpoint:@"Tried to create new Session without purchasing"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"In-App Purchase Required",nil) message:NSLocalizedString(@"To view SAP BusinessObjects dashboard please purchase this in-app feature",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil) otherButtonTitles:NSLocalizedString(@"View",nil), nil];
         [alertView show];

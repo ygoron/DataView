@@ -524,7 +524,9 @@
         [alert show];
         
     } else{
-        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed",nil) message:NSLocalizedString(@"Server Error",nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed",nil) message:NSLocalizedString(@"Server Error",nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed",nil) message:[data valueForKey:@"message"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+
         [alert show];
         
     }

@@ -476,9 +476,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AgW-rh-z2U">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="288" type="user" id="2yq-HJ-jcn"/>
-                                                    </constraints>
                                                     <segments>
                                                         <segment title="Webi"/>
                                                         <segment title="PDF"/>
@@ -1263,7 +1260,7 @@
         <scene sceneID="9ar-9G-Ga0">
             <objects>
                 <navigationController id="vdc-QX-Pej" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="8459A0A2-3B4A-49D5-A54C-4498DCBAFC4C" id="dj2-bu-JDm"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="50E2140B-8A23-4AFD-85FC-1BCC844B95C4" id="dj2-bu-JDm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vtf-Vr-VA2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1710,7 +1707,7 @@ May slow down app performance
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="1YY-0T-vPF" customClass="InAppPucrhaseCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="1YY-0T-vPF" customClass="InAppPucrhaseCell">
                                 <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1719,7 +1716,7 @@ May slow down app performance
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="In-app Purchase Feature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPV-4w-6BM">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="eSO-kZ-jSb"/>
+                                                <constraint firstAttribute="height" constant="21" type="user" id="eSO-kZ-jSb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1727,7 +1724,6 @@ May slow down app performance
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAw-Rk-cva">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="284" id="Jlh-6B-s7F"/>
                                                 <constraint firstAttribute="height" constant="21" id="VVt-dL-eDw"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Helvetica-LightOblique" family="Helvetica" pointSize="10"/>
@@ -1738,11 +1734,12 @@ May slow down app performance
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="KPV-4w-6BM" firstAttribute="top" secondItem="1YY-0T-vPF" secondAttribute="top" constant="4" id="3rv-VZ-4S2"/>
-                                    <constraint firstItem="KPV-4w-6BM" firstAttribute="trailing" secondItem="1YY-0T-vPF" secondAttribute="trailing" type="default" id="4gG-J6-o4P"/>
-                                    <constraint firstItem="TAw-Rk-cva" firstAttribute="top" secondItem="1YY-0T-vPF" secondAttribute="top" constant="21" id="AU5-bA-JrW"/>
-                                    <constraint firstItem="KPV-4w-6BM" firstAttribute="leading" secondItem="1YY-0T-vPF" secondAttribute="leading" constant="20" type="default" id="yRc-8k-ign"/>
-                                    <constraint firstItem="TAw-Rk-cva" firstAttribute="leading" secondItem="1YY-0T-vPF" secondAttribute="leading" constant="20" type="default" id="ySE-hr-Jc1"/>
+                                    <constraint firstItem="KPV-4w-6BM" firstAttribute="top" secondItem="1YY-0T-vPF" secondAttribute="top" constant="4" type="user" id="3rv-VZ-4S2"/>
+                                    <constraint firstItem="TAw-Rk-cva" firstAttribute="top" secondItem="KPV-4w-6BM" secondAttribute="bottom" constant="-4" type="user" id="Bxl-SS-RqG"/>
+                                    <constraint firstAttribute="trailing" secondItem="TAw-Rk-cva" secondAttribute="trailing" constant="50" type="user" id="bml-i3-zH6"/>
+                                    <constraint firstAttribute="trailing" secondItem="KPV-4w-6BM" secondAttribute="trailing" constant="30" type="user" id="ccO-Rq-hyd"/>
+                                    <constraint firstItem="TAw-Rk-cva" firstAttribute="leading" secondItem="1YY-0T-vPF" secondAttribute="leading" constant="20" type="default" id="m07-SG-Rpg"/>
+                                    <constraint firstItem="KPV-4w-6BM" firstAttribute="leading" secondItem="1YY-0T-vPF" secondAttribute="leading" constant="20" type="user" id="yRc-8k-ign"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="productDescriptionLabel" destination="TAw-Rk-cva" id="vbN-TK-Lq7"/>
@@ -2441,7 +2438,7 @@ May slow down app performance
         </scene>
     </scenes>
     <resources>
-        <image name="8459A0A2-3B4A-49D5-A54C-4498DCBAFC4C" width="30" height="30">
+        <image name="50E2140B-8A23-4AFD-85FC-1BCC844B95C4" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

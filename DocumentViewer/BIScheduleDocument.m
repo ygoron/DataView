@@ -234,13 +234,16 @@
     NSLog(@"Result:%@",responseDic);
     NSLog(@"All keys:%@",[responseDic allKeys]);
     ScheduleStatus *scheduleStatus;
+    scheduleStatus=[[ScheduleStatus alloc] init];
+
     
     if ([[responseDic allKeys] containsObject:JSON_RESP_ERROR_CODE]){
         self.boxiError=[responseDic objectForKey:JSON_RESP_ERROR_MESSAGE];
+        scheduleStatus.message=self.boxiError;
+        scheduleStatus.code=-1;
         isSucess=NO;
     }
     else{
-        scheduleStatus=[[ScheduleStatus alloc] init];
         self.boxiError=nil;
         
         responseDic=[responseDic objectForKey:@"success"];
@@ -266,7 +269,8 @@
         connector.delegate=self;
         [connector getCmsTokenWithSession:self.biSession];
     }else{
-        [self.delegate biScheduleDocument:self isSuccess:YES withScheduleStatus:scheduleStatus];
+//        [self.delegate biScheduleDocument:self isSuccess:YES withScheduleStatus:scheduleStatus];
+        [self.delegate biScheduleDocument:self isSuccess:isSucess withScheduleStatus:scheduleStatus];
     }
     
     [self logoOffIfNeeded];
