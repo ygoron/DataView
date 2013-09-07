@@ -11,7 +11,9 @@
 @interface Products : NSObject
 
 #define MANAGE_CONNECTIONS @"pm.apos.APOSBI.connectionmanagement"
-#define DASHBOARD_SUPPORT @"pm.apos.APOSBI.dashboardsupport"
+#define ADVANCED_VIEWING @"pm.apos.APOSBI.connectionmanagement.1.advancedviewing"
+#define ADVANCED_VIEWING_UPGRADE @"pm.apos.APOSBI.connectionmanagement.2.upgrade.advancedviewing"
+
 
 
 @end

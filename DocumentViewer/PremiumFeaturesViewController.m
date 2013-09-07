@@ -86,12 +86,12 @@
 
 - (void)productPurchased:(NSNotification *)notification {
     
-//    NSString * productIdentifier = notification.object;
+    //    NSString * productIdentifier = notification.object;
     [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-//        if ([product.productIdentifier isEqualToString:productIdentifier]) {
-            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-//            *stop = YES;
-//        }
+        //        if ([product.productIdentifier isEqualToString:productIdentifier]) {
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+        //            *stop = YES;
+        //        }
     }];
     
 }
@@ -153,9 +153,16 @@
         buyButton.tag = indexPath.row;
         [buyButton addTarget:self action:@selector(buyButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
-        if (![product.productIdentifier isEqualToString:MANAGE_CONNECTIONS] && [[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO){
-            [buyButton setEnabled:NO];
+        if ([product.productIdentifier isEqualToString:MANAGE_CONNECTIONS]){
+            if ([[BIMobileIAPHelper sharedInstance] productPurchased:ADVANCED_VIEWING]) [buyButton setEnabled:NO];
+        }else if ([product.productIdentifier isEqualToString:ADVANCED_VIEWING]){
+            if ([[BIMobileIAPHelper sharedInstance] productPurchased:ADVANCED_VIEWING_UPGRADE] || [[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]) [buyButton setEnabled:NO];
+        }else if ([product.productIdentifier isEqualToString:ADVANCED_VIEWING_UPGRADE]){
+            if (![[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]) [buyButton setEnabled:NO];
         }
+        //        if (![product.productIdentifier isEqualToString:MANAGE_CONNECTIONS] && [[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO){
+        //            [buyButton setEnabled:NO];
+        //        }
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.accessoryView = buyButton;
     }

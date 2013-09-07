@@ -16,7 +16,7 @@
     static BIMobileIAPHelper * sharedInstance;
     dispatch_once(&once, ^{
         NSSet * productIdentifiers = [NSSet setWithObjects:
-                                      MANAGE_CONNECTIONS,DASHBOARD_SUPPORT,
+                                      MANAGE_CONNECTIONS,ADVANCED_VIEWING,ADVANCED_VIEWING_UPGRADE,
                                       nil];
         sharedInstance = [[self alloc] initWithProductIdentifiers:productIdentifiers];
     });

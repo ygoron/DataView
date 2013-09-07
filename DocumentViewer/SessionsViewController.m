@@ -275,17 +275,30 @@
     //    if ([[[sessions objectAtIndex:[indexPath row]] name]isEqualToString:DEFAULT_APOS_DEMO_CONNECTION_NAME]) return NO;
     
 	if ([identifier isEqualToString:@"AddSession"]||[identifier isEqualToString:@"EditSession"]){
-        if ([[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO){
+        
+        if ([[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==YES || [[BIMobileIAPHelper sharedInstance] productPurchased:ADVANCED_VIEWING]==YES || [[BIMobileIAPHelper sharedInstance] productPurchased:ADVANCED_VIEWING_UPGRADE]==YES )
+        {
+            return YES;
+            
+        }else{
+            
             [TestFlight passCheckpoint:@"Tried to create new Session without purchasing"];
-            //            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Lite Version" message:@"Creating a new CMS connection is not supported in the Lite version. Please purchase a full version on the app store" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"In-App Purchase Required",nil) message:NSLocalizedString(@"To connect to your own SAP BusinessObjects system please purchase this in-app feature",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil) otherButtonTitles:NSLocalizedString(@"View",nil), nil];
             [alertView show];
             return NO;
-        }else
-            return YES;
+            
+        }
+        
+        //        if ([[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]==NO ){
+        //            [TestFlight passCheckpoint:@"Tried to create new Session without purchasing"];
+        //            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"In-App Purchase Required",nil) message:NSLocalizedString(@"To connect to your own SAP BusinessObjects system please purchase this in-app feature",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil) otherButtonTitles:NSLocalizedString(@"View",nil), nil];
+        //            [alertView show];
+        //            return NO;
+        //        }else
+        //            return YES;
     }
     
-    return YES;
+    return NO;
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

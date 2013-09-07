@@ -71,13 +71,20 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     NSLog(@"Loaded list of products...");
     _productsRequest = nil;
     
-    NSArray * skProducts = response.products;
+    NSSortDescriptor *mySortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"productIdentifier" ascending:YES];
+    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithArray:response.products];
+    [tempArray sortUsingDescriptors:[NSArray arrayWithObject:mySortDescriptor]];
+    NSArray *skProducts=tempArray;
+
+    
+    skProducts = response.products;
     for (SKProduct * skProduct in skProducts) {
         NSLog(@"Found product: %@ %@ %0.2f",
               skProduct.productIdentifier,
               skProduct.localizedTitle,
               skProduct.price.floatValue);
     }
+    
     
     _completionHandler(YES, skProducts);
     _completionHandler = nil;
