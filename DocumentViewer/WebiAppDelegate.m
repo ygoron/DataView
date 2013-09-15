@@ -21,6 +21,7 @@
 #import "PreferencesViewController.h"
 #import "Products.h"
 #import "MobileBIService.h"
+#import "Utils.h"
 
 
 @implementation WebiAppDelegate
@@ -41,8 +42,8 @@
     [BIMobileIAPHelper sharedInstance];
     
 #ifndef Prod
-    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
-    [TestFlight passCheckpoint:@"Device ID Registered"];
+    //    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    //    [TestFlight passCheckpoint:@"Device ID Registered"];
 #endif
     
     //    [TestFlight takeOff:@"a021f062-d6ec-4c4a-9234-22901b218bfb"];
@@ -119,26 +120,62 @@
     [[UIApplication sharedApplication]
      setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
     
-    UIImage *barButton = [[UIImage imageNamed:@"navbar-icon.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
-    UIImage *barButtonLandscape = [[UIImage imageNamed:@"navbar-icon_landscape.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    UIImage *navBarImage = [UIImage imageNamed:@"navbar-7.png"];
+    if([Utils isVersion6AndBelow]){
+        navBarImage = [UIImage imageNamed:@"navbar.png"];
+    }else{
+        [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+    }
     
-    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal
-                                          barMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:navBarImage
+                                       forBarMetrics:UIBarMetricsDefault];
     
-    [[UIBarButtonItem appearance] setBackgroundImage:barButtonLandscape forState:UIControlStateNormal
-                                          barMetrics:UIBarMetricsLandscapePhone];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], UITextAttributeTextColor,
+      [UIFont boldSystemFontOfSize:18.0f], UITextAttributeFont,
+      [UIColor darkGrayColor], UITextAttributeTextShadowColor,
+      [NSValue valueWithCGSize:CGSizeMake(0.0, -1.0)], UITextAttributeTextShadowOffset, nil]];
     
     
-    
-    
-    UIImage *backButton = [[UIImage imageNamed:@"back-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
-    UIImage *backButtonLandscape = [[UIImage imageNamed:@"back-button_landscape.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
-    
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
-                                                    barMetrics:UIBarMetricsDefault];
-    
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonLandscape forState:UIControlStateNormal
-                                                    barMetrics:UIBarMetricsLandscapePhone];
+    if([Utils isVersion6AndBelow]){
+        
+        UIImage *barButton = [[UIImage imageNamed:@"navbar-icon.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+        UIImage *barButtonLandscape = [[UIImage imageNamed:@"navbar-icon_landscape.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+        
+        [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal
+                                              barMetrics:UIBarMetricsDefault];
+        
+        [[UIBarButtonItem appearance] setBackgroundImage:barButtonLandscape forState:UIControlStateNormal
+                                              barMetrics:UIBarMetricsLandscapePhone];
+        
+        
+        
+        
+        UIImage *backButton = [[UIImage imageNamed:@"back-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+        UIImage *backButtonLandscape = [[UIImage imageNamed:@"back-button_landscape.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+        
+        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
+                                                        barMetrics:UIBarMetricsDefault];
+        
+        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonLandscape forState:UIControlStateNormal
+                                                        barMetrics:UIBarMetricsLandscapePhone];
+    }else{
+        
+        
+        UIImage* barButtonImage = [Utils createSolidColorImageWithColor:[UIColor colorWithWhite:1.0 alpha:0.1] andSize:CGSizeMake(10, 10)];
+        
+        [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+        
+        [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                              [UIColor whiteColor], UITextAttributeTextColor,
+                                                              [UIFont boldSystemFontOfSize:16.0f], UITextAttributeFont, [UIColor darkGrayColor], UITextAttributeTextShadowColor,  [NSValue valueWithCGSize:CGSizeMake(0.0, -1.0)], UITextAttributeTextShadowOffset,
+                                                              nil] forState:UIControlStateNormal];
+        
+        
+        
+    }
     
     
     
@@ -173,6 +210,18 @@
     [[UISwitch appearance] setOnTintColor:[UIColor colorWithRed:63.0/255 green:114.0/255 blue:173.0/255 alpha:1.0]];
     
     
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+	
+    tabBarController.tabBar.tintColor = [UIColor whiteColor];
+    
+    for (UIViewController* controller in tabBarController.viewControllers) {
+        if([controller isKindOfClass:[UINavigationController class]]){
+            
+            UINavigationController* navigationController = (UINavigationController*)controller;
+            navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        }
+    }
+    
     
     
 }
@@ -180,9 +229,20 @@
 - (void)customizeiPadTheme {
     
     
-    UIImage *navBarImage = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
+    //    UIImage *navBarImage = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
+    
+    UIImage *navBarImage = [UIImage imageNamed:@"ipad-menubar-right-7.png"];
+    if([Utils isVersion6AndBelow]){
+        navBarImage = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
+    }
+    
     [[UINavigationBar appearance] setBackgroundImage:navBarImage
                                        forBarMetrics:UIBarMetricsDefault];
+    
+    
+    
+
+    
     UIImage* toolBarBg = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
     [[UIToolbar appearance] setBackgroundImage:toolBarBg forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsDefault];
     
@@ -205,8 +265,35 @@
     
 }
 
+
 -(void)iPhoneInit {
     
+    
+    UIImage    *navBarImageLandscape = [UIImage imageNamed:@"ipad-menubar-right-7.png"] ;
+//      UIImage    *navBarImageLandscape = [UIImage imageNamed:@"navbar_landscape.png"] ;
+    UIImage *navBarImagePortrait = [UIImage imageNamed:@"navbar-7.png"];
+    if([Utils isVersion6AndBelow]){
+        navBarImagePortrait = [UIImage imageNamed:@"navbar.png"];
+        navBarImageLandscape = [UIImage imageNamed:@"navbar_landscape.png"] ;
+    }
+    
+    UIImage    *tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape.png" ] ;
+    
+    
+    
+    [[UINavigationBar appearance] setBackgroundImage:navBarImagePortrait
+                                       forBarMetrics:UIBarMetricsDefault];
+    [[UITabBar appearance] setBackgroundImage:tabBarBackgroundPortrait ];
+    [[UINavigationBar appearance] setBackgroundImage:navBarImageLandscape
+                                       forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    
+    
+    
+    
+}
+
+-(void)iPhoneInit_old {
     
     
     UIImage    *navBarImagePortrait = [UIImage imageNamed:@"navbar.png" ];
@@ -568,7 +655,7 @@
     aposDemoSession.mobileBIServicePort=[NSNumber numberWithInt:mobileServicePort];
     aposDemoSession.mobileBIServiceBase=mobileServiceBase;
     aposDemoSession.cmsNameEx=DEFAULT_APOS_DEMO_CMS_NAME;
-
+    
     
     
     
@@ -642,7 +729,7 @@
                     NSLog(@"CMS Name is not set");
                     session.cmsNameEx=DEFAULT_CMS_NAME;
                 }
-
+                
                 if (session.cypressSDKBase.length <=0){
                     NSLog(@"Cypress SDK Base is not set");
                     session.cypressSDKBase=cypressSDKPoint_Default;

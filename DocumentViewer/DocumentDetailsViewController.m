@@ -476,14 +476,14 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-
+    
     if (actionSheet.cancelButtonIndex==buttonIndex) return ;
     switch (buttonIndex) {
             //        case 0:
             //            [self openInBrowser];
             //            break;
-        
-
+            
+            
         case 0:
             [TestFlight passCheckpoint:@"View Webi in OpenDoc Action"];
             [self openInSafari];
@@ -601,36 +601,54 @@
     
     
     NSURL *urlSelected=[BrowserMainViewController buildUrlFromSession:appDelegate.activeSession forEntity:[NSString stringWithFormat:@"%@%d",infoStorePoint,_document.id.intValue ] withPageSize:[appDelegate.globalSettings.fetchDocumentLimit intValue]];
-
+    
     OpenDocumentViewController *opdv=[[OpenDocumentViewController alloc] init];
-
+    
     if (self.isInstance && self.isExternalFormat){
         
-        
-//        opdv.openDocUrl=urlSelected;
-        opdv.selectedObjectUrl=urlSelected;
-        opdv.cmsToken=activeSession.cmsToken;
-        opdv.currentSession=activeSession;
-        opdv.isGetOpenDocRequired=NO;
-        opdv.isOpenDocumentManager=YES;
-        opdv.objectId=document.id;
+        BOOL isPOC=YES;
+        if (isPOC==NO){
+            
+            opdv.selectedObjectUrl=urlSelected;
+            opdv.cmsToken=activeSession.cmsToken;
+            opdv.currentSession=activeSession;
+            opdv.isGetOpenDocRequired=NO;
+            opdv.isOpenDocumentManager=YES;
+            opdv.objectId=document.id;
+        }
+        else{
+            //********************************** POC REMOVE/CONTINUE *****************************************
+            NSLog (@"POC of Apos Extension Pack");
+            NSString *pocUrlString=[NSString stringWithFormat:@"%@%d", @"http://win-bi41rampup:8080/AposMobileServices/instance.content/",document.id.intValue];
+            NSURL *pocUrl=[[NSURL alloc] initWithString:pocUrlString];
+            
+            opdv.openDocUrl=pocUrl;
+            opdv.selectedObjectUrl=urlSelected;
+            opdv.cmsToken=activeSession.cmsToken;
+            opdv.currentSession=activeSession;
+            opdv.isGetOpenDocRequired=NO;
+            opdv.isOpenDocumentManager=NO;
+            opdv.objectId=document.id;
+            
+            
+        }
     }
     
-
+    
     else if (urlSelected) {
         NSLog(@"URL Selected: %@", urlSelected);
         
         //            NSURL *openDocUrl=[NSURL URLWithString: [NSString stringWithFormat:@"%@",_selectedObject.openDoc]];
-//        opdv.openDocUrl=urlSelected;
+        //        opdv.openDocUrl=urlSelected;
         opdv.selectedObjectUrl=urlSelected;
         opdv.cmsToken=activeSession.cmsToken;
         opdv.currentSession=activeSession;
         opdv.isGetOpenDocRequired=YES;
         opdv.isOpenDocumentManager=NO;
     }
-
+    
     [self.navigationController pushViewController:opdv animated:YES];
-
+    
     
 }
 -(void) createTokenAndLaunchOpenDocWithSession:(Session *)session forDocument: (Document *) document;

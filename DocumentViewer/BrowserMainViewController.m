@@ -49,6 +49,16 @@
     [super viewDidAppear:animated];
     
 }
+-(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+//    if (section==0) return 0;
+    return 10;
+    
+}
+-(float)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
