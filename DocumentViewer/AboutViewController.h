@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UITextView *textViewAboutText;
+#import "ExtensionPack.h"
+#import "BIConnector.h"
+#import "BILogoff.h"
 
-@end
+@interface AboutViewController : UIViewController <ExtensionPackDelegate,BIConnectorDelegate,BILogoffDelegate>
+    @property (strong, nonatomic) IBOutlet UITextView *textViewAboutText;
+    
+    @end

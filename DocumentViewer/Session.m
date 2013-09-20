@@ -2,7 +2,7 @@
 //  Session.m
 //  DocumentViewer
 //
-//  Created by Yuri Goron on 2013-09-04.
+//  Created by Yuri Goron on 2013-09-16.
 //  Copyright (c) 2013 APOS Systems. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 
 @dynamic authType;
 @dynamic cmsName;
+@dynamic cmsNameEx;
 @dynamic cmsToken;
 @dynamic cypressSDKBase;
 @dynamic isEnabled;
@@ -29,7 +30,8 @@
 @dynamic port;
 @dynamic userName;
 @dynamic webiRestSDKBase;
-@dynamic cmsNameEx;
+@dynamic isExtensionPack;
+@dynamic extensionPackUrl;
 @dynamic documents;
 
 @end

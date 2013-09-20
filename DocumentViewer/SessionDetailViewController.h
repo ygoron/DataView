@@ -26,7 +26,7 @@
 
 @property (nonatomic, strong) NSMutableArray *allSessions;
 @property (nonatomic,strong) Session *editedSession;
-@property (nonatomic,strong,getter = theNewSession) Session *newSession;
+@property (nonatomic,strong) Session *addedSession;
 @property (nonatomic,strong) NSIndexPath *editedIndexPath;
 
 @property (strong, nonatomic) IBOutlet UITextField *sessionNameTextField;

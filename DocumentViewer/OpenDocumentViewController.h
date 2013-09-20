@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BISDKCall.h"
+#import "BILogoff.h"
 
 
-@interface OpenDocumentViewController : UIViewController <UIWebViewDelegate,CypressSDKDelegate,BIConnectorDelegate>
+
+@interface OpenDocumentViewController : UIViewController <UIWebViewDelegate,CypressSDKDelegate,BIConnectorDelegate,BILogoffDelegate>
 @property (nonatomic,strong) NSURL *openDocUrl;
 @property (nonatomic,strong) NSURL *selectedObjectUrl;
 @property (nonatomic,strong) NSURL *logoffUrl;

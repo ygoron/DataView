@@ -2,7 +2,7 @@
 //  Session.h
 //  DocumentViewer
 //
-//  Created by Yuri Goron on 2013-09-04.
+//  Created by Yuri Goron on 2013-09-16.
 //  Copyright (c) 2013 APOS Systems. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString * authType;
 @property (nonatomic, retain) NSString * cmsName;
+@property (nonatomic, retain) NSString * cmsNameEx;
 @property (nonatomic, retain) NSString * cmsToken;
 @property (nonatomic, retain) NSString * cypressSDKBase;
 @property (nonatomic, retain) NSNumber * isEnabled;
@@ -30,7 +31,8 @@
 @property (nonatomic, retain) NSNumber * port;
 @property (nonatomic, retain) NSString * userName;
 @property (nonatomic, retain) NSString * webiRestSDKBase;
-@property (nonatomic, retain) NSString * cmsNameEx;
+@property (nonatomic, retain) NSNumber * isExtensionPack;
+@property (nonatomic, retain) NSString * extensionPackUrl;
 @property (nonatomic, retain) NSSet *documents;
 @end
 

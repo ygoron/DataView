@@ -322,11 +322,12 @@
     [self.sessions addObject:session];
     //    NSIndexPath *indexPath =[NSIndexPath indexPathForRow:[self.sessions count] - 1 inSection:0];
     //	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView reloadData];
 	[self dismissViewControllerAnimated:YES completion:nil];
     [self saveContext];
     [appDelegate refreshSessions];
     [self switchToDocumentListWithRefresh];
+    sessions=[appDelegate sessions];
+    [self.tableView reloadData];
     [TestFlight passCheckpoint:@"Session Added"];
     
 }

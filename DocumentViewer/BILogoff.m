@@ -21,7 +21,7 @@
 #pragma mark Logoff
 
 -(void) logoffSessionSync:(Session *)session withToken:(NSString *)token{
-
+    
     NSLog(@"Logoff Session (Sync) %@ With Token %@",session.name, token);
     self.biSession=session;
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[self getLogoffURL:session]];
@@ -30,22 +30,22 @@
     WebiAppDelegate *appDelegate= (id)[[UIApplication sharedApplication] delegate];
     NSLog(@"Timeout Preference Value:%@",appDelegate.globalSettings.networkTimeout);
     [request setTimeoutInterval:[appDelegate.globalSettings.networkTimeout doubleValue ]];
-
+    
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/xml" forHTTPHeaderField:@"Accept"];
     [request setValue:@"application/xml" forHTTPHeaderField:@"Content-Type"];
     [request setValue:token forHTTPHeaderField:SAP_HTTP_TOKEN];
     [request setValue:[NSString stringWithFormat:@"%d", 0] forHTTPHeaderField:@"Content-Length"];
     session.cmsToken=nil;
-
+    
 #ifndef Prod
     NSString *returnString = [[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding];
     NSLog(@"return String:%@",returnString);
 #else
     (void) [[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding];
 #endif
-
-//    [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Logoff (Sync) Completed:",[[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding]]];
+    
+    //    [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Logoff (Sync) Completed:",[[NSString alloc] initWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil] encoding:NSUTF8StringEncoding]]];
 }
 
 -(void) logoffSession:(Session *)session withToken:(NSString *)token{
@@ -60,7 +60,7 @@
     [request setValue:token forHTTPHeaderField:SAP_HTTP_TOKEN];
     [request setValue:[NSString stringWithFormat:@"%d", 0] forHTTPHeaderField:@"Content-Length"];
     (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
-
+    
     
 }
 
@@ -99,12 +99,13 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connectionDidFinishLoading");
     NSLog(@"Succeeded! Received %d bytes of data",[responseData length]);
-//    NSString *receivedString = [[NSString alloc]  initWithData:responseData encoding:NSUTF8StringEncoding];
-//    NSLog(@"Get Logoff Data:,%@",receivedString );
+    //    NSString *receivedString = [[NSString alloc]  initWithData:responseData encoding:NSUTF8StringEncoding];
+    //    NSLog(@"Get Logoff Data:,%@",receivedString );
     _biSession.cmsToken=nil;
-//        [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Logoff (Async) Completed:",[[NSString alloc]  initWithData:responseData encoding:NSUTF8StringEncoding]]];
+    NSLog(@"Token is set to nil!");
+    //        [TestFlight passCheckpoint:[NSString stringWithFormat:@"%@%@",@"Logoff (Async) Completed:",[[NSString alloc]  initWithData:responseData encoding:NSUTF8StringEncoding]]];
     [self.delegate biLogoff:self didLogoff:YES ];
-
+    
 }
 
 @end

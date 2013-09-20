@@ -32,11 +32,9 @@
     
 }
 
-@synthesize editedSession;
 @synthesize editedIndexPath;
 @synthesize allSessions;
 @synthesize isNewSessionTestedOK;
-@synthesize newSession;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -76,6 +74,7 @@
     spinner.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin);
     spinner.center = CGPointMake(self.tableView.bounds.size.width / 2.0f, self.tableView.bounds.size.height / 2.0f);
     
+    self.sessionSegmentedControl.selectedSegmentIndex=0;
     
     //    [[self labelTestConnection]setTextColor:[UIColor colorWithRed:163.0/255 green:117.0/255 blue:89.0/255 alpha:1.0]];
     //RCSwitchOnOff* onSwitch = [[RCSwitchOnOff alloc] initWithFrame:CGRectMake(70, switchY, 70, switchHeight)];
@@ -96,18 +95,18 @@
     
     [self.view addSubview:spinner];
     
-    if (editedSession==nil){
+    if (_editedSession==nil){
         NSLog(@"Creating a new Session");
-        self.newSession = [NSEntityDescription
-                           insertNewObjectForEntityForName:@"Session"
-                           inManagedObjectContext:context];
-        self.newSession.cypressSDKBase=cypressSDKPoint_Default;
-        self.newSession.webiRestSDKBase=webiRestSDKPoint_Default;
-        self.newSession.mobileBIServiceBase=mobileServiceBase;
-        self.newSession.mobileBIServicePort=[NSNumber numberWithInt:mobileServicePort];
-        self.newSession.cmsNameEx=DEFAULT_CMS_NAME;
-
-
+        _addedSession = [NSEntityDescription
+                         insertNewObjectForEntityForName:@"Session"
+                         inManagedObjectContext:context];
+        _addedSession.cypressSDKBase=cypressSDKPoint_Default;
+        _addedSession.webiRestSDKBase=webiRestSDKPoint_Default;
+        _addedSession.mobileBIServiceBase=mobileServiceBase;
+        _addedSession.mobileBIServicePort=[NSNumber numberWithInt:mobileServicePort];
+        _addedSession.cmsNameEx=DEFAULT_CMS_NAME;
+        
+        
         
     }
     
@@ -117,18 +116,18 @@
     
     
     
-    NSLog(@"Edited Session:%@",editedSession);
-    if (editedSession!=nil){
+    NSLog(@"Edited Session:%@",_editedSession);
+    if (_editedSession!=nil){
         [[self navigationItem] setTitle:@"Edit Session"];
-        self.sessionNameTextField.text=editedSession.name;
-        self.sessionWCATextField.text=editedSession.cmsName;
-        self.sessionUserNameTextField.text=editedSession.userName;
-        self.sessionUserPasswordTextField.text=editedSession.password;
-        [self.sessionSegmentedControl setSelectedSegmentIndex: [self getAuthTypeInt:editedSession.authType] ];
-        [self.sessionHttpsSwitchControl setOn:[editedSession.isHttps integerValue] ];
-        [self.sessionIsEnbaledSwitchControl setOn:[editedSession.isEnabled integerValue] ];
-        self.sessionPortControl.text =[editedSession.port stringValue];
-        editedSession.isTestedOK=[NSNumber numberWithBool:NO];
+        self.sessionNameTextField.text=_editedSession.name;
+        self.sessionWCATextField.text=_editedSession.cmsName;
+        self.sessionUserNameTextField.text=_editedSession.userName;
+        self.sessionUserPasswordTextField.text=_editedSession.password;
+        [self.sessionSegmentedControl setSelectedSegmentIndex: [self getAuthTypeInt:_editedSession.authType] ];
+        [self.sessionHttpsSwitchControl setOn:[_editedSession.isHttps integerValue] ];
+        [self.sessionIsEnbaledSwitchControl setOn:[_editedSession.isEnabled integerValue] ];
+        self.sessionPortControl.text =[_editedSession.port stringValue];
+        _editedSession.isTestedOK=[NSNumber numberWithBool:NO];
     }else{
         if (allSessions.count==0) [self.sessionIsEnbaledSwitchControl setOn:1 ];
     }
@@ -179,8 +178,8 @@
 }
 -(void) cancel:(id)sender{
     NSLog(@"Cancel Adding Sessions");
-    if (self.newSession!=nil){
-        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"name == %@", self.newSession.name ];
+    if (_addedSession!=nil){
+        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"name == %@", _addedSession.name ];
         [CoreDataHelper deleteAllObjectsForEntity:@"Session" withPredicate:predicate andContext:context];
         
     }
@@ -208,24 +207,24 @@
             
         }else{
             
-            [self setSession:self.newSession];
-            if (isNewSessionTestedOK==YES) self.newSession.isTestedOK=[NSNumber numberWithBool:YES];
+            [self setSession:_addedSession];
+            if (isNewSessionTestedOK==YES) _addedSession.isTestedOK=[NSNumber numberWithBool:YES];
             else
-                self.newSession.isTestedOK=[NSNumber numberWithBool:NO];
-            [self disableOtherSession:self.newSession WithAllSessions:self.allSessions];
-            [self.delegate sessionDetailsViewController:self didAddSession:self.newSession];
+                _addedSession.isTestedOK=[NSNumber numberWithBool:NO];
+            [self disableOtherSession:_addedSession WithAllSessions:self.allSessions];
+            [self.delegate sessionDetailsViewController:self didAddSession:_addedSession];
         }
         
         
     }else{
         NSLog(@"Editing Session: %@",self.sessionNameTextField.text);
-        [self setSession:editedSession];
-        [self disableOtherSession:editedSession WithAllSessions:self.allSessions];
+        [self setSession:_editedSession];
+        [self disableOtherSession:_editedSession WithAllSessions:self.allSessions];
         BILogoff *biLogoff=[[BILogoff alloc] init];
         [biLogoff logoffSession:appDelegate.activeSession withToken:appDelegate.activeSession.cmsToken];
         [self checkEnabledSessionInSessions:self.allSessions];
-        [self.delegate sessionDetailsViewController:self didUpdateSession:editedSession atIndex:editedIndexPath];
-
+        [self.delegate sessionDetailsViewController:self didUpdateSession:_editedSession atIndex:editedIndexPath];
+        
         
     }
     
@@ -248,12 +247,12 @@
         NSLog(@"No Enabled Session. Enable the first one");
         if (existingSessions.count>0){
             [[existingSessions objectAtIndex:0] setIsEnabled:[NSNumber numberWithBool:YES]];
-              appDelegate.activeSession=[existingSessions objectAtIndex:0];
-              appDelegate.activeSession.cmsToken=nil;
+            appDelegate.activeSession=[existingSessions objectAtIndex:0];
+            appDelegate.activeSession.cmsToken=nil;
             [appDelegate.activeSession setIsTestedOK:[NSNumber numberWithBool:YES]];
-              NSLog(@"First Session Enabled. Name:%@",appDelegate.activeSession.name);
-
-              
+            NSLog(@"First Session Enabled. Name:%@",appDelegate.activeSession.name);
+            
+            
         }
     }
     
@@ -299,11 +298,11 @@
                         inManagedObjectContext:context];
     
     if (self.editedSession!=nil){
-        session.cypressSDKBase=editedSession.cypressSDKBase;
-        session.webiRestSDKBase=editedSession.webiRestSDKBase;
+        session.cypressSDKBase=_editedSession.cypressSDKBase;
+        session.webiRestSDKBase=_editedSession.webiRestSDKBase;
     }else{
-        session.cypressSDKBase=self.newSession.cypressSDKBase;
-        session.webiRestSDKBase=self.newSession.webiRestSDKBase;
+        session.cypressSDKBase=_addedSession.cypressSDKBase;
+        session.webiRestSDKBase=_addedSession.webiRestSDKBase;
     }
     
     
@@ -396,7 +395,7 @@
     else
         session.password=self.sessionUserPasswordTextField.text;
     
-    if (session.authType!=[self getAuthTypeString:self.sessionSegmentedControl.selectedSegmentIndex]) {
+    if (![session.authType isEqualToString:[self getAuthTypeString:self.sessionSegmentedControl.selectedSegmentIndex] ]) {
         NSLog(@"AuthType Changed");
         session.cmsToken=nil;
     }
@@ -430,9 +429,18 @@
 }
 
 -(int) getAuthTypeInt: (NSString *) authType{
-    if ([authType isEqualToString:AUTH_ENTERPRISE])return 0;
-    else if ([authType isEqualToString:AUTH_WINAD]) return 1;
-    else if ([authType isEqualToString:AUTH_LDAP]) return 2;
+    if ([authType isEqualToString:AUTH_ENTERPRISE]){
+        NSLog(@"Enterprise");
+        return 0;
+    }
+    else if ([authType isEqualToString:AUTH_WINAD]) {
+        NSLog(@"WinAD");
+        return 1;
+    }
+    else if ([authType isEqualToString:AUTH_LDAP]) {
+        NSLog(@"LDAP");
+        return 2;
+    }
     return 0;
 }
 - (NSString *) getAuthTypeString: (int) index{
@@ -462,18 +470,34 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog (@"Seque: %@",segue.identifier);
+    
+    
     AdvancedSessionSettingsViewController *advSetVC =segue.destinationViewController;
+    //
+    NSLog(@"Edited Session Port %@, Name %@",_editedSession.opendocPort,_editedSession.name);
     
-    NSLog(@"Edited Session Port %@, Name %@",editedSession.opendocPort,editedSession.name);
-    
-    if (editedSession!=nil){
-        advSetVC.session=editedSession;
-    }else if (newSession!=nil){
-        advSetVC.session=newSession;
+    if (_editedSession!=nil){
+        advSetVC.session=_editedSession;
+    }else if (_addedSession!=nil){
+        advSetVC.session=_addedSession;
     }
     
     if (advSetVC.session.opendocPort==nil); advSetVC.session.opendocPort=[NSNumber numberWithInt:[self.sessionPortControl.text intValue]];
     if (advSetVC.session.opendocServer==nil) advSetVC.session.opendocServer=self.sessionWCATextField.text;
+    
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (_editedSession!=nil){
+        [self setSession:_editedSession];
+        //            editedSession.cmsName=self.sessionWCATextField.text;
+    }else{
+        //            newSession.cmsName=self.sessionWCATextField.text;
+        [self setSession:_addedSession];
+    }
     
 }
 

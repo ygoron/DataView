@@ -21,6 +21,7 @@
 {
     UIActivityIndicatorView *spinner;
     WebiAppDelegate *appDelegate;
+    BILogoff *biLogoff;
     BOOL isBTokenFound;
     BOOL isGetWebiView;
     NSNumber *actdId;
@@ -86,13 +87,13 @@
 {
     if (_isOpenDocumentManager==NO){
         
-        BILogoff *biLogoff=[[BILogoff alloc] init];
+        biLogoff=[[BILogoff alloc] init];
+        biLogoff.delegate=self;
         biLogoff.biSession=_currentSession;
-        [biLogoff logoffSessionSync:_currentSession withToken:_cmsToken];
+//        [biLogoff logoffSessionSync:_currentSession withToken:_cmsToken];
         
         
-        //        [biLogoff logoffSession:_currentSession withToken:_cmsToken];
-        [self createCmsTokenForSession:_currentSession];
+        [biLogoff logoffSession:_currentSession withToken:_cmsToken];
     }else{
         [spinner startAnimating];
         NSLog(@"Using OpenDocument Manager");
@@ -111,6 +112,12 @@
     //    [self createCmsTokenForSession:_currentSession];
     
 }
+-(void) biLogoff:(BILogoff *)biLogoff didLogoff:(BOOL)isSuccess
+    {
+        NSLog(@"OpenDoc Logoff");
+        [self createCmsTokenForSession:_currentSession];
+        
+    }
 -(void) reloadOpenDocView
 {
     
@@ -442,7 +449,9 @@
 }
 -(void) logoffWithSession:(Session *)session{
     if (_cmsToken!=nil){
-        BILogoff *biLogoff=[[BILogoff alloc] init];
+        
+        biLogoff=[[BILogoff alloc] init];
+        biLogoff.delegate=nil;
         //        [biLogoff logoffSessionSync:session withToken:_cmsToken];
         [biLogoff logoffSession:session withToken:_cmsToken];
         NSLog(@"Logoff Session:%@",session.name);

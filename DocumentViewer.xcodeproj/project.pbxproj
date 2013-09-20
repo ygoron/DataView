@@ -15,8 +15,6 @@
 		920F03C2171783AE006AC40E /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 920F03C1171783AE006AC40E /* Default-Landscape@2x~ipad.png */; };
 		920F03C4171783B4006AC40E /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 920F03C3171783B4006AC40E /* Default-Landscape~ipad.png */; };
 		920FBD511712384600B6A1BF /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920FBD501712384600B6A1BF /* SettingsViewController.m */; };
-		92100E2817D7B16500CF99A8 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 92100E2717D7B16500CF99A8 /* Session.m */; };
-		92100E2917D7B16500CF99A8 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 92100E2717D7B16500CF99A8 /* Session.m */; };
 		9210E020174828D3009183CD /* ObjectInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9210E01F174828D3009183CD /* ObjectInfoCell.m */; };
 		9210E02317482902009183CD /* ObjectInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9210E02217482902009183CD /* ObjectInfoCell.xib */; };
 		9210E02A174862E7009183CD /* ActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9210E029174862E7009183CD /* ActionCell.m */; };
@@ -67,9 +65,17 @@
 		925087BC17E3AE0F00DC3EE7 /* ipad-menubar-right-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 925087B917E3AE0F00DC3EE7 /* ipad-menubar-right-7.png */; };
 		925087BD17E3AE0F00DC3EE7 /* ipad-menubar-right-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925087BA17E3AE0F00DC3EE7 /* ipad-menubar-right-7@2x.png */; };
 		925087BE17E3AE0F00DC3EE7 /* ipad-menubar-right-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925087BA17E3AE0F00DC3EE7 /* ipad-menubar-right-7@2x.png */; };
+		92518A0317E7411400BC7915 /* ExtensionPackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92518A0117E7411400BC7915 /* ExtensionPackViewController.m */; };
+		92518A0417E7411400BC7915 /* ExtensionPackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92518A0117E7411400BC7915 /* ExtensionPackViewController.m */; };
 		9251997B16F90BCC0069D191 /* ding-ding-small-bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9251997A16F90BCC0069D191 /* ding-ding-small-bell.wav */; };
 		9251997D16F90F950069D191 /* ScheduleSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9251997C16F90F950069D191 /* ScheduleSound.wav */; };
 		9256264C17313C80006CEEB6 /* BrowserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9256264B17313C80006CEEB6 /* BrowserMainViewController.m */; };
+		92579AC417E8B0AF00F463A3 /* ExtensionPack.m in Sources */ = {isa = PBXBuildFile; fileRef = 92579AC317E8B0AF00F463A3 /* ExtensionPack.m */; };
+		92579AC517E8B0AF00F463A3 /* ExtensionPack.m in Sources */ = {isa = PBXBuildFile; fileRef = 92579AC317E8B0AF00F463A3 /* ExtensionPack.m */; };
+		92579AC817E8B20400F463A3 /* SessionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 92579AC717E8B20400F463A3 /* SessionInfo.m */; };
+		92579AC917E8B20400F463A3 /* SessionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 92579AC717E8B20400F463A3 /* SessionInfo.m */; };
+		92579ACD17E8DE5F00F463A3 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 92579ACC17E8DE5F00F463A3 /* Response.m */; };
+		92579ACE17E8DE5F00F463A3 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 92579ACC17E8DE5F00F463A3 /* Response.m */; };
 		926115701728A0B400973FC3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9261156F1728A0B400973FC3 /* Default-568h@2x.png */; };
 		926115721728A19000973FC3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 926115711728A19000973FC3 /* Default@2x.png */; };
 		926115741728A20F00973FC3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 926115731728A20E00973FC3 /* Default.png */; };
@@ -108,6 +114,8 @@
 		9271C75D170A557F003842EB /* measure.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9271C75C170A557F003842EB /* measure.jpg */; };
 		92757F53179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757F52179B3A1500C6F93A /* PremiumFeaturesViewController.m */; };
 		92757F54179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757F52179B3A1500C6F93A /* PremiumFeaturesViewController.m */; };
+		9276E4C917E7958E0087F556 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 9276E4C817E7958E0087F556 /* Session.m */; };
+		9276E4CA17E7958E0087F556 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 9276E4C817E7958E0087F556 /* Session.m */; };
 		927A82D1174A807400EF789B /* BICypressSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 927A82D0174A807400EF789B /* BICypressSchedule.m */; };
 		927A82D5174A8F2900EF789B /* ScheduleUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 927A82D4174A8F2900EF789B /* ScheduleUrl.m */; };
 		9282894917296EBD00CCAB2F /* SettingGears_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9282894517296EBD00CCAB2F /* SettingGears_blue.png */; };
@@ -587,8 +595,6 @@
 		920FBD4F1712384600B6A1BF /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		920FBD501712384600B6A1BF /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		92100E2517D7B0DE00CF99A8 /* DocumentViewer 11 - MobileServices - CMS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 11 - MobileServices - CMS.xcdatamodel"; sourceTree = "<group>"; };
-		92100E2617D7B16500CF99A8 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
-		92100E2717D7B16500CF99A8 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		9210E01E174828D3009183CD /* ObjectInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectInfoCell.h; sourceTree = "<group>"; };
 		9210E01F174828D3009183CD /* ObjectInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectInfoCell.m; sourceTree = "<group>"; };
 		9210E02217482902009183CD /* ObjectInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectInfoCell.xib; sourceTree = "<group>"; };
@@ -680,10 +686,18 @@
 		924E21CA17863FE0002BFFC8 /* navbar_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_landscape@2x.png"; sourceTree = "<group>"; };
 		925087B917E3AE0F00DC3EE7 /* ipad-menubar-right-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-menubar-right-7.png"; sourceTree = "<group>"; };
 		925087BA17E3AE0F00DC3EE7 /* ipad-menubar-right-7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-menubar-right-7@2x.png"; sourceTree = "<group>"; };
+		92518A0017E7411400BC7915 /* ExtensionPackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionPackViewController.h; sourceTree = "<group>"; };
+		92518A0117E7411400BC7915 /* ExtensionPackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionPackViewController.m; sourceTree = "<group>"; };
 		9251997A16F90BCC0069D191 /* ding-ding-small-bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ding-ding-small-bell.wav"; sourceTree = "<group>"; };
 		9251997C16F90F950069D191 /* ScheduleSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ScheduleSound.wav; sourceTree = "<group>"; };
 		9256264A17313C80006CEEB6 /* BrowserMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserMainViewController.h; sourceTree = "<group>"; };
 		9256264B17313C80006CEEB6 /* BrowserMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserMainViewController.m; sourceTree = "<group>"; };
+		92579AC217E8B0AF00F463A3 /* ExtensionPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionPack.h; sourceTree = "<group>"; };
+		92579AC317E8B0AF00F463A3 /* ExtensionPack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionPack.m; sourceTree = "<group>"; };
+		92579AC617E8B20400F463A3 /* SessionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionInfo.h; sourceTree = "<group>"; };
+		92579AC717E8B20400F463A3 /* SessionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionInfo.m; sourceTree = "<group>"; };
+		92579ACB17E8DE5F00F463A3 /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
+		92579ACC17E8DE5F00F463A3 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		9258A07C17502C4000957384 /* DocumentViewer 7 - Int32.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 7 - Int32.xcdatamodel"; sourceTree = "<group>"; };
 		925DB4C11785A00000EADF40 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		925DB4C21785A01C00EADF40 /* ar */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MoreCell.strings; sourceTree = "<group>"; };
@@ -741,6 +755,9 @@
 		9271C75C170A557F003842EB /* measure.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = measure.jpg; sourceTree = "<group>"; };
 		92757F51179B3A1500C6F93A /* PremiumFeaturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PremiumFeaturesViewController.h; sourceTree = "<group>"; };
 		92757F52179B3A1500C6F93A /* PremiumFeaturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PremiumFeaturesViewController.m; sourceTree = "<group>"; };
+		9276E4C617E794D80087F556 /* DocumentViewer 12 - APOS Mobile Extension Pack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 12 - APOS Mobile Extension Pack.xcdatamodel"; sourceTree = "<group>"; };
+		9276E4C717E7958E0087F556 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = DocumentViewer/Session.h; sourceTree = "<group>"; };
+		9276E4C817E7958E0087F556 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = DocumentViewer/Session.m; sourceTree = "<group>"; };
 		9278B575176E61E500ECC407 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MoreCell.strings; sourceTree = "<group>"; };
 		9278B576176E61F300ECC407 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MoreCell.strings; sourceTree = "<group>"; };
 		9278B578176E620400ECC407 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/MoreCell.strings; sourceTree = "<group>"; };
@@ -1179,6 +1196,15 @@
 			path = ../Resources;
 			sourceTree = "<group>";
 		};
+		92518A0717E7413F00BC7915 /* Extension Pack Settings */ = {
+			isa = PBXGroup;
+			children = (
+				92518A0017E7411400BC7915 /* ExtensionPackViewController.h */,
+				92518A0117E7411400BC7915 /* ExtensionPackViewController.m */,
+			);
+			name = "Extension Pack Settings";
+			sourceTree = "<group>";
+		};
 		9251997916F90BB40069D191 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -1221,6 +1247,28 @@
 				9271491C17498B6800851389 /* OpenDocumentViewController.xib */,
 			);
 			name = "Browser Navigation";
+			sourceTree = "<group>";
+		};
+		92579AC117E8B04300F463A3 /* Extension Pack */ = {
+			isa = PBXGroup;
+			children = (
+				92579ACA17E8B20900F463A3 /* Model */,
+				92518A0717E7413F00BC7915 /* Extension Pack Settings */,
+				92579AC217E8B0AF00F463A3 /* ExtensionPack.h */,
+				92579AC317E8B0AF00F463A3 /* ExtensionPack.m */,
+			);
+			name = "Extension Pack";
+			sourceTree = "<group>";
+		};
+		92579ACA17E8B20900F463A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92579AC617E8B20400F463A3 /* SessionInfo.h */,
+				92579AC717E8B20400F463A3 /* SessionInfo.m */,
+				92579ACB17E8DE5F00F463A3 /* Response.h */,
+				92579ACC17E8DE5F00F463A3 /* Response.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		92611564172872F800973FC3 /* Application Icons */ = {
@@ -1529,6 +1577,7 @@
 		92ADE96316CB24D60027BD4D /* DocumentViewer */ = {
 			isa = PBXGroup;
 			children = (
+				92579AC117E8B04300F463A3 /* Extension Pack */,
 				92F4EFC517E3A3F9009DAFAC /* Utils */,
 				92B9F28317D379DC006E7ABC /* Dashboard */,
 				921C0C21179A179F00F41946 /* InAppPurchases */,
@@ -1615,10 +1664,10 @@
 		92ADE97D16CB25130027BD4D /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				9276E4C717E7958E0087F556 /* Session.h */,
+				9276E4C817E7958E0087F556 /* Session.m */,
 				92A78301175EBF9700818509 /* Settings.h */,
 				92A78302175EBF9700818509 /* Settings.m */,
-				92100E2617D7B16500CF99A8 /* Session.h */,
-				92100E2717D7B16500CF99A8 /* Session.m */,
 				92ADE97516CB24D70027BD4D /* DocumentViewer.xcdatamodeld */,
 				921C0C1D179A166C00F41946 /* InAppPurchase.h */,
 				921C0C1E179A166C00F41946 /* InAppPurchase.m */,
@@ -2372,18 +2421,21 @@
 				9288ABAF1787A9A50048BCF1 /* FormatWebi.m in Sources */,
 				9288ABB01787A9A50048BCF1 /* FormatExcel.m in Sources */,
 				9288ABB11787A9A50048BCF1 /* Destination.m in Sources */,
+				92518A0417E7411400BC7915 /* ExtensionPackViewController.m in Sources */,
 				9288ABB21787A9A50048BCF1 /* Format.m in Sources */,
 				9288ABB31787A9A50048BCF1 /* BIDeleteDocument.m in Sources */,
 				9288ABB41787A9A50048BCF1 /* DeleteStatus.m in Sources */,
 				9288ABB51787A9A50048BCF1 /* UniversesListViewController.m in Sources */,
 				9288ABB61787A9A50048BCF1 /* Universe.m in Sources */,
 				9288ABB71787A9A50048BCF1 /* UniverseCell.m in Sources */,
+				92579ACE17E8DE5F00F463A3 /* Response.m in Sources */,
 				9288ABB81787A9A50048BCF1 /* BIGetUniverses.m in Sources */,
 				9288ABB91787A9A50048BCF1 /* BIGetUniverseDetails.m in Sources */,
 				92F4EFC417E3A3F3009DAFAC /* Utils.m in Sources */,
 				9288ABBA1787A9A50048BCF1 /* UniverseDetailsCellSolo.m in Sources */,
 				9288ABBB1787A9A50048BCF1 /* UniverseDetailsViewControllerSolo.m in Sources */,
 				9288ABBC1787A9A50048BCF1 /* TitleLabel.m in Sources */,
+				9276E4CA17E7958E0087F556 /* Session.m in Sources */,
 				9288ABBD1787A9A50048BCF1 /* SettingsViewController.m in Sources */,
 				9288ABBE1787A9A50048BCF1 /* AdvancedSessionSettingsViewController.m in Sources */,
 				9288ABBF1787A9A50048BCF1 /* PreferencesViewController.m in Sources */,
@@ -2405,6 +2457,7 @@
 				9288ABCF1787A9A50048BCF1 /* BICypressSchedule.m in Sources */,
 				9288ABD01787A9A50048BCF1 /* ScheduleUrl.m in Sources */,
 				9288ABD11787A9A50048BCF1 /* Document.m in Sources */,
+				92579AC517E8B0AF00F463A3 /* ExtensionPack.m in Sources */,
 				9288ABD31787A9A50048BCF1 /* Settings.m in Sources */,
 				921C0C20179A166C00F41946 /* InAppPurchase.m in Sources */,
 				921C0C26179A1A1000F41946 /* Products.m in Sources */,
@@ -2414,6 +2467,7 @@
 				9214469B179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
 				92716BDD17BE7B4600CE3DA2 /* SharedUtils.m in Sources */,
 				92B9F28717D37A5D006E7ABC /* MobileBIService.m in Sources */,
+				92579AC917E8B20400F463A3 /* SessionInfo.m in Sources */,
 				92B9F28B17D37B1C006E7ABC /* MobileSession.m in Sources */,
 				921E2E3C17D4FBA400AEEF16 /* DashboardViewController.m in Sources */,
 				921E2E4717D51E1600AEEF16 /* NSData+Base64.m in Sources */,
@@ -2422,7 +2476,6 @@
 				921E2E5A17D52C4E00AEEF16 /* unzip.c in Sources */,
 				921E2E5C17D52C4E00AEEF16 /* zip.c in Sources */,
 				921E2E5E17D52C4E00AEEF16 /* SSZipArchive.m in Sources */,
-				92100E2917D7B16500CF99A8 /* Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2465,18 +2518,21 @@
 				928D565616F7EF4D000DE65D /* FormatWebi.m in Sources */,
 				928D565916F7EF66000DE65D /* FormatExcel.m in Sources */,
 				928D565C16F7F053000DE65D /* Destination.m in Sources */,
+				92518A0317E7411400BC7915 /* ExtensionPackViewController.m in Sources */,
 				928D566016F7F13D000DE65D /* Format.m in Sources */,
 				92F90E3616FE2DEA00FA501A /* BIDeleteDocument.m in Sources */,
 				92F90E3916FE3D4C00FA501A /* DeleteStatus.m in Sources */,
 				92ADF00317073CD80056B72F /* UniversesListViewController.m in Sources */,
 				92ADF00617073D130056B72F /* Universe.m in Sources */,
 				92ADF00B1707679D0056B72F /* UniverseCell.m in Sources */,
+				92579ACD17E8DE5F00F463A3 /* Response.m in Sources */,
 				92ADF00E17076A240056B72F /* BIGetUniverses.m in Sources */,
 				92ADF01B170795080056B72F /* BIGetUniverseDetails.m in Sources */,
 				92F4EFC317E3A3F3009DAFAC /* Utils.m in Sources */,
 				92ADF02F170887C00056B72F /* UniverseDetailsCellSolo.m in Sources */,
 				92ADF035170897970056B72F /* UniverseDetailsViewControllerSolo.m in Sources */,
 				928D10DB170F95F100FA2C5D /* TitleLabel.m in Sources */,
+				9276E4C917E7958E0087F556 /* Session.m in Sources */,
 				920FBD511712384600B6A1BF /* SettingsViewController.m in Sources */,
 				929C0364172319E700B28967 /* AdvancedSessionSettingsViewController.m in Sources */,
 				92F4677617249F4C0048252B /* PreferencesViewController.m in Sources */,
@@ -2498,6 +2554,7 @@
 				927A82D1174A807400EF789B /* BICypressSchedule.m in Sources */,
 				927A82D5174A8F2900EF789B /* ScheduleUrl.m in Sources */,
 				92285791175EB962002A8456 /* Document.m in Sources */,
+				92579AC417E8B0AF00F463A3 /* ExtensionPack.m in Sources */,
 				92A78303175EBF9700818509 /* Settings.m in Sources */,
 				921C0C1F179A166C00F41946 /* InAppPurchase.m in Sources */,
 				921C0C25179A1A1000F41946 /* Products.m in Sources */,
@@ -2507,6 +2564,7 @@
 				9214469A179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
 				92716BDC17BE7B4600CE3DA2 /* SharedUtils.m in Sources */,
 				92B9F28617D37A5D006E7ABC /* MobileBIService.m in Sources */,
+				92579AC817E8B20400F463A3 /* SessionInfo.m in Sources */,
 				92B9F28A17D37B1C006E7ABC /* MobileSession.m in Sources */,
 				921E2E3B17D4FBA400AEEF16 /* DashboardViewController.m in Sources */,
 				921E2E4617D51E1600AEEF16 /* NSData+Base64.m in Sources */,
@@ -2515,7 +2573,6 @@
 				921E2E5917D52C4E00AEEF16 /* unzip.c in Sources */,
 				921E2E5B17D52C4E00AEEF16 /* zip.c in Sources */,
 				921E2E5D17D52C4E00AEEF16 /* SSZipArchive.m in Sources */,
-				92100E2817D7B16500CF99A8 /* Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2903,6 +2960,7 @@
 			isa = XCVersionGroup;
 			children = (
 				92100E2517D7B0DE00CF99A8 /* DocumentViewer 11 - MobileServices - CMS.xcdatamodel */,
+				9276E4C617E794D80087F556 /* DocumentViewer 12 - APOS Mobile Extension Pack.xcdatamodel */,
 				921C0C14179A117100F41946 /* DocumentViewer 9 - InAppPucrhases.xcdatamodel */,
 				921E2E3F17D5027F00AEEF16 /* DocumentViewer 10 - MobileServices.xcdatamodel */,
 				9228578E175EB7E8002A8456 /* DocumentViewer 8 - SDK Base Points.xcdatamodel */,
@@ -2914,7 +2972,7 @@
 				923014081720C536002A8C34 /* DocumentViewer 2.xcdatamodel */,
 				92ADE97616CB24D70027BD4D /* DocumentViewer.xcdatamodel */,
 			);
-			currentVersion = 92100E2517D7B0DE00CF99A8 /* DocumentViewer 11 - MobileServices - CMS.xcdatamodel */;
+			currentVersion = 9276E4C617E794D80087F556 /* DocumentViewer 12 - APOS Mobile Extension Pack.xcdatamodel */;
 			name = DocumentViewer.xcdatamodeld;
 			path = DocumentViewer/DocumentViewer.xcdatamodeld;
 			sourceTree = "<group>";

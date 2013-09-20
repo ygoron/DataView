@@ -280,4 +280,9 @@
 
 "Purchases"="Purchases";
 
+/* Extension Pack */
+"Incorrect Extension Pack URL"="Incorrect Extension Pack URL";
+"BI Platform Build:"="BI Platform Build:";
+"Extension Pack Version:"="Extension Pack Version:";
+
 

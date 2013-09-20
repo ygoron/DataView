@@ -9,6 +9,7 @@
 #import "AdvancedSessionSettingsViewController.h"
 #import "TitleLabel.h"
 #import "SharedUtils.h"
+#import "ExtensionPackViewController.h"
 
 @interface AdvancedSessionSettingsViewController ()
 
@@ -17,7 +18,7 @@
 @implementation AdvancedSessionSettingsViewController
 {
     UIGestureRecognizer *tapper;
-
+    
 }
 
 @synthesize session;
@@ -36,7 +37,7 @@
     
     [SharedUtils adjustLabelLeftMarginForIpadForBoldFontInTableView:self.tableView];
     [SharedUtils adjustRighMarginsForIpad:self.tableView.constraints];
-
+    
     
     UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
     UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
@@ -46,32 +47,32 @@
     UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
     self.tableView.backgroundView = background;
-
     
-
+    
+    
     [self cutsomizeTextField:self.textFieldOpenDocPort];
-//    [self cutsomizeTextField:self.textfieldOpenDocHost];
+    //    [self cutsomizeTextField:self.textfieldOpenDocHost];
     [self cutsomizeTextField:self.textFieldMobiPort];
-
+    
     
     tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:tapper];
     tapper.cancelsTouchesInView = FALSE;
-
+    
     TitleLabel *titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
     self.navigationItem.titleView = titelLabel;
-    titelLabel.text=@"Advanced Settings";
+    titelLabel.text=NSLocalizedString(@"Advanced Settings",nil);
     [titelLabel sizeToFit];
     [TestFlight passCheckpoint:@"Advanced Sesttings"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-
+    
     NSLog(@"View Will Appear. Cypress SDK Base:%@",session.cypressSDKBase);
     self.textfieldOpenDocHost.text=session.opendocServer;
     self.textFieldOpenDocPort.text=[session.opendocPort stringValue];
@@ -80,8 +81,8 @@
     _textFieldMobiPath.text=session.mobileBIServiceBase;
     _textFieldMobiPort.text=[session.mobileBIServicePort stringValue];
     _textCmsNameEx.text=session.cmsNameEx;
-
-
+    
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -94,51 +95,51 @@
     float redC=63.0/255;
     float greenC=114.0/255;
     float blueC=173.0/255;
-
-//    [textField setTextColor:[UIColor colorWithRed:163.0/255 green:117.0/255 blue:89.0/255 alpha:1.0]];
+    
+    //    [textField setTextColor:[UIColor colorWithRed:163.0/255 green:117.0/255 blue:89.0/255 alpha:1.0]];
     [textField setTextColor:[UIColor colorWithRed:redC green:greenC blue:blueC alpha:1.0]];
     [textField setBackgroundColor:[UIColor clearColor]];
 }
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 
@@ -151,6 +152,18 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+//    
+//    NSLog(@"Selected Row: %@",indexPath);
+//    if (indexPath.section==1 && indexPath.row==0)
+//    {
+//        NSLog(@"Launching Extension Pack Controller");
+//        ExtensionPackViewController *extPackVC=[[ExtensionPackViewController alloc] initWithNibName:@"ExtensionPackViewController" bundle:nil];
+//        [self.navigationController pushViewController:extPackVC animated:YES];
+//        
+//        
+//    }
+    
 }
 
 -(void) viewWillDisappear:(BOOL)animated{
@@ -162,6 +175,14 @@
     session.mobileBIServicePort=[NSNumber numberWithInt:[_textFieldMobiPort.text intValue]];
     session.cmsNameEx=_textCmsNameEx.text;
     [super viewWillDisappear:animated];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog (@"Seque: %@",segue.identifier);
+    ExtensionPackViewController *extPackVC=segue.destinationViewController;
+    extPackVC.session=self.session;
     
 }
 

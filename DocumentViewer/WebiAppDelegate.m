@@ -88,7 +88,8 @@
 	
     self.globalSettings=[self getGlobalSettingsWithContext:self.managedObjectContext];
     
-    sessions=[CoreDataHelper getObjectsForEntity:@"Session" withSortKey:nil andSortAscending:YES andContext:self.managedObjectContext];
+//    sessions=[CoreDataHelper getObjectsForEntity:@"Session" withSortKey:nil andSortAscending:YES andContext:self.managedObjectContext];
+    sessions=[CoreDataHelper getObjectsForEntity:@"Session" withSortKey:@"name" andSortAscending:YES andContext:self.managedObjectContext];
     NSLog(@"Sessions Count:%d",[sessions count]);
     
     
@@ -241,7 +242,7 @@
     
     
     
-
+    
     
     UIImage* toolBarBg = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
     [[UIToolbar appearance] setBackgroundImage:toolBarBg forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsDefault];
@@ -270,7 +271,7 @@
     
     
     UIImage    *navBarImageLandscape = [UIImage imageNamed:@"ipad-menubar-right-7.png"] ;
-//      UIImage    *navBarImageLandscape = [UIImage imageNamed:@"navbar_landscape.png"] ;
+    //      UIImage    *navBarImageLandscape = [UIImage imageNamed:@"navbar_landscape.png"] ;
     UIImage *navBarImagePortrait = [UIImage imageNamed:@"navbar-7.png"];
     if([Utils isVersion6AndBelow]){
         navBarImagePortrait = [UIImage imageNamed:@"navbar.png"];
@@ -399,7 +400,7 @@
     NSLog(@"Sessions count:%d",sessions.count);
     for (Session *session in sessions) {
         if ([session.isEnabled intValue]==1){
-            NSLog(@"Session Token:%@",session.cmsToken);
+            NSLog(@"Session Name: %@ Token:%@",session.name, session.cmsToken);
             if (session.cmsToken!=nil){
                 NSLog(@"Logoff Session %@",session.name);
                 //                session.cmsToken=nil;
@@ -408,8 +409,8 @@
                 BILogoff *logOff=[[BILogoff alloc]init];
                 [logOff logoffSession:session withToken:session.cmsToken];
                 //                [logOff logoffSessionSync:session withToken:session.cmsToken];
-                session.cmsToken=nil;
-                NSLog(@"Token was set to nil");
+//                session.cmsToken=nil;
+//                NSLog(@"Token was set to nil");
                 
             }
         }
@@ -655,6 +656,8 @@
     aposDemoSession.mobileBIServicePort=[NSNumber numberWithInt:mobileServicePort];
     aposDemoSession.mobileBIServiceBase=mobileServiceBase;
     aposDemoSession.cmsNameEx=DEFAULT_APOS_DEMO_CMS_NAME;
+    aposDemoSession.isExtensionPack=[NSNumber numberWithInt:[DEFAULT_APOS_EXTENSION_PACK_ENABLED intValue]];
+    aposDemoSession.extensionPackUrl=DEFAULT_APOS_EXTENSION_PACK_URL;
     
     
     
@@ -763,7 +766,7 @@
 }
 
 -(void) refreshSessions{
-    sessions=[CoreDataHelper getObjectsForEntity:@"Session" withSortKey:nil andSortAscending:YES andContext:self.managedObjectContext];
+    sessions=[CoreDataHelper getObjectsForEntity:@"Session" withSortKey:@"name" andSortAscending:YES andContext:self.managedObjectContext];
     NSLog(@"Sessions Count:%d",[sessions count]);
     [self cleanUpSessions];
     isUIRefreshRequred=YES;

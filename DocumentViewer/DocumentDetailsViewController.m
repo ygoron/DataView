@@ -606,8 +606,7 @@
     
     if (self.isInstance && self.isExternalFormat){
         
-        BOOL isPOC=YES;
-        if (isPOC==NO){
+        if ([appDelegate.activeSession.isExtensionPack boolValue]==NO || appDelegate.activeSession.extensionPackUrl==nil){
             
             opdv.selectedObjectUrl=urlSelected;
             opdv.cmsToken=activeSession.cmsToken;
@@ -617,9 +616,8 @@
             opdv.objectId=document.id;
         }
         else{
-            //********************************** POC REMOVE/CONTINUE *****************************************
-            NSLog (@"POC of Apos Extension Pack");
-            NSString *pocUrlString=[NSString stringWithFormat:@"%@%d", @"http://win-bi41rampup:8080/AposMobileServices/instance.content/",document.id.intValue];
+            NSLog (@"Apos Extension Pack");
+            NSString *pocUrlString=[NSString stringWithFormat:@"%@%@%d", appDelegate.activeSession.extensionPackUrl, @"/instance.content/",document.id.intValue];
             NSURL *pocUrl=[[NSURL alloc] initWithString:pocUrlString];
             
             opdv.openDocUrl=pocUrl;
