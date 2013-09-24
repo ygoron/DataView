@@ -18,6 +18,7 @@
 #import "TitleLabel.h"
 #import "WebiAppDelegate.h"
 #import "SharedUtils.h"
+#import "Utils.h"
 @interface ScheduleWebiViewController ()
 
 @end
@@ -51,14 +52,18 @@
     
     //    self.title=[NSString stringWithFormat:@"%@%@",@"Schedule ",document.name];
     
-    UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
-    UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
-    [self.tableView setBackgroundColor:backgroundPattern];
     
-    
-    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
-    self.tableView.backgroundView = background;
+    if([Utils isVersion6AndBelow]){
+        UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
+        UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
+        [self.tableView setBackgroundColor:backgroundPattern];
+        
+        
+        
+        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
+        self.tableView.backgroundView = background;
+    }
     
     TitleLabel *titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
     self.navigationItem.titleView = titelLabel;
@@ -71,7 +76,7 @@
     spinner.center = CGPointMake(self.tableView.bounds.size.width / 2.0f, self.tableView.bounds.size.height / 2.0f);
     [self.view addSubview:spinner];
     
-//    currentSession=document.session;
+    //    currentSession=document.session;
     WebiAppDelegate *appDelegate = (id)[[UIApplication sharedApplication] delegate];
     currentSession=appDelegate.activeSession;
     
@@ -105,7 +110,7 @@
 //    label.font=[UIFont boldSystemFontOfSize:16];
 //    label.textColor= [UIColor colorWithRed:163.0/255 green:117.0/255 blue:89.0/255 alpha:1.0];
 //    label.numberOfLines=0;
-//    
+//
 //    switch (section) {
 //        case 0:
 //            label.text=@"Destination";
@@ -116,7 +121,7 @@
 //        case 2:
 //            label.text=@"Recurrence";
 //            break;
-//            
+//
 //        default:
 //            break;
 //    }

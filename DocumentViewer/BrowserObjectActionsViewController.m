@@ -20,6 +20,7 @@
 #import "BICypressSchedule.h"
 #import "ScheduleUrl.h"
 #import "DashboardViewController.h"
+#import "Utils.h"
 
 @interface BrowserObjectActionsViewController ()
 
@@ -59,14 +60,17 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
-    UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
-    [self.tableView setBackgroundColor:backgroundPattern];
-    
-    
-    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
-    self.tableView.backgroundView = background;
+    if([Utils isVersion6AndBelow]){
+        
+        UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
+        UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
+        [self.tableView setBackgroundColor:backgroundPattern];
+        
+        
+        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
+        self.tableView.backgroundView = background;
+    }
     
     
     UINib *nib=[UINib nibWithNibName:@"ObjectInfoCell" bundle:nil];
@@ -524,9 +528,9 @@
         [alert show];
         
     } else{
-//        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed",nil) message:NSLocalizedString(@"Server Error",nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed",nil) message:NSLocalizedString(@"Server Error",nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Schedule Failed",nil) message:[data valueForKey:@"message"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-
+        
         [alert show];
         
     }

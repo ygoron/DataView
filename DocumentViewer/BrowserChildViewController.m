@@ -13,6 +13,7 @@
 #import "CypressResponseHeader.h"
 #import "BrowserObjectActionsViewController.h"
 #import "DocumentDetailsViewController.h"
+#import "Utils.h"
 
 @interface BrowserChildViewController ()
 
@@ -50,14 +51,16 @@
 {
     [super viewDidLoad];
     
-    UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
-    UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
-    [self.tableView setBackgroundColor:backgroundPattern];
-    
-    
-    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
-    self.tableView.backgroundView = background;
+    if([Utils isVersion6AndBelow]){
+        UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
+        UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
+        [self.tableView setBackgroundColor:backgroundPattern];
+        
+        
+        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
+        self.tableView.backgroundView = background;
+    }
     
     
     UINib *nib=[UINib nibWithNibName:@"BrowserCell" bundle:nil];
@@ -451,7 +454,7 @@
             
         }
         
-            else if ([objectAtRow.type isEqualToString:@"CrystalReport"] || [objectAtRow.type isEqualToString:@"Pdf"]|| [objectAtRow.type isEqualToString:@"Word"]|| [objectAtRow.type isEqualToString:@"Excel"]|| [objectAtRow.type isEqualToString:@"Txt"] || [objectAtRow.type isEqualToString:@"Rtf"] || [objectAtRow.type isEqualToString:@"Agnostic"] || [objectAtRow.type isEqualToString:@"XL.XcelsiusEnterprise"]){
+        else if ([objectAtRow.type isEqualToString:@"CrystalReport"] || [objectAtRow.type isEqualToString:@"Pdf"]|| [objectAtRow.type isEqualToString:@"Word"]|| [objectAtRow.type isEqualToString:@"Excel"]|| [objectAtRow.type isEqualToString:@"Txt"] || [objectAtRow.type isEqualToString:@"Rtf"] || [objectAtRow.type isEqualToString:@"Agnostic"] || [objectAtRow.type isEqualToString:@"XL.XcelsiusEnterprise"]){
             BrowserObjectActionsViewController *bavc=[[BrowserObjectActionsViewController alloc]initWithNibName:@"BrowserObjectActionsViewController" bundle:nil];
             NSURL *urlForSelectedObject=[NSURL URLWithString:[NSString stringWithFormat:@"%@",[objectAtRow.metaDataUrl absoluteString] ]];
             bavc.currentSession=_currentSession;

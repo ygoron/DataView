@@ -10,6 +10,7 @@
 #import "TitleLabel.h"
 #import "WebiAppDelegate.h"
 #import "SessionInfo.h"
+#import "Utils.h"
 
 @interface ExtensionPackViewController ()
 
@@ -46,14 +47,16 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
-    UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
-    UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
-    [self.tableView setBackgroundColor:backgroundPattern];
-    
-    
-    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
-    self.tableView.backgroundView = background;
+    if([Utils isVersion6AndBelow]){
+        UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
+        UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
+        [self.tableView setBackgroundColor:backgroundPattern];
+        
+        
+        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
+        self.tableView.backgroundView = background;
+    }
     
     
     tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
@@ -70,7 +73,7 @@
     spinner.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin);
     spinner.center = CGPointMake(self.tableView.bounds.size.width / 2.0f, self.tableView.bounds.size.height / 2.0f);
     [self.view addSubview:spinner];
-
+    
     appDelegate = (id)[[UIApplication sharedApplication] delegate];
     context = [appDelegate managedObjectContext];
     
@@ -186,24 +189,24 @@
     connector=[[BIConnector alloc]init];
     connector.timeOut=10;
     [spinner startAnimating];
-
+    
     
     // Get Token First
     if (_session.cmsToken==nil || _session.password==nil){
         NSLog(@"CMS Token is NULL - create new one");
-
+        
     }else{
         NSLog(@"CMS Token is NOT NULL - Process With Logoff First");
         BILogoff *biLogoff=[[BILogoff alloc] init];
         biLogoff.biSession=_session;
         [biLogoff logoffSessionSync:_session withToken:_session.cmsToken];
     }
-
+    
     
     connector=[[BIConnector alloc]init];
     connector.delegate=self;
     [connector getCmsTokenWithSession:_session];
-
+    
 }
 
 #pragma mark Token Created
@@ -241,15 +244,15 @@
 {
     [spinner stopAnimating];
     NSLog(@"Returned from Extension is Success %d",isSuccess);
-
+    
     if (isSuccess==YES){
-//        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Test",nil) message:NSLocalizedString(@"Success!",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil, nil];
-
-
+        //        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Test",nil) message:NSLocalizedString(@"Success!",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil, nil];
+        
+        
         NSString *succesText =[NSString stringWithFormat:@"%@%@%@%d%@%@%@",NSLocalizedString(@"Success!", nil),@"\n",NSLocalizedString(@"BI Platform Build:", nil),extensionPackSessionInfo.biPlatformVersion,@"\n",NSLocalizedString(@"Extension Pack Version:", nil),extensionPackSessionInfo.mobileServiceVersion];
-//        
+        //
         UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Test",nil) message:succesText delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil, nil];
-
+        
         [alert show];
         
     }else{
@@ -257,16 +260,16 @@
         [alert show];
         
     }
-
     
-
+    
+    
 }
 
 #pragma mark Logoff Completed
 
 -(void)biLogoff:(BILogoff *)biLogoff didLogoff:(BOOL)isSuccess{
     NSLog(@"Logoff Success? %d",isSuccess);
-//    [context deleteObject:testSession];
+    //    [context deleteObject:testSession];
     
 }
 

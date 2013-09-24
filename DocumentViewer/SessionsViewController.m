@@ -22,6 +22,7 @@
 #import "DocumentsViewController.h"
 #import "UniversesListViewController.h"
 #import "SharedUtils.h"
+#import "Utils.h"
 @interface SessionsViewController () <UIAlertViewDelegate>
 
 @end
@@ -55,14 +56,16 @@
     context = [appDelegate managedObjectContext];
     self.sessions=[appDelegate sessions];
     
-    UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
-    UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
-    [self.tableView setBackgroundColor:backgroundPattern];
-    
-    
-    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
-    self.tableView.backgroundView = background;
+    if([Utils isVersion6AndBelow]){
+        UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
+        UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
+        [self.tableView setBackgroundColor:backgroundPattern];
+        
+        
+        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
+        self.tableView.backgroundView = background;
+    }
     
     TitleLabel *titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
     self.navigationItem.titleView = titelLabel;

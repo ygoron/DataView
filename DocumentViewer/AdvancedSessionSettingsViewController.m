@@ -10,6 +10,7 @@
 #import "TitleLabel.h"
 #import "SharedUtils.h"
 #import "ExtensionPackViewController.h"
+#import "Utils.h"
 
 @interface AdvancedSessionSettingsViewController ()
 
@@ -39,14 +40,16 @@
     [SharedUtils adjustRighMarginsForIpad:self.tableView.constraints];
     
     
-    UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
-    UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
-    [self.tableView setBackgroundColor:backgroundPattern];
-    
-    
-    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
-    self.tableView.backgroundView = background;
+    if([Utils isVersion6AndBelow]){
+        UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
+        UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
+        [self.tableView setBackgroundColor:backgroundPattern];
+        
+        
+        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
+        self.tableView.backgroundView = background;
+    }
     
     
     
@@ -153,16 +156,16 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
-//    
-//    NSLog(@"Selected Row: %@",indexPath);
-//    if (indexPath.section==1 && indexPath.row==0)
-//    {
-//        NSLog(@"Launching Extension Pack Controller");
-//        ExtensionPackViewController *extPackVC=[[ExtensionPackViewController alloc] initWithNibName:@"ExtensionPackViewController" bundle:nil];
-//        [self.navigationController pushViewController:extPackVC animated:YES];
-//        
-//        
-//    }
+    //
+    //    NSLog(@"Selected Row: %@",indexPath);
+    //    if (indexPath.section==1 && indexPath.row==0)
+    //    {
+    //        NSLog(@"Launching Extension Pack Controller");
+    //        ExtensionPackViewController *extPackVC=[[ExtensionPackViewController alloc] initWithNibName:@"ExtensionPackViewController" bundle:nil];
+    //        [self.navigationController pushViewController:extPackVC animated:YES];
+    //
+    //
+    //    }
     
 }
 

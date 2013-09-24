@@ -10,6 +10,7 @@
 #import "TitleLabel.h"
 #import "WebiAppDelegate.h"
 #import "SharedUtils.h"
+#import "Utils.h"
 
 @interface PreferencesViewController ()
 
@@ -37,15 +38,17 @@
     [super viewDidLoad];
     
     
-    UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
-    UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
-    [self.tableView setBackgroundColor:backgroundPattern];
+    if([Utils isVersion6AndBelow]){
+        UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
+        UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
+        [self.tableView setBackgroundColor:backgroundPattern];
+        
+        
+        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
+        self.tableView.backgroundView = background;
+    }
     
-    
-    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
-    self.tableView.backgroundView = background;
-
     _appDelegate = (id)[[UIApplication sharedApplication] delegate];
     
     context = [_appDelegate managedObjectContext];
@@ -101,9 +104,9 @@
     float redC=63.0/255;
     float greenC=114.0/255;
     float blueC=173.0/255;
-
     
-//    [textField setTextColor:[UIColor colorWithRed:163.0/255 green:117.0/255 blue:89.0/255 alpha:1.0]];
+    
+    //    [textField setTextColor:[UIColor colorWithRed:163.0/255 green:117.0/255 blue:89.0/255 alpha:1.0]];
     [textField setTextColor:[UIColor colorWithRed:redC green:greenC blue:blueC alpha:1.0]];
     [textField setBackgroundColor:[UIColor clearColor]];
 }
@@ -199,7 +202,7 @@
     _appDelegate.globalSettings.networkTimeout=[NSNumber numberWithInteger:[self.textTimeout.text integerValue]];
     _appDelegate.globalSettings.autoLogoff=[NSNumber numberWithBool:self.autoLogoffSwitch.isOn];
     NSLog(@"Fetch Document Limit:%@",    _appDelegate.globalSettings.fetchDocumentLimit);
-
+    
 }
 - (IBAction)fetchSizeEditEnded:(id)sender {
     int value=[self.textFetchSize.text integerValue];
@@ -217,6 +220,6 @@
     
     _appDelegate.globalSettings.isShowUniverses=[NSNumber numberWithBool:self.showUniversesSwitch.isOn];
     [_appDelegate showHideUniverseController];
-
+    
 }
 @end

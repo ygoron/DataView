@@ -16,6 +16,7 @@
 #import "WebiAppDelegate.h"
 #import "SharedUtils.h"
 #import "GlobalPreferencesConstants.h"
+#import "Utils.h"
 
 
 @interface SessionDetailViewController ()
@@ -54,14 +55,16 @@
 {
     [super viewDidLoad];
     
-    UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
-    UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
-    [self.tableView setBackgroundColor:backgroundPattern];
-    
-    
-    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
-    self.tableView.backgroundView = background;
+    if([Utils isVersion6AndBelow]){
+        UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
+        UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
+        [self.tableView setBackgroundColor:backgroundPattern];
+        
+        
+        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
+        self.tableView.backgroundView = background;
+    }
     
     
     appDelegate = (id)[[UIApplication sharedApplication] delegate];
@@ -422,6 +425,7 @@
     
     if (session.opendocServer==nil) session.opendocServer=session.cmsName;
     if (session.opendocPort==[NSNumber numberWithInt:0]) session.opendocPort=session.port;
+    
     if (session.cypressSDKBase==nil) session.cypressSDKBase=cypressSDKPoint_Default;
     if (session.webiRestSDKBase==nil) session.webiRestSDKBase=webiRestSDKPoint_Default;
     
@@ -482,7 +486,7 @@
         advSetVC.session=_addedSession;
     }
     
-    if (advSetVC.session.opendocPort==nil); advSetVC.session.opendocPort=[NSNumber numberWithInt:[self.sessionPortControl.text intValue]];
+    if (advSetVC.session.opendocPort==nil) advSetVC.session.opendocPort=[NSNumber numberWithInt:[self.sessionPortControl.text intValue]];
     if (advSetVC.session.opendocServer==nil) advSetVC.session.opendocServer=self.sessionWCATextField.text;
     
 }

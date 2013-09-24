@@ -17,6 +17,7 @@
 #import "DeleteStatus.h"
 #import "TitleLabel.h"
 #import "WebiAppDelegate.h"
+#import "Utils.h"
 
 @interface DocumentsViewController ()
 
@@ -60,9 +61,9 @@
     [super viewDidLoad];
     
     
-    //    UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
-    //    UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
-    //    [self.view setBackgroundColor:backgroundPattern];
+//        UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
+//        UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
+//        [self.view setBackgroundColor:backgroundPattern];
     
     NSLog(@"Documents View Controller");
     

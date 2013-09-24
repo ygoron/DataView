@@ -88,7 +88,7 @@
 	
     self.globalSettings=[self getGlobalSettingsWithContext:self.managedObjectContext];
     
-//    sessions=[CoreDataHelper getObjectsForEntity:@"Session" withSortKey:nil andSortAscending:YES andContext:self.managedObjectContext];
+    //    sessions=[CoreDataHelper getObjectsForEntity:@"Session" withSortKey:nil andSortAscending:YES andContext:self.managedObjectContext];
     sessions=[CoreDataHelper getObjectsForEntity:@"Session" withSortKey:@"name" andSortAscending:YES andContext:self.managedObjectContext];
     NSLog(@"Sessions Count:%d",[sessions count]);
     
@@ -232,7 +232,9 @@
     
     //    UIImage *navBarImage = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
     
-    UIImage *navBarImage = [UIImage imageNamed:@"ipad-menubar-right-7.png"];
+//    UIImage *navBarImage = [UIImage imageNamed:@"ipad-menubar-right-7.png"];
+        UIImage *navBarImage = [UIImage imageNamed:@"navbar_landscape-7b.png"];
+
     if([Utils isVersion6AndBelow]){
         navBarImage = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
     }
@@ -244,10 +246,13 @@
     
     
     
-    UIImage* toolBarBg = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
-    [[UIToolbar appearance] setBackgroundImage:toolBarBg forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsDefault];
+    //    UIImage* toolBarBg = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
+    //    [[UIToolbar appearance] setBackgroundImage:toolBarBg forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsDefault];
     
-    UIImage* bottomToolBarBg = [UIImage imageNamed:@"tabbar__landscape.png"];
+    UIImage* bottomToolBarBg = [UIImage imageNamed:@"tabbar_landscape_ipad-7.png"];
+    if([Utils isVersion6AndBelow]){
+        bottomToolBarBg = [UIImage imageNamed:@"tabbar__landscape.png"];
+    }
     [[UITabBar appearance] setBackgroundImage:bottomToolBarBg];
 }
 
@@ -270,7 +275,8 @@
 -(void)iPhoneInit {
     
     
-    UIImage    *navBarImageLandscape = [UIImage imageNamed:@"ipad-menubar-right-7.png"] ;
+//    UIImage    *navBarImageLandscape = [UIImage imageNamed:@"ipad-menubar-right-7.png"] ;
+        UIImage    *navBarImageLandscape = [UIImage imageNamed:@"navbar_landscape-7b.png"] ;
     //      UIImage    *navBarImageLandscape = [UIImage imageNamed:@"navbar_landscape.png"] ;
     UIImage *navBarImagePortrait = [UIImage imageNamed:@"navbar-7.png"];
     if([Utils isVersion6AndBelow]){
@@ -278,13 +284,19 @@
         navBarImageLandscape = [UIImage imageNamed:@"navbar_landscape.png"] ;
     }
     
-    UIImage    *tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape.png" ] ;
     
+    
+    UIImage    *tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape_iphone-7.png" ] ;
+    
+    if([Utils isVersion6AndBelow]){
+        tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape.png" ] ;
+    }
+    
+    [[UITabBar appearance] setBackgroundImage:tabBarBackgroundPortrait ];
     
     
     [[UINavigationBar appearance] setBackgroundImage:navBarImagePortrait
                                        forBarMetrics:UIBarMetricsDefault];
-    [[UITabBar appearance] setBackgroundImage:tabBarBackgroundPortrait ];
     [[UINavigationBar appearance] setBackgroundImage:navBarImageLandscape
                                        forBarMetrics:UIBarMetricsLandscapePhone];
     
@@ -366,6 +378,7 @@
                 [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Universe_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Universe_unselected.png"]];
             }else if ([tabBarItem.title isEqualToString:NSLocalizedString(@"Settings",nil)]){
                 [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"SettingGears_blue.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"SettingGears_white.png"]];
+                NSLog(@"Finished Selected is Set");
             }
         
     }
@@ -409,8 +422,8 @@
                 BILogoff *logOff=[[BILogoff alloc]init];
                 [logOff logoffSession:session withToken:session.cmsToken];
                 //                [logOff logoffSessionSync:session withToken:session.cmsToken];
-//                session.cmsToken=nil;
-//                NSLog(@"Token was set to nil");
+                //                session.cmsToken=nil;
+                //                NSLog(@"Token was set to nil");
                 
             }
         }
