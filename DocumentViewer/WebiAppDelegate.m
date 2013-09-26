@@ -245,15 +245,24 @@
     
     
     
-    
     //    UIImage* toolBarBg = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
     //    [[UIToolbar appearance] setBackgroundImage:toolBarBg forToolbarPosition:UIToolbarPositionTop barMetrics:UIBarMetricsDefault];
     
     UIImage* bottomToolBarBg = [UIImage imageNamed:@"tabbar_landscape_ipad-7.png"];
     if([Utils isVersion6AndBelow]){
         bottomToolBarBg = [UIImage imageNamed:@"tabbar__landscape.png"];
+        [[UITabBar appearance] setBackgroundImage:bottomToolBarBg];
+    }else{
+        
+        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:14.0], UITextAttributeFont,
+                                                           [UIColor whiteColor], UITextAttributeTextColor,
+                                                           nil] forState:UIControlStateSelected];
     }
-    [[UITabBar appearance] setBackgroundImage:bottomToolBarBg];
+
+    
+    
+    
 }
 
 -(void)iPadInit {
@@ -286,13 +295,20 @@
     
     
     
-    UIImage    *tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape_iphone-7.png" ] ;
+//    UIImage    *tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape_iphone-7.png" ] ;
     
     if([Utils isVersion6AndBelow]){
-        tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape.png" ] ;
+        UIImage *tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape.png" ] ;
+        [[UITabBar appearance] setBackgroundImage:tabBarBackgroundPortrait ];
+
+    }else{
+
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:14.0], UITextAttributeFont,
+                                                       [UIColor whiteColor], UITextAttributeTextColor,
+                                                       nil] forState:UIControlStateSelected];
     }
     
-    [[UITabBar appearance] setBackgroundImage:tabBarBackgroundPortrait ];
     
     
     [[UINavigationBar appearance] setBackgroundImage:navBarImagePortrait

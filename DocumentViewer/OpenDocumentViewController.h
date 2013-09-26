@@ -12,7 +12,7 @@
 
 
 
-@interface OpenDocumentViewController : UIViewController <UIWebViewDelegate,CypressSDKDelegate,BIConnectorDelegate,BILogoffDelegate>
+@interface OpenDocumentViewController : UIViewController <UIWebViewDelegate,CypressSDKDelegate,BIConnectorDelegate,BILogoffDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic,strong) NSURL *openDocUrl;
 @property (nonatomic,strong) NSURL *selectedObjectUrl;
 @property (nonatomic,strong) NSURL *logoffUrl;

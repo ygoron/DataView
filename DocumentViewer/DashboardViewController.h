@@ -10,7 +10,7 @@
 #import "MobileBIService.h"
 
 
-@interface DashboardViewController : UIViewController <UIWebViewDelegate,MobileBiServiceDelegate,UIAlertViewDelegate>
+@interface DashboardViewController : UIViewController <UIWebViewDelegate,MobileBiServiceDelegate,UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) NSString *dashboardCuid;
 @property (strong, nonatomic) IBOutlet UIWebView *webiView;

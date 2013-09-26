@@ -14,7 +14,7 @@
 @interface ReportViewController : UIViewController <BIExportReportDelegate,UIWebViewDelegate,
 UIActionSheetDelegate,
 UIPrintInteractionControllerDelegate,
-MFMailComposeViewControllerDelegate>
+MFMailComposeViewControllerDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) IBOutlet UIWebView *webView;
 @property (nonatomic, strong) Report *report;

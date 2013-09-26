@@ -422,11 +422,37 @@
                 OpenDocumentViewController *opdv=[[OpenDocumentViewController alloc] init];
                 //            NSURL *openDocUrl=[NSURL URLWithString: [NSString stringWithFormat:@"%@",_selectedObject.openDoc]];
                 opdv.openDocUrl=_selectedObject.openDoc;
-                opdv.isOpenDocumentManager=YES;
+                if (![_selectedObject.type isEqualToString:@"CrystalReport"])
+                {
+                    if ([appDelegate.activeSession.isExtensionPack boolValue]==NO || appDelegate.activeSession.extensionPackUrl==nil){
+                        opdv.isOpenDocumentManager=YES;
+                    }else{
+                        
+                        NSLog (@"Apos Extension Pack");
+                        NSString *pocUrlString=[NSString stringWithFormat:@"%@%@%d", appDelegate.activeSession.extensionPackUrl, @"/instance.content/",_selectedObject.objectId];
+                        NSURL *pocUrl=[[NSURL alloc] initWithString:pocUrlString];
+                        
+                        opdv.openDocUrl=pocUrl;
+                        opdv.isOpenDocumentManager=NO;
+                        
+                    }
+                    
+                    
+                }else{
+                    opdv.isOpenDocumentManager=NO;
+                }
                 opdv.cmsToken=_currentSession.cmsToken;
                 opdv.currentSession=_currentSession;
                 opdv.isGetOpenDocRequired=NO;
                 opdv.infoObject=_selectedObject;
+                //                [self.navigationController pushViewController:opdv animated:YES];
+                
+                
+                [opdv setTitle:_selectedObject.name];
+                opdv.hidesBottomBarWhenPushed=YES;
+//                UINavigationController *nav = [[UINavigationController alloc]
+//                                               initWithRootViewController:opdv] ;
+//                [self presentViewController:nav animated:YES completion:NULL];
                 [self.navigationController pushViewController:opdv animated:YES];
             }else{
                 
@@ -434,7 +460,15 @@
                 DashboardViewController *dvc= [[DashboardViewController alloc] initWithNibName:@"DashboardViewController" bundle:nil];
                 [dvc setDashboardCuid:_selectedObject.cuid];
                 [dvc setTitle:_selectedObject.name];
-                [self.navigationController pushViewController:dvc animated:YES];
+                
+                dvc.hidesBottomBarWhenPushed=YES;
+                
+                [self.navigationController  pushViewController:dvc animated:YES];
+//                UINavigationController *nav = [[UINavigationController alloc]
+//                                               initWithRootViewController:dvc];
+//                
+//                [self presentViewController:nav animated:YES completion:NULL];
+                
                 
             }
             
@@ -448,6 +482,15 @@
             opdv.cmsToken=_currentSession.cmsToken;
             opdv.currentSession=_currentSession;
             opdv.isGetOpenDocRequired=YES;
+            
+//            UINavigationController *nav = [[UINavigationController alloc]
+//                                           initWithRootViewController:opdv];
+//            
+            [opdv setTitle:_selectedObject.name];
+            opdv.hidesBottomBarWhenPushed=YES;
+            
+//            [self presentViewController:nav animated:YES completion:NULL];
+            
             [self.navigationController pushViewController:opdv animated:YES];
             
         }else if ([actionCell.labelActionName.text isEqualToString:NSLocalizedString(@"Run Now",nil)]){

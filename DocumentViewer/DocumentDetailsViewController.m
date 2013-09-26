@@ -533,6 +533,7 @@
 	{
         UINavigationController *nav=segue.destinationViewController;
         ReportViewController    *reportExportView =[nav.viewControllers objectAtIndex:0];
+        reportExportView.hidesBottomBarWhenPushed=YES;
         
         if (!isOpenWholeDocument==YES){
             //        ReportViewController    *reportExportView =segue.destinationViewController;
@@ -606,7 +607,7 @@
     NSURL *urlSelected=[BrowserMainViewController buildUrlFromSession:appDelegate.activeSession forEntity:[NSString stringWithFormat:@"%@%d",infoStorePoint,_document.id.intValue ] withPageSize:[appDelegate.globalSettings.fetchDocumentLimit intValue]];
     
     OpenDocumentViewController *opdv=[[OpenDocumentViewController alloc] init];
-    
+    [opdv setTitle:_document.name];
     if (self.isInstance && self.isExternalFormat){
         
         if ([appDelegate.activeSession.isExtensionPack boolValue]==NO || appDelegate.activeSession.extensionPackUrl==nil){
@@ -648,6 +649,13 @@
         opdv.isOpenDocumentManager=NO;
     }
     
+//    UINavigationController *nav = [[UINavigationController alloc]
+//                                   initWithRootViewController:opdv] ;
+//    
+//    [self presentViewController:nav animated:YES completion:NULL];
+
+
+    opdv.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:opdv animated:YES];
     
     

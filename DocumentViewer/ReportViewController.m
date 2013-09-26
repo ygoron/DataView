@@ -27,6 +27,8 @@
     UIActivityIndicatorView *spinner;
     NSString *exportFilePath;
     TitleLabel *titleLabel;
+    UIGestureRecognizer *tapper;
+
 }
 
 //@synthesize navigationBar;
@@ -70,6 +72,10 @@
                                                                                action:@selector(performAction:)];
     
     
+    tapper = [[UITapGestureRecognizer alloc]init];
+    [self.view addGestureRecognizer:tapper];
+    tapper.delegate=self;
+
     self.actionButton = barButton;
     self.navigationItem.rightBarButtonItem=barButton;
     
@@ -94,6 +100,12 @@
     
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    NSLog(@"preferredStatusBarStyle");
+    //    return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleDefault;
+}
+
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     NSLog(@"View will appear with title:%@",_titleText);
@@ -109,6 +121,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     NSLog(@"Finish ViewDidFinishLoad");
     if (_isOpenWholeDocument==NO)
         NSLog(@"View Loaded Title:%@",self.report.name);
@@ -117,6 +130,7 @@
     self.webView.scalesPageToFit=YES;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self.actionButton setEnabled:YES];
+    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -427,6 +441,21 @@
             NSLog(@"File %@ - deleted",exportFilePath);
         }
     }
+}
+
+-(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    
+    NSLog(@"Hanlde Single Tap - 0");
+    if (self.navigationController.navigationBarHidden==YES){
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }else{
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    }
+    
+    return YES;
 }
 
 

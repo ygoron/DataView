@@ -26,7 +26,7 @@
     NSString *_zipFile;
     NSString *_dashboardFolder;
     NSString *_htmlFile;
-    
+    UIGestureRecognizer *tapper;
     
     
 }
@@ -112,16 +112,37 @@
                                               initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                               target:self
                                               action:@selector(loadDashBoard)];
+    self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:refreshButton, nil];
+    
+    //    UIBarButtonItem *closeButton         = [[UIBarButtonItem alloc]
+    //                                            initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+    //                                            target:self
+    //                                            action:@selector(closeView)];
+    //
+    //    self.navigationItem.leftBarButtonItems=[NSArray arrayWithObjects:closeButton, nil];
+    
     _webiView.delegate=self;
     _webiView.scalesPageToFit=YES;
     
-    self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:refreshButton, nil];
+    tapper = [[UITapGestureRecognizer alloc]init];
+    [self.view addGestureRecognizer:tapper];
+    tapper.delegate=self;
+//    [self setNeedsStatusBarAppearanceUpdate];
     
     [self loadDashBoard];
     
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    NSLog(@"preferredStatusBarStyle");
+//    return UIStatusBarStyleLightContent;
+        return UIStatusBarStyleDefault;
+}
 
+-(void) closeView
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -192,6 +213,10 @@
         NSLog(@"Display html:%@",filePath);
         [_webiView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:filePath]]];
         [TestFlight passCheckpoint:@"Dashboard received with Success"];
+//        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        
     }
     else{
         [spinner stopAnimating];
@@ -220,4 +245,19 @@
     }
     
 }
+-(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    
+    NSLog(@"Hanlde Single Tap - 0");
+    if (self.navigationController.navigationBarHidden==YES){
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }else{
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+//        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    }
+    
+    return YES;
+}
+
 @end

@@ -12,6 +12,7 @@
 #import "Session.h"
 #import "WebiAppDelegate.h"
 #import "BILogoff.h"
+#import "Utils.h"
 
 @interface OpenDocumentViewController ()
 
@@ -26,6 +27,8 @@
     BOOL isGetWebiView;
     NSNumber *actdId;
     NSNumber *objectID;
+    UIGestureRecognizer *tapper;
+
     
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -59,9 +62,21 @@
                                               target:self
                                               action:@selector(initLoadRequest)];
     
+    
+//    UIBarButtonItem *closeButton         = [[UIBarButtonItem alloc]
+//                                              initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+//                                              target:self
+//                                              action:@selector(closeView)];
+
     self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:refreshButton, nil];
+//    self.navigationItem.leftBarButtonItems=[NSArray arrayWithObjects:closeButton, nil];
+    
     appDelegate = (id)[[UIApplication sharedApplication] delegate];
     
+    tapper = [[UITapGestureRecognizer alloc]init];
+    [self.view addGestureRecognizer:tapper];
+    tapper.delegate=self;
+
     NSLog(@"Is AutoLogoff %@",appDelegate.globalSettings.autoLogoff);
     //    if ([appDelegate.globalSettings.autoLogoff boolValue]==YES) [self createCmsTokenForSession:_currentSession];
     //    else [self reloadOpenDocView];
@@ -82,7 +97,16 @@
     
     
 }
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    NSLog(@"preferredStatusBarStyle");
+    //    return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleDefault;
+}
 
+-(void) closeView
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 -(void) initLoadRequest
 {
     if (_isOpenDocumentManager==NO){
@@ -312,6 +336,9 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+ 
+            [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
     if (isGetWebiView==NO){
         [spinner stopAnimating];
         _webiView.scalesPageToFit=YES;
@@ -459,5 +486,21 @@
     
     
 }
+
+-(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    
+    NSLog(@"Hanlde Single Tap - 0");
+    if (self.navigationController.navigationBarHidden==YES){
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }else{
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    }
+    
+    return YES;
+}
+
 
 @end
