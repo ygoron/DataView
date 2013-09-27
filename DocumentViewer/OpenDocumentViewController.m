@@ -76,7 +76,7 @@
     tapper = [[UITapGestureRecognizer alloc]init];
     [self.view addGestureRecognizer:tapper];
     tapper.delegate=self;
-
+    
     NSLog(@"Is AutoLogoff %@",appDelegate.globalSettings.autoLogoff);
     //    if ([appDelegate.globalSettings.autoLogoff boolValue]==YES) [self createCmsTokenForSession:_currentSession];
     //    else [self reloadOpenDocView];
@@ -337,7 +337,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
  
-            [self.navigationController setNavigationBarHidden:YES animated:YES];
+//            [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     if (isGetWebiView==NO){
         [spinner stopAnimating];
@@ -487,20 +487,27 @@
     
 }
 
--(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    
-    NSLog(@"Hanlde Single Tap - 0");
-    if (self.navigationController.navigationBarHidden==YES){
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    }else{
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
-        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-    }
-    
-    return YES;
-}
+//-(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+//{
+//        CGPoint point=[touch locationInView:self.webiView];
+//    
+//
+//    NSLog(@"%f",point.y);
+//    
+//    if (point.y>80) return NO;
+//    
+//    NSLog(@"Hanlde Single Tap - 0");
+//
+//    if (self.navigationController.navigationBarHidden==YES){
+//        [self.navigationController setNavigationBarHidden:NO animated:YES];
+//        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    }else{
+//        [self.navigationController setNavigationBarHidden:YES animated:YES];
+//        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+//    }
+//    
+//    return YES;
+//}
 
 
 @end

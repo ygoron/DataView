@@ -121,7 +121,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
     NSLog(@"Finish ViewDidFinishLoad");
     if (_isOpenWholeDocument==NO)
         NSLog(@"View Loaded Title:%@",self.report.name);
@@ -443,20 +443,20 @@
     }
 }
 
--(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    
-    NSLog(@"Hanlde Single Tap - 0");
-    if (self.navigationController.navigationBarHidden==YES){
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    }else{
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
-        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-    }
-    
-    return YES;
-}
+//-(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+//{
+//    
+//    NSLog(@"Hanlde Single Tap - 0");
+//    if (self.navigationController.navigationBarHidden==YES){
+//        [self.navigationController setNavigationBarHidden:NO animated:YES];
+//        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    }else{
+//        [self.navigationController setNavigationBarHidden:YES animated:YES];
+//        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+//    }
+//    
+//    return YES;
+//}
 
 
 - (IBAction)closeView:(id)sender {
