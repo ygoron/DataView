@@ -67,10 +67,11 @@
     self.webView.delegate=self;
     [self.view addSubview:spinner];
     
+
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                target:self
                                                                                action:@selector(performAction:)];
-    
+    [barButton setTintColor:[UIColor whiteColor]];
     
     tapper = [[UITapGestureRecognizer alloc]init];
     [self.view addGestureRecognizer:tapper];
