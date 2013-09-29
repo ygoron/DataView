@@ -146,15 +146,20 @@
         cell.accessoryView = nil;
     } else {
         UIButton *buyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        UIImage *barButton = [UIImage imageNamed:@"button.png"];
-        [buyButton setBackgroundImage:barButton forState:UIControlStateNormal];
-        [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//        UIImage *buyButtonImage = [[UIImage imageNamed:@"back-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+//        UIImage *barButton = [UIImage imageNamed:@"button.png"];
+//        [buyButton setBackgroundImage:buyButtonImage forState:UIControlStateNormal];
+//        [buyButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         
         buyButton.frame = CGRectMake(0, 0, 54, 32);
         //        [buyButton setTitle:@"Buy" forState:UIControlStateNormal];
         [buyButton setTitle:[_priceFormatter stringFromNumber:product.price] forState:UIControlStateNormal];
         buyButton.tag = indexPath.row;
         [buyButton addTarget:self action:@selector(buyButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
+        NSLog(@"Manage Connections:%d",[[BIMobileIAPHelper sharedInstance] productPurchased:MANAGE_CONNECTIONS]);
+        NSLog(@"Advanced Viewing:%d",[[BIMobileIAPHelper sharedInstance] productPurchased:ADVANCED_VIEWING]);
+        NSLog(@"Upgrade to Advanced Viewing:%d",[[BIMobileIAPHelper sharedInstance] productPurchased:ADVANCED_VIEWING_UPGRADE]);
         
         if ([product.productIdentifier isEqualToString:MANAGE_CONNECTIONS]){
             if ([[BIMobileIAPHelper sharedInstance] productPurchased:ADVANCED_VIEWING]) [buyButton setEnabled:NO];
