@@ -266,8 +266,24 @@
                                     <segue destination="o7K-Vx-5T3" kind="push" identifier="ShowScheduleScene_Ident" id="z82-u8-FXh"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoricalInstances_Ident" textLabel="uFO-4l-1gd" rowHeight="44" style="IBUITableViewCellStyleDefault" id="JhV-Fn-Ptm">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RefreshDoc_Ident" textLabel="EJM-YL-l3I" rowHeight="44" style="IBUITableViewCellStyleDefault" id="Ubn-Ge-7tp">
                                 <rect key="frame" x="0.0" y="309" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ubn-Ge-7tp" id="qj5-1K-x9i">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Refresh" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EJM-YL-l3I">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoricalInstances_Ident" textLabel="uFO-4l-1gd" rowHeight="44" style="IBUITableViewCellStyleDefault" id="JhV-Fn-Ptm">
+                                <rect key="frame" x="0.0" y="353" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JhV-Fn-Ptm" id="0bB-EQ-sTW">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -286,7 +302,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportsList_Ident" textLabel="7SB-XT-CYX" rowHeight="44" style="IBUITableViewCellStyleDefault" id="RTJ-xy-yrT">
-                                <rect key="frame" x="0.0" y="353" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="397" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RTJ-xy-yrT" id="ao8-AT-ELI">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1541,7 +1557,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="30" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DBg-ag-bqt">
-                                                    <rect key="frame" x="247" y="0.9999999904862551" width="49" height="30"/>
+                                                    <rect key="frame" x="247" y="1.0000000022627658" width="49" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="49" id="lfN-8k-RFC"/>
                                                     </constraints>

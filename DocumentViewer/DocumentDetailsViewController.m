@@ -290,7 +290,10 @@
 {
     // Return the number of rows in the section.
     if (section==0) return 1;
-    else     if (section==1) return 1;
+    else     if (section==1) {
+     if (!isInstance)return 2;
+     else return 1; // Hide Refresh
+    }
     else if (section==2) {
         if (!isInstance)return 1;
         else return 0; // Hide Historical Instance for Instance Detail
@@ -305,6 +308,7 @@
     static NSString *CellIdentifier2 = @"ReportsList_Ident";
     static NSString *CellIdentifier3 = @"HistoricalInstances_Ident";
     static NSString *CellIdentifier4 = @"DocumentDetails_Static_Schedule";
+    static NSString *CellIdentifier5 = @"RefreshDoc_Ident";
     
     if (indexPath.section==0){
         DocumentDetailsCell *cell;
@@ -370,7 +374,7 @@
             
             return cell;
             
-        }else if(indexPath.section==1){
+        }else if(indexPath.section==1 && indexPath.row==0){
             //DocumentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier4 forIndexPath:indexPath];
             UITableViewCell *cell;
             if ([self.tableView respondsToSelector:@selector(dequeueReusableCellWithIdentifier:forIndexPath:)])
@@ -381,6 +385,12 @@
             else cell.textLabel.text=NSLocalizedString(@"Schedule",nil);
             //            [[cell textLabel]setTextColor:[UIColor colorWithRed:163.0/255 green:117.0/255 blue:89.0/255 alpha:1.0]];
             
+            return cell;
+            
+        }else if(indexPath.section==1 && indexPath.row==1){
+            UITableViewCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier5];
+            cell.textLabel.text=NSLocalizedString(@"Refresh",nil);
             return cell;
             
         }else{
@@ -649,12 +659,12 @@
         opdv.isOpenDocumentManager=NO;
     }
     
-//    UINavigationController *nav = [[UINavigationController alloc]
-//                                   initWithRootViewController:opdv] ;
-//    
-//    [self presentViewController:nav animated:YES completion:NULL];
-
-
+    //    UINavigationController *nav = [[UINavigationController alloc]
+    //                                   initWithRootViewController:opdv] ;
+    //
+    //    [self presentViewController:nav animated:YES completion:NULL];
+    
+    
     opdv.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:opdv animated:YES];
     

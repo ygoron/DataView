@@ -482,6 +482,18 @@
 		928D93DE171359E10010A31B /* planet.png in Resources */ = {isa = PBXBuildFile; fileRef = 928D93D8171359E10010A31B /* planet.png */; };
 		928D93DF171359E10010A31B /* planet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928D93D9171359E10010A31B /* planet@2x.png */; };
 		9293204F16E012C800843276 /* DocumentDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293204E16E012C800843276 /* DocumentDetailsCell.m */; };
+		929A3F4D17F8AE11009B63B2 /* WebiPromptsEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F4C17F8AE11009B63B2 /* WebiPromptsEngine.m */; };
+		929A3F4E17F8AE11009B63B2 /* WebiPromptsEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F4C17F8AE11009B63B2 /* WebiPromptsEngine.m */; };
+		929A3F5117F8AFB4009B63B2 /* WebiPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F5017F8AFB4009B63B2 /* WebiPrompt.m */; };
+		929A3F5217F8AFB4009B63B2 /* WebiPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F5017F8AFB4009B63B2 /* WebiPrompt.m */; };
+		929A3F5517F8B0CD009B63B2 /* WebiPromptAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F5417F8B0CD009B63B2 /* WebiPromptAnswer.m */; };
+		929A3F5617F8B0CD009B63B2 /* WebiPromptAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F5417F8B0CD009B63B2 /* WebiPromptAnswer.m */; };
+		929A3F5917F8B156009B63B2 /* WebiPromptInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F5817F8B156009B63B2 /* WebiPromptInfo.m */; };
+		929A3F5A17F8B156009B63B2 /* WebiPromptInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F5817F8B156009B63B2 /* WebiPromptInfo.m */; };
+		929A3F5D17F8B315009B63B2 /* WebiPromptLov.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F5C17F8B315009B63B2 /* WebiPromptLov.m */; };
+		929A3F5E17F8B315009B63B2 /* WebiPromptLov.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F5C17F8B315009B63B2 /* WebiPromptLov.m */; };
+		929A3F6117F8B40A009B63B2 /* WebiPromptValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */; };
+		929A3F6217F8B40A009B63B2 /* WebiPromptValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */; };
 		929C0364172319E700B28967 /* AdvancedSessionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C0363172319E700B28967 /* AdvancedSessionSettingsViewController.m */; };
 		929D1CDE173464900027FDFF /* BISDKCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CDD173464900027FDFF /* BISDKCall.m */; };
 		929D1CE2173467860027FDFF /* CypressResponseHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CE1173467860027FDFF /* CypressResponseHeader.m */; };
@@ -923,6 +935,18 @@
 		928D93D9171359E10010A31B /* planet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "planet@2x.png"; sourceTree = "<group>"; };
 		9293204D16E012C800843276 /* DocumentDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentDetailsCell.h; sourceTree = "<group>"; };
 		9293204E16E012C800843276 /* DocumentDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentDetailsCell.m; sourceTree = "<group>"; };
+		929A3F4B17F8AE11009B63B2 /* WebiPromptsEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPromptsEngine.h; sourceTree = "<group>"; };
+		929A3F4C17F8AE11009B63B2 /* WebiPromptsEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPromptsEngine.m; sourceTree = "<group>"; };
+		929A3F4F17F8AFB4009B63B2 /* WebiPrompt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPrompt.h; sourceTree = "<group>"; };
+		929A3F5017F8AFB4009B63B2 /* WebiPrompt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPrompt.m; sourceTree = "<group>"; };
+		929A3F5317F8B0CD009B63B2 /* WebiPromptAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPromptAnswer.h; sourceTree = "<group>"; };
+		929A3F5417F8B0CD009B63B2 /* WebiPromptAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPromptAnswer.m; sourceTree = "<group>"; };
+		929A3F5717F8B156009B63B2 /* WebiPromptInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPromptInfo.h; sourceTree = "<group>"; };
+		929A3F5817F8B156009B63B2 /* WebiPromptInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPromptInfo.m; sourceTree = "<group>"; };
+		929A3F5B17F8B315009B63B2 /* WebiPromptLov.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPromptLov.h; sourceTree = "<group>"; };
+		929A3F5C17F8B315009B63B2 /* WebiPromptLov.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPromptLov.m; sourceTree = "<group>"; };
+		929A3F5F17F8B40A009B63B2 /* WebiPromptValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPromptValue.h; sourceTree = "<group>"; };
+		929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPromptValue.m; sourceTree = "<group>"; };
 		929C03571722E68800B28967 /* DocumentViewer 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 3.xcdatamodel"; sourceTree = "<group>"; };
 		929C0362172319E700B28967 /* AdvancedSessionSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedSessionSettingsViewController.h; sourceTree = "<group>"; };
 		929C0363172319E700B28967 /* AdvancedSessionSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSessionSettingsViewController.m; sourceTree = "<group>"; };
@@ -1537,6 +1561,25 @@
 			path = iconsberlin;
 			sourceTree = "<group>";
 		};
+		929A3F4A17F8AC73009B63B2 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				929A3F4B17F8AE11009B63B2 /* WebiPromptsEngine.h */,
+				929A3F4C17F8AE11009B63B2 /* WebiPromptsEngine.m */,
+				929A3F4F17F8AFB4009B63B2 /* WebiPrompt.h */,
+				929A3F5017F8AFB4009B63B2 /* WebiPrompt.m */,
+				929A3F5317F8B0CD009B63B2 /* WebiPromptAnswer.h */,
+				929A3F5417F8B0CD009B63B2 /* WebiPromptAnswer.m */,
+				929A3F5717F8B156009B63B2 /* WebiPromptInfo.h */,
+				929A3F5817F8B156009B63B2 /* WebiPromptInfo.m */,
+				929A3F5B17F8B315009B63B2 /* WebiPromptLov.h */,
+				929A3F5C17F8B315009B63B2 /* WebiPromptLov.m */,
+				929A3F5F17F8B40A009B63B2 /* WebiPromptValue.h */,
+				929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */,
+			);
+			name = Parameters;
+			sourceTree = "<group>";
+		};
 		929C035E172318C700B28967 /* Advanced Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1617,33 +1660,34 @@
 		92ADE96316CB24D60027BD4D /* DocumentViewer */ = {
 			isa = PBXGroup;
 			children = (
-				92579AC117E8B04300F463A3 /* Extension Pack */,
-				92F4EFC517E3A3F9009DAFAC /* Utils */,
-				92B9F28317D379DC006E7ABC /* Dashboard */,
-				921C0C21179A179F00F41946 /* InAppPurchases */,
-				929D1CDB173464190027FDFF /* CypressSDK */,
-				9256264917313C32006CEEB6 /* Browser Navigation */,
 				926A8073172D72770033FB6A /* About */,
-				92F4677317249F070048252B /* Global Preferences */,
-				920FBD4E1712335700B6A1BF /* Settings */,
-				928D10DE170F9DA500FA2C5D /* ScheduleReport */,
-				928D10DD170F9C7E00FA2C5D /* Instance List */,
-				928D10DC170F9C0900FA2C5D /* ReportView */,
-				928D10D8170F95BD00FA2C5D /* UI */,
-				9240219D170500760056A87B /* Resources */,
 				928D10D7170F76CA00FA2C5D /* AppDelegate */,
-				92ADF00F1707927F0056B72F /* UniverseDetail */,
-				92ADF00017073C9D0056B72F /* UniversesList */,
-				92ADEFFF1707394B0056B72F /* SessionDetail */,
+				9256264917313C32006CEEB6 /* Browser Navigation */,
+				929D1CDB173464190027FDFF /* CypressSDK */,
+				92B9F28317D379DC006E7ABC /* Dashboard */,
 				92ADEFFE170738C30056B72F /* DocumentDetails */,
 				92ADEFFC170737530056B72F /* DocumentsList */,
-				928D565D16F7F0C6000DE65D /* Schedule Settings */,
-				921B39CA16D8518000C0CD95 /* REST Classes */,
+				92579AC117E8B04300F463A3 /* Extension Pack */,
+				92F4677317249F070048252B /* Global Preferences */,
+				921C0C21179A179F00F41946 /* InAppPurchases */,
+				928D10DD170F9C7E00FA2C5D /* Instance List */,
 				92ADE98B16CB2A920027BD4D /* LogonViewController.h */,
 				92ADE98C16CB2A920027BD4D /* LogonViewController.m */,
 				922D14CB176A96430026B5ED /* MainStoryboard.storyboard */,
+				929A3F4A17F8AC73009B63B2 /* Parameters */,
+				928D10DC170F9C0900FA2C5D /* ReportView */,
+				9240219D170500760056A87B /* Resources */,
+				921B39CA16D8518000C0CD95 /* REST Classes */,
+				928D565D16F7F0C6000DE65D /* Schedule Settings */,
+				928D10DE170F9DA500FA2C5D /* ScheduleReport */,
+				92ADEFFF1707394B0056B72F /* SessionDetail */,
+				920FBD4E1712335700B6A1BF /* Settings */,
 				92716BDA17BE7B4600CE3DA2 /* SharedUtils.h */,
 				92716BDB17BE7B4600CE3DA2 /* SharedUtils.m */,
+				928D10D8170F95BD00FA2C5D /* UI */,
+				92ADF00F1707927F0056B72F /* UniverseDetail */,
+				92ADF00017073C9D0056B72F /* UniversesList */,
+				92F4EFC517E3A3F9009DAFAC /* Utils */,
 			);
 			path = DocumentViewer;
 			sourceTree = "<group>";
@@ -2465,7 +2509,9 @@
 				9288AB9F1787A9A50048BCF1 /* DocumentDetailsViewController.m in Sources */,
 				9288ABA01787A9A50048BCF1 /* DocumentDetailsCell.m in Sources */,
 				9288ABA11787A9A50048BCF1 /* Report.m in Sources */,
+				929A3F5617F8B0CD009B63B2 /* WebiPromptAnswer.m in Sources */,
 				9288ABA21787A9A50048BCF1 /* BIGetReports.m in Sources */,
+				929A3F5217F8AFB4009B63B2 /* WebiPrompt.m in Sources */,
 				9288ABA31787A9A50048BCF1 /* BIExportReport.m in Sources */,
 				9288ABA41787A9A50048BCF1 /* ReportViewController.m in Sources */,
 				9288ABA51787A9A50048BCF1 /* ScheduleDetailViewController.m in Sources */,
@@ -2494,6 +2540,7 @@
 				92F4EFC417E3A3F3009DAFAC /* Utils.m in Sources */,
 				9288ABBA1787A9A50048BCF1 /* UniverseDetailsCellSolo.m in Sources */,
 				9288ABBB1787A9A50048BCF1 /* UniverseDetailsViewControllerSolo.m in Sources */,
+				929A3F6217F8B40A009B63B2 /* WebiPromptValue.m in Sources */,
 				9288ABBC1787A9A50048BCF1 /* TitleLabel.m in Sources */,
 				9276E4CA17E7958E0087F556 /* Session.m in Sources */,
 				9288ABBD1787A9A50048BCF1 /* SettingsViewController.m in Sources */,
@@ -2518,6 +2565,7 @@
 				9288ABD01787A9A50048BCF1 /* ScheduleUrl.m in Sources */,
 				9288ABD11787A9A50048BCF1 /* Document.m in Sources */,
 				92579AC517E8B0AF00F463A3 /* ExtensionPack.m in Sources */,
+				929A3F5A17F8B156009B63B2 /* WebiPromptInfo.m in Sources */,
 				9288ABD31787A9A50048BCF1 /* Settings.m in Sources */,
 				921C0C20179A166C00F41946 /* InAppPurchase.m in Sources */,
 				921C0C26179A1A1000F41946 /* Products.m in Sources */,
@@ -2534,8 +2582,10 @@
 				921E2E5617D52C4E00AEEF16 /* ioapi.c in Sources */,
 				921E2E5817D52C4E00AEEF16 /* mztools.c in Sources */,
 				921E2E5A17D52C4E00AEEF16 /* unzip.c in Sources */,
+				929A3F5E17F8B315009B63B2 /* WebiPromptLov.m in Sources */,
 				921E2E5C17D52C4E00AEEF16 /* zip.c in Sources */,
 				921E2E5E17D52C4E00AEEF16 /* SSZipArchive.m in Sources */,
+				929A3F4E17F8AE11009B63B2 /* WebiPromptsEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2562,7 +2612,9 @@
 				9215D54516DFDAC90079A7DA /* DocumentDetailsViewController.m in Sources */,
 				9293204F16E012C800843276 /* DocumentDetailsCell.m in Sources */,
 				928C71A416E05BDE00DB40D2 /* Report.m in Sources */,
+				929A3F5517F8B0CD009B63B2 /* WebiPromptAnswer.m in Sources */,
 				928C71A716E05D8400DB40D2 /* BIGetReports.m in Sources */,
+				929A3F5117F8AFB4009B63B2 /* WebiPrompt.m in Sources */,
 				920DB49816E17F3F001D3546 /* BIExportReport.m in Sources */,
 				920DB49E16E18B7F001D3546 /* ReportViewController.m in Sources */,
 				92452FC316E56FD500B8DCFF /* ScheduleDetailViewController.m in Sources */,
@@ -2591,6 +2643,7 @@
 				92F4EFC317E3A3F3009DAFAC /* Utils.m in Sources */,
 				92ADF02F170887C00056B72F /* UniverseDetailsCellSolo.m in Sources */,
 				92ADF035170897970056B72F /* UniverseDetailsViewControllerSolo.m in Sources */,
+				929A3F6117F8B40A009B63B2 /* WebiPromptValue.m in Sources */,
 				928D10DB170F95F100FA2C5D /* TitleLabel.m in Sources */,
 				9276E4C917E7958E0087F556 /* Session.m in Sources */,
 				920FBD511712384600B6A1BF /* SettingsViewController.m in Sources */,
@@ -2615,6 +2668,7 @@
 				927A82D5174A8F2900EF789B /* ScheduleUrl.m in Sources */,
 				92285791175EB962002A8456 /* Document.m in Sources */,
 				92579AC417E8B0AF00F463A3 /* ExtensionPack.m in Sources */,
+				929A3F5917F8B156009B63B2 /* WebiPromptInfo.m in Sources */,
 				92A78303175EBF9700818509 /* Settings.m in Sources */,
 				921C0C1F179A166C00F41946 /* InAppPurchase.m in Sources */,
 				921C0C25179A1A1000F41946 /* Products.m in Sources */,
@@ -2631,8 +2685,10 @@
 				921E2E5517D52C4E00AEEF16 /* ioapi.c in Sources */,
 				921E2E5717D52C4E00AEEF16 /* mztools.c in Sources */,
 				921E2E5917D52C4E00AEEF16 /* unzip.c in Sources */,
+				929A3F5D17F8B315009B63B2 /* WebiPromptLov.m in Sources */,
 				921E2E5B17D52C4E00AEEF16 /* zip.c in Sources */,
 				921E2E5D17D52C4E00AEEF16 /* SSZipArchive.m in Sources */,
+				929A3F4D17F8AE11009B63B2 /* WebiPromptsEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
