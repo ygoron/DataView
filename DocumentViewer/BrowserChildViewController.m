@@ -454,7 +454,7 @@
             
         }
         
-        else if ([objectAtRow.type isEqualToString:@"CrystalReport"] || [objectAtRow.type isEqualToString:@"Pdf"]|| [objectAtRow.type isEqualToString:@"Word"]|| [objectAtRow.type isEqualToString:@"Excel"]|| [objectAtRow.type isEqualToString:@"Txt"] || [objectAtRow.type isEqualToString:@"Rtf"] || [objectAtRow.type isEqualToString:@"Agnostic"] || [objectAtRow.type isEqualToString:@"XL.XcelsiusEnterprise"]){
+        else if ([objectAtRow.type isEqualToString:@"CrystalReport"] || [objectAtRow.type isEqualToString:@"Pdf"]|| [objectAtRow.type isEqualToString:@"Word"]|| [objectAtRow.type isEqualToString:@"Excel"]|| [objectAtRow.type isEqualToString:@"Txt"] || [objectAtRow.type isEqualToString:@"Rtf"] || [objectAtRow.type isEqualToString:@"Agnostic"] || [objectAtRow.type isEqualToString:@"XL.XcelsiusEnterprise"]  || [objectAtRow.type isEqualToString:@"FullClient"] ){
             BrowserObjectActionsViewController *bavc=[[BrowserObjectActionsViewController alloc]initWithNibName:@"BrowserObjectActionsViewController" bundle:nil];
             NSURL *urlForSelectedObject=[NSURL URLWithString:[NSString stringWithFormat:@"%@",[objectAtRow.metaDataUrl absoluteString] ]];
             bavc.currentSession=_currentSession;

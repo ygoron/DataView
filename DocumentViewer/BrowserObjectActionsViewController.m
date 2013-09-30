@@ -221,13 +221,15 @@
         }
         
         if (_selectedObject.openDoc!=nil){
-            Action *action=[[Action alloc]init];
-            action.name=NSLocalizedString(@"View",nil);
-            if (_isInstance==YES)
-                action.description=NSLocalizedString(@"View Instance Using Open Document",nil);
-            else
-                action.description=NSLocalizedString(@"View Object Using Open Document",nil);
-            [actions addObject:action];
+            if (!([_selectedObject.type isEqualToString:@"Agnostic"]||[_selectedObject.type isEqualToString:@"FullClient"])){
+                Action *action=[[Action alloc]init];
+                action.name=NSLocalizedString(@"View",nil);
+                if (_isInstance==YES)
+                    action.description=NSLocalizedString(@"View Instance Using Open Document",nil);
+                else
+                    action.description=NSLocalizedString(@"View Object Using Open Document",nil);
+                [actions addObject:action];
+            }
         }
         if (_selectedObject.scheduleFormsUrl!=nil){
             
@@ -450,9 +452,9 @@
                 
                 [opdv setTitle:_selectedObject.name];
                 opdv.hidesBottomBarWhenPushed=YES;
-//                UINavigationController *nav = [[UINavigationController alloc]
-//                                               initWithRootViewController:opdv] ;
-//                [self presentViewController:nav animated:YES completion:NULL];
+                //                UINavigationController *nav = [[UINavigationController alloc]
+                //                                               initWithRootViewController:opdv] ;
+                //                [self presentViewController:nav animated:YES completion:NULL];
                 [self.navigationController pushViewController:opdv animated:YES];
             }else{
                 
@@ -464,10 +466,10 @@
                 dvc.hidesBottomBarWhenPushed=YES;
                 
                 [self.navigationController  pushViewController:dvc animated:YES];
-//                UINavigationController *nav = [[UINavigationController alloc]
-//                                               initWithRootViewController:dvc];
-//                
-//                [self presentViewController:nav animated:YES completion:NULL];
+                //                UINavigationController *nav = [[UINavigationController alloc]
+                //                                               initWithRootViewController:dvc];
+                //
+                //                [self presentViewController:nav animated:YES completion:NULL];
                 
                 
             }
@@ -483,13 +485,13 @@
             opdv.currentSession=_currentSession;
             opdv.isGetOpenDocRequired=YES;
             
-//            UINavigationController *nav = [[UINavigationController alloc]
-//                                           initWithRootViewController:opdv];
-//            
+            //            UINavigationController *nav = [[UINavigationController alloc]
+            //                                           initWithRootViewController:opdv];
+            //
             [opdv setTitle:_selectedObject.name];
             opdv.hidesBottomBarWhenPushed=YES;
             
-//            [self presentViewController:nav animated:YES completion:NULL];
+            //            [self presentViewController:nav animated:YES completion:NULL];
             
             [self.navigationController pushViewController:opdv animated:YES];
             
