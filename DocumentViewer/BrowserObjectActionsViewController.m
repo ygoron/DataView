@@ -231,7 +231,7 @@
                 [actions addObject:action];
             }
         }
-        if (_selectedObject.scheduleFormsUrl!=nil){
+        if (_selectedObject.scheduleFormsUrl!=nil && ![_selectedObject.type isEqualToString:@"FullClient"]){
             
             Action *action=[[Action alloc]init];
             action.name=NSLocalizedString(@"Run Now",nil);
