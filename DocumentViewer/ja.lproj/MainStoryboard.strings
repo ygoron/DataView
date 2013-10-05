@@ -321,21 +321,19 @@ May slow down app performance\n"; ObjectID = "4eo-dM-CxY"; */
 /* Class = "IBUITextField"; placeholder = "[Password]"; ObjectID = "zMe-BI-kxj"; */
 "zMe-BI-kxj.placeholder" = "[パスワード]";
 
-"01b-JG-fDy.text"="ﾌﾟﾚﾐｱﾑ機能";
-"0Fd-2G-pir.text"="利用的なｱﾌﾟﾘ内購入";
-"fUw-Oa-Ulb.title"="ﾌﾟﾚﾐｱﾑ機能";
-
+"01b-JG-fDy.text"="プレミアム機能";
+"0Fd-2G-pir.text"="利用可能な In-app 購入";
+"fUw-Oa-Ulb.title"="プレミアム機能";
 
 /* Added Dashboard */
-"lfQ-ZR-I0q.headerTitle"="種々雑多な";
-"hrI-LS-39v.headerTitle"="携帯電話サービス";
+"lfQ-ZR-I0q.headerTitle"="種種雑多な";
+"hrI-LS-39v.headerTitle"="モバイル サービス";
 "xJ-Fo-f4D.text"="パス";
 "0eZ-Vg-IfE.text"="ポート";
 
 /* Added Extension Pack */
-"Z7c-0b-vmW.text"="Extension Pack Settings";
-"T0J-gB-w0u.text"="Enabled";
-"SnP-JK-htt.placeholder"="URL To APOS Extension Pack";
-"5m3-BY-3e3.text"="Test Connection";
-"wAP-QV-fPX.headerTitle"="Extension Pack";
-
+"Z7c-0b-vmW.text"="拡張パック設定";
+"T0J-gB-w0u.text"="有効";
+"SnP-JK-htt.placeholder"="APOS 拡張パック URL ";
+"5m3-BY-3e3.text"="接続を確認";
+"wAP-QV-fPX.headerTitle"="拡張パック";

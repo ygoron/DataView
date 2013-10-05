@@ -268,21 +268,23 @@
 
 "Restore" = "Restaurează";
 "Connections"="Conexiuni";
-"In-App Purchase Required" = "Achiziție în-App Purchase necesară";
-"To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "Pentru a vă conecta la propriul sistem SAP BusinessObjects, cumparați această funcție in-app";
-"Connection" = "Conexiune";
+"In-App Purchase Required" = "Achiziție In-App necesară";
+"To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "Pentru conectare la propriul sistem SAP BusinessObjects, rugăm să achiziționați această funcție in-app";
+"Connection" = "Connection";
 
-"View Document in PDF"="Vezi documentul în format PDF";
-"Export to Excel"="Exportă în format Excel";
+"View Document in PDF"="Vizionează documentul în PDF";
+"Export to Excel"="Exportă în Excel";
 
 /* New Strings for DashBoard */
 
-"Dashboard Failed" = "Dashboard-ul a eșuat";
+"Dashboard Failed" = "Dashboard a eșuat";
 
+/* Addition to DashBoard */
+"To view SAP BusinessObjects dashboard please purchase this in-app feature"="Pentru a viziona SAP BusinessObjects dashboard, rugăm să achizitionați această funcție in-app";
 "Purchases"="Purchases";
 
 /* Extension Pack */
-"Incorrect Extension Pack URL"="Incorrect Extension Pack URL";
-"BI Platform Build:"="BI Platform Build:";
-"Extension Pack Version:"="Extension Pack Version:";
+"Incorrect Extension Pack URL"="URL de pachet de extensie incorect";
+"BI Platform Build:"="Compilare de platformă:";
+"Extension Pack Version:"="Versiune de pachet de extensie:";
 

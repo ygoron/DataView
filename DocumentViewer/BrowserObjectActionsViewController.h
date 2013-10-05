@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) Session *currentSession;
 @property (nonatomic,strong) InfoObject *selectedObject;
+@property (nonatomic,strong) InfoObject *parentObject;
 @property (nonatomic, assign) BOOL isInstance;
 
 

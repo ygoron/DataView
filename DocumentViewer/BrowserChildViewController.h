@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSURL *urlForSelectedObject;
 @property (nonatomic, strong) NSMutableArray *infoObjects;
 @property (nonatomic,strong) InfoObject *selectedObject;
+@property (nonatomic,strong) InfoObject *parentObject;
 @property (nonatomic, strong) Session *currentSession;
 @property (nonatomic, strong) TitleLabel *titleLabel;
 @property (nonatomic, assign) BOOL isFilterByUserName;

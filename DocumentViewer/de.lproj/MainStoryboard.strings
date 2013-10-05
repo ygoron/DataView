@@ -321,22 +321,20 @@ Kann die App-Leistung verlangsamen\n";
 /* Class = "IBUITextField"; placeholder = "[Password]"; ObjectID = "zMe-BI-kxj"; */
 "zMe-BI-kxj.placeholder" = "[Kennwort]";
 
-"01b-JG-fDy.text"="Premium-Features";
-"0Fd-2G-pir.text"="Erhältliche In-App-Einkäufe";
-"fUw-Oa-Ulb.title"="Premium-Features";
-
+"01b-JG-fDy.text"="Premium-Funktionen";
+"0Fd-2G-pir.text"="Erhältliche in-App-Käufe";
+"fUw-Oa-Ulb.title"="Premium-Funktionen";
 
 /* Added Dashboard */
-"lfQ-ZR-I0q.headerTitle"="Sonstiges";
-"hrI-LS-39v.headerTitle"="Mobile Service";
+"lfQ-ZR-I0q.headerTitle"="Verschiedene";
+"hrI-LS-39v.headerTitle"="Mobil-Dienst";
 "xJ-Fo-f4D.text"="Pfad";
 "0eZ-Vg-IfE.text"="Port";
 
 /* Added Extension Pack */
-"Z7c-0b-vmW.text"="Extension Pack Settings";
-"T0J-gB-w0u.text"="Enabled";
-"SnP-JK-htt.placeholder"="URL To APOS Extension Pack";
-"5m3-BY-3e3.text"="Test Connection";
-"wAP-QV-fPX.headerTitle"="Extension Pack";
-
+"Z7c-0b-vmW.text"="Erweiterungspack-Eigenschaften";
+"T0J-gB-w0u.text"="Aktiviert";
+"SnP-JK-htt.placeholder"="URL zum APOS-Erweiterungspack";
+"5m3-BY-3e3.text"="Verbindung testen";
+"wAP-QV-fPX.headerTitle"="Erweiterungspack";
 

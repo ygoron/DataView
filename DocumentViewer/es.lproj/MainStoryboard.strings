@@ -319,21 +319,20 @@ May slow down app performance\n"; ObjectID = "4eo-dM-CxY"; */
 /* Class = "IBUITextField"; placeholder = "[Password]"; ObjectID = "zMe-BI-kxj"; */
 "zMe-BI-kxj.placeholder" = "[Contraseña]";
 
-"01b-JG-fDy.text"="Opciones Premium";
-"0Fd-2G-pir.text"="Compras en-aplicación disponibles";
-"fUw-Oa-Ulb.title"="Opciones Premium";
+"01b-JG-fDy.text"="Funciones Premium";
+"0Fd-2G-pir.text"="Compres in-app disponibles";
+"fUw-Oa-Ulb.title"="Funciones Premium";
 
 /* Added Dashboard */
-"lfQ-ZR-I0q.headerTitle"="diverso";
+"lfQ-ZR-I0q.headerTitle"="Diversos";
 "hrI-LS-39v.headerTitle"="Servicio móvil";
 "xJ-Fo-f4D.text"="Ruta";
-"0eZ-Vg-IfE.text"="puerto";
+"0eZ-Vg-IfE.text"="Porto";
 
 /* Added Extension Pack */
-"Z7c-0b-vmW.text"="Extension Pack Settings";
-"T0J-gB-w0u.text"="Enabled";
-"SnP-JK-htt.placeholder"="URL To APOS Extension Pack";
+"Z7c-0b-vmW.text"="Configuración de paquete de extensión";
+"T0J-gB-w0u.text"="Habilitado";
+"SnP-JK-htt.placeholder"="URL al paquete de extensión APOS";
 "5m3-BY-3e3.text"="Test Connection";
-"wAP-QV-fPX.headerTitle"="Extension Pack";
-
+"wAP-QV-fPX.headerTitle"="Paquete de extensión";
 

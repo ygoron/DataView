@@ -321,20 +321,19 @@ Può rallentare la performance della app\n";
 "zMe-BI-kxj.placeholder" = "[Password]";
 
 "01b-JG-fDy.text"="Caratteristiche Premium";
-"0Fd-2G-pir.text"="Acquisiti in-app disponibili";
-"fUw-Oa-Ulb.title"=" Caratteristiche Premium ";
+"0Fd-2G-pir.text"="Acqisiti in-app disponibili";
+"fUw-Oa-Ulb.title"="Caratteristiche Premium";
 
 /* Added Dashboard */
-"lfQ-ZR-I0q.headerTitle"="Varie";
-"hrI-LS-39v.headerTitle"="mobile Service";
-"xJ-Fo-f4D.text"="percorso";
-"0eZ-Vg-IfE.text"="porto";
+"lfQ-ZR-I0q.headerTitle"="Miscellaneo";
+"hrI-LS-39v.headerTitle"="Servizio mobile";
+"xJ-Fo-f4D.text"="Parcorso";
+"0eZ-Vg-IfE.text"="Porto";
 
 /* Added Extension Pack */
-"Z7c-0b-vmW.text"="Extension Pack Settings";
-"T0J-gB-w0u.text"="Enabled";
-"SnP-JK-htt.placeholder"="URL To APOS Extension Pack";
-"5m3-BY-3e3.text"="Test Connection";
+"Z7c-0b-vmW.text"="Impostazioni de Extension Pack";
+"T0J-gB-w0u.text"="Abilitato";
+"SnP-JK-htt.placeholder"="URL per il APOS Extension Pack";
+"5m3-BY-3e3.text"="Test Connessione";
 "wAP-QV-fPX.headerTitle"="Extension Pack";
-
 

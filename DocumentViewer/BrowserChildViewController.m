@@ -332,7 +332,10 @@
         
         else if ([infoObject.type isEqualToString:@"Pdf"])
             [cell.imageViewIcon setImage:[UIImage imageNamed:@"Pdf.png"]];
-        
+
+        else if ([infoObject.type isEqualToString:@"FullClient"])
+            [cell.imageViewIcon setImage:[UIImage imageNamed:@"DeskiDoc_48.png"]];
+
         else if ([infoObject.type isEqualToString:@"Word"]|| [infoObject.type isEqualToString:@"Rtf"])
             [cell.imageViewIcon setImage:[UIImage imageNamed:@"Word.png"]];
         
@@ -460,6 +463,8 @@
             bavc.currentSession=_currentSession;
             bavc.objectUrl=urlForSelectedObject;
             bavc.isInstance=_isInstance;
+            bavc.parentObject=_selectedObject;
+            bavc.selectedObject=objectAtRow;
             bavc.path=[NSString stringWithFormat:@"%@%@%@",_displayPath,@"/",objectAtRow.name];
             [self.navigationController pushViewController:bavc animated:YES];
             //            UINavigationController *navigationController = [[UINavigationController alloc]
@@ -475,6 +480,7 @@
             vc.urlForChildren=urlForChildren;
             vc.urlForSelectedObject=urlForSelectedObject;
             vc.currentSession=appDelegate.activeSession;
+            vc.parentObject=objectAtRow;
             vc.title=objectAtRow.name;
             vc.myStoryBoard=self.myStoryBoard;
             vc.displayPath=[NSString stringWithFormat:@"%@%@%@",_displayPath,@"/",objectAtRow.name];

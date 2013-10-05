@@ -319,21 +319,19 @@ May slow down app performance\n"; ObjectID = "4eo-dM-CxY"; */
 /* Class = "IBUITextField"; placeholder = "[Password]"; ObjectID = "zMe-BI-kxj"; */
 "zMe-BI-kxj.placeholder" = "[Parola]";
 
-"01b-JG-fDy.text"="Funcții premium";
-"0Fd-2G-pir.text"="Achiziții în-app disponibile ";
-"fUw-Oa-Ulb.title"="Funcții premium";
+"01b-JG-fDy.text"="Funcții Premium";
+"0Fd-2G-pir.text"="Achiziții in-app disponibile";
+"fUw-Oa-Ulb.title"="Funcții Premium";
 
 /* Added Dashboard */
 "lfQ-ZR-I0q.headerTitle"="Diverse";
-"hrI-LS-39v.headerTitle"="Serviciul Mobil";
-"xJ-Fo-f4D.text"="Cale";
+"hrI-LS-39v.headerTitle"="Serviciu mobil";
+"xJ-Fo-f4D.text"="Rută";
 "0eZ-Vg-IfE.text"="Port";
 
-
 /* Added Extension Pack */
-"Z7c-0b-vmW.text"="Extension Pack Settings";
-"T0J-gB-w0u.text"="Enabled";
-"SnP-JK-htt.placeholder"="URL To APOS Extension Pack";
-"5m3-BY-3e3.text"="Test Connection";
-"wAP-QV-fPX.headerTitle"="Extension Pack";
-
+"Z7c-0b-vmW.text"="Configurație de pachet de extensie";
+"T0J-gB-w0u.text"="Activat";
+"SnP-JK-htt.placeholder"="URL către pachetul de extensie APOS";
+"5m3-BY-3e3.text"="Testează conexiune";
+"wAP-QV-fPX.headerTitle"="Pachet de extensie";

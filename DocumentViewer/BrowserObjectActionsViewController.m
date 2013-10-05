@@ -201,7 +201,8 @@
         
         [spinner stopAnimating];
         
-        NSLog(@"Selected Object Received ID: %d",receivedObject.objectId);
+        NSLog(@"Selected Object Type: %@ Parent Object Type: %@",_selectedObject.type,_parentObject.type);
+        NSLog(@"Selected Object Received ID: %d. Parent Object Type:%@",receivedObject.objectId,_parentObject.type);
         //        [TestFlight passCheckpoint:@"Selected Object Received"];
         _selectedObject=receivedObject;
         
@@ -222,6 +223,9 @@
         
         if (_selectedObject.openDoc!=nil){
             if (!([_selectedObject.type isEqualToString:@"Agnostic"]||[_selectedObject.type isEqualToString:@"FullClient"])){
+                if ([_parentObject.type isEqualToString:@"FullClient"] && ![_selectedObject.type isEqualToString:@"Pdf"]){
+                    NSLog(@"Skiping Non PDF Full Client Instance");
+                }else{
                 Action *action=[[Action alloc]init];
                 action.name=NSLocalizedString(@"View",nil);
                 if (_isInstance==YES)
@@ -229,6 +233,7 @@
                 else
                     action.description=NSLocalizedString(@"View Object Using Open Document",nil);
                 [actions addObject:action];
+                }
             }
         }
         if (_selectedObject.scheduleFormsUrl!=nil && ![_selectedObject.type isEqualToString:@"FullClient"]){
@@ -415,6 +420,8 @@
             vc.currentSession=appDelegate.activeSession;
             vc.title=_selectedObject.name;
             vc.isInstance=YES;
+            vc.parentObject=_parentObject;
+            vc.selectedObject=_selectedObject;
             vc.displayPath=[NSString stringWithFormat:@"%@%@%@",_path,@"/",_selectedObject.name];
             [self.navigationController pushViewController:vc animated:YES];
             

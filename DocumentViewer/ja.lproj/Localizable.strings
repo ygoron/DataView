@@ -267,23 +267,24 @@
 
 "Restore" = "復元";
 "Connections"="接続";
-"In-App Purchase Required" = "必要があるｱﾌﾟﾘ内購入";
-"To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "個人の SAP BusinessObjects ｼｽﾃﾑに接続するには、このあぷりけーしょんないのふぃーちゃをご購入ください";
+"In-App Purchase Required" = "In-App 購入が必要";
+"To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "個人の SAP BusinessObject システムに接続するに、この In-app 機能を購入してください。";
 "Connection" = "接続";
 
-"View Document in PDF"="PDF 書式でﾄﾞｷｭﾒﾝﾄを表示する";
-"Export to Excel"="Excel にｴｸｽﾎﾟｰﾄ";
+"View Document in PDF"="ドキュメントを PDF に表示";
+"Export to Excel"="Excel にエクスポート";
 
 /* New Strings for DashBoard */
 
-"Dashboard Failed" = "ダッシュに失敗しました";
+"Dashboard Failed" = "Dashboard が失敗しました";
 
-"Purchases"="Purchases";
-
+/* Addition to DashBoard */
+"To view SAP BusinessObjects dashboard please purchase this in-app feature"="SAP BusinessObjects の Dashboard を表示できるには、このin-app 機能を購入してください";
+"Purchases"="購入";
 
 /* Extension Pack */
-"Incorrect Extension Pack URL"="Incorrect Extension Pack URL";
-"BI Platform Build:"="BI Platform Build:";
-"Extension Pack Version:"="Extension Pack Version:";
+"Incorrect Extension Pack URL"="誤った拡張パック URL ";
+"BI Platform Build:"="BI プラットホーム ビルド：";
+"Extension Pack Version:"="拡張パック バージョン：";
 
 

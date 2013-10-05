@@ -268,21 +268,24 @@
 "Restore" = "Restaurer";
 "Connections"="Connections";
 "In-App Purchase Required" = "Achat In-App requis";
-"To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "Afin de vous connecter à votre proper système SAP BusinessObjects, veuillez acheter cette function in-app";
-"Connection" = "Connection";
+"To connect to your own SAP BusinessObjects system please purchase this in-app feature" = "Pour se connecter au propre système SAP BusinessObjects, veuillez acheter cette fonction in-app";
+"Connection" = "Connexion";
 
-"View Document in PDF"="Voir le document en PDF";
-"Export to Excel"="Exporter au format Excel";
+"View Document in PDF"="Visionner document en PDF";
+"Export to Excel"="Exporter à Excel";
 
 /* New Strings for DashBoard */
-"Dashboard Failed" = "Le tableau de bord échoué";
 
-"Purchases"="Purchases";
+"Dashboard Failed" = "Echec de Dashboard";
+
+/* Addition to DashBoard */
+"To view SAP BusinessObjects dashboard please purchase this in-app feature"="Pour visionner SAP BusinessObjects Dashboard, veuillez acheter cette fonction in-app";
+"Purchases"="Achats";
 
 /* Extension Pack */
-"Incorrect Extension Pack URL"="Incorrect Extension Pack URL";
-"BI Platform Build:"="BI Platform Build:";
-"Extension Pack Version:"="Extension Pack Version:";
+"Incorrect Extension Pack URL"="URL de pack d’extension incorrecte";
+"BI Platform Build:"="Version de plateforme BI :";
+"Extension Pack Version:"=" Version de pack d’extension :";
 
 
 
