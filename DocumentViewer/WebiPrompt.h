@@ -13,6 +13,7 @@
 
 @property (nonatomic,assign) BOOL isOptional;
 @property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *dataproviderId;
 @property (nonatomic, assign) int promptId;
 @property (nonatomic, strong) NSString  *name;
 @property (nonatomic, strong) NSString  *technicalName;

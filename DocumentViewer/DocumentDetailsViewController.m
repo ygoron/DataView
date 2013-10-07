@@ -22,6 +22,7 @@
 #import "BI4RestConstants.h"
 #import "SharedUtils.h"
 #import "Utils.h"
+#import "WebiPrompt.h"
 @interface DocumentDetailsViewController ()
 
 
@@ -451,6 +452,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@" Index Path: %@",indexPath);
+    
+    if (indexPath.section==1 && indexPath.row==1){
+        NSLog(@"Proceed with Parameters");
+        [TestFlight passCheckpoint:@"Document Refresh Selected"];
+        WebiPromptsEngine *promptEngine=[[WebiPromptsEngine alloc] init];
+        promptEngine.delegate=self;
+        [spinner  startAnimating];
+        [promptEngine getPrompts:self.document];
+        
+    }
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -459,7 +472,34 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+-(void)didGetPrompts:(WebiPromptsEngine *)webiPromptsEngine isSuccess:(BOOL)isSuccess withPrompts:(NSArray *)webiPrompts withErrorText:(NSString *)errorText
+{
+    [spinner stopAnimating];
 
+    NSLog(@"Prompts Received With Success:%d Number of Prompts: %d",isSuccess,webiPrompts.count);
+    
+    for (WebiPrompt *webiPrompt in webiPrompts) {
+        NSLog(@"Prompt Name: %@",webiPrompt.name);
+        NSLog(@"Data Provider Id: %@",webiPrompt.dataproviderId);
+        if (webiPrompt.answer){
+            NSLog(@"Answer Type: %@",webiPrompt.answer.type);
+            NSLog(@"Answer Constrained: %d",webiPrompt.answer.isConstrained);
+            if (webiPrompt.answer.info){
+                    NSLog(@"Cardinality: %@",webiPrompt.answer.info.cardinality);
+                if (webiPrompt.answer.info.lov){
+                    NSLog(@"is LOV Hierarchical: %d",webiPrompt.answer.info.lov.isHieararchical);
+                    if (webiPrompt.answer.info.lov.values){
+                        NSLog(@"Number of LOV Values: %d",webiPrompt.answer.info.lov.values.count);
+                        for (NSString *value in webiPrompt.answer.info.lov.values) {
+                            NSLog(@"Value:%@",value);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
 
 - (void)performAction:(id)sender {
     

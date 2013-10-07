@@ -7,14 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BIConnector.h"
 
 @class WebiPromptsEngine;
 
 @protocol WebiPromptsEngineDelegate <NSObject>
 
--(void) getPrompts:(WebiPromptsEngine *) webiPrompts isSuccess:(BOOL)  isSuccess;
+-(void) didGetPrompts:(WebiPromptsEngine *) webiPromptsEngine isSuccess:(BOOL)  isSuccess withPrompts: (NSArray *) webiPrompts withErrorText:(NSString *) errorText;
 
 @end
-@interface WebiPrompts : NSObject
+@interface WebiPromptsEngine : NSObject <NSURLConnectionDataDelegate,BIConnectorDelegate>
+
+@property (nonatomic, weak) id <WebiPromptsEngineDelegate> delegate;
+
+-(void) getPrompts: (Document *) document;
 
 @end

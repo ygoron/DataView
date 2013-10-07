@@ -11,8 +11,10 @@
 @interface WebiPromptLov : NSObject
 
 @property (nonatomic,assign) BOOL isHieararchical;
+@property (nonatomic,assign) BOOL isPartial;
 @property (nonatomic,assign) BOOL isRefreshable;
 @property (nonatomic,strong) NSString *dpId;
 @property (nonatomic, strong) NSArray *values;
+@property (nonatomic, strong) NSArray *intervals;
 
 @end

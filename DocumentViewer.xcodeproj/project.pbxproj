@@ -495,6 +495,9 @@
 		929A3F6117F8B40A009B63B2 /* WebiPromptValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */; };
 		929A3F6217F8B40A009B63B2 /* WebiPromptValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */; };
 		929C0364172319E700B28967 /* AdvancedSessionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C0363172319E700B28967 /* AdvancedSessionSettingsViewController.m */; };
+		929C37BA18023E440044F89D /* WebiPromptLovInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C37B918023E440044F89D /* WebiPromptLovInterval.m */; };
+		929C37BB18023E440044F89D /* WebiPromptLovInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C37B918023E440044F89D /* WebiPromptLovInterval.m */; };
+		929C37BC18023E440044F89D /* WebiPromptLovInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C37B918023E440044F89D /* WebiPromptLovInterval.m */; };
 		929D1CDE173464900027FDFF /* BISDKCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CDD173464900027FDFF /* BISDKCall.m */; };
 		929D1CE2173467860027FDFF /* CypressResponseHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CE1173467860027FDFF /* CypressResponseHeader.m */; };
 		929D1CE6173479730027FDFF /* InfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CE5173479730027FDFF /* InfoObject.m */; };
@@ -950,6 +953,8 @@
 		929C03571722E68800B28967 /* DocumentViewer 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 3.xcdatamodel"; sourceTree = "<group>"; };
 		929C0362172319E700B28967 /* AdvancedSessionSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedSessionSettingsViewController.h; sourceTree = "<group>"; };
 		929C0363172319E700B28967 /* AdvancedSessionSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSessionSettingsViewController.m; sourceTree = "<group>"; };
+		929C37B818023E440044F89D /* WebiPromptLovInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPromptLovInterval.h; sourceTree = "<group>"; };
+		929C37B918023E440044F89D /* WebiPromptLovInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPromptLovInterval.m; sourceTree = "<group>"; };
 		929D1CDC173464900027FDFF /* BISDKCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BISDKCall.h; sourceTree = "<group>"; };
 		929D1CDD173464900027FDFF /* BISDKCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BISDKCall.m; sourceTree = "<group>"; };
 		929D1CE0173467860027FDFF /* CypressResponseHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CypressResponseHeader.h; sourceTree = "<group>"; };
@@ -1576,6 +1581,8 @@
 				929A3F5C17F8B315009B63B2 /* WebiPromptLov.m */,
 				929A3F5F17F8B40A009B63B2 /* WebiPromptValue.h */,
 				929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */,
+				929C37B818023E440044F89D /* WebiPromptLovInterval.h */,
+				929C37B918023E440044F89D /* WebiPromptLovInterval.m */,
 			);
 			name = Parameters;
 			sourceTree = "<group>";
@@ -2557,6 +2564,7 @@
 				9288ABC81787A9A50048BCF1 /* BrowserObjectActionsViewController.m in Sources */,
 				9288ABC91787A9A50048BCF1 /* ObjectInfoCell.m in Sources */,
 				9288ABCA1787A9A50048BCF1 /* ActionCell.m in Sources */,
+				929C37BB18023E440044F89D /* WebiPromptLovInterval.m in Sources */,
 				9288ABCB1787A9A50048BCF1 /* Action.m in Sources */,
 				9288ABCC1787A9A50048BCF1 /* ObjectInfo.m in Sources */,
 				9288ABCD1787A9A50048BCF1 /* DescriptionAndPathCell.m in Sources */,
@@ -2660,6 +2668,7 @@
 				922E169F1746FB9E00D55FF4 /* BrowserObjectActionsViewController.m in Sources */,
 				9210E020174828D3009183CD /* ObjectInfoCell.m in Sources */,
 				9210E02A174862E7009183CD /* ActionCell.m in Sources */,
+				929C37BA18023E440044F89D /* WebiPromptLovInterval.m in Sources */,
 				9210E02E17486832009183CD /* Action.m in Sources */,
 				9271490E17495B4500851389 /* ObjectInfo.m in Sources */,
 				927149181749732700851389 /* DescriptionAndPathCell.m in Sources */,
@@ -2697,6 +2706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B9F29E17D3823B006E7ABC /* BIMobileTests.m in Sources */,
+				929C37BC18023E440044F89D /* WebiPromptLovInterval.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
