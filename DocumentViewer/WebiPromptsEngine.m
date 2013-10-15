@@ -16,6 +16,7 @@
 #import "WebiPromptAnswer.h"
 #import "WebiPromptInfo.h"
 #import "WebiPromptLov.h"
+#import "WebiPromptLovInterval.h"
 
 @implementation WebiPromptsEngine
 
@@ -30,6 +31,18 @@
     NSMutableData *responseData;
 }
 
+-(void) getPrompts:(Document *)document withToken:(NSString *)cmsToken
+{
+    NSLog (@"Get Prompts for Document:%@ With Token: %@",document.name,cmsToken);
+    appDelegate = (id)[[UIApplication sharedApplication] delegate];
+    
+    __currentToken=cmsToken;
+    __biSession=__document.session;
+    __document=document;
+    __document.session.cmsToken=cmsToken;
+    __biSession.cmsToken=cmsToken;
+    [self processHttpRequestForDocument:document];
+}
 -(void) getPrompts:(Document *)document
 {
     
@@ -99,6 +112,7 @@
     if(cmsToken!=nil){
         NSLog(@"Token Receieved:%@",cmsToken);
         __currentToken=cmsToken;
+        __document.session.cmsToken=__currentToken;
         [self processHttpRequestForDocument:__document];
         
     }else if (biConnector.connectorError!=nil){
@@ -269,7 +283,32 @@
                 if ([lovJ objectForKey:@"id"]) lov.dpId=[lovJ objectForKey:@"id"];
                 if ([lovJ objectForKey:@"intervals"]){
                     if ([[lovJ objectForKey:@"intervals"] objectForKey:@"interval"]){
-                        // Continue with interval
+                        NSDictionary *intetvalsJ=[[lovJ objectForKey:@"intervals"] objectForKey:@"interval"];
+                        if ([intetvalsJ isKindOfClass:[NSArray class]]){
+                            NSMutableArray *intervals=[[NSMutableArray alloc] init];
+                            [lov setIntervals:intervals];
+                            for (NSDictionary *interValJ in intetvalsJ) {
+                                if ([interValJ objectForKey:@"@id"]){
+                                    WebiPromptLovInterval *interval=[[WebiPromptLovInterval alloc] init];
+                                    [intervals addObject:interval];
+                                    [interval setIntervalId:[[interValJ objectForKey:@"@id"] integerValue]];
+                                    if ([interValJ objectForKey:@"value"]){
+                                        NSDictionary *valuesJ=[interValJ objectForKey:@"value"];
+                                        if ([valuesJ isKindOfClass:[NSArray class]]){
+                                            NSMutableArray *values=[[NSMutableArray alloc] init];
+                                            [interval setValues:values];
+                                            for (NSString *value in valuesJ) {
+                                                [values addObject:[NSString stringWithFormat:@"%@",value]];
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        
+                        
+                        
                     }
                 }
                 if ([lovJ objectForKey:@"values"]){
@@ -280,24 +319,36 @@
                         
                         if ([valueJ isKindOfClass:[NSArray class]]){
                             for (NSString *value in valueJ) {
-                                [values addObject:value];
+                                [values addObject:[NSString stringWithFormat:@"%@",value]];
                             }
                         }else{
                             NSString *value=[[lovJ objectForKey:@"values"] objectForKey:@"value"];
-                            [values addObject:value];
+                            [values addObject:[NSString stringWithFormat:@"%@",value]];
                         }
                     }
                 }
                 
             }
+        }
+        if ([answerJ objectForKey:@"values"]){
             
             
-            
+            if ([[answerJ objectForKey:@"values"] objectForKey:@"value"]){
+                NSMutableArray *values=[[NSMutableArray alloc] init];
+                [answer setValues:values];
+                NSDictionary *valueJ=[[answerJ objectForKey:@"values"] objectForKey:@"value"];
+                
+                if ([valueJ isKindOfClass:[NSArray class]]){
+                    for (NSString *value in valueJ) {
+                        [values addObject:[NSString stringWithFormat:@"%@",value]];
+                    }
+                }else{
+                    NSString *value=[[answerJ objectForKey:@"values"] objectForKey:@"value"];
+                    [values addObject:[NSString stringWithFormat:@"%@",value]];
+                }
+            }
             
         }
-        
-        
-        
         
     }
     

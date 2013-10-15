@@ -22,4 +22,6 @@
 
 -(void) getPrompts: (Document *) document;
 
+-(void) getPrompts: (Document *) document withToken: (NSString *) cmsToken;
+
 @end

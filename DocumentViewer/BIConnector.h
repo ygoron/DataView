@@ -32,6 +32,7 @@
 @property (strong, nonatomic)   Session *biSession;
 @property (nonatomic, strong) id <BIConnectorDelegate> delegate;
 @property (nonatomic, assign) NSTimeInterval timeOut;
+@property (nonatomic, assign) NSInteger option;
 
 
 

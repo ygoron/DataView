@@ -35,26 +35,43 @@
     }
     return self;
 }
+-(void) getDocumentDetailForDocument:(Document *)document withToken:(NSString *)cmsToken
+{
+    self.currentToken=cmsToken;
+    self.biSession=document.session;
+    self.document=document;
+    self.document.session.cmsToken=cmsToken;
+    self.biSession.cmsToken=cmsToken;
+    appDelegate = (id)[[UIApplication sharedApplication] delegate];
+
+
+    if (isInstance==NO){
+        [self processHttpRequestForSession:document];
+    }else{
+        [self.delegate biGetDocumentDetails:self isSuccess:YES document:self.document];
+    }
+    
+}
 -(void) getDocumentDetailForDocument:(Document *)document{
     
     NSLog (@"Get Documents for Session Started. Document id %@,name%@ session:%@",document.id,document.name,document.session.name);
     appDelegate = (id)[[UIApplication sharedApplication] delegate];
     self.currentToken=document.session.cmsToken;
-
+    
     self.biSession=document.session;
     self.document=document;
     if (isInstance==NO){
-    // Get Token First
-    if (self.biSession.cmsToken==nil || [appDelegate.globalSettings.autoLogoff boolValue]==YES){
-        NSLog(@"CMS Token is NULL - create new one");
-        connector=[[BIConnector alloc]init];
-        connector.delegate=self;
-        [connector getCmsTokenWithSession:self.biSession];
-    }else{
-        NSLog(@"CMS Token is NOT NULL - Process With Existing Token");
-        [self processHttpRequestForSession:document];
-        
-    }
+        // Get Token First
+        if (self.biSession.cmsToken==nil || [appDelegate.globalSettings.autoLogoff boolValue]==YES){
+            NSLog(@"CMS Token is NULL - create new one");
+            connector=[[BIConnector alloc]init];
+            connector.delegate=self;
+            [connector getCmsTokenWithSession:self.biSession];
+        }else{
+            NSLog(@"CMS Token is NOT NULL - Process With Existing Token");
+            [self processHttpRequestForSession:document];
+            
+        }
     }else{
         [self.delegate biGetDocumentDetails:self isSuccess:YES document:self.document];
     }
@@ -69,6 +86,8 @@
     if(cmsToken!=nil){
         NSLog(@"Token Receieved:%@",cmsToken);
         self.currentToken=cmsToken;
+        self.document.session.cmsToken=cmsToken;
+        self.biSession.cmsToken=cmsToken;
         [self processHttpRequestForSession:self.document];
         
     }else if (biConnector.connectorError!=nil){
@@ -88,15 +107,15 @@
 -(void) processHttpRequestForSession: (Document*) document{
     NSLog(@"GetDocument Details processHttpRequestForSession");
     self.biSession=document.session;
-//    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",document.session.cmsToken,@"\""];
-        NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",self.currentToken,@"\""];
+    //    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",document.session.cmsToken,@"\""];
+    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",self.currentToken,@"\""];
     NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:[self getDocumentsURL:document]];
     NSLog(@"Process with URL: %@",[request URL]);
     NSLog(@"Token:%@",cmsToken);
-
+    
     NSLog(@"Timeout Preference Value:%@",appDelegate.globalSettings.networkTimeout);
     [request setTimeoutInterval:[appDelegate.globalSettings.networkTimeout doubleValue ]];
-
+    
     [request setHTTPMethod:@"GET"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
@@ -215,9 +234,9 @@
         [self.delegate biGetDocumentDetails:self isSuccess:YES document:self.document];
     }
     
-
-        [self logoOffIfNeeded];
-
+    
+    [self logoOffIfNeeded];
+    
 }
 
 -(void) logoOffIfNeeded{

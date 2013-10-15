@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92054429180C2C9F004DD35D /* WebiPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054427180C2C9F004DD35D /* WebiPromptViewController.m */; };
+		9205442A180C2C9F004DD35D /* WebiPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054427180C2C9F004DD35D /* WebiPromptViewController.m */; };
+		9205442B180C2C9F004DD35D /* WebiPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92054428180C2C9F004DD35D /* WebiPromptViewController.xib */; };
+		9205442C180C2C9F004DD35D /* WebiPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92054428180C2C9F004DD35D /* WebiPromptViewController.xib */; };
+		92054432180C2F08004DD35D /* PromptCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92054431180C2F08004DD35D /* PromptCell.xib */; };
+		92054433180C2F08004DD35D /* PromptCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92054431180C2F08004DD35D /* PromptCell.xib */; };
+		92054436180C3669004DD35D /* PromptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054435180C3669004DD35D /* PromptCell.m */; };
+		92054437180C3669004DD35D /* PromptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054435180C3669004DD35D /* PromptCell.m */; };
+		9205443B180C8E85004DD35D /* PromptLovViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054439180C8E85004DD35D /* PromptLovViewController.m */; };
+		9205443C180C8E85004DD35D /* PromptLovViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054439180C8E85004DD35D /* PromptLovViewController.m */; };
+		9205443D180C8E85004DD35D /* PromptLovViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9205443A180C8E85004DD35D /* PromptLovViewController.xib */; };
+		9205443E180C8E85004DD35D /* PromptLovViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9205443A180C8E85004DD35D /* PromptLovViewController.xib */; };
+		92054440180C8EFB004DD35D /* LovValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9205443F180C8EFB004DD35D /* LovValueCell.xib */; };
+		92054441180C8EFB004DD35D /* LovValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9205443F180C8EFB004DD35D /* LovValueCell.xib */; };
+		92054444180C906F004DD35D /* LovValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054443180C906F004DD35D /* LovValueCell.m */; };
+		92054445180C906F004DD35D /* LovValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054443180C906F004DD35D /* LovValueCell.m */; };
 		920DB49816E17F3F001D3546 /* BIExportReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 920DB49716E17F3F001D3546 /* BIExportReport.m */; };
 		920DB49E16E18B7F001D3546 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920DB49D16E18B7E001D3546 /* ReportViewController.m */; };
 		920DE680173C829800EC70A5 /* BrowserChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920DE67E173C829800EC70A5 /* BrowserChildViewController.m */; };
@@ -397,6 +413,8 @@
 		9288AC871787A9A50048BCF1 /* navbar_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 924E21CA17863FE0002BFFC8 /* navbar_landscape@2x.png */; };
 		928C71A416E05BDE00DB40D2 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 928C71A316E05BDE00DB40D2 /* Report.m */; };
 		928C71A716E05D8400DB40D2 /* BIGetReports.m in Sources */ = {isa = PBXBuildFile; fileRef = 928C71A616E05D8400DB40D2 /* BIGetReports.m */; };
+		928CA61F1809DD0100149154 /* BIRefreshDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 928CA61E1809DD0100149154 /* BIRefreshDocument.m */; };
+		928CA6201809DD0100149154 /* BIRefreshDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 928CA61E1809DD0100149154 /* BIRefreshDocument.m */; };
 		928D108E170F751F00FA2C5D /* leather-background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928D1045170F751F00FA2C5D /* leather-background-568h@2x.png */; };
 		928D108F170F751F00FA2C5D /* slider-track-fill.png in Resources */ = {isa = PBXBuildFile; fileRef = 928D1046170F751F00FA2C5D /* slider-track-fill.png */; };
 		928D1090170F751F00FA2C5D /* slider-track-fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928D1047170F751F00FA2C5D /* slider-track-fill@2x.png */; };
@@ -617,6 +635,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92054426180C2C9F004DD35D /* WebiPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPromptViewController.h; sourceTree = "<group>"; };
+		92054427180C2C9F004DD35D /* WebiPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPromptViewController.m; sourceTree = "<group>"; };
+		92054428180C2C9F004DD35D /* WebiPromptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebiPromptViewController.xib; sourceTree = "<group>"; };
+		92054431180C2F08004DD35D /* PromptCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromptCell.xib; sourceTree = "<group>"; };
+		92054434180C3669004DD35D /* PromptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromptCell.h; sourceTree = "<group>"; };
+		92054435180C3669004DD35D /* PromptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromptCell.m; sourceTree = "<group>"; };
+		92054438180C8E85004DD35D /* PromptLovViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromptLovViewController.h; sourceTree = "<group>"; };
+		92054439180C8E85004DD35D /* PromptLovViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromptLovViewController.m; sourceTree = "<group>"; };
+		9205443A180C8E85004DD35D /* PromptLovViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromptLovViewController.xib; sourceTree = "<group>"; };
+		9205443F180C8EFB004DD35D /* LovValueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LovValueCell.xib; sourceTree = "<group>"; };
+		92054442180C906F004DD35D /* LovValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LovValueCell.h; sourceTree = "<group>"; };
+		92054443180C906F004DD35D /* LovValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LovValueCell.m; sourceTree = "<group>"; };
 		920DB49616E17F3F001D3546 /* BIExportReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIExportReport.h; sourceTree = "<group>"; };
 		920DB49716E17F3F001D3546 /* BIExportReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIExportReport.m; sourceTree = "<group>"; };
 		920DB49C16E18B7E001D3546 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
@@ -843,6 +873,8 @@
 		928C71A316E05BDE00DB40D2 /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
 		928C71A516E05D8400DB40D2 /* BIGetReports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIGetReports.h; sourceTree = "<group>"; };
 		928C71A616E05D8400DB40D2 /* BIGetReports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIGetReports.m; sourceTree = "<group>"; };
+		928CA61D1809DD0100149154 /* BIRefreshDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIRefreshDocument.h; sourceTree = "<group>"; };
+		928CA61E1809DD0100149154 /* BIRefreshDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIRefreshDocument.m; sourceTree = "<group>"; };
 		928D1045170F751F00FA2C5D /* leather-background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leather-background-568h@2x.png"; sourceTree = "<group>"; };
 		928D1046170F751F00FA2C5D /* slider-track-fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-track-fill.png"; sourceTree = "<group>"; };
 		928D1047170F751F00FA2C5D /* slider-track-fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-track-fill@2x.png"; sourceTree = "<group>"; };
@@ -1583,6 +1615,20 @@
 				929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */,
 				929C37B818023E440044F89D /* WebiPromptLovInterval.h */,
 				929C37B918023E440044F89D /* WebiPromptLovInterval.m */,
+				928CA61D1809DD0100149154 /* BIRefreshDocument.h */,
+				928CA61E1809DD0100149154 /* BIRefreshDocument.m */,
+				92054426180C2C9F004DD35D /* WebiPromptViewController.h */,
+				92054427180C2C9F004DD35D /* WebiPromptViewController.m */,
+				92054428180C2C9F004DD35D /* WebiPromptViewController.xib */,
+				92054431180C2F08004DD35D /* PromptCell.xib */,
+				92054434180C3669004DD35D /* PromptCell.h */,
+				92054435180C3669004DD35D /* PromptCell.m */,
+				92054438180C8E85004DD35D /* PromptLovViewController.h */,
+				92054439180C8E85004DD35D /* PromptLovViewController.m */,
+				9205443A180C8E85004DD35D /* PromptLovViewController.xib */,
+				9205443F180C8EFB004DD35D /* LovValueCell.xib */,
+				92054442180C906F004DD35D /* LovValueCell.h */,
+				92054443180C906F004DD35D /* LovValueCell.m */,
 			);
 			name = Parameters;
 			sourceTree = "<group>";
@@ -2069,6 +2115,7 @@
 				9288ABEC1787A9A50048BCF1 /* measure.jpg in Resources */,
 				9288ABED1787A9A50048BCF1 /* leather-background-568h@2x.png in Resources */,
 				9288ABEE1787A9A50048BCF1 /* slider-track-fill.png in Resources */,
+				9205443E180C8E85004DD35D /* PromptLovViewController.xib in Resources */,
 				9288ABEF1787A9A50048BCF1 /* slider-track-fill@2x.png in Resources */,
 				9288ABF01787A9A50048BCF1 /* back-button.png in Resources */,
 				9288ABF11787A9A50048BCF1 /* back-button@2x.png in Resources */,
@@ -2100,6 +2147,7 @@
 				9288AC0A1787A9A50048BCF1 /* ipad-bullet.png in Resources */,
 				9288AC0B1787A9A50048BCF1 /* ipad-count.png in Resources */,
 				924C485E17F075EC00C25F8F /* ipad-menubar-right-7@2x.png in Resources */,
+				92054441180C8EFB004DD35D /* LovValueCell.xib in Resources */,
 				9288AC0C1787A9A50048BCF1 /* ipad-details-background.png in Resources */,
 				9288AC0D1787A9A50048BCF1 /* ipad-image-mask.png in Resources */,
 				9288AC0E1787A9A50048BCF1 /* ipad-list-item-active.png in Resources */,
@@ -2190,6 +2238,7 @@
 				9288AC621787A9A50048BCF1 /* Categories_48.png in Resources */,
 				9288AC631787A9A50048BCF1 /* Categories_48@2x.png in Resources */,
 				9288AC641787A9A50048BCF1 /* FolderPersonal_48.png in Resources */,
+				9205442C180C2C9F004DD35D /* WebiPromptViewController.xib in Resources */,
 				9288AC651787A9A50048BCF1 /* CategoriesPersonal_48.png in Resources */,
 				9288AC661787A9A50048BCF1 /* CategoriesPersonal_48@2x.png in Resources */,
 				9288AC671787A9A50048BCF1 /* Inbox_48.png in Resources */,
@@ -2216,6 +2265,7 @@
 				924C486417F0771B00C25F8F /* navbar-7@2x.png in Resources */,
 				9288AC781787A9A50048BCF1 /* Excel.png in Resources */,
 				9288AC791787A9A50048BCF1 /* Excel@2x.png in Resources */,
+				92054433180C2F08004DD35D /* PromptCell.xib in Resources */,
 				9288AC7A1787A9A50048BCF1 /* BlankDoc_48.png in Resources */,
 				9288AC7B1787A9A50048BCF1 /* BlankDoc_48@2x.png in Resources */,
 				9288AC7C1787A9A50048BCF1 /* APOS_Logo.jpg in Resources */,
@@ -2264,6 +2314,7 @@
 				9271C75D170A557F003842EB /* measure.jpg in Resources */,
 				928D108E170F751F00FA2C5D /* leather-background-568h@2x.png in Resources */,
 				928D108F170F751F00FA2C5D /* slider-track-fill.png in Resources */,
+				9205443D180C8E85004DD35D /* PromptLovViewController.xib in Resources */,
 				928D1090170F751F00FA2C5D /* slider-track-fill@2x.png in Resources */,
 				928D1091170F751F00FA2C5D /* back-button.png in Resources */,
 				928D1092170F751F00FA2C5D /* back-button@2x.png in Resources */,
@@ -2295,6 +2346,7 @@
 				928D10AB170F751F00FA2C5D /* ipad-bullet.png in Resources */,
 				928D10AC170F751F00FA2C5D /* ipad-count.png in Resources */,
 				924C485D17F075EC00C25F8F /* ipad-menubar-right-7@2x.png in Resources */,
+				92054440180C8EFB004DD35D /* LovValueCell.xib in Resources */,
 				928D10AD170F751F00FA2C5D /* ipad-details-background.png in Resources */,
 				928D10AE170F751F00FA2C5D /* ipad-image-mask.png in Resources */,
 				928D10AF170F751F00FA2C5D /* ipad-list-item-active.png in Resources */,
@@ -2385,6 +2437,7 @@
 				92D530821741763700156923 /* Categories_48.png in Resources */,
 				92D530841741763700156923 /* Categories_48@2x.png in Resources */,
 				92D530861741763700156923 /* FolderPersonal_48.png in Resources */,
+				9205442B180C2C9F004DD35D /* WebiPromptViewController.xib in Resources */,
 				92D530881741763700156923 /* CategoriesPersonal_48.png in Resources */,
 				92D5308A1741763700156923 /* CategoriesPersonal_48@2x.png in Resources */,
 				92D5308C1741763700156923 /* Inbox_48.png in Resources */,
@@ -2411,6 +2464,7 @@
 				924C486317F0771B00C25F8F /* navbar-7@2x.png in Resources */,
 				9271492F1749B13500851389 /* Excel.png in Resources */,
 				927149311749B13500851389 /* Excel@2x.png in Resources */,
+				92054432180C2F08004DD35D /* PromptCell.xib in Resources */,
 				927149351749B21400851389 /* BlankDoc_48.png in Resources */,
 				927149371749B21400851389 /* BlankDoc_48@2x.png in Resources */,
 				92FC4FBA176798D800284196 /* APOS_Logo.jpg in Resources */,
@@ -2508,6 +2562,7 @@
 				9288AB971787A9A50048BCF1 /* BIConnector.m in Sources */,
 				9288AB981787A9A50048BCF1 /* BI4RestConstants.m in Sources */,
 				9288AB991787A9A50048BCF1 /* BILogoff.m in Sources */,
+				9205443C180C8E85004DD35D /* PromptLovViewController.m in Sources */,
 				9288AB9A1787A9A50048BCF1 /* GetDocuments.m in Sources */,
 				9288AB9B1787A9A50048BCF1 /* DocumentsViewController.m in Sources */,
 				9288AB9C1787A9A50048BCF1 /* DocumentCell.m in Sources */,
@@ -2526,6 +2581,7 @@
 				9288ABA71787A9A50048BCF1 /* BIGetScheduleDetail.m in Sources */,
 				9288ABA81787A9A50048BCF1 /* ScheduleDetails.m in Sources */,
 				9288ABA91787A9A50048BCF1 /* ScheduleWebiViewController.m in Sources */,
+				92054437180C3669004DD35D /* PromptCell.m in Sources */,
 				9288ABAA1787A9A50048BCF1 /* DestinationViewController.m in Sources */,
 				9288ABAB1787A9A50048BCF1 /* DestinationInbox.m in Sources */,
 				9288ABAC1787A9A50048BCF1 /* BIScheduleDocument.m in Sources */,
@@ -2534,6 +2590,7 @@
 				9288ABAF1787A9A50048BCF1 /* FormatWebi.m in Sources */,
 				9288ABB01787A9A50048BCF1 /* FormatExcel.m in Sources */,
 				9288ABB11787A9A50048BCF1 /* Destination.m in Sources */,
+				9205442A180C2C9F004DD35D /* WebiPromptViewController.m in Sources */,
 				92518A0417E7411400BC7915 /* ExtensionPackViewController.m in Sources */,
 				9288ABB21787A9A50048BCF1 /* Format.m in Sources */,
 				9288ABB31787A9A50048BCF1 /* BIDeleteDocument.m in Sources */,
@@ -2579,6 +2636,7 @@
 				921C0C26179A1A1000F41946 /* Products.m in Sources */,
 				92E37E14179B223100797DA8 /* IAPHelper.m in Sources */,
 				92E37E18179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */,
+				92054445180C906F004DD35D /* LovValueCell.m in Sources */,
 				92757F54179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
 				9214469B179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
 				92716BDD17BE7B4600CE3DA2 /* SharedUtils.m in Sources */,
@@ -2588,6 +2646,7 @@
 				921E2E3C17D4FBA400AEEF16 /* DashboardViewController.m in Sources */,
 				921E2E4717D51E1600AEEF16 /* NSData+Base64.m in Sources */,
 				921E2E5617D52C4E00AEEF16 /* ioapi.c in Sources */,
+				928CA6201809DD0100149154 /* BIRefreshDocument.m in Sources */,
 				921E2E5817D52C4E00AEEF16 /* mztools.c in Sources */,
 				921E2E5A17D52C4E00AEEF16 /* unzip.c in Sources */,
 				929A3F5E17F8B315009B63B2 /* WebiPromptLov.m in Sources */,
@@ -2612,6 +2671,7 @@
 				9266BD1816D51E7700A43FD7 /* BIConnector.m in Sources */,
 				9266BD1B16D52A5C00A43FD7 /* BI4RestConstants.m in Sources */,
 				92B90BDC16D6AF5B00A3F1B7 /* BILogoff.m in Sources */,
+				9205443B180C8E85004DD35D /* PromptLovViewController.m in Sources */,
 				922F397516D6DDFC009B7761 /* GetDocuments.m in Sources */,
 				922F397816D6E3CE009B7761 /* DocumentsViewController.m in Sources */,
 				921B39C916D816FB00C0CD95 /* DocumentCell.m in Sources */,
@@ -2630,6 +2690,7 @@
 				92452FC916E57C4C00B8DCFF /* BIGetScheduleDetail.m in Sources */,
 				92452FCC16E57CA500B8DCFF /* ScheduleDetails.m in Sources */,
 				92F8335D16ECCA4D0074C404 /* ScheduleWebiViewController.m in Sources */,
+				92054436180C3669004DD35D /* PromptCell.m in Sources */,
 				926AB73E16F696AA00BC7A08 /* DestinationViewController.m in Sources */,
 				928D564A16F79DDA000DE65D /* DestinationInbox.m in Sources */,
 				928D564D16F79E0D000DE65D /* BIScheduleDocument.m in Sources */,
@@ -2638,6 +2699,7 @@
 				928D565616F7EF4D000DE65D /* FormatWebi.m in Sources */,
 				928D565916F7EF66000DE65D /* FormatExcel.m in Sources */,
 				928D565C16F7F053000DE65D /* Destination.m in Sources */,
+				92054429180C2C9F004DD35D /* WebiPromptViewController.m in Sources */,
 				92518A0317E7411400BC7915 /* ExtensionPackViewController.m in Sources */,
 				928D566016F7F13D000DE65D /* Format.m in Sources */,
 				92F90E3616FE2DEA00FA501A /* BIDeleteDocument.m in Sources */,
@@ -2683,6 +2745,7 @@
 				921C0C25179A1A1000F41946 /* Products.m in Sources */,
 				92E37E13179B223100797DA8 /* IAPHelper.m in Sources */,
 				92E37E17179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */,
+				92054444180C906F004DD35D /* LovValueCell.m in Sources */,
 				92757F53179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
 				9214469A179B4ACC005D5659 /* InAppPucrhaseCell.m in Sources */,
 				92716BDC17BE7B4600CE3DA2 /* SharedUtils.m in Sources */,
@@ -2692,6 +2755,7 @@
 				921E2E3B17D4FBA400AEEF16 /* DashboardViewController.m in Sources */,
 				921E2E4617D51E1600AEEF16 /* NSData+Base64.m in Sources */,
 				921E2E5517D52C4E00AEEF16 /* ioapi.c in Sources */,
+				928CA61F1809DD0100149154 /* BIRefreshDocument.m in Sources */,
 				921E2E5717D52C4E00AEEF16 /* mztools.c in Sources */,
 				921E2E5917D52C4E00AEEF16 /* unzip.c in Sources */,
 				929A3F5D17F8B315009B63B2 /* WebiPromptLov.m in Sources */,

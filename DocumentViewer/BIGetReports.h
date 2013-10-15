@@ -34,6 +34,7 @@
 @property (nonatomic, weak) id <BIGetReportsDelegate> delegate;
 
 -(void) getReportsForDocument: (Document *) document;
+-(void) getReportsForDocument: (Document *) document withToken: (NSString *) cmsToken;
 -(void) logoOffIfNeeded;
 
 @end

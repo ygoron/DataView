@@ -36,6 +36,7 @@
 @property (nonatomic, weak) id <BIGetDocumentDetailsDelegate> delegate;
 
 -(void) getDocumentDetailForDocument: (Document *) document;
+-(void) getDocumentDetailForDocument: (Document *) document withToken:(NSString *) token;
 -(void) logoOffIfNeeded;
 
 @end

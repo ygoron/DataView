@@ -53,6 +53,7 @@
     
 }
 
+
 -(void) exportDocument:(Document *)document withFormat:(ReportExportFormat)format
 {
     NSLog(@"Export Document ID:%@ With Session:%@",document.id, document.session.name);
@@ -85,8 +86,10 @@
     if(cmsToken!=nil){
         NSLog(@"Token Receieved:%@",cmsToken);
         self.currentToken=cmsToken;
-        if (_isDocument==NO)[self processHttpRequestForSession:self.report];
-        else          [self processHttpRequestForSessionWithDocument:_document];
+        
+            if (_isDocument==NO)[self processHttpRequestForSession:self.report];
+            else          [self processHttpRequestForSessionWithDocument:_document];
+        
         
     }else if (biConnector.connectorError!=nil){
         self.connectorError=biConnector.connectorError ;
@@ -103,7 +106,7 @@
 }
 
 
-# pragma mark Export Report
+# pragma mark Export Document
 
 -(void) processHttpRequestForSessionWithDocument: (Document *) document
 {
@@ -187,6 +190,7 @@
     (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
     
 }
+
 
 
 # pragma mark getExportDocument URL
