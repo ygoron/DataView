@@ -16,12 +16,16 @@
 #import "ScheduleWebiViewController.h"
 #import "TitleLabel.h"
 #import "WebiAppDelegate.h"
-#import "BILogoff.h"
 #import "OpenDocumentViewController.h"
 #import "BrowserMainViewController.h"
 #import "BI4RestConstants.h"
 #import "SharedUtils.h"
 #import "Utils.h"
+#import "WebiPrompt.h"
+#import "WebiPromptLovInterval.h"
+#import "ReportViewController.h"
+#import "BIRefreshDocument.h"
+#import "WebiPromptViewController.h"
 @interface DocumentDetailsViewController ()
 
 
@@ -44,6 +48,10 @@
     BOOL isOpenWholeDocument;
     Document *documentToOpen;
     ReportExportFormat exportFormat;
+    NSString *sharedCmsToken; // Token to be shared between GetDocumentDetails, GetReports and Get Parameters
+    BOOL isPromptsLoaded;
+    NSArray *__webiPrompts;
+    BOOL __isRefreshDocument;
     
     
 }
@@ -136,17 +144,44 @@
     if (self.document!=nil);
     [spinner startAnimating];
     
-    isDocumentRefreshing=YES;
-    BIGetDocumentDetails *biGetDocumentDetails=[[BIGetDocumentDetails alloc] init];
-    biGetDocumentDetails.delegate=self;
-    biGetDocumentDetails.isInstance=isInstance;
-    [biGetDocumentDetails getDocumentDetailForDocument:self.document];
+    
+    NSLog(@"Creating a shared Token");
+    if (appDelegate.activeSession.cmsToken!=nil){
+        NSLog(@"Reset exsiting Token");
+        BILogoff *biLoggof=[[BILogoff alloc] init];
+        biLoggof.delegate=self;
+        [biLoggof logoffSession:appDelegate.activeSession withToken:appDelegate.activeSession.cmsToken];
+    }else{
+        BIConnector *connector=[[BIConnector alloc] init];
+        connector.delegate=self;
+        connector.option=1;
+        [connector getCmsTokenWithSession:appDelegate.activeSession];
+        
+    }
+    
+    
+    
+    //        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"RefreshDoc_Ident"];
+    //    if (cell!=nil){
+    //        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    //        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    //    }
+    
+    
     
     
     
     
 }
 
+-(void)biLogoff:(BILogoff *)biLogoff didLogoff:(BOOL)isSuccess
+{
+    BIConnector *connector=[[BIConnector alloc] init];
+    connector.delegate=self;
+    connector.option=1;
+    [connector getCmsTokenWithSession:appDelegate.activeSession];
+    
+}
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     
@@ -226,18 +261,22 @@
 
 -(void) biGetDocumentDetails:(BIGetDocumentDetails *)biGetDocumentDetails isSuccess:(BOOL)isSuccess document:(Document *)receivedDocument{
     
-    
     if (self.isExternalFormat==NO){
-        isReportsRefreshing=YES;
-        [self.actionButton setEnabled:NO];
-        BIGetReports *biGetReports=[[BIGetReports alloc]init];
-        biGetReports.delegate=self;
-        biGetReports.context=context;
-        [biGetReports getReportsForDocument:self.document];
-    }else{
-        isReportsRefreshing=NO;
         [self.actionButton setEnabled:YES];
     }
+    
+    
+    //    if (self.isExternalFormat==NO){
+    //        isReportsRefreshing=YES;
+    //        [self.actionButton setEnabled:NO];
+    //        BIGetReports *biGetReports=[[BIGetReports alloc]init];
+    //        biGetReports.delegate=self;
+    //        biGetReports.context=context;
+    //        [biGetReports getReportsForDocument:self.document];
+    //    }else{
+    //        isReportsRefreshing=NO;
+    //        [self.actionButton setEnabled:YES];
+    //    }
     
     
     isDocumentRefreshing=NO;
@@ -290,7 +329,10 @@
 {
     // Return the number of rows in the section.
     if (section==0) return 1;
-    else     if (section==1) return 1;
+    else     if (section==1) {
+        if (!isInstance)return 2;
+        else return 1; // Hide Refresh
+    }
     else if (section==2) {
         if (!isInstance)return 1;
         else return 0; // Hide Historical Instance for Instance Detail
@@ -305,6 +347,7 @@
     static NSString *CellIdentifier2 = @"ReportsList_Ident";
     static NSString *CellIdentifier3 = @"HistoricalInstances_Ident";
     static NSString *CellIdentifier4 = @"DocumentDetails_Static_Schedule";
+    static NSString *CellIdentifier5 = @"RefreshDoc_Ident";
     
     if (indexPath.section==0){
         DocumentDetailsCell *cell;
@@ -370,17 +413,35 @@
             
             return cell;
             
-        }else if(indexPath.section==1){
+        }else if(indexPath.section==1 && indexPath.row==0){
             //DocumentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier4 forIndexPath:indexPath];
             UITableViewCell *cell;
             if ([self.tableView respondsToSelector:@selector(dequeueReusableCellWithIdentifier:forIndexPath:)])
                 cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier4 forIndexPath:indexPath];
             else
                 cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier4];
-            if (isInstance) cell.textLabel.text=NSLocalizedString(@"Re-Schedule",nil);
-            else cell.textLabel.text=NSLocalizedString(@"Schedule",nil);
+            
+            
+            NSString *cellText=[[NSString alloc] init];
+            if (isInstance) {
+                //                cell.textLabel.text=NSLocalizedString(@"Re-Schedule",nil);
+                cellText=NSLocalizedString(@"Re-Schedule",nil);;
+            }
+            
+            else {
+                //             cell.textLabel.text=NSLocalizedString(@"Schedule",nil);
+                cellText= NSLocalizedString(@"Schedule",nil);
+            }
             //            [[cell textLabel]setTextColor:[UIColor colorWithRed:163.0/255 green:117.0/255 blue:89.0/255 alpha:1.0]];
             
+            [self toggleScheduleAndRefreshForCell:cell withText:cellText];
+            return cell;
+            
+        }else if(indexPath.section==1 && indexPath.row==1){
+            UITableViewCell *cell;
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier5];
+            //            cell.textLabel.text=NSLocalizedString(@"Refresh",nil);
+            [self toggleScheduleAndRefreshForCell:cell withText:NSLocalizedString(@"Refresh",nil)];
             return cell;
             
         }else{
@@ -397,6 +458,19 @@
     
 }
 
+-(void) toggleScheduleAndRefreshForCell: (UITableViewCell *) cell withText: (NSString *) text
+{
+    if (isPromptsLoaded==NO){
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        [cell setUserInteractionEnabled:NO];
+        cell.textLabel.text=NSLocalizedString(@"Loading...", nil);
+    }else{
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        [cell setUserInteractionEnabled:YES];
+        cell.textLabel.text=text;
+    }
+    
+}
 
 /*
  // Override to support conditional editing of the table view.
@@ -441,6 +515,36 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@" Index Path: %@",indexPath);
+    
+    if (indexPath.section==1 && indexPath.row==1){
+        NSLog(@"Proceed with Parameters");
+        [TestFlight passCheckpoint:@"Document Refresh Selected"];
+        //        WebiPromptsEngine *promptEngine=[[WebiPromptsEngine alloc] init];
+        //        promptEngine.delegate=self;
+        //        [spinner  startAnimating];
+        //        [promptEngine getPrompts:self.document];
+        
+        if(__webiPrompts.count==0){
+            if (isPromptsLoaded==YES){
+                __isRefreshDocument=YES;
+                [self performSegueWithIdentifier:@"ExportReport_Ident" sender:self];
+                //                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+                //                ReportViewController *vc = (ReportViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"ReportView"];
+                //                 [self.navigationController presentViewController:vc animated:YES completion:nil];
+                //                [self.navigationController pushViewController:vc animated:YES];
+            }
+        }else{
+            WebiPromptViewController *promptVC=[[WebiPromptViewController alloc]initWithNibName:@"WebiPromptViewController" bundle:nil];
+            promptVC.webiPrompts=__webiPrompts;
+            [self.navigationController pushViewController:promptVC animated:YES];
+            
+        }
+        
+        
+        
+    }
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -449,7 +553,51 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
-
+-(void)didGetPrompts:(WebiPromptsEngine *)webiPromptsEngine isSuccess:(BOOL)isSuccess withPrompts:(NSArray *)webiPrompts withErrorText:(NSString *)errorText
+{
+    isPromptsLoaded=YES;
+    //    [self.tableView reloadData];
+    [self.tableView reloadSections: [NSIndexSet indexSetWithIndex:1] withRowAnimation:YES];
+    [spinner stopAnimating];
+    
+    NSLog(@"Prompts Received With Success:%d Number of Prompts: %d",isSuccess,webiPrompts.count);
+    __webiPrompts=webiPrompts;
+    for (WebiPrompt *webiPrompt in webiPrompts) {
+        NSLog(@"Prompt Name: %@",webiPrompt.name);
+        NSLog(@"Data Provider Id: %@",webiPrompt.dataproviderId);
+        if (webiPrompt.answer){
+            NSLog(@"Answer Type: %@",webiPrompt.answer.type);
+            NSLog(@"Answer Constrained: %d",webiPrompt.answer.isConstrained);
+            if (webiPrompt.answer.info){
+                NSLog(@"Cardinality: %@",webiPrompt.answer.info.cardinality);
+                if (webiPrompt.answer.info.lov){
+                    NSLog(@"is LOV Hierarchical: %d",webiPrompt.answer.info.lov.isHieararchical);
+                    if (webiPrompt.answer.info.lov.values){
+                        NSLog(@"Number of LOV Values: %d",webiPrompt.answer.info.lov.values.count);
+                        for (NSString *value in webiPrompt.answer.info.lov.values) {
+                            NSLog(@"Value:%@",value);
+                        }
+                    }
+                    if (webiPrompt.answer.info.lov.intervals){
+                        NSLog(@"Number of Intervals:%d",webiPrompt.answer.info.lov.intervals.count);
+                        for (WebiPromptLovInterval *interval in webiPrompt.answer.info.lov.intervals) {
+                            NSLog(@"Interval ID:%d",interval.intervalId);
+                            for (NSString *intervalValue in interval.values) {
+                                NSLog(@"Interval Value: %@",intervalValue);
+                            }
+                        }
+                    }
+                }
+            }
+            if (webiPrompt.answer.values){
+                for (NSString *value in webiPrompt.answer.values) {
+                    NSLog(@"Default Value: %@",value);
+                }
+            }
+        }
+    }
+    
+}
 
 - (void)performAction:(id)sender {
     
@@ -534,21 +682,28 @@
         UINavigationController *nav=segue.destinationViewController;
         ReportViewController    *reportExportView =[nav.viewControllers objectAtIndex:0];
         reportExportView.hidesBottomBarWhenPushed=YES;
-        
-        if (!isOpenWholeDocument==YES){
-            //        ReportViewController    *reportExportView =segue.destinationViewController;
-            reportExportView.exportFormat=FormatPDF;
-            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            reportExportView.report=[[self.document.reports allObjects] objectAtIndex:[indexPath row]];
-            reportExportView.titleText=reportExportView.report.name;
+        if (__isRefreshDocument==YES){
+            
+            reportExportView.isRefreshDocument=YES;
+            reportExportView.webiPrompts=nil;
+            reportExportView.document=_document;
+            
+        }else{
+            if (!isOpenWholeDocument==YES){
+                //        ReportViewController    *reportExportView =segue.destinationViewController;
+                reportExportView.exportFormat=FormatPDF;
+                NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+                reportExportView.report=[[self.document.reports allObjects] objectAtIndex:[indexPath row]];
+                reportExportView.titleText=reportExportView.report.name;
+            }
+            else {
+                reportExportView.isOpenWholeDocument=isOpenWholeDocument;
+                reportExportView.document=documentToOpen;
+                reportExportView.exportFormat=exportFormat;
+                reportExportView.titleText=documentToOpen.name;
+            }
+            isOpenWholeDocument=NO;
         }
-        else {
-            reportExportView.isOpenWholeDocument=isOpenWholeDocument;
-            reportExportView.document=documentToOpen;
-            reportExportView.exportFormat=exportFormat;
-            reportExportView.titleText=documentToOpen.name;
-        }
-        isOpenWholeDocument=NO;
 	}else if ([segue.identifier isEqualToString:@"ScheduleDetail_Ident"]){
         ScheduleDetailViewController *scheduleDetail= segue.destinationViewController;
         scheduleDetail.document=self.document;
@@ -558,6 +713,17 @@
         scheduleWebi.document=self.document;
         
     }
+    //    else if ([segue.identifier isEqualToString:@"RefreshDocument_Ident"]){
+    //        if(__webiPrompts.count==0){
+    //            if (isPromptsLoaded==YES){
+    //                ReportViewController *vc = segue.destinationViewController;
+    //                vc.isRefreshDocument=YES;
+    //                vc.webiPrompts=nil;
+    //                vc.document=_document;
+    //            }
+    //        }
+    //
+    //    }
     
     
 }
@@ -649,12 +815,12 @@
         opdv.isOpenDocumentManager=NO;
     }
     
-//    UINavigationController *nav = [[UINavigationController alloc]
-//                                   initWithRootViewController:opdv] ;
-//    
-//    [self presentViewController:nav animated:YES completion:NULL];
-
-
+    //    UINavigationController *nav = [[UINavigationController alloc]
+    //                                   initWithRootViewController:opdv] ;
+    //
+    //    [self presentViewController:nav animated:YES completion:NULL];
+    
+    
     opdv.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:opdv animated:YES];
     
@@ -671,8 +837,39 @@
 
 -(void) biConnector:(BIConnector *)biConnector didCreateCmsToken:(NSString *)cmsToken forSession:(Session *)session
 {
-    NSLog(@"Token Created: for Session%@",session);
-    [self launchOpenDocWithSession:session forDocument: _document];
+    sharedCmsToken=cmsToken;
+    if (biConnector.option==1){
+        isDocumentRefreshing=YES;
+        BIGetDocumentDetails *biGetDocumentDetails=[[BIGetDocumentDetails alloc] init];
+        biGetDocumentDetails.delegate=self;
+        biGetDocumentDetails.isInstance=isInstance;
+        _document.session=session;
+        [biGetDocumentDetails getDocumentDetailForDocument:self.document withToken:sharedCmsToken];
+        
+        if (self.isExternalFormat==NO){
+            isPromptsLoaded=NO;
+            WebiPromptsEngine *promptEngine=[[WebiPromptsEngine alloc] init];
+            promptEngine.delegate=self;
+            [promptEngine getPrompts:self.document withToken:sharedCmsToken];
+            
+            
+            isReportsRefreshing=YES;
+            [self.actionButton setEnabled:NO];
+            BIGetReports *biGetReports=[[BIGetReports alloc]init];
+            biGetReports.delegate=self;
+            biGetReports.context=context;
+            [biGetReports getReportsForDocument:self.document withToken:sharedCmsToken];
+        }else{
+            isReportsRefreshing=NO;
+            [self.actionButton setEnabled:YES];
+        }
+    }
+    
+    
+    else{
+        NSLog(@"Token Created: for Session%@",session);
+        [self launchOpenDocWithSession:session forDocument: _document];
+    }
 }
 
 

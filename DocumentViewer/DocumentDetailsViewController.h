@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Document.h"
 #import "BIGetDocumentDetails.h"
+#import "WebiPromptsEngine.h"
 #import "BIGetReports.h"
+#import "BILogoff.h"
 
-
-@interface DocumentDetailsViewController : UITableViewController <BIGetDocumentDetailsDelegate,BIGetReportsDelegate,UIActionSheetDelegate, BIConnectorDelegate>
+@interface DocumentDetailsViewController : UITableViewController <BIGetDocumentDetailsDelegate,BIGetReportsDelegate,UIActionSheetDelegate, BIConnectorDelegate,WebiPromptsEngineDelegate,BILogoffDelegate>
 @property (nonatomic, strong) Document *document;
 @property (nonatomic, assign) BOOL isInstance;
 @property (nonatomic, strong) UIBarButtonItem *actionButton;

@@ -31,6 +31,14 @@
 
 #pragma mark getReportsForDocument
 
+-(void) getReportsForDocument:(Document *)document withToken:(NSString *)cmsToken
+{
+    appDelegate = (id)[[UIApplication sharedApplication] delegate];
+    self.currentToken=cmsToken;
+    self.document.session.cmsToken=cmsToken;
+    [self processHttpRequestForSession:document];
+    
+}
 -(void) getReportsForDocument:(Document *)document{
     
     NSLog (@"Get Reports for Document:%@",document.name);
@@ -61,6 +69,7 @@
     if(cmsToken!=nil){
         NSLog(@"Token Receieved:%@",cmsToken);
         self.currentToken=cmsToken;
+        self.document.session.cmsToken=cmsToken;
         [self processHttpRequestForSession:self.document];
         
     }else if (biConnector.connectorError!=nil){
@@ -81,14 +90,14 @@
 
 -(void) processHttpRequestForSession: (Document*) document{
     self.biSession=document.session;
-//    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",document.session.cmsToken,@"\""];
+    //    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",document.session.cmsToken,@"\""];
     NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",self.currentToken,@"\""];
     NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:[self getReportsURL:document]];
     [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
     NSLog(@"Process with URL: %@",[request URL]);
     NSLog(@"Token:%@",cmsToken);
     
-//    WebiAppDelegate *appDelegate= (id)[[UIApplication sharedApplication] delegate];
+    //    WebiAppDelegate *appDelegate= (id)[[UIApplication sharedApplication] delegate];
     NSLog(@"Timeout Preference Value:%@",appDelegate.globalSettings.networkTimeout);
     [request setTimeoutInterval:[appDelegate.globalSettings.networkTimeout doubleValue ]];
     
@@ -217,7 +226,7 @@
     }else{
         [self.delegate biGetReports:self isSuccess:YES reports:reports];
     }
-
+    
     [self logoOffIfNeeded];
 }
 
@@ -236,7 +245,7 @@
         NSLog(@"Logoff Session:%@",session.name);
     }
     
-
+    
 }
 
 

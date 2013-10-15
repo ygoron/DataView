@@ -28,7 +28,7 @@
     NSString *exportFilePath;
     TitleLabel *titleLabel;
     UIGestureRecognizer *tapper;
-
+    
 }
 
 //@synthesize navigationBar;
@@ -54,7 +54,7 @@
     spinner = [[UIActivityIndicatorView alloc]  initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     spinner.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin);
     spinner.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
-//    spinner.center = CGPointMake(self.webView.bounds.size.width / 2.0f, self.webView.bounds.size.height / 2.0f);
+    //    spinner.center = CGPointMake(self.webView.bounds.size.width / 2.0f, self.webView.bounds.size.height / 2.0f);
     //    spinner.center = CGPointMake(160, 240);
     NSLog(@"Title:%@",self.report.name);
     //    self.navigationBar.topItem.title=self.report.name;
@@ -67,7 +67,7 @@
     self.webView.delegate=self;
     [self.view addSubview:spinner];
     
-
+    
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                target:self
                                                                                action:@selector(performAction:)];
@@ -76,29 +76,58 @@
     tapper = [[UITapGestureRecognizer alloc]init];
     [self.view addGestureRecognizer:tapper];
     tapper.delegate=self;
-
+    
     self.actionButton = barButton;
     self.navigationItem.rightBarButtonItem=barButton;
     
     self.picVisible = NO;
     
- [self.actionButton setEnabled:NO];
+    [self.actionButton setEnabled:NO];
     
-    
-    if (_isOpenWholeDocument==NO) {
-        //        titelLabel.text=self.report.name;
-        //        [titelLabel sizeToFit];
-        [self loadWebViewWithReport:self.report];
+    if (_isRefreshDocument==YES){
+        [self refreshDocument];
+    }else{
+        
+        if (_isOpenWholeDocument==NO) {
+            //        titelLabel.text=self.report.name;
+            //        [titelLabel sizeToFit];
+            [self loadWebViewWithReport:self.report];
+        }
+        else {
+            //        titelLabel.text=_document.name;
+            //        [titelLabel sizeToFit];
+            
+            
+            [self loadWebViewWithDocument:_document];
+            
+        }
     }
-    else {
-        //        titelLabel.text=_document.name;
-        //        [titelLabel sizeToFit];
+    
+}
+
+-(void) refreshDocument
+{
+    
+    [spinner startAnimating];
+    BIRefreshDocument *refreshDoc=[[BIRefreshDocument alloc] init];
+    refreshDoc.delegate=self;
+    [refreshDoc refreshDocument:_document withPrompts:_webiPrompts];
+    
+}
+
+-(void) biRefreshDocument:(BIRefreshDocument *)biRefreshDocument isSuccess:(BOOL)isSuccess withMessage:(NSString *)message
+{
+    NSLog("Document Refreshed. isSuccess: %d. Message:%@",isSuccess,message);
+    [spinner stopAnimating];
+    if (isSuccess==NO){
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed",nil) message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
         
-        
+    }else{
+        [spinner startAnimating];
+        _exportFormat=FormatPDF;
         [self loadWebViewWithDocument:_document];
-        
     }
-    
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -122,7 +151,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    //    [self.navigationController setNavigationBarHidden:YES animated:YES];
     NSLog(@"Finish ViewDidFinishLoad");
     if (_isOpenWholeDocument==NO)
         NSLog(@"View Loaded Title:%@",self.report.name);
@@ -340,7 +369,7 @@
         MFMailComposeViewController *viewController = [[MFMailComposeViewController alloc] init];
         viewController.mailComposeDelegate = self;
         
-//        [viewController setSubject:[NSString stringWithFormat:@"%@ - APOS BI Viewer Mobile App",self.report.name]];
+        //        [viewController setSubject:[NSString stringWithFormat:@"%@ - APOS BI Viewer Mobile App",self.report.name]];
         [viewController setSubject:[NSString stringWithFormat:@"%@ - APOS BI Viewer Mobile App",(self.report.name==nil)?_titleText:self.report.name]];
         switch (_exportFormat) {
             case FormatHTML:
@@ -446,7 +475,7 @@
 
 //-(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 //{
-//    
+//
 //    NSLog(@"Hanlde Single Tap - 0");
 //    if (self.navigationController.navigationBarHidden==YES){
 //        [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -455,7 +484,7 @@
 //        [self.navigationController setNavigationBarHidden:YES animated:YES];
 //        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 //    }
-//    
+//
 //    return YES;
 //}
 

@@ -48,6 +48,7 @@ typedef enum ReportExportFormat {
 
 @property (nonatomic, weak) id <BIExportReportDelegate> delegate;
 
+
 -(void) exportDocument: (Document *) document withFormat: (ReportExportFormat) format;
 -(void) exportReport: (Report *) report withFormat: (ReportExportFormat) format;
 -(void) logoOffIfNeeded;
