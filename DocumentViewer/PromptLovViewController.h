@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "WebiPrompt.h"
+#import "WebiPromptsEngine.h"
+#import "Document.h"
 
-@interface PromptLovViewController : UITableViewController
+@interface PromptLovViewController : UITableViewController <WebiPromptsEngineDelegate>
 
 @property (strong, nonatomic) WebiPrompt *webiprompt;
+@property (strong, nonatomic) Document *document;
 @end

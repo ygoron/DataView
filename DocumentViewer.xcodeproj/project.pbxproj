@@ -103,6 +103,8 @@
 		92518A0417E7411400BC7915 /* ExtensionPackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92518A0117E7411400BC7915 /* ExtensionPackViewController.m */; };
 		9251997B16F90BCC0069D191 /* ding-ding-small-bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9251997A16F90BCC0069D191 /* ding-ding-small-bell.wav */; };
 		9251997D16F90F950069D191 /* ScheduleSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9251997C16F90F950069D191 /* ScheduleSound.wav */; };
+		92556296181F3E1F00146E88 /* BISaveDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 92556295181F3E1F00146E88 /* BISaveDocument.m */; };
+		92556297181F3E1F00146E88 /* BISaveDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 92556295181F3E1F00146E88 /* BISaveDocument.m */; };
 		9256264C17313C80006CEEB6 /* BrowserMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9256264B17313C80006CEEB6 /* BrowserMainViewController.m */; };
 		92579AC417E8B0AF00F463A3 /* ExtensionPack.m in Sources */ = {isa = PBXBuildFile; fileRef = 92579AC317E8B0AF00F463A3 /* ExtensionPack.m */; };
 		92579AC517E8B0AF00F463A3 /* ExtensionPack.m in Sources */ = {isa = PBXBuildFile; fileRef = 92579AC317E8B0AF00F463A3 /* ExtensionPack.m */; };
@@ -765,6 +767,8 @@
 		92518A0117E7411400BC7915 /* ExtensionPackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionPackViewController.m; sourceTree = "<group>"; };
 		9251997A16F90BCC0069D191 /* ding-ding-small-bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ding-ding-small-bell.wav"; sourceTree = "<group>"; };
 		9251997C16F90F950069D191 /* ScheduleSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ScheduleSound.wav; sourceTree = "<group>"; };
+		92556294181F3E1F00146E88 /* BISaveDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BISaveDocument.h; sourceTree = "<group>"; };
+		92556295181F3E1F00146E88 /* BISaveDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BISaveDocument.m; sourceTree = "<group>"; };
 		9256264A17313C80006CEEB6 /* BrowserMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserMainViewController.h; sourceTree = "<group>"; };
 		9256264B17313C80006CEEB6 /* BrowserMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserMainViewController.m; sourceTree = "<group>"; };
 		92579AC217E8B0AF00F463A3 /* ExtensionPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionPack.h; sourceTree = "<group>"; };
@@ -1533,6 +1537,8 @@
 				920DB49716E17F3F001D3546 /* BIExportReport.m */,
 				920DB49C16E18B7E001D3546 /* ReportViewController.h */,
 				920DB49D16E18B7E001D3546 /* ReportViewController.m */,
+				92556294181F3E1F00146E88 /* BISaveDocument.h */,
+				92556295181F3E1F00146E88 /* BISaveDocument.m */,
 			);
 			name = ReportView;
 			sourceTree = "<group>";
@@ -1728,6 +1734,7 @@
 				92ADE98B16CB2A920027BD4D /* LogonViewController.h */,
 				92ADE98C16CB2A920027BD4D /* LogonViewController.m */,
 				922D14CB176A96430026B5ED /* MainStoryboard.storyboard */,
+				929A3F4A17F8AC73009B63B2 /* Parameters */,
 				928D10DC170F9C0900FA2C5D /* ReportView */,
 				9240219D170500760056A87B /* Resources */,
 				921B39CA16D8518000C0CD95 /* REST Classes */,
@@ -2604,6 +2611,7 @@
 				9288ABB51787A9A50048BCF1 /* UniversesListViewController.m in Sources */,
 				9288ABB61787A9A50048BCF1 /* Universe.m in Sources */,
 				9288ABB71787A9A50048BCF1 /* UniverseCell.m in Sources */,
+				92556297181F3E1F00146E88 /* BISaveDocument.m in Sources */,
 				92579ACE17E8DE5F00F463A3 /* Response.m in Sources */,
 				9288ABB81787A9A50048BCF1 /* BIGetUniverses.m in Sources */,
 				9288ABB91787A9A50048BCF1 /* BIGetUniverseDetails.m in Sources */,
@@ -2713,6 +2721,7 @@
 				92ADF00317073CD80056B72F /* UniversesListViewController.m in Sources */,
 				92ADF00617073D130056B72F /* Universe.m in Sources */,
 				92ADF00B1707679D0056B72F /* UniverseCell.m in Sources */,
+				92556296181F3E1F00146E88 /* BISaveDocument.m in Sources */,
 				92579ACD17E8DE5F00F463A3 /* Response.m in Sources */,
 				92ADF00E17076A240056B72F /* BIGetUniverses.m in Sources */,
 				92ADF01B170795080056B72F /* BIGetUniverseDetails.m in Sources */,

@@ -1,20 +1,19 @@
 //
-//  BIRefreshDocument.m
+//  BISaveDocument.m
 //  DocumentViewer
 //
-//  Created by Yuri Goron on 2013-10-12.
+//  Created by Yuri Goron on 2013-10-28.
 //  Copyright (c) 2013 APOS Systems. All rights reserved.
 //
 
-#import "BIRefreshDocument.h"
+#import "BISaveDocument.h"
 #import "WebiAppDelegate.h"
 #import "Document.h"
 #import "BI4RestConstants.h"
 #import "BILogoff.h"
-#import "WebiPrompt.h"
 
-@implementation BIRefreshDocument
 
+@implementation BISaveDocument
 
 {
     BIConnector *connector;
@@ -24,15 +23,15 @@
     Document *__document;
     NSMutableData *responseData;
     
+    
 }
+#pragma mark Save Document
 
-
-#pragma mark Refresh Document
--(void)refreshDocument:(Document *)document withPrompts:(NSDictionary *)webiPromts
+-(void) saveDocument:(Document *)document
 {
-    NSLog(@"Refresh Document With Prompts");
+    
+    NSLog(@"Save Document");
     __document=document;
-    __webiPrompts=webiPromts;
     appDelegate = (id)[[UIApplication sharedApplication] delegate];
     _currentToken=appDelegate.activeSession.cmsToken;
     
@@ -44,10 +43,9 @@
         [connector getCmsTokenWithSession:document.session];
     }else{
         NSLog(@"CMS Token is NOT NULL - Process With Existing Token");
-        [self processHttpRequestRefreshDocument:__document];
+        [self processHttpRequestSaveDocument:__document];
         
     }
-    
     
 }
 
@@ -59,29 +57,29 @@
         NSLog(@"Token Receieved:%@",cmsToken);
         _currentToken=cmsToken;
         appDelegate.activeSession.cmsToken=cmsToken;
-        [self processHttpRequestRefreshDocument:__document];
+        [self processHttpRequestSaveDocument:__document];
         
         
     }else if (biConnector.connectorError!=nil){
         self.connectorError=biConnector.connectorError ;
-        [self.delegate biRefreshDocument:self isSuccess:NO withMessage:_connectorError.localizedDescription ];
+        [self.delegate biSaveDocument:self isSuccess:NO withMessage:_connectorError.localizedDescription ];
         
     }else if (biConnector.boxiError!=nil){
         self.boxiError=biConnector.boxiError;
-        [self.delegate biRefreshDocument:self isSuccess:NO withMessage:_boxiError ];
+        [self.delegate biSaveDocument:self isSuccess:NO withMessage:_boxiError ];
         
     }else{
-        [self.delegate biRefreshDocument:self isSuccess:NO withMessage:NSLocalizedString(@"Server Error", nil)];
+        [self.delegate biSaveDocument:self isSuccess:NO withMessage:NSLocalizedString(@"Server Error", nil)];
     }
     
 }
 
-# pragma mark Refresh Document
--(void) processHttpRequestRefreshDocument: (Document *) document
+# pragma mark Save Document
+-(void) processHttpRequestSaveDocument: (Document *) document
 {
     
     NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",self.currentToken,@"\""];
-    NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:[self getRefreshDocumentURL:document]];
+    NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:[self getSaveDocumentUrl:document]];
     NSLog(@"Process with URL: %@",[request URL]);
     NSLog(@"Token:%@",cmsToken);
     
@@ -92,65 +90,28 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
     
-    if (__webiPrompts.count>0) {
-        NSString *parameterJsonString=[self buildJSONPromptStringWithPrompts:__webiPrompts];
-        //        [request setHTTPBody:[[NSData alloc] initWithBase64Encoding:parameterJsonString]];
-        [request setHTTPBody: [parameterJsonString dataUsingEncoding:NSUTF8StringEncoding]];
-    }
     (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     
 }
 
+# pragma mark getSaveDocument URL
 
--(NSString *) buildJSONPromptStringWithPrompts: (NSDictionary *) webiPrompts
-{
-    NSMutableDictionary *parametersJsonRoot =[[NSMutableDictionary alloc] init];
-    NSMutableArray *parameter=[[NSMutableArray alloc] init];
-    
-    int promptIndex=0;
-    for (WebiPrompt *prompt in webiPrompts) {
-        NSDictionary *value=[[NSDictionary alloc] initWithObjectsAndKeys:prompt.answer.values,@"value",nil];
-        NSDictionary *valuesJson=[NSDictionary dictionaryWithObjectsAndKeys:value,@"values", nil];
-        NSDictionary *answerJson=[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",promptIndex],@"id",valuesJson,@"answer", nil];
-        [parameter addObject:answerJson];
-        promptIndex++;
-        
-    }
-    
-    NSDictionary *parameterJson=[NSDictionary dictionaryWithObjectsAndKeys:parameter,@"parameter", nil];
-    [parametersJsonRoot setObject:parameterJson forKey: @"parameters"];
-    
-    
-    
-    if([NSJSONSerialization isValidJSONObject:parametersJsonRoot])
-    {
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parametersJsonRoot options:0 error:nil];
-        NSString *jsonString = [[NSString alloc]initWithData:	jsonData encoding:NSUTF8StringEncoding];
-        NSLog(@"JSON Parameter String: %@",jsonString);
-        return jsonString;
-    }
-    
-    return nil;
-}
-# pragma mark getRefreshDocument URL
-
--(NSURL *) getRefreshDocumentURL: (Document *) document{
+-(NSURL *) getSaveDocumentUrl: (Document *) document{
     NSLog (@"Refresh Document URL For Report id:%@",document.id);
-    NSURL *getRefreshDocumentUrl;
+    NSURL *saveDocumentUrl;
     
     NSString *host=[NSString stringWithFormat: @"%@:%@",appDelegate.activeSession.cmsName,appDelegate.activeSession.port] ;
     if ([appDelegate.activeSession.isHttps integerValue]==1){
-        getRefreshDocumentUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@",appDelegate.activeSession.webiRestSDKBase,getDocumentsPathPoint,@"/",[document.id stringValue],@"/parameters"]];
+        saveDocumentUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%@",appDelegate.activeSession.webiRestSDKBase,getDocumentsPathPoint,@"/",[document.id stringValue]]];
     }
     else{
-        getRefreshDocumentUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%@%@",appDelegate.activeSession.webiRestSDKBase,getDocumentsPathPoint,@"/",[document.id stringValue],@"/parameters"]];
+        saveDocumentUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%@",appDelegate.activeSession.webiRestSDKBase,getDocumentsPathPoint,@"/",[document.id stringValue]]];
         
     }
-    NSLog(@"URL:%@",getRefreshDocumentUrl);
-    return  getRefreshDocumentUrl;
+    NSLog(@"URL:%@",saveDocumentUrl);
+    return  saveDocumentUrl;
 }
-
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"didReceiveResponse from URL %@",[response URL]);
@@ -176,7 +137,7 @@
             [details setValue:[NSString stringWithFormat:@"%@%d",NSLocalizedString(@"Server Error: ",nil),statusCode]  forKey:NSLocalizedDescriptionKey];
             
             _connectorError =[NSError errorWithDomain:@"Failed" code:statusCode userInfo:details];
-            [self.delegate biRefreshDocument:self isSuccess:NO withMessage:_connectorError.localizedDescription];
+            [self.delegate biSaveDocument:self isSuccess:NO withMessage:_connectorError.localizedDescription];
         }
         else{
             responseData = [[NSMutableData alloc] init];
@@ -194,18 +155,20 @@
     NSLog(@"Connection failed: %@", [error localizedDescription]);
     _connectorError =[[NSError alloc] init];
     _connectorError=error;
-    [self.delegate biRefreshDocument:self isSuccess:NO withMessage:_connectorError.localizedDescription];
+    [self.delegate biSaveDocument:self isSuccess:NO withMessage:_connectorError.localizedDescription];
 }
+
+
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"Refresh Document: connectionDidFinishLoading");
-    NSLog(@"Export Report Succeeded! Received %d bytes of data",[responseData length]);
+    NSLog(@"Save Document: connectionDidFinishLoading");
+    NSLog(@"Save Document Succeeded! Received %d bytes of data",[responseData length]);
     
     NSString *receivedString = [[NSString alloc]  initWithData:responseData
                                                       encoding:NSUTF8StringEncoding];
     
 #ifdef Trace
     int length=([receivedString length])<MAX_DISPLAY_HTTP_STRING?[receivedString length]:MAX_DISPLAY_HTTP_STRING;
-    NSLog(@"Refresh Document Data:%@%@",[receivedString substringToIndex:length],@"..." );
+    NSLog(@"Save Document Data:%@%@",[receivedString substringToIndex:length],@"..." );
 #endif
     
     BOOL isSucess=YES;
@@ -238,7 +201,7 @@
         connector.delegate=self;
         [connector getCmsTokenWithSession:appDelegate.activeSession];
     }else{
-        [self.delegate biRefreshDocument:self isSuccess:isSucess withMessage:message];
+        [self.delegate biSaveDocument:self isSuccess:isSucess withMessage:message];
     }
     
     

@@ -537,6 +537,7 @@
         }else{
             WebiPromptViewController *promptVC=[[WebiPromptViewController alloc]initWithNibName:@"WebiPromptViewController" bundle:nil];
             promptVC.webiPrompts=__webiPrompts;
+            promptVC.document=_document;
             [self.navigationController pushViewController:promptVC animated:YES];
             
         }
@@ -552,6 +553,10 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+-(void) didRefreshPrompt:(WebiPromptsEngine *)webiPromptsEngine isSuccess:(BOOL)isSuccess refreshedPrompts:(WebiPrompt *)webiPrompts withErrorText:(NSString *)errorText
+{
+    NSLog(@"Ignore");
 }
 -(void)didGetPrompts:(WebiPromptsEngine *)webiPromptsEngine isSuccess:(BOOL)isSuccess withPrompts:(NSArray *)webiPrompts withErrorText:(NSString *)errorText
 {

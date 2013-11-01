@@ -16,5 +16,6 @@
 @property (nonatomic,strong) NSString *dpId;
 @property (nonatomic, strong) NSArray *values;
 @property (nonatomic, strong) NSArray *intervals;
+@property (nonatomic, strong) NSDate *updated;
 
 @end

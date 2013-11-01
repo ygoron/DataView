@@ -29,8 +29,36 @@
     NSError *__connectorError;
     NSString *__boxiError;
     NSMutableData *responseData;
+    WebiPrompt *__webiPrompt;
+    BOOL __isRefreshPrompt;
 }
 
+-(void) refreshPromptForPrompt:(WebiPrompt *)webiPrompt forDocument:(Document *)document
+{
+    
+    __isRefreshPrompt=YES;
+    __webiPrompt=webiPrompt;
+    
+    NSLog (@"Refresh Prompt id: %d,",webiPrompt.promptId);
+    
+    appDelegate = (id)[[UIApplication sharedApplication] delegate];
+    __currentToken=document.session.cmsToken;
+    __biSession=document.session;
+    __document=document;
+    // Get Token First
+    if (document.session.cmsToken==nil || [appDelegate.globalSettings.autoLogoff boolValue]==YES){
+        NSLog(@"CMS Token is NULL - create new one");
+        connector=[[BIConnector alloc]init];
+        connector.delegate=self;
+        [connector getCmsTokenWithSession:document.session];
+    }else{
+        NSLog(@"CMS Token is NOT NULL - Process With Existing Token");
+        [self processHttpRequestForPrompt:__webiPrompt forDocument:(Document *) __document];
+        
+    }
+    
+    
+}
 -(void) getPrompts:(Document *)document withToken:(NSString *)cmsToken
 {
     NSLog (@"Get Prompts for Document:%@ With Token: %@",document.name,cmsToken);
@@ -67,7 +95,63 @@
     }
     
 }
-#pragma mark Process Http Request
+
+#pragma mark Process Http Request for Refreshing Prompts
+-(void) processHttpRequestForPrompt: (WebiPrompt *) webiPrompt forDocument:(Document *) document
+{
+    __biSession=document.session;
+    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",__currentToken,@"\""];
+    NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:[self getPromptsUrl:document]];
+    [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+    NSLog(@"Process with URL: %@",[request URL]);
+    NSLog(@"Token:%@",cmsToken);
+    
+    NSLog(@"Timeout Preference Value:%@",appDelegate.globalSettings.networkTimeout);
+    [request setTimeoutInterval:[appDelegate.globalSettings.networkTimeout doubleValue ]];
+    
+    [request setHTTPMethod:@"PUT"];
+    NSLog(@"PUT Method");
+    NSString *parameterJsonString=[self buildJSONPromptStringWithPrompts:__webiPrompt];
+    [request setHTTPBody: [parameterJsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
+    (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    
+    
+}
+
+-(NSString *) buildJSONPromptStringWithPrompts: (WebiPrompt *) webiPrompt
+{
+    
+    NSDictionary *order=[NSDictionary dictionaryWithObjectsAndKeys:@"Ascending",@"@order",nil];
+    NSDictionary *sort=[NSDictionary dictionaryWithObjectsAndKeys: @"true",@"@refresh",order,@"sort", nil];
+    
+    NSDictionary *query= [NSDictionary dictionaryWithObjectsAndKeys:[NSDictionary dictionaryWithDictionary:sort],@"query",nil];
+    
+    NSDictionary *lov=[NSDictionary dictionaryWithObjectsAndKeys:query,@"lov", nil];
+    
+    NSDictionary *info =[NSDictionary dictionaryWithObjectsAndKeys:lov,@"info", nil];
+    
+    NSDictionary *answer=[NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat:@"%d" ,webiPrompt.promptId ],@"id",info,@"answer",nil];
+    
+    NSDictionary *parameterRefresh=[NSDictionary dictionaryWithObjectsAndKeys:[NSDictionary dictionaryWithDictionary:answer],@"parameter",nil];
+    
+    NSDictionary *parametersRefresh=[NSDictionary dictionaryWithObjectsAndKeys:parameterRefresh,@"parameters",nil];
+    
+    if([NSJSONSerialization isValidJSONObject:parametersRefresh]){
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parametersRefresh options:0 error:nil];
+        NSString *jsonString = [[NSString alloc]initWithData:	jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"JSON String %@",jsonString);
+        return jsonString;
+    }
+    
+    
+    return nil;
+}
+
+#pragma mark Process Http Request for getting prompts
 -(void) processHttpRequestForDocument:(Document *) document
 {
     __biSession=document.session;
@@ -113,18 +197,31 @@
         NSLog(@"Token Receieved:%@",cmsToken);
         __currentToken=cmsToken;
         __document.session.cmsToken=__currentToken;
-        [self processHttpRequestForDocument:__document];
+        if (__isRefreshPrompt==NO){
+            [self processHttpRequestForDocument:__document];
+        }else{
+            [self processHttpRequestForPrompt:__webiPrompt forDocument:(Document *) __document];
+        }
         
     }else if (biConnector.connectorError!=nil){
         __connectorError=biConnector.connectorError ;
-        [self.delegate didGetPrompts:self isSuccess:NO withPrompts:nil withErrorText:__connectorError.description];
+        if (__isRefreshPrompt==NO)
+            [self.delegate didGetPrompts:self isSuccess:NO withPrompts:nil withErrorText:__connectorError.description];
+        else
+            [self.delegate didRefreshPrompt:self isSuccess:NO refreshedPrompts:nil withErrorText:__connectorError.description];
         
     }else if (biConnector.boxiError!=nil){
         __boxiError=biConnector.boxiError;
-        [self.delegate didGetPrompts:self isSuccess:NO withPrompts:nil withErrorText:__boxiError];
+        if (__isRefreshPrompt==NO)
+            [self.delegate didGetPrompts:self isSuccess:NO withPrompts:nil withErrorText:__boxiError];
+        else
+            [self.delegate didRefreshPrompt:self isSuccess:NO refreshedPrompts:nil withErrorText:__boxiError];
         
     }else{
-        [self.delegate didGetPrompts:self isSuccess:NO withPrompts:nil withErrorText:NSLocalizedString(@"Server Error", nil)];
+        if (__isRefreshPrompt==NO)
+            [self.delegate didGetPrompts:self isSuccess:NO withPrompts:nil withErrorText:NSLocalizedString(@"Server Error", nil)];
+        else
+            [self.delegate didRefreshPrompt:self isSuccess:NO refreshedPrompts:nil withErrorText:NSLocalizedString(@"Server Error", nil)];
     }
     
 }
@@ -144,7 +241,10 @@
             [details setValue:[NSString stringWithFormat:@"%@%d",NSLocalizedString(@"Server Error: ",nil),statusCode]  forKey:NSLocalizedDescriptionKey];
             
             __connectorError =[NSError errorWithDomain:NSLocalizedString(@"Failed",nil) code:statusCode userInfo:details];
-            [self.delegate didGetPrompts:self isSuccess:NO withPrompts:nil withErrorText:__connectorError.description];
+            if (__isRefreshPrompt==NO)
+                [self.delegate didGetPrompts:self isSuccess:NO withPrompts:nil withErrorText:__connectorError.description];
+            else
+                [self.delegate didRefreshPrompt:self isSuccess:NO refreshedPrompts:nil withErrorText:__connectorError.description];
         }
         else{
             responseData = [[NSMutableData alloc] init];
@@ -163,7 +263,10 @@
     NSLog(@"Connection failed: %@", [error localizedDescription]);
     __connectorError =[[NSError alloc] init];
     __connectorError=error;
-    [self.delegate didGetPrompts:self isSuccess:NO withPrompts:nil withErrorText:__connectorError.description];
+    if (__isRefreshPrompt==NO)
+        [self.delegate didGetPrompts:self isSuccess:NO withPrompts:nil withErrorText:__connectorError.description];
+    else
+        [self.delegate didRefreshPrompt:self isSuccess:NO refreshedPrompts:nil withErrorText:__connectorError.description];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -177,7 +280,7 @@
 #endif
     
     
-    BOOL isSucess=YES;
+    BOOL isSuccess=YES;
     
     NSMutableArray *prompts=[[NSMutableArray alloc] init];
     
@@ -191,7 +294,7 @@
     
     if ([[responseDic allKeys] containsObject:JSON_RESP_ERROR_CODE]){
         __boxiError=[responseDic objectForKey:JSON_RESP_ERROR_MESSAGE];
-        isSucess=NO;
+        isSuccess=NO;
     }
     else{
         __boxiError=nil;
@@ -243,7 +346,10 @@
         connector.delegate=self;
         [connector getCmsTokenWithSession:__biSession];
     }else{
-        [self.delegate didGetPrompts:self isSuccess:isSucess withPrompts:prompts withErrorText:nil];
+        if (__isRefreshPrompt==NO)
+            [self.delegate didGetPrompts:self isSuccess:isSuccess withPrompts:prompts withErrorText:nil];
+        else
+            [self.delegate didRefreshPrompt:self isSuccess:isSuccess refreshedPrompts:prompts withErrorText:nil];
     }
     
     [self logoOffIfNeeded];
@@ -281,6 +387,17 @@
                 if ([lovJ objectForKey:@"@partial"]) lov.isPartial=[[lovJ objectForKey:@"@partial"] isEqualToString:@"true"]?YES:NO;
                 if ([lovJ objectForKey:@"@refreshable"]) lov.isRefreshable=[[lovJ objectForKey:@"@refreshable"] isEqualToString:@"true"]?YES:NO;
                 if ([lovJ objectForKey:@"id"]) lov.dpId=[lovJ objectForKey:@"id"];
+                
+                
+                if ([lovJ objectForKey:@"updated"]) {
+                    NSDateFormatter *dateFormtter=[[NSDateFormatter alloc] init];
+                    [dateFormtter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSzzzz"];
+                    lov.updated=[dateFormtter dateFromString:[lovJ objectForKey:@"updated"]];
+                    NSLog(@"Date:%@",lov.updated);
+                }
+                
+                
+                
                 if ([lovJ objectForKey:@"intervals"]){
                     if ([[lovJ objectForKey:@"intervals"] objectForKey:@"interval"]){
                         NSDictionary *intetvalsJ=[[lovJ objectForKey:@"intervals"] objectForKey:@"interval"];

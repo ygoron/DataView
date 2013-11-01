@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Document.h"
 
 @interface WebiPromptViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *webiPrompts;
+@property (nonatomic,strong) Document *document;
 
 @end

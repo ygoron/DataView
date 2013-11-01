@@ -11,11 +11,12 @@
 #import "BIExportReport.h"
 #import <MessageUI/MFMailComposeViewController.h>
 #import "BIRefreshDocument.h"
+#import "BISaveDocument.h"
 
 @interface ReportViewController : UIViewController <BIExportReportDelegate,UIWebViewDelegate,
 UIActionSheetDelegate,
 UIPrintInteractionControllerDelegate,
-MFMailComposeViewControllerDelegate,UIGestureRecognizerDelegate,BIRefreshDocumentDelegate>
+MFMailComposeViewControllerDelegate,UIGestureRecognizerDelegate,BIRefreshDocumentDelegate,BISaveDocumentDelegate>
 
 @property (nonatomic, strong) IBOutlet UIWebView *webView;
 @property (nonatomic, strong) Report *report;

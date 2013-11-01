@@ -291,11 +291,17 @@
             //            break;
             
         case 0:
+            [TestFlight passCheckpoint:@"Save Document"];
+            [self saveReport];
+            break;
+            
+            
+        case 1:
             [TestFlight passCheckpoint:@"Webi Report Open in Mail"];
             [self openInEmail];
             break;
             
-        case 1:
+        case 2:
             [TestFlight passCheckpoint:@"Print Webi Report"];
             [self printWebView];
             break;
@@ -306,6 +312,20 @@
     }
 }
 
+-(void) saveReport
+{
+    BISaveDocument *saveDocument=[[BISaveDocument alloc] init];
+    [saveDocument setDelegate:self];
+    [saveDocument saveDocument:_document];
+    
+}
+-(void) biSaveDocument:(BISaveDocument *)biSaveDocument isSuccess:(BOOL)isSuccess withMessage:(NSString *)message
+{
+    if (isSuccess==NO){
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed",nil) message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
 -(void) openInSafari
 {
     Session *session=self.report.document.session;
@@ -416,14 +436,14 @@
                             delegate:self
                             cancelButtonTitle:cancelButtonTitle
                             destructiveButtonTitle:nil
-                            otherButtonTitles:NSLocalizedString(@"E-mail",nil), NSLocalizedString(@"Print",nil), nil];
+                            otherButtonTitles:NSLocalizedString(@"Save",nil),NSLocalizedString(@"E-mail",nil), NSLocalizedString(@"Print",nil), nil];
         } else {
             _actionSheet = [[UIActionSheet alloc]
                             initWithTitle:nil
                             delegate:self
                             cancelButtonTitle:cancelButtonTitle
                             destructiveButtonTitle:nil
-                            otherButtonTitles:NSLocalizedString(@"E-mail",nil),nil];
+                            otherButtonTitles:NSLocalizedString(@"Save",nil),NSLocalizedString(@"E-mail",nil),nil];
         }
     }
     

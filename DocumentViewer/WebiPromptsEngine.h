@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "BIConnector.h"
+#import "WebiPrompt.h"
 
 @class WebiPromptsEngine;
+
 
 @protocol WebiPromptsEngineDelegate <NSObject>
 
 -(void) didGetPrompts:(WebiPromptsEngine *) webiPromptsEngine isSuccess:(BOOL)  isSuccess withPrompts: (NSArray *) webiPrompts withErrorText:(NSString *) errorText;
+
+-(void)  didRefreshPrompt:(WebiPromptsEngine *) webiPromptsEngine isSuccess:(BOOL)  isSuccess refreshedPrompts: (NSArray *) webiPrompts  withErrorText:(NSString *) errorText;
 
 @end
 @interface WebiPromptsEngine : NSObject <NSURLConnectionDataDelegate,BIConnectorDelegate>
@@ -21,6 +25,7 @@
 @property (nonatomic, weak) id <WebiPromptsEngineDelegate> delegate;
 
 -(void) getPrompts: (Document *) document;
+-(void) refreshPromptForPrompt: (WebiPrompt *) webiPrompt forDocument: (Document *) document;
 
 -(void) getPrompts: (Document *) document withToken: (NSString *) cmsToken;
 

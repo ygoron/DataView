@@ -286,3 +286,18 @@
 "Incorrect Extension Pack URL"="Inkorrekte Erweiterungspack-URL";
 "BI Platform Build:"="BI Plattforme-Version:";
 "Extension Pack Version:"="Erweiterungspack-Version:";
+"Incorrect Extension Pack URL"="Incorrect Extension Pack URL";
+"BI Platform Build:"="BI Platform Build:";
+"Extension Pack Version:"="Extension Pack Version:";
+
+/* Document Refresh */
+"Refresh"="Refresh";
+"Refresh Document"="Refresh Document";
+"Prompt Refresh"="Prompt Refresh";
+"Pull To Refresh Prompt"="Pull To Refresh Prompt";
+"Loading..."="Loading...";
+"Selected"="Selected";
+"Available"="Available";
+"Save"="Save";
+
+

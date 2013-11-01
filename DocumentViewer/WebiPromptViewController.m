@@ -12,6 +12,9 @@
 #import "ActionCell.h"
 #import "PromptLovViewController.h"
 #import "WebiPrompt.h"
+#import "Utils.h"
+#import "TitleLabel.h"
+#import "ReportViewController.h"
 
 @interface WebiPromptViewController ()
 
@@ -31,6 +34,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if([Utils isVersion6AndBelow]){
+        UIImage *backgroundImage = [UIImage imageNamed:@"leather-background.png"];
+        UIColor *backgroundPattern= [UIColor colorWithPatternImage:backgroundImage];
+        [self.tableView setBackgroundColor:backgroundPattern];
+        
+        
+        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leather-background.png"]];
+        self.tableView.backgroundView = background;
+    }
+    
+    TitleLabel *titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
+    self.navigationItem.titleView = titelLabel;
+    titelLabel.text=_document.name;
+    [titelLabel sizeToFit];
+    
     
     UINib *nib=[UINib nibWithNibName:@"PromptCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"Prompt_Cell"];
@@ -103,13 +123,13 @@
     }else if (indexPath.section==1){
         ActionCell *cell=[tableView dequeueReusableCellWithIdentifier:ActionCellIdentifier];
         
-        if (indexPath.row==1){
+        if (indexPath.row==0){
             
             if (cell == nil) {
                 cell = [[ActionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             }
             
-            cell.labelActionName.text=NSLocalizedString(@"Refresh",nil);
+            cell.labelActionName.text=NSLocalizedString(@"Refresh Document",nil);
         }
         return cell;
     }
@@ -178,18 +198,34 @@
 {
     if (indexPath.section==0) {
         
+        NSLog(@"Select Prompt");
+        
         WebiPrompt *webiPrompt=[_webiPrompts objectAtIndex:indexPath.row];
         // Navigation logic may go here, for example:
         // Create the next view controller.
         PromptLovViewController *promptLovController = [[PromptLovViewController alloc] initWithNibName:@"PromptLovViewController" bundle:nil];
         promptLovController.webiprompt=webiPrompt;
+        promptLovController.document=_document;
         // Pass the selected object to the new view controller.
         
         // Push the view controller.
         [self.navigationController pushViewController:promptLovController animated:YES];
         
+    }else if(indexPath.section==1){
+        NSLog(@"Select Refresh Report");
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+        ReportViewController *rvc = (ReportViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"ReportView"];
+        UINavigationController *cntrol = [[UINavigationController alloc] initWithRootViewController:rvc];
+        rvc.hidesBottomBarWhenPushed=YES;
+        rvc.document=_document;
+        rvc.isRefreshDocument=YES;
+        rvc.webiPrompts=_webiPrompts;
+        [self presentViewController:cntrol animated:YES completion:nil];
+        
+
     }
 }
+
 
 
 @end

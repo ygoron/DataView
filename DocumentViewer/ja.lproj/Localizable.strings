@@ -289,5 +289,14 @@
 
 /* Document Refresh */
 "Refresh"="Refresh";
+"Refresh Document"="Refresh Document";
+"Prompt Refresh"="Prompt Refresh";
+"Pull To Refresh Prompt"="Pull To Refresh Prompt";
+"Loading..."="Loading...";
+"Selected"="Selected";
+"Available"="Available";
+"Save"="Save";
+
+
 
 

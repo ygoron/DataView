@@ -43,8 +43,8 @@
     self.document.session.cmsToken=cmsToken;
     self.biSession.cmsToken=cmsToken;
     appDelegate = (id)[[UIApplication sharedApplication] delegate];
-
-
+    
+    
     if (isInstance==NO){
         [self processHttpRequestForSession:document];
     }else{
@@ -117,6 +117,7 @@
     [request setTimeoutInterval:[appDelegate.globalSettings.networkTimeout doubleValue ]];
     
     [request setHTTPMethod:@"GET"];
+    NSLog(@"Getting Document Details");
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
     (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
