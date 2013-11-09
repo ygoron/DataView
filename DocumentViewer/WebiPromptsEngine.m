@@ -17,6 +17,7 @@
 #import "WebiPromptInfo.h"
 #import "WebiPromptLov.h"
 #import "WebiPromptLovInterval.h"
+#import "SharedUtils.h"
 
 @implementation WebiPromptsEngine
 
@@ -390,9 +391,12 @@
                 
                 
                 if ([lovJ objectForKey:@"updated"]) {
-                    NSDateFormatter *dateFormtter=[[NSDateFormatter alloc] init];
-                    [dateFormtter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSzzzz"];
-                    lov.updated=[dateFormtter dateFromString:[lovJ objectForKey:@"updated"]];
+//                    NSDateFormatter *dateFormtter=[[NSDateFormatter alloc] init];
+//                    [dateFormtter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSzzzz"];
+//                    lov.updated=[dateFormtter dateFromString:[lovJ objectForKey:@"updated"]];
+
+                    lov.updated=[SharedUtils getDateFromRaylightJSONString:[lovJ objectForKey:@"updated"]];
+                    
                     NSLog(@"Date:%@",lov.updated);
                 }
                 

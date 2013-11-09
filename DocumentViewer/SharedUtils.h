@@ -23,5 +23,8 @@
 +(void) adjustImageLeftMarginForIpadInTableViewAnyLeftObjectsInCell: (UITableViewCell *) tableViewCell;
 +(void) adjustLabelLeftMarginForIpadForBoldFontInTableView: (UITableView *) tableView;
 +(void) adjustRighMarginsForIpad: (NSArray *) constraints;
++(NSDate *) getDateFromRaylightJSONString: (NSString *) jsonStringDate;
++(NSString *)getStringFromRaylightDate:(NSDate *) date;
++(NSString *)getDisplayStringFromDate:(NSDate *) date;
 
 @end

@@ -10,8 +10,9 @@
 #import "WebiPrompt.h"
 #import "WebiPromptsEngine.h"
 #import "Document.h"
+#import "EditPromptViewController.h"
 
-@interface PromptLovViewController : UITableViewController <WebiPromptsEngineDelegate>
+@interface PromptLovViewController : UITableViewController <WebiPromptsEngineDelegate,EditPromptDelegate>
 
 @property (strong, nonatomic) WebiPrompt *webiprompt;
 @property (strong, nonatomic) Document *document;

@@ -14,5 +14,5 @@
 @property (nonatomic,assign) BOOL isConstrained;
 @property (nonatomic,strong) NSString *type;
 @property (nonatomic,strong) WebiPromptInfo *info;
-@property (nonatomic, strong) NSArray *values;
+@property (nonatomic, strong) NSMutableArray *values;
 @end

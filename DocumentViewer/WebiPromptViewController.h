@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Document.h"
+#import "EditPromptViewController.h"
 
-@interface WebiPromptViewController : UITableViewController
+@interface WebiPromptViewController : UITableViewController <EditPromptDelegate>
 
 @property (nonatomic, strong) NSArray *webiPrompts;
 @property (nonatomic,strong) Document *document;

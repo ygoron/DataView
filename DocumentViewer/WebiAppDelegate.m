@@ -79,7 +79,7 @@
     
     if (idiom == UIUserInterfaceIdiomPad) {
         [self customizeiPadTheme];
-        [self iPadInit];
+        //        [self iPadInit];
     } else if(idiom == UIUserInterfaceIdiomPhone) {
         [self iPhoneInit];
     }
@@ -120,6 +120,9 @@
 - (void)customizeGlobalTheme {
     [[UIApplication sharedApplication]
      setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     
     UIImage *navBarImage = [UIImage imageNamed:@"navbar-7.png"];
     if([Utils isVersion6AndBelow]){
@@ -227,20 +230,21 @@
     
 }
 
-- (void)customizeiPadTheme {
-    
-    
-    //    UIImage *navBarImage = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
-    
-//    UIImage *navBarImage = [UIImage imageNamed:@"ipad-menubar-right-7.png"];
-        UIImage *navBarImage = [UIImage imageNamed:@"navbar_landscape-7b.png"];
 
+- (void)customizeiPadTheme {
     if([Utils isVersion6AndBelow]){
+        
+        
+        //    UIImage *navBarImage = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
+        
+        //    UIImage *navBarImage = [UIImage imageNamed:@"ipad-menubar-right-7.png"];
+        UIImage *navBarImage = [UIImage imageNamed:@"navbar_landscape-7b.png"];
+        
         navBarImage = [UIImage imageNamed:@"ipad-menubar-right__landscape.png"];
+        
+        [[UINavigationBar appearance] setBackgroundImage:navBarImage
+                                           forBarMetrics:UIBarMetricsDefault];
     }
-    
-    [[UINavigationBar appearance] setBackgroundImage:navBarImage
-                                       forBarMetrics:UIBarMetricsDefault];
     
     
     
@@ -259,7 +263,7 @@
                                                            [UIColor whiteColor], UITextAttributeTextColor,
                                                            nil] forState:UIControlStateSelected];
     }
-
+    
     
     
     
@@ -284,8 +288,8 @@
 -(void)iPhoneInit {
     
     
-//    UIImage    *navBarImageLandscape = [UIImage imageNamed:@"ipad-menubar-right-7.png"] ;
-        UIImage    *navBarImageLandscape = [UIImage imageNamed:@"navbar_landscape-7b.png"] ;
+    //    UIImage    *navBarImageLandscape = [UIImage imageNamed:@"ipad-menubar-right-7.png"] ;
+    UIImage    *navBarImageLandscape = [UIImage imageNamed:@"navbar_landscape-7b.png"] ;
     //      UIImage    *navBarImageLandscape = [UIImage imageNamed:@"navbar_landscape.png"] ;
     UIImage *navBarImagePortrait = [UIImage imageNamed:@"navbar-7.png"];
     if([Utils isVersion6AndBelow]){
@@ -295,18 +299,18 @@
     
     
     
-//    UIImage    *tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape_iphone-7.png" ] ;
+    //    UIImage    *tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape_iphone-7.png" ] ;
     
     if([Utils isVersion6AndBelow]){
         UIImage *tabBarBackgroundPortrait = [UIImage imageNamed:@"tabbar_landscape.png" ] ;
         [[UITabBar appearance] setBackgroundImage:tabBarBackgroundPortrait ];
-
+        
     }else{
-
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                       [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:14.0], UITextAttributeFont,
-                                                       [UIColor whiteColor], UITextAttributeTextColor,
-                                                       nil] forState:UIControlStateSelected];
+        
+        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:14.0], UITextAttributeFont,
+                                                           [UIColor whiteColor], UITextAttributeTextColor,
+                                                           nil] forState:UIControlStateSelected];
     }
     
     

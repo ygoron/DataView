@@ -10,6 +10,8 @@
 #import "LovValueCell.h"
 #import "Utils.h"
 #import "TitleLabel.h"
+#import "EditPromptViewController.h"
+#import "SharedUtils.h"
 
 @interface PromptLovViewController ()
 
@@ -20,6 +22,8 @@
     NSMutableArray *__selectedValues;
     NSMutableArray *__availableValues;
     UIActivityIndicatorView *spinner;
+    UIBarButtonItem *__addButton;
+    EditPromptViewController *__editPromptViewController;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -63,8 +67,12 @@
     
     [self.view addSubview:spinner];
     
-    __selectedValues=[_webiprompt.answer.values mutableCopy];
-    __availableValues=[_webiprompt.answer.info.lov.values mutableCopy];
+    __selectedValues =[[NSMutableArray alloc]init];
+    __availableValues =[[NSMutableArray alloc]init];
+    if (_webiprompt.answer.values.count>0)
+        __selectedValues=[_webiprompt.answer.values mutableCopy];
+    if (_webiprompt.answer.info.lov.values.count>0)
+        __availableValues=[_webiprompt.answer.info.lov.values mutableCopy];
     
     [self updateValueArrays];
     
@@ -74,11 +82,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     //    self.navigationItem.rightBarButtonItem=self.editButtonItem;
     if (_webiprompt.answer.info.lov.isRefreshable){
-        UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc]
-                                          initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                          target:self
-                                          action:@selector(refreshPrompt)];
-        self.navigationItem.rightBarButtonItem = refreshButton;
+        //        UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc]
+        //                                          initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+        //                                          target:self
+        //                                          action:@selector(refreshPrompt)];
+        //        self.navigationItem.rightBarButtonItem = refreshButton;
         
         if ([UIRefreshControl class]){
             UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -86,7 +94,13 @@
             self.refreshControl = refreshControl;
             [refreshControl addTarget:self action:@selector(refreshPrompt) forControlEvents:UIControlEventValueChanged];
         }
-
+        
+    }
+    if (!_webiprompt.answer.isConstrained){
+        
+        __addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem:)];
+        self.navigationItem.rightBarButtonItem = __addButton;
+        
     }
 }
 
@@ -96,7 +110,7 @@
     if ([UIRefreshControl class]){
         [self.refreshControl endRefreshing];
     }
-
+    
     NSLog("Refresh Parameter %d",_webiprompt.promptId);
     WebiPromptsEngine *promptEngine=[[WebiPromptsEngine alloc] init];
     promptEngine.delegate=self;
@@ -128,12 +142,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)addItem:sender {
+    if (__editPromptViewController == nil) {
+        __editPromptViewController = [[EditPromptViewController alloc] init];
+    }
+    __editPromptViewController.webiprompt=_webiprompt;
+    __editPromptViewController.delegate=self;
+    [__editPromptViewController setTitle:NSLocalizedString(@"Add Prompt Value", nil)];
+    
+    [[self navigationController] pushViewController:__editPromptViewController animated:YES];
+}
 #pragma mark - Table view data source
 
+-(void) promptChanged:(EditPromptViewController *)editPromptController isSuccess:(BOOL)isSuccess withValue:(NSString *)value
+{
+    NSLog(@"Updated Value: %@",value);
+    if ([_webiprompt.answer.info.cardinality isEqualToString:@"Single"]) [__selectedValues removeAllObjects];
+    if (![self isStringValueExistInArray:__selectedValues forValue:value])
+        [__selectedValues addObject:value];
+    [self.tableView reloadData];
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    if(_webiprompt.answer.info.lov.values!=nil)
+        return 2;
+    else
+        return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -142,6 +178,14 @@
     if (section==0)
         return __selectedValues.count;
     else return __availableValues.count;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    if([view isKindOfClass:[UITableViewHeaderFooterView class]]){
+        UITableViewHeaderFooterView *tableViewHeaderFooterView = (UITableViewHeaderFooterView *) view;
+        tableViewHeaderFooterView.textLabel.text = [tableViewHeaderFooterView.textLabel.text capitalizedString];
+    }
 }
 
 
@@ -167,35 +211,49 @@
     }
     
     NSLog(@"Value:%@",value);
-    [cell.lableLovName setText:[NSString stringWithFormat:@"%@",value]];
+    if ([_webiprompt.answer.type isEqualToString:@"DateTime"]||[_webiprompt.answer.type isEqualToString:@"Date"] ){
+        [cell.lableLovName setText:[NSString stringWithFormat:@"%@",[SharedUtils getDisplayStringFromDate:[SharedUtils getDateFromRaylightJSONString:value]]]];
+        
+    }else{
+        [cell.lableLovName setText:[NSString stringWithFormat:@"%@",value]];
+    }
     if (indexPath.section==0) [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     else [cell setAccessoryType:UITableViewCellAccessoryNone];
     
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return NO;
+}
+
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0){
+        return UITableViewCellEditingStyleInsert;
+    }else return UITableViewCellEditingStyleNone;
+}
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        // [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        NSLog(@"Insert Value");
+        [__selectedValues addObject:@"New Value"];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+
 
 /*
  // Override to support rearranging the table view.
@@ -225,14 +283,25 @@
         [__selectedValues removeObject:value];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
         //            [__availableValues addObject:[NSString stringWithFormat:@"%@", value]];
-        [__availableValues addObject:value];
-        [__availableValues sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+        if (_webiprompt.answer.info.lov.values!=nil){
+            [__availableValues addObject:value];
+            [__availableValues sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+        }
     }else if (indexPath.section==1){
         
         NSString *value=[__availableValues objectAtIndex:indexPath.row];
         
         //        [__selectedValues addObject:[NSString stringWithFormat:@"%@", value]];
+        if ([_webiprompt.answer.info.cardinality isEqualToString:@"Single"]) {
+            if (__selectedValues.count>0){
+                NSString *oldValue=[__selectedValues objectAtIndex:0];
+                NSLog(@"Add Old Selected Value %@ to the list of available values",oldValue);
+                [__availableValues addObject:oldValue];
+                [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
+            }
+            [__selectedValues removeAllObjects];
+        }
         [__selectedValues addObject:value];
         [__selectedValues sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
@@ -240,14 +309,6 @@
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
         
     }
-    // // Navigation logic may go here, for example:
-    // // Create the next view controller.
-    // <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    //
-    // // Pass the selected object to the new view controller.
-    //
-    // // Push the view controller.
-    // [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 
@@ -265,6 +326,16 @@
             [__availableValues removeObject:value];
         }
     }
+}
+-(BOOL) isStringValueExistInArray: (NSArray*) values forValue:(NSString *) checkValue
+{
+    for (NSString *value in values) {
+        if ([value isEqualToString:checkValue]) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 @end

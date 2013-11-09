@@ -15,13 +15,16 @@
 #import "Utils.h"
 #import "TitleLabel.h"
 #import "ReportViewController.h"
+#import "SharedUtils.h"
 
 @interface WebiPromptViewController ()
 
 @end
 
 @implementation WebiPromptViewController
-
+{
+    EditPromptViewController *__editPromptViewController;
+}
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -81,9 +84,20 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    NSLog(@"Check if values provided for all parameters - if not - do not show Refresh Section");
+    
+    
+    if ([self isAllPromptsHaveSelectedValues])
+        return 2;
+    else return 1;
 }
 
+-(BOOL) isAllPromptsHaveSelectedValues{
+    for (WebiPrompt *prompt in _webiPrompts) {
+        if (prompt.answer.values.count==0) return NO;
+    }
+    return YES;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
@@ -101,6 +115,14 @@
     else return nil;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    if([view isKindOfClass:[UITableViewHeaderFooterView class]]){
+        UITableViewHeaderFooterView *tableViewHeaderFooterView = (UITableViewHeaderFooterView *) view;
+        tableViewHeaderFooterView.textLabel.text = [tableViewHeaderFooterView.textLabel.text capitalizedString];
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Prompt_Cell";
@@ -115,7 +137,7 @@
         
         WebiPrompt *webiPrompt=[_webiPrompts objectAtIndex:indexPath.row];
         cell.promptNameLabel.text=webiPrompt.name;
-        cell.promptValuesLabel.text=[self getDefaultPromptValuesString:webiPrompt.answer.values];
+        cell.promptValuesLabel.text=[self getDefaultPromptValuesString:webiPrompt];
         
         // Configure the cell...
         
@@ -138,13 +160,24 @@
 }
 
 
--(NSString *) getDefaultPromptValuesString:(NSArray *) values
+-(NSString *) getDefaultPromptValuesString:(WebiPrompt *) webiPrompt
 {
     NSMutableString *resutlString=[[NSMutableString alloc] init];
     
-    for (NSString *value in values){
-        NSLog(@"Value:%@:",value);
-        [resutlString appendFormat:@"%@%@",value,@";"];
+    for (NSString *value in webiPrompt.answer.values){
+        NSLog(@"Value:%@",value);
+        if ([webiPrompt.answer.type isEqualToString:@"DateTime"]||[webiPrompt.answer.type isEqualToString:@"Date"] )
+        {
+            NSDate *date=[SharedUtils getDateFromRaylightJSONString:value];
+            NSLog(@"Converted To Date: %@",date);
+            
+            NSString  *dateString =[SharedUtils getDisplayStringFromDate:date];
+            NSLog(@"Converted Date String:%@",dateString);
+            [resutlString appendFormat:@"%@%@",dateString,@";"];
+        }
+        else{
+            [resutlString appendFormat:@"%@%@",value,@";"];
+        }
     }
     if  ([resutlString hasSuffix:@";"] ) {
         [resutlString deleteCharactersInRange:NSMakeRange([resutlString length]-1, 1)];
@@ -203,28 +236,60 @@
         WebiPrompt *webiPrompt=[_webiPrompts objectAtIndex:indexPath.row];
         // Navigation logic may go here, for example:
         // Create the next view controller.
-        PromptLovViewController *promptLovController = [[PromptLovViewController alloc] initWithNibName:@"PromptLovViewController" bundle:nil];
-        promptLovController.webiprompt=webiPrompt;
-        promptLovController.document=_document;
-        // Pass the selected object to the new view controller.
+        if (webiPrompt.answer.info.lov!=nil){
+            //                    if ([webiPrompt.answer.info.cardinality isEqualToString:@"Multiple"]){
+            NSLog(@"Prompt with LOV");
+            PromptLovViewController *promptLovController = [[PromptLovViewController alloc] initWithNibName:@"PromptLovViewController" bundle:nil];
+            promptLovController.webiprompt=webiPrompt;
+            promptLovController.document=_document;
+            // Push the view controller.
+            [self.navigationController pushViewController:promptLovController animated:YES];
+            
+        }else{
+            
+            NSLog(@"Prompt For the Value");
+            
+            if (__editPromptViewController == nil) {
+                __editPromptViewController = [[EditPromptViewController alloc] init];
+            }
+            __editPromptViewController.webiprompt=webiPrompt;
+            __editPromptViewController.delegate=self;
+            [__editPromptViewController setTitle:NSLocalizedString(@"Add Prompt Value", nil)];
+            
+            [[self navigationController] pushViewController:__editPromptViewController animated:YES];
+            
+        }
         
-        // Push the view controller.
-        [self.navigationController pushViewController:promptLovController animated:YES];
         
     }else if(indexPath.section==1){
         NSLog(@"Select Refresh Report");
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+
         ReportViewController *rvc = (ReportViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"ReportView"];
         UINavigationController *cntrol = [[UINavigationController alloc] initWithRootViewController:rvc];
+        
+        
         rvc.hidesBottomBarWhenPushed=YES;
         rvc.document=_document;
         rvc.isRefreshDocument=YES;
         rvc.webiPrompts=_webiPrompts;
+        rvc.titleText=_document.name;
         [self presentViewController:cntrol animated:YES completion:nil];
         
-
+        
     }
 }
+
+-(void) promptChanged:(EditPromptViewController *)editPromptController isSuccess:(BOOL)isSuccess withValue:(NSString *)value
+{
+    NSLog(@"Updated Value: %@",value);
+    NSMutableArray *values=[[NSMutableArray alloc] init];
+    [values addObject:value];
+    editPromptController.webiprompt.answer.values=values;
+    
+    //    [self.tableView reloadData];
+}
+
 
 
 

@@ -11,6 +11,42 @@
 
 @implementation SharedUtils
 
++(NSDate *) getDateFromRaylightJSONString:(NSString *)jsonStringDate
+{
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+//    dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSzzzz"];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"];
+    NSDate *date=[dateFormatter dateFromString:jsonStringDate];
+    return date;
+    
+}
++(NSString *)getStringFromRaylightDate:(NSDate *) date
+{
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+//    dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+//        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSzzzz"];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"];
+    NSString *stringDate=[dateFormatter stringFromDate:date];
+    NSLog(@"String Date: %@",stringDate);
+    return stringDate;
+    
+}
+
++(NSString *)getDisplayStringFromDate:(NSDate *) date
+{
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+//    [dateFormatter setDateFormat:@"yyyy-MMM-dd hh:mm:ss a"];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+
+    NSString *stringDate=[dateFormatter stringFromDate:date];
+    NSLog(@"String Date: %@",stringDate);
+    return stringDate;
+    
+}
+
 +(void) adjustImageLeftMarginForIpadInTableView:(UITableView *)tableView
 {
     

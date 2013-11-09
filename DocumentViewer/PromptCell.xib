@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,23 +15,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prompt Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gl-Rz-8RE">
-                        <rect key="frame" x="5" y="14" width="85" height="16"/>
+                        <rect key="frame" x="20" y="14" width="85" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Value1 Value 2 Value 3 Value 4 ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gav-xW-2BY">
-                        <rect key="frame" x="110" y="14" width="177" height="16"/>
+                        <rect key="frame" x="125" y="14" width="142" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9gl-Rz-8RE" firstAttribute="leading" secondItem="W5S-M2-MiM" secondAttribute="leading" constant="5" id="GtC-sh-2vd"/>
+                    <constraint firstItem="9gl-Rz-8RE" firstAttribute="leading" secondItem="W5S-M2-MiM" secondAttribute="leading" constant="20" symbolic="YES" id="GtC-sh-2vd"/>
                     <constraint firstItem="gav-xW-2BY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9gl-Rz-8RE" secondAttribute="trailing" constant="20" id="M8e-Hg-zeg"/>
-                    <constraint firstAttribute="trailing" secondItem="gav-xW-2BY" secondAttribute="trailing" id="Qkz-cJ-Jki"/>
+                    <constraint firstAttribute="trailing" secondItem="gav-xW-2BY" secondAttribute="trailing" constant="20" symbolic="YES" id="Qkz-cJ-Jki"/>
                     <constraint firstAttribute="centerY" secondItem="9gl-Rz-8RE" secondAttribute="centerY" id="q0z-Hy-Vzt"/>
                     <constraint firstAttribute="centerY" secondItem="gav-xW-2BY" secondAttribute="centerY" id="sDd-Fb-OFa"/>
                 </constraints>

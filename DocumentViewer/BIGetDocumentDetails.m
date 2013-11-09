@@ -12,6 +12,7 @@
 #import "BI4RestConstants.h"
 #import "WebiAppDelegate.h"
 #import "BILogoff.h"
+#import "SharedUtils.h"
 
 
 @implementation BIGetDocumentDetails
@@ -218,9 +219,10 @@
         self.document.size=[responseDic objectForKey:@"size"];
         self.document.state=[responseDic objectForKey:@"state"];
         
-        NSDateFormatter *dateFormtter=[[NSDateFormatter alloc] init];
-        [dateFormtter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSzzzz"];
-        self.document.updated=[dateFormtter dateFromString:[responseDic objectForKey:@"updated"]];
+//        NSDateFormatter *dateFormtter=[[NSDateFormatter alloc] init];
+//        [dateFormtter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSzzzz"];
+//        self.document.updated=[dateFormtter dateFromString:[responseDic objectForKey:@"updated"]];
+        self.document.updated=[SharedUtils getDateFromRaylightJSONString:[responseDic objectForKey:@"updated"]];
         NSLog(@"Date:%@",self.document.updated);
         
         

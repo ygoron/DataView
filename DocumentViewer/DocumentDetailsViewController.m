@@ -190,6 +190,15 @@
 	return 44.0;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    if([view isKindOfClass:[UITableViewHeaderFooterView class]]){
+        UITableViewHeaderFooterView *tableViewHeaderFooterView = (UITableViewHeaderFooterView *) view;
+        tableViewHeaderFooterView.textLabel.text = [tableViewHeaderFooterView.textLabel.text capitalizedString];
+    }
+}
+
+
 //-(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 //    UILabel *label = [self getHeaderLabel];
 //    if (section==0){
@@ -360,8 +369,11 @@
         cell.labelPath.text=[self.document path];
         cell.textViewPath.text= [self.document path];
         cell.labelCreated.text=self.document.createdby;
+        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-MMM-dd HH:mm:ss"];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        [formatter setTimeStyle:NSDateFormatterMediumStyle];
+//        [formatter setDateFormat:@"yyyy-MMM-dd HH:mm:ss"];
         cell.labelUpdated.text=[formatter stringFromDate:self.document.updated] ;
         cell.labelSize.text=[self.document.size stringValue];
         

@@ -145,6 +145,10 @@
 		9266BD1B16D52A5C00A43FD7 /* BI4RestConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9266BD1A16D52A5C00A43FD7 /* BI4RestConstants.m */; };
 		926A8076172D72B80033FB6A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926A8075172D72B80033FB6A /* AboutViewController.m */; };
 		926AB73E16F696AA00BC7A08 /* DestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926AB73D16F696AA00BC7A08 /* DestinationViewController.m */; };
+		926D3D4518258F4900868149 /* EditPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926D3D4318258F4900868149 /* EditPromptViewController.m */; };
+		926D3D4618258F4900868149 /* EditPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 926D3D4318258F4900868149 /* EditPromptViewController.m */; };
+		926D3D4718258F4900868149 /* EditPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926D3D4418258F4900868149 /* EditPromptViewController.xib */; };
+		926D3D4818258F4900868149 /* EditPromptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926D3D4418258F4900868149 /* EditPromptViewController.xib */; };
 		9271490E17495B4500851389 /* ObjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9271490D17495B4500851389 /* ObjectInfo.m */; };
 		927149141749716E00851389 /* DescriptionAndPath.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927149131749716D00851389 /* DescriptionAndPath.xib */; };
 		927149181749732700851389 /* DescriptionAndPathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 927149171749732700851389 /* DescriptionAndPathCell.m */; };
@@ -811,6 +815,9 @@
 		926AB73D16F696AA00BC7A08 /* DestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationViewController.m; sourceTree = "<group>"; };
 		926C96B01782F5FF0004A80E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		926C96B11782F64C0004A80E /* he */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
+		926D3D4218258F4900868149 /* EditPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPromptViewController.h; sourceTree = "<group>"; };
+		926D3D4318258F4900868149 /* EditPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPromptViewController.m; sourceTree = "<group>"; };
+		926D3D4418258F4900868149 /* EditPromptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditPromptViewController.xib; sourceTree = "<group>"; };
 		926D9086172B5953008EFC87 /* DocumentViewer 6 - Session AutoLogoff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 6 - Session AutoLogoff.xcdatamodel"; sourceTree = "<group>"; };
 		926E75D2176FE7FD00E260D4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		926E75D3176FE81C00E260D4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
@@ -1636,6 +1643,9 @@
 				9205443F180C8EFB004DD35D /* LovValueCell.xib */,
 				92054442180C906F004DD35D /* LovValueCell.h */,
 				92054443180C906F004DD35D /* LovValueCell.m */,
+				926D3D4218258F4900868149 /* EditPromptViewController.h */,
+				926D3D4318258F4900868149 /* EditPromptViewController.m */,
+				926D3D4418258F4900868149 /* EditPromptViewController.xib */,
 			);
 			name = Parameters;
 			sourceTree = "<group>";
@@ -2064,6 +2074,11 @@
 				CLASSPREFIX = Webi;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "APOS Systems";
+				TargetAttributes = {
+					92ADE95716CB24D60027BD4D = {
+						DevelopmentTeam = R4Q48BGQ5K;
+					};
+				};
 			};
 			buildConfigurationList = 92ADE95316CB24D60027BD4D /* Build configuration list for PBXProject "DocumentViewer" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2222,6 +2237,7 @@
 				9288AC471787A9A50048BCF1 /* DocumentsAll_unselected@2x.png in Resources */,
 				9288AC481787A9A50048BCF1 /* Universe_selected.png in Resources */,
 				9288AC491787A9A50048BCF1 /* Universe_selected@2x.png in Resources */,
+				926D3D4818258F4900868149 /* EditPromptViewController.xib in Resources */,
 				9288AC4A1787A9A50048BCF1 /* Universe_unselected.png in Resources */,
 				9288AC4B1787A9A50048BCF1 /* Universe_unselected@2x.png in Resources */,
 				9288AC4C1787A9A50048BCF1 /* webi_16-256.png in Resources */,
@@ -2423,6 +2439,7 @@
 				92CA920117283121000AD6DD /* DocumentsAll_unselected@2x.png in Resources */,
 				92CA9206172831DC000AD6DD /* Universe_selected.png in Resources */,
 				92CA9207172831DC000AD6DD /* Universe_selected@2x.png in Resources */,
+				926D3D4718258F4900868149 /* EditPromptViewController.xib in Resources */,
 				92CA9208172831DC000AD6DD /* Universe_unselected.png in Resources */,
 				92CA9209172831DC000AD6DD /* Universe_unselected@2x.png in Resources */,
 				92CA920F17283370000AD6DD /* webi_16-256.png in Resources */,
@@ -2608,6 +2625,7 @@
 				9288ABB21787A9A50048BCF1 /* Format.m in Sources */,
 				9288ABB31787A9A50048BCF1 /* BIDeleteDocument.m in Sources */,
 				9288ABB41787A9A50048BCF1 /* DeleteStatus.m in Sources */,
+				926D3D4618258F4900868149 /* EditPromptViewController.m in Sources */,
 				9288ABB51787A9A50048BCF1 /* UniversesListViewController.m in Sources */,
 				9288ABB61787A9A50048BCF1 /* Universe.m in Sources */,
 				9288ABB71787A9A50048BCF1 /* UniverseCell.m in Sources */,
@@ -2718,6 +2736,7 @@
 				928D566016F7F13D000DE65D /* Format.m in Sources */,
 				92F90E3616FE2DEA00FA501A /* BIDeleteDocument.m in Sources */,
 				92F90E3916FE3D4C00FA501A /* DeleteStatus.m in Sources */,
+				926D3D4518258F4900868149 /* EditPromptViewController.m in Sources */,
 				92ADF00317073CD80056B72F /* UniversesListViewController.m in Sources */,
 				92ADF00617073D130056B72F /* Universe.m in Sources */,
 				92ADF00B1707679D0056B72F /* UniverseCell.m in Sources */,
@@ -3063,7 +3082,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DocumentViewer/DocumentViewer-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
