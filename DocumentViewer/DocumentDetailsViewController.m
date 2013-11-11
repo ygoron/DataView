@@ -109,6 +109,14 @@
     
     [self.view addSubview:spinner];
     
+    if ([UIRefreshControl class]){
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        refreshControl.attributedTitle=[[NSAttributedString alloc] initWithString:NSLocalizedString(@"Pull To Refresh",nil)];
+        self.refreshControl = refreshControl;
+        [refreshControl addTarget:self action:@selector(loadDocumentDetails) forControlEvents:UIControlEventValueChanged];
+    }
+
+    
     if (self.document.session.opendocServer!=nil){
         UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                    target:self
@@ -142,6 +150,11 @@
 -(void) loadDocumentDetails{
     
     if (self.document!=nil);
+    
+    if ([UIRefreshControl class]){
+        [self.refreshControl endRefreshing];
+    }
+
     [spinner startAnimating];
     
     
