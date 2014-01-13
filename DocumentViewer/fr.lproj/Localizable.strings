@@ -299,4 +299,18 @@
 "Available"="Available";
 "Save"="Save";
 
+/* Create New Object */
+"New Object"="New Object";
+"Webi Document"="Webi Document";
+"New Webi"="New Webi";
+"New Webi Document"="New Webi Document";
+"Name"="Name";
+"Document"="Document";
+"Queries"="Queries";
+"Add Universe"="Add Universe";
+"Data Providers"="Data Providers";
+"Add"="Add";
+"Document Name"="Document Name";
+"Query Name"="Query Name";
+"Universe"="Universe";
 

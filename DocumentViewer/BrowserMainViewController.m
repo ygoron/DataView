@@ -154,6 +154,9 @@
             vc.urlForSelectedObject=urlSelected;
             vc.urlForChildren=urlChildren;
             vc.displayPath=@"Path:/Root";
+            InfoObject *infoObject=[[InfoObject alloc] init];
+            infoObject.type=@"Root Folder";
+            vc.parentObject=infoObject;
             vc.currentSession=appDelegate.activeSession;
             vc.myStoryBoard=self.storyboard;
             vc.title=NSLocalizedString(@"Folders",@"Name- Folders");

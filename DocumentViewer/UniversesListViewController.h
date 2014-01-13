@@ -11,6 +11,13 @@
 #import "CoreDataHelper.h"
 #import "BI4RestConstants.h"
 #import "UniverseCell.h"
+
+@class UniversesListViewController;
+
+@protocol UniversesListViewControllerDelegate <NSObject>
+-(void) UniversesListViewController: (UniversesListViewController *) controller didSelectUniverse: (Universe *) universe;
+@end
+
 @interface UniversesListViewController : UITableViewController <BIGetUniversesDelegate>
 
 {
@@ -25,6 +32,8 @@
 
 @property (nonatomic, strong) NSMutableArray *sessions;
 @property (nonatomic, strong) NSMutableArray *universes;
+@property (nonatomic, assign) BOOL isWebiCreation;
+@property (nonatomic, weak) id <UniversesListViewControllerDelegate> delegate;
 - (IBAction)refreshUniverseList:(id)sender;
 
 

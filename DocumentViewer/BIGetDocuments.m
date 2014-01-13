@@ -289,11 +289,11 @@
                           inManagedObjectContext:context];
     document.session=biSession;
     document.id=[doc objectForKey:@"id"];
-    document.name=[doc objectForKey:@"name"];
+    document.name=[NSString stringWithFormat:@"%@",[doc objectForKey:@"name"]];
     document.state=[doc objectForKey:@"state"];
     document.cuid=[doc objectForKey:@"cuid"];
     document.folderid=[doc objectForKey:@"folderId"];
-    if ([doc objectForKey:@"description"]!=nil) document.descriptiontext=[doc objectForKey:@"description"];
+    if ([doc objectForKey:@"description"]!=nil) document.descriptiontext=[NSString stringWithFormat:@"%@",[doc objectForKey:@"description"]];
     return document;
     
 }

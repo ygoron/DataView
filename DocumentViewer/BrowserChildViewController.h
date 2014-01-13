@@ -10,8 +10,9 @@
 #import "BISDKCall.h"
 #import "Session.h"
 #import "TitleLabel.h"
+#import "GDataXMLNode.h"
 
-@interface BrowserChildViewController : UITableViewController <CypressSDKDelegate>
+@interface BrowserChildViewController : UITableViewController <CypressSDKDelegate,UIActionSheetDelegate>
 @property (nonatomic, strong) NSURL *urlForChildren;
 @property (nonatomic, strong) NSURL *urlForSelectedObject;
 @property (nonatomic, strong) NSMutableArray *infoObjects;
@@ -24,8 +25,14 @@
 @property (nonatomic, assign) BOOL isInstance;
 @property (nonatomic, strong) UIStoryboard *myStoryBoard;
 @property (nonatomic, assign) BOOL isSupressShowChildrenOfChildren;
+@property (nonatomic, strong) UIActionSheet *actionSheet;
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
+@property (nonatomic, strong) UIBarButtonItem *actionButton;
+
 
 -(void) loadObjects;
 -(void) reLoadObjects;
 -(void) displayHeaderInfoWithInfoObject: (InfoObject *) infoObject;
+-(GDataXMLDocument *) createDocumentXmlWithFolderId: (int) folderId;
+
 @end

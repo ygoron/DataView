@@ -16,6 +16,7 @@
 
 @implementation UniverseDetailsViewControllerSolo
 
+
 @synthesize universe;
 @synthesize unvDetails;
 
@@ -63,6 +64,7 @@
     [titelLabel sizeToFit];
     
     
+    
     NSLog(@"Loading Universe Details");
     [self loadUniverseDetails];
     
@@ -87,7 +89,6 @@
     }
     
 }
-
 
 
 -(void) getUniverseDetails:(BIGetUniverseDetails *)biGetUniverseDetails isSuccess:(BOOL)isSuccess WithUniverseDetails:(NSMutableArray *)universeDetails{
@@ -201,7 +202,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UniverseDetailsViewControllerSolo *vc=[[UniverseDetailsViewControllerSolo alloc] init];
-    
+
     if([[unvDetails objectAtIndex:[indexPath row]]isKindOfClass:[NSDictionary class]]){
         NSDictionary *selectedItem=[unvDetails objectAtIndex:[indexPath row]];
         NSLog (@"Selected Item:%@",[selectedItem objectForKey:@"name"]);
@@ -279,12 +280,15 @@
         }
         sourceCell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         sourceCell.selectionStyle=UITableViewCellSelectionStyleBlue;
+        
     }
     else {
         sourceCell.accessoryType=UITableViewCellAccessoryNone;
         sourceCell.selectionStyle=UITableViewCellSelectionStyleNone;
+        
         [sourceCell.labelArraySize setHidden:YES];
     }
+    
     
     return sourceCell;
     

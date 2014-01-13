@@ -23,6 +23,8 @@
 		92054441180C8EFB004DD35D /* LovValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9205443F180C8EFB004DD35D /* LovValueCell.xib */; };
 		92054444180C906F004DD35D /* LovValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054443180C906F004DD35D /* LovValueCell.m */; };
 		92054445180C906F004DD35D /* LovValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054443180C906F004DD35D /* LovValueCell.m */; };
+		92061494184BC5D4005B5F4B /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 92061493184BC5D4005B5F4B /* GDataXMLNode.m */; };
+		92061495184BC5D4005B5F4B /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 92061493184BC5D4005B5F4B /* GDataXMLNode.m */; };
 		920DB49816E17F3F001D3546 /* BIExportReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 920DB49716E17F3F001D3546 /* BIExportReport.m */; };
 		920DB49E16E18B7F001D3546 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920DB49D16E18B7E001D3546 /* ReportViewController.m */; };
 		920DE680173C829800EC70A5 /* BrowserChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920DE67E173C829800EC70A5 /* BrowserChildViewController.m */; };
@@ -67,6 +69,14 @@
 		922F397516D6DDFC009B7761 /* GetDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = 922F397416D6DDFC009B7761 /* GetDocuments.m */; };
 		922F397816D6E3CE009B7761 /* DocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922F397716D6E3CE009B7761 /* DocumentsViewController.m */; };
 		9236AE5416DD9B7900ACCB8E /* BIGetDocumentDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 9236AE5316DD9B7900ACCB8E /* BIGetDocumentDetails.m */; };
+		92383C76184A8B3C004D0B39 /* DocTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92383C75184A8B3C004D0B39 /* DocTitleCell.m */; };
+		92383C77184A8B3C004D0B39 /* DocTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92383C75184A8B3C004D0B39 /* DocTitleCell.m */; };
+		92383C7E184A965B004D0B39 /* EditWebiDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92383C7C184A965B004D0B39 /* EditWebiDocumentViewController.m */; };
+		92383C7F184A965B004D0B39 /* EditWebiDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92383C7C184A965B004D0B39 /* EditWebiDocumentViewController.m */; };
+		92383C80184A965B004D0B39 /* EditWebiDocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92383C7D184A965B004D0B39 /* EditWebiDocumentViewController.xib */; };
+		92383C81184A965B004D0B39 /* EditWebiDocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92383C7D184A965B004D0B39 /* EditWebiDocumentViewController.xib */; };
+		92383C86184AA479004D0B39 /* DocTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92383C85184AA479004D0B39 /* DocTitleCell.xib */; };
+		92383C87184AA479004D0B39 /* DocTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92383C85184AA479004D0B39 /* DocTitleCell.xib */; };
 		92400654176B9CEB00DF6FD3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92400652176B9CEB00DF6FD3 /* Localizable.strings */; };
 		92400657176BA14D00DF6FD3 /* MoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9240065A176BA14D00DF6FD3 /* MoreCell.xib */; };
 		9240065F176BA24300DF6FD3 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92400662176BA24300DF6FD3 /* ActionCell.xib */; };
@@ -549,6 +559,12 @@
 		92B2C32E17281196000B275A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B2C32D17281196000B275A /* Icon@2x.png */; };
 		92B2C330172811D8000B275A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B2C32F172811D8000B275A /* Icon-72.png */; };
 		92B2C332172811DD000B275A /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B2C331172811DD000B275A /* Icon-72@2x.png */; };
+		92B70B0C188341CE006C85D9 /* SelectWebiFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B70B0A188341CE006C85D9 /* SelectWebiFieldsViewController.m */; };
+		92B70B0D188341CE006C85D9 /* SelectWebiFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B70B0A188341CE006C85D9 /* SelectWebiFieldsViewController.m */; };
+		92B70B0E188341CE006C85D9 /* SelectWebiFieldsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B70B0B188341CE006C85D9 /* SelectWebiFieldsViewController.xib */; };
+		92B70B0F188341CE006C85D9 /* SelectWebiFieldsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B70B0B188341CE006C85D9 /* SelectWebiFieldsViewController.xib */; };
+		92B70B12188345C9006C85D9 /* QueryField.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B70B11188345C9006C85D9 /* QueryField.m */; };
+		92B70B13188345C9006C85D9 /* QueryField.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B70B11188345C9006C85D9 /* QueryField.m */; };
 		92B90BDC16D6AF5B00A3F1B7 /* BILogoff.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B90BDB16D6AF5B00A3F1B7 /* BILogoff.m */; };
 		92B9F28617D37A5D006E7ABC /* MobileBIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F28517D37A5D006E7ABC /* MobileBIService.m */; };
 		92B9F28717D37A5D006E7ABC /* MobileBIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F28517D37A5D006E7ABC /* MobileBIService.m */; };
@@ -560,6 +576,14 @@
 		92B9F29B17D3823B006E7ABC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92B9F29917D3823B006E7ABC /* InfoPlist.strings */; };
 		92B9F29E17D3823B006E7ABC /* BIMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F29D17D3823B006E7ABC /* BIMobileTests.m */; };
 		92B9F2AD17D396D0006E7ABC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE96116CB24D60027BD4D /* CoreData.framework */; };
+		92BB9DA5184BDAB1008FA161 /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BB9DA4184BDAB1008FA161 /* TextEditCell.m */; };
+		92BB9DA6184BDAB1008FA161 /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BB9DA4184BDAB1008FA161 /* TextEditCell.m */; };
+		92BB9DAB184BDAFE008FA161 /* TextEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BB9DAA184BDAFE008FA161 /* TextEditCell.xib */; };
+		92BB9DAC184BDAFE008FA161 /* TextEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BB9DAA184BDAFE008FA161 /* TextEditCell.xib */; };
+		92BB9DB0184BDDC2008FA161 /* TextEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BB9DAE184BDDC2008FA161 /* TextEditViewController.m */; };
+		92BB9DB1184BDDC2008FA161 /* TextEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BB9DAE184BDDC2008FA161 /* TextEditViewController.m */; };
+		92BB9DB2184BDDC2008FA161 /* TextEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BB9DAF184BDDC2008FA161 /* TextEditViewController.xib */; };
+		92BB9DB3184BDDC2008FA161 /* TextEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BB9DAF184BDDC2008FA161 /* TextEditViewController.xib */; };
 		92BD122116F8D02E00B84C7C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BD122016F8D02E00B84C7C /* AVFoundation.framework */; };
 		92BD122416F8DAA800B84C7C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BD122216F8D32B00B84C7C /* AudioToolbox.framework */; };
 		92C1944517FF581E006C027B /* DeskiDoc_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C1944317FF581E006C027B /* DeskiDoc_48.png */; };
@@ -605,6 +629,8 @@
 		92D530941741763700156923 /* FolderPersonal_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D5307F1741763700156923 /* FolderPersonal_48@2x.png */; };
 		92D530961741763700156923 /* CrystalDoc_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D530801741763700156923 /* CrystalDoc_48.png */; };
 		92D530981741763700156923 /* CrystalDoc_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D530811741763700156923 /* CrystalDoc_48@2x.png */; };
+		92D5EBBB184C1262009FAC49 /* XMLRESTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D5EBBA184C1262009FAC49 /* XMLRESTProcessor.m */; };
+		92D5EBBC184C1262009FAC49 /* XMLRESTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D5EBBA184C1262009FAC49 /* XMLRESTProcessor.m */; };
 		92E37E0F179B1F4800797DA8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E37E0E179B1F4800797DA8 /* StoreKit.framework */; };
 		92E37E10179B1F5800797DA8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E37E0E179B1F4800797DA8 /* StoreKit.framework */; };
 		92E37E13179B223100797DA8 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E37E12179B223100797DA8 /* IAPHelper.m */; };
@@ -616,6 +642,10 @@
 		92E8C40D16D0503600B4D01F /* SessionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C40C16D0503600B4D01F /* SessionCell.m */; };
 		92E8C41916D118ED00B4D01F /* SessionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C41816D118ED00B4D01F /* SessionDetailViewController.m */; };
 		92ED8CA71724BF380081A14B /* GlobalPreferencesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED8CA61724BF380081A14B /* GlobalPreferencesConstants.m */; };
+		92F1F54E185A8F67007AC4FD /* DataProviderSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F1F54C185A8F67007AC4FD /* DataProviderSelectorViewController.m */; };
+		92F1F54F185A8F67007AC4FD /* DataProviderSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F1F54C185A8F67007AC4FD /* DataProviderSelectorViewController.m */; };
+		92F1F550185A8F67007AC4FD /* DataProviderSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F1F54D185A8F67007AC4FD /* DataProviderSelectorViewController.xib */; };
+		92F1F551185A8F67007AC4FD /* DataProviderSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F1F54D185A8F67007AC4FD /* DataProviderSelectorViewController.xib */; };
 		92F30A301784F9E00014B290 /* tabbar_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F30A281784F9E00014B290 /* tabbar_landscape.png */; };
 		92F30A321784F9E00014B290 /* ipad-menubar-right__landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F30A291784F9E00014B290 /* ipad-menubar-right__landscape.png */; };
 		92F30A341784F9E00014B290 /* ipad-menubar-left__landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F30A2A1784F9E00014B290 /* ipad-menubar-left__landscape.png */; };
@@ -657,6 +687,8 @@
 		9205443F180C8EFB004DD35D /* LovValueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LovValueCell.xib; sourceTree = "<group>"; };
 		92054442180C906F004DD35D /* LovValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LovValueCell.h; sourceTree = "<group>"; };
 		92054443180C906F004DD35D /* LovValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LovValueCell.m; sourceTree = "<group>"; };
+		92061492184BC5D4005B5F4B /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		92061493184BC5D4005B5F4B /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		920DB49616E17F3F001D3546 /* BIExportReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIExportReport.h; sourceTree = "<group>"; };
 		920DB49716E17F3F001D3546 /* BIExportReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIExportReport.m; sourceTree = "<group>"; };
 		920DB49C16E18B7E001D3546 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
@@ -722,6 +754,12 @@
 		923014081720C536002A8C34 /* DocumentViewer 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 2.xcdatamodel"; sourceTree = "<group>"; };
 		9236AE5216DD9B7900ACCB8E /* BIGetDocumentDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIGetDocumentDetails.h; sourceTree = "<group>"; };
 		9236AE5316DD9B7900ACCB8E /* BIGetDocumentDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIGetDocumentDetails.m; sourceTree = "<group>"; };
+		92383C74184A8B3C004D0B39 /* DocTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocTitleCell.h; sourceTree = "<group>"; };
+		92383C75184A8B3C004D0B39 /* DocTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocTitleCell.m; sourceTree = "<group>"; };
+		92383C7B184A965B004D0B39 /* EditWebiDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWebiDocumentViewController.h; sourceTree = "<group>"; };
+		92383C7C184A965B004D0B39 /* EditWebiDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWebiDocumentViewController.m; sourceTree = "<group>"; };
+		92383C7D184A965B004D0B39 /* EditWebiDocumentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditWebiDocumentViewController.xib; sourceTree = "<group>"; };
+		92383C85184AA479004D0B39 /* DocTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocTitleCell.xib; sourceTree = "<group>"; };
 		92400653176B9CEB00DF6FD3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		92400655176B9CFF00DF6FD3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9240065C176BA1CD00DF6FD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MoreCell.xib; sourceTree = "<group>"; };
@@ -1047,6 +1085,11 @@
 		92B3FB431782F893007D9CC9 /* he */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/MoreCell.strings; sourceTree = "<group>"; };
 		92B3FB441782F8D1007D9CC9 /* he */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/ActionCell.strings; sourceTree = "<group>"; };
 		92B3FB451782F903007D9CC9 /* he */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/UniverseDetailsCell.strings; sourceTree = "<group>"; };
+		92B70B09188341CE006C85D9 /* SelectWebiFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWebiFieldsViewController.h; sourceTree = "<group>"; };
+		92B70B0A188341CE006C85D9 /* SelectWebiFieldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWebiFieldsViewController.m; sourceTree = "<group>"; };
+		92B70B0B188341CE006C85D9 /* SelectWebiFieldsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectWebiFieldsViewController.xib; sourceTree = "<group>"; };
+		92B70B10188345C9006C85D9 /* QueryField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryField.h; sourceTree = "<group>"; };
+		92B70B11188345C9006C85D9 /* QueryField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryField.m; sourceTree = "<group>"; };
 		92B90BDA16D6AF5B00A3F1B7 /* BILogoff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BILogoff.h; sourceTree = "<group>"; };
 		92B90BDB16D6AF5B00A3F1B7 /* BILogoff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BILogoff.m; sourceTree = "<group>"; };
 		92B9F28417D37A5D006E7ABC /* MobileBIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileBIService.h; sourceTree = "<group>"; };
@@ -1062,6 +1105,12 @@
 		92B9F29F17D3823B006E7ABC /* BIMobileTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BIMobileTests-Prefix.pch"; sourceTree = "<group>"; };
 		92B9F2A317D389F7006E7ABC /* DocumentViewer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = DocumentViewer.xcodeproj; sourceTree = "<group>"; };
 		92B9F2A817D38DE7006E7ABC /* project.pbxproj */ = {isa = PBXFileReference; lastKnownFileType = text.pbxproject; name = project.pbxproj; path = DocumentViewer.xcodeproj/project.pbxproj; sourceTree = "<group>"; };
+		92BB9DA3184BDAB0008FA161 /* TextEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEditCell.h; sourceTree = "<group>"; };
+		92BB9DA4184BDAB1008FA161 /* TextEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditCell.m; sourceTree = "<group>"; };
+		92BB9DAA184BDAFE008FA161 /* TextEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextEditCell.xib; sourceTree = "<group>"; };
+		92BB9DAD184BDDC2008FA161 /* TextEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEditViewController.h; sourceTree = "<group>"; };
+		92BB9DAE184BDDC2008FA161 /* TextEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditViewController.m; sourceTree = "<group>"; };
+		92BB9DAF184BDDC2008FA161 /* TextEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextEditViewController.xib; sourceTree = "<group>"; };
 		92BD122016F8D02E00B84C7C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		92BD122216F8D32B00B84C7C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		92C1944317FF581E006C027B /* DeskiDoc_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeskiDoc_48.png; sourceTree = "<group>"; };
@@ -1099,6 +1148,8 @@
 		92D5307F1741763700156923 /* FolderPersonal_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FolderPersonal_48@2x.png"; sourceTree = "<group>"; };
 		92D530801741763700156923 /* CrystalDoc_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrystalDoc_48.png; sourceTree = "<group>"; };
 		92D530811741763700156923 /* CrystalDoc_48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CrystalDoc_48@2x.png"; sourceTree = "<group>"; };
+		92D5EBB9184C1262009FAC49 /* XMLRESTProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRESTProcessor.h; sourceTree = "<group>"; };
+		92D5EBBA184C1262009FAC49 /* XMLRESTProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRESTProcessor.m; sourceTree = "<group>"; };
 		92E37E0E179B1F4800797DA8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		92E37E11179B223100797DA8 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		92E37E12179B223100797DA8 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
@@ -1119,6 +1170,9 @@
 		92ED8CA61724BF380081A14B /* GlobalPreferencesConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalPreferencesConstants.m; sourceTree = "<group>"; };
 		92EEEBEF178796E10070C612 /* APOS BI Ext copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "APOS BI Ext copy-Info.plist"; path = "/Users/ygoron/Dropbox/Yuri copy/xcode/DocumentViewer/APOS BI Ext copy-Info.plist"; sourceTree = "<absolute>"; };
 		92EEECF31787977D0070C612 /* APOS BI Lite Ext copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "APOS BI Lite Ext copy-Info.plist"; path = "/Users/ygoron/Dropbox/Yuri copy/xcode/DocumentViewer/APOS BI Lite Ext copy-Info.plist"; sourceTree = "<absolute>"; };
+		92F1F54B185A8F67007AC4FD /* DataProviderSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderSelectorViewController.h; sourceTree = "<group>"; };
+		92F1F54C185A8F67007AC4FD /* DataProviderSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderSelectorViewController.m; sourceTree = "<group>"; };
+		92F1F54D185A8F67007AC4FD /* DataProviderSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataProviderSelectorViewController.xib; sourceTree = "<group>"; };
 		92F308841770B74D003D9273 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		92F308851770B76E003D9273 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MoreCell.strings; sourceTree = "<group>"; };
 		92F308861770B77B003D9273 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ActionCell.strings; sourceTree = "<group>"; };
@@ -1207,6 +1261,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92061491184BC5AF005B5F4B /* GData */ = {
+			isa = PBXGroup;
+			children = (
+				92061492184BC5D4005B5F4B /* GDataXMLNode.h */,
+				92061493184BC5D4005B5F4B /* GDataXMLNode.m */,
+			);
+			name = GData;
+			sourceTree = "<group>";
+		};
 		920F03B017177F32006AC40E /* Launch Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -1730,6 +1793,8 @@
 		92ADE96316CB24D60027BD4D /* DocumentViewer */ = {
 			isa = PBXGroup;
 			children = (
+				92061491184BC5AF005B5F4B /* GData */,
+				92EB32E3183AED8F00BFF73B /* Webi Creator */,
 				926A8073172D72770033FB6A /* About */,
 				928D10D7170F76CA00FA2C5D /* AppDelegate */,
 				9256264917313C32006CEEB6 /* Browser Navigation */,
@@ -1987,6 +2052,35 @@
 			name = "Tab Icons";
 			sourceTree = "<group>";
 		};
+		92EB32E3183AED8F00BFF73B /* Webi Creator */ = {
+			isa = PBXGroup;
+			children = (
+				92383C74184A8B3C004D0B39 /* DocTitleCell.h */,
+				92383C75184A8B3C004D0B39 /* DocTitleCell.m */,
+				92383C7B184A965B004D0B39 /* EditWebiDocumentViewController.h */,
+				92383C7C184A965B004D0B39 /* EditWebiDocumentViewController.m */,
+				92383C7D184A965B004D0B39 /* EditWebiDocumentViewController.xib */,
+				92383C85184AA479004D0B39 /* DocTitleCell.xib */,
+				92BB9DA3184BDAB0008FA161 /* TextEditCell.h */,
+				92BB9DA4184BDAB1008FA161 /* TextEditCell.m */,
+				92BB9DAA184BDAFE008FA161 /* TextEditCell.xib */,
+				92BB9DAD184BDDC2008FA161 /* TextEditViewController.h */,
+				92BB9DAE184BDDC2008FA161 /* TextEditViewController.m */,
+				92BB9DAF184BDDC2008FA161 /* TextEditViewController.xib */,
+				92D5EBB9184C1262009FAC49 /* XMLRESTProcessor.h */,
+				92D5EBBA184C1262009FAC49 /* XMLRESTProcessor.m */,
+				92F1F54B185A8F67007AC4FD /* DataProviderSelectorViewController.h */,
+				92F1F54C185A8F67007AC4FD /* DataProviderSelectorViewController.m */,
+				92F1F54D185A8F67007AC4FD /* DataProviderSelectorViewController.xib */,
+				92B70B09188341CE006C85D9 /* SelectWebiFieldsViewController.h */,
+				92B70B0A188341CE006C85D9 /* SelectWebiFieldsViewController.m */,
+				92B70B0B188341CE006C85D9 /* SelectWebiFieldsViewController.xib */,
+				92B70B10188345C9006C85D9 /* QueryField.h */,
+				92B70B11188345C9006C85D9 /* QueryField.m */,
+			);
+			name = "Webi Creator";
+			sourceTree = "<group>";
+		};
 		92F4677317249F070048252B /* Global Preferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -2137,12 +2231,14 @@
 				9288ABEA1787A9A50048BCF1 /* dimension.png in Resources */,
 				9288ABEB1787A9A50048BCF1 /* attribute.png in Resources */,
 				9288ABEC1787A9A50048BCF1 /* measure.jpg in Resources */,
+				92B70B0F188341CE006C85D9 /* SelectWebiFieldsViewController.xib in Resources */,
 				9288ABED1787A9A50048BCF1 /* leather-background-568h@2x.png in Resources */,
 				9288ABEE1787A9A50048BCF1 /* slider-track-fill.png in Resources */,
 				9205443E180C8E85004DD35D /* PromptLovViewController.xib in Resources */,
 				9288ABEF1787A9A50048BCF1 /* slider-track-fill@2x.png in Resources */,
 				9288ABF01787A9A50048BCF1 /* back-button.png in Resources */,
 				9288ABF11787A9A50048BCF1 /* back-button@2x.png in Resources */,
+				92383C87184AA479004D0B39 /* DocTitleCell.xib in Resources */,
 				92C1944817FF581E006C027B /* DeskiDoc_48@2x.png in Resources */,
 				924C486E17F07BAB00C25F8F /* navbar_landscape-7b.png in Resources */,
 				9288ABF21787A9A50048BCF1 /* button-pressed.png in Resources */,
@@ -2215,6 +2311,7 @@
 				9288AC331787A9A50048BCF1 /* time@2x.png in Resources */,
 				9288AC341787A9A50048BCF1 /* food-large.jpg in Resources */,
 				9288AC351787A9A50048BCF1 /* food.jpg in Resources */,
+				92BB9DB3184BDDC2008FA161 /* TextEditViewController.xib in Resources */,
 				9264D50217F0DD8500F0117A /* Images.xcassets in Resources */,
 				9288AC361787A9A50048BCF1 /* diagram8.png in Resources */,
 				9288AC371787A9A50048BCF1 /* diagram8@2x.png in Resources */,
@@ -2222,6 +2319,7 @@
 				9288AC391787A9A50048BCF1 /* pinion2@2x.png in Resources */,
 				925ED32F17F0B72E00EF7A8E /* tabbar_landscape_ipad_old-7.png in Resources */,
 				9288AC3A1787A9A50048BCF1 /* planet.png in Resources */,
+				92F1F551185A8F67007AC4FD /* DataProviderSelectorViewController.xib in Resources */,
 				9288AC3B1787A9A50048BCF1 /* planet@2x.png in Resources */,
 				9288AC3C1787A9A50048BCF1 /* Default-Landscape@2x~ipad.png in Resources */,
 				9264D50817F0EBEB00F0117A /* leather-background@2x.png in Resources */,
@@ -2237,6 +2335,7 @@
 				9288AC471787A9A50048BCF1 /* DocumentsAll_unselected@2x.png in Resources */,
 				9288AC481787A9A50048BCF1 /* Universe_selected.png in Resources */,
 				9288AC491787A9A50048BCF1 /* Universe_selected@2x.png in Resources */,
+				92383C81184A965B004D0B39 /* EditWebiDocumentViewController.xib in Resources */,
 				926D3D4818258F4900868149 /* EditPromptViewController.xib in Resources */,
 				9288AC4A1787A9A50048BCF1 /* Universe_unselected.png in Resources */,
 				9288AC4B1787A9A50048BCF1 /* Universe_unselected@2x.png in Resources */,
@@ -2280,6 +2379,7 @@
 				9288AC701787A9A50048BCF1 /* ObjectInfoCell.xib in Resources */,
 				924C487017F07BAB00C25F8F /* navbar_landscape-7b@2x.png in Resources */,
 				9288AC711787A9A50048BCF1 /* ActionCell.xib in Resources */,
+				92BB9DAC184BDAFE008FA161 /* TextEditCell.xib in Resources */,
 				9288AC721787A9A50048BCF1 /* DescriptionAndPath.xib in Resources */,
 				9288AC731787A9A50048BCF1 /* OpenDocumentViewController.xib in Resources */,
 				9288AC741787A9A50048BCF1 /* Pdf.png in Resources */,
@@ -2339,12 +2439,14 @@
 				9271C757170A4B1B003842EB /* dimension.png in Resources */,
 				9271C75B170A5483003842EB /* attribute.png in Resources */,
 				9271C75D170A557F003842EB /* measure.jpg in Resources */,
+				92B70B0E188341CE006C85D9 /* SelectWebiFieldsViewController.xib in Resources */,
 				928D108E170F751F00FA2C5D /* leather-background-568h@2x.png in Resources */,
 				928D108F170F751F00FA2C5D /* slider-track-fill.png in Resources */,
 				9205443D180C8E85004DD35D /* PromptLovViewController.xib in Resources */,
 				928D1090170F751F00FA2C5D /* slider-track-fill@2x.png in Resources */,
 				928D1091170F751F00FA2C5D /* back-button.png in Resources */,
 				928D1092170F751F00FA2C5D /* back-button@2x.png in Resources */,
+				92383C86184AA479004D0B39 /* DocTitleCell.xib in Resources */,
 				92C1944717FF581E006C027B /* DeskiDoc_48@2x.png in Resources */,
 				924C486D17F07BAB00C25F8F /* navbar_landscape-7b.png in Resources */,
 				928D1093170F751F00FA2C5D /* button-pressed.png in Resources */,
@@ -2417,6 +2519,7 @@
 				928D10D4170F751F00FA2C5D /* time@2x.png in Resources */,
 				928D10D5170F751F00FA2C5D /* food-large.jpg in Resources */,
 				928D10D6170F751F00FA2C5D /* food.jpg in Resources */,
+				92BB9DB2184BDDC2008FA161 /* TextEditViewController.xib in Resources */,
 				925ED33A17F0D81900EF7A8E /* Images.xcassets in Resources */,
 				928D93DA171359E10010A31B /* diagram8.png in Resources */,
 				928D93DB171359E10010A31B /* diagram8@2x.png in Resources */,
@@ -2424,6 +2527,7 @@
 				928D93DD171359E10010A31B /* pinion2@2x.png in Resources */,
 				925ED32E17F0B72E00EF7A8E /* tabbar_landscape_ipad_old-7.png in Resources */,
 				928D93DE171359E10010A31B /* planet.png in Resources */,
+				92F1F550185A8F67007AC4FD /* DataProviderSelectorViewController.xib in Resources */,
 				928D93DF171359E10010A31B /* planet@2x.png in Resources */,
 				920F03C2171783AE006AC40E /* Default-Landscape@2x~ipad.png in Resources */,
 				9264D50717F0EBEB00F0117A /* leather-background@2x.png in Resources */,
@@ -2439,6 +2543,7 @@
 				92CA920117283121000AD6DD /* DocumentsAll_unselected@2x.png in Resources */,
 				92CA9206172831DC000AD6DD /* Universe_selected.png in Resources */,
 				92CA9207172831DC000AD6DD /* Universe_selected@2x.png in Resources */,
+				92383C80184A965B004D0B39 /* EditWebiDocumentViewController.xib in Resources */,
 				926D3D4718258F4900868149 /* EditPromptViewController.xib in Resources */,
 				92CA9208172831DC000AD6DD /* Universe_unselected.png in Resources */,
 				92CA9209172831DC000AD6DD /* Universe_unselected@2x.png in Resources */,
@@ -2482,6 +2587,7 @@
 				9210E02317482902009183CD /* ObjectInfoCell.xib in Resources */,
 				924C486F17F07BAB00C25F8F /* navbar_landscape-7b@2x.png in Resources */,
 				9240065F176BA24300DF6FD3 /* ActionCell.xib in Resources */,
+				92BB9DAB184BDAFE008FA161 /* TextEditCell.xib in Resources */,
 				927149141749716E00851389 /* DescriptionAndPath.xib in Resources */,
 				9271491F17498B6900851389 /* OpenDocumentViewController.xib in Resources */,
 				927149271749B13500851389 /* Pdf.png in Resources */,
@@ -2592,9 +2698,12 @@
 				9288AB971787A9A50048BCF1 /* BIConnector.m in Sources */,
 				9288AB981787A9A50048BCF1 /* BI4RestConstants.m in Sources */,
 				9288AB991787A9A50048BCF1 /* BILogoff.m in Sources */,
+				92F1F54F185A8F67007AC4FD /* DataProviderSelectorViewController.m in Sources */,
+				92383C7F184A965B004D0B39 /* EditWebiDocumentViewController.m in Sources */,
 				9205443C180C8E85004DD35D /* PromptLovViewController.m in Sources */,
 				9288AB9A1787A9A50048BCF1 /* GetDocuments.m in Sources */,
 				9288AB9B1787A9A50048BCF1 /* DocumentsViewController.m in Sources */,
+				92B70B0D188341CE006C85D9 /* SelectWebiFieldsViewController.m in Sources */,
 				9288AB9C1787A9A50048BCF1 /* DocumentCell.m in Sources */,
 				9288AB9D1787A9A50048BCF1 /* BIGetDocuments.m in Sources */,
 				9288AB9E1787A9A50048BCF1 /* BIGetDocumentDetails.m in Sources */,
@@ -2624,17 +2733,21 @@
 				92518A0417E7411400BC7915 /* ExtensionPackViewController.m in Sources */,
 				9288ABB21787A9A50048BCF1 /* Format.m in Sources */,
 				9288ABB31787A9A50048BCF1 /* BIDeleteDocument.m in Sources */,
+				92B70B13188345C9006C85D9 /* QueryField.m in Sources */,
 				9288ABB41787A9A50048BCF1 /* DeleteStatus.m in Sources */,
 				926D3D4618258F4900868149 /* EditPromptViewController.m in Sources */,
 				9288ABB51787A9A50048BCF1 /* UniversesListViewController.m in Sources */,
 				9288ABB61787A9A50048BCF1 /* Universe.m in Sources */,
 				9288ABB71787A9A50048BCF1 /* UniverseCell.m in Sources */,
 				92556297181F3E1F00146E88 /* BISaveDocument.m in Sources */,
+				92D5EBBC184C1262009FAC49 /* XMLRESTProcessor.m in Sources */,
 				92579ACE17E8DE5F00F463A3 /* Response.m in Sources */,
 				9288ABB81787A9A50048BCF1 /* BIGetUniverses.m in Sources */,
 				9288ABB91787A9A50048BCF1 /* BIGetUniverseDetails.m in Sources */,
 				92F4EFC417E3A3F3009DAFAC /* Utils.m in Sources */,
+				92383C77184A8B3C004D0B39 /* DocTitleCell.m in Sources */,
 				9288ABBA1787A9A50048BCF1 /* UniverseDetailsCellSolo.m in Sources */,
+				92061495184BC5D4005B5F4B /* GDataXMLNode.m in Sources */,
 				9288ABBB1787A9A50048BCF1 /* UniverseDetailsViewControllerSolo.m in Sources */,
 				929A3F6217F8B40A009B63B2 /* WebiPromptValue.m in Sources */,
 				9288ABBC1787A9A50048BCF1 /* TitleLabel.m in Sources */,
@@ -2650,6 +2763,7 @@
 				9288ABC51787A9A50048BCF1 /* InfoObject.m in Sources */,
 				9288ABC61787A9A50048BCF1 /* BrowserChildViewController.m in Sources */,
 				9288ABC71787A9A50048BCF1 /* BrowserCell.m in Sources */,
+				92BB9DA6184BDAB1008FA161 /* TextEditCell.m in Sources */,
 				9288ABC81787A9A50048BCF1 /* BrowserObjectActionsViewController.m in Sources */,
 				9288ABC91787A9A50048BCF1 /* ObjectInfoCell.m in Sources */,
 				9288ABCA1787A9A50048BCF1 /* ActionCell.m in Sources */,
@@ -2680,6 +2794,7 @@
 				921E2E5617D52C4E00AEEF16 /* ioapi.c in Sources */,
 				928CA6201809DD0100149154 /* BIRefreshDocument.m in Sources */,
 				921E2E5817D52C4E00AEEF16 /* mztools.c in Sources */,
+				92BB9DB1184BDDC2008FA161 /* TextEditViewController.m in Sources */,
 				921E2E5A17D52C4E00AEEF16 /* unzip.c in Sources */,
 				929A3F5E17F8B315009B63B2 /* WebiPromptLov.m in Sources */,
 				921E2E5C17D52C4E00AEEF16 /* zip.c in Sources */,
@@ -2703,9 +2818,12 @@
 				9266BD1816D51E7700A43FD7 /* BIConnector.m in Sources */,
 				9266BD1B16D52A5C00A43FD7 /* BI4RestConstants.m in Sources */,
 				92B90BDC16D6AF5B00A3F1B7 /* BILogoff.m in Sources */,
+				92F1F54E185A8F67007AC4FD /* DataProviderSelectorViewController.m in Sources */,
+				92383C7E184A965B004D0B39 /* EditWebiDocumentViewController.m in Sources */,
 				9205443B180C8E85004DD35D /* PromptLovViewController.m in Sources */,
 				922F397516D6DDFC009B7761 /* GetDocuments.m in Sources */,
 				922F397816D6E3CE009B7761 /* DocumentsViewController.m in Sources */,
+				92B70B0C188341CE006C85D9 /* SelectWebiFieldsViewController.m in Sources */,
 				921B39C916D816FB00C0CD95 /* DocumentCell.m in Sources */,
 				921B39CD16D851F200C0CD95 /* BIGetDocuments.m in Sources */,
 				9236AE5416DD9B7900ACCB8E /* BIGetDocumentDetails.m in Sources */,
@@ -2735,17 +2853,21 @@
 				92518A0317E7411400BC7915 /* ExtensionPackViewController.m in Sources */,
 				928D566016F7F13D000DE65D /* Format.m in Sources */,
 				92F90E3616FE2DEA00FA501A /* BIDeleteDocument.m in Sources */,
+				92B70B12188345C9006C85D9 /* QueryField.m in Sources */,
 				92F90E3916FE3D4C00FA501A /* DeleteStatus.m in Sources */,
 				926D3D4518258F4900868149 /* EditPromptViewController.m in Sources */,
 				92ADF00317073CD80056B72F /* UniversesListViewController.m in Sources */,
 				92ADF00617073D130056B72F /* Universe.m in Sources */,
 				92ADF00B1707679D0056B72F /* UniverseCell.m in Sources */,
 				92556296181F3E1F00146E88 /* BISaveDocument.m in Sources */,
+				92D5EBBB184C1262009FAC49 /* XMLRESTProcessor.m in Sources */,
 				92579ACD17E8DE5F00F463A3 /* Response.m in Sources */,
 				92ADF00E17076A240056B72F /* BIGetUniverses.m in Sources */,
 				92ADF01B170795080056B72F /* BIGetUniverseDetails.m in Sources */,
 				92F4EFC317E3A3F3009DAFAC /* Utils.m in Sources */,
+				92383C76184A8B3C004D0B39 /* DocTitleCell.m in Sources */,
 				92ADF02F170887C00056B72F /* UniverseDetailsCellSolo.m in Sources */,
+				92061494184BC5D4005B5F4B /* GDataXMLNode.m in Sources */,
 				92ADF035170897970056B72F /* UniverseDetailsViewControllerSolo.m in Sources */,
 				929A3F6117F8B40A009B63B2 /* WebiPromptValue.m in Sources */,
 				928D10DB170F95F100FA2C5D /* TitleLabel.m in Sources */,
@@ -2761,6 +2883,7 @@
 				929D1CE6173479730027FDFF /* InfoObject.m in Sources */,
 				920DE680173C829800EC70A5 /* BrowserChildViewController.m in Sources */,
 				92FE2E37173F22A500AEEB01 /* BrowserCell.m in Sources */,
+				92BB9DA5184BDAB1008FA161 /* TextEditCell.m in Sources */,
 				922E169F1746FB9E00D55FF4 /* BrowserObjectActionsViewController.m in Sources */,
 				9210E020174828D3009183CD /* ObjectInfoCell.m in Sources */,
 				9210E02A174862E7009183CD /* ActionCell.m in Sources */,
@@ -2791,6 +2914,7 @@
 				921E2E5517D52C4E00AEEF16 /* ioapi.c in Sources */,
 				928CA61F1809DD0100149154 /* BIRefreshDocument.m in Sources */,
 				921E2E5717D52C4E00AEEF16 /* mztools.c in Sources */,
+				92BB9DB0184BDDC2008FA161 /* TextEditViewController.m in Sources */,
 				921E2E5917D52C4E00AEEF16 /* unzip.c in Sources */,
 				929A3F5D17F8B315009B63B2 /* WebiPromptLov.m in Sources */,
 				921E2E5B17D52C4E00AEEF16 /* zip.c in Sources */,
@@ -3009,8 +3133,14 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lxml2";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -3036,9 +3166,15 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-lxml2";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;

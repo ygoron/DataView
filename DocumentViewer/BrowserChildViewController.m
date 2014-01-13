@@ -14,6 +14,7 @@
 #import "BrowserObjectActionsViewController.h"
 #import "DocumentDetailsViewController.h"
 #import "Utils.h"
+#import "EditWebiDocumentViewController.h"
 
 @interface BrowserChildViewController ()
 
@@ -102,12 +103,138 @@
                                               initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                               target:self
                                               action:@selector(reLoadObjects)];
-    self.navigationItem.rightBarButtonItems =
-    [NSArray arrayWithObjects:refreshButton, nil];
+    
+    UIBarButtonItem *newObjectButton         = [[UIBarButtonItem alloc]
+                                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                target:self
+                                                action:@selector(createNewObject)];
+    
+    NSLog(@"Parent Object Type %@",_parentObject.type);
+    if ([_parentObject.type isEqualToString:@"Folder"]){
+        self.navigationItem.rightBarButtonItems =
+        [NSArray arrayWithObjects:refreshButton, newObjectButton,nil];
+        _actionButton = newObjectButton;
+    }
+    
+    else
+        self.navigationItem.rightBarButtonItems =
+        [NSArray arrayWithObjects:refreshButton,nil];
+    
+    
     urlStart=_urlForChildren;
     [self reLoadObjects];
     //    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+-(void) createNewObject
+{
+    
+    NSLog(@"Perform Action");
+    
+    if ([self.actionSheet isVisible]) {
+        [self.actionSheet dismissWithClickedButtonIndex:-1 animated:NO];
+        
+    } else if ([self isPicVisible]) {
+        self.picVisible = NO;
+        
+    } else {
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            
+            [self.actionSheet showFromBarButtonItem:self.actionButton animated:NO];
+            
+        } else {
+            
+            //            [self.actionSheet showInView:[self view]];
+            UITabBarController *tabBarController =(UITabBarController *)self.tableView.window.rootViewController;
+            [self.actionSheet showFromTabBar: tabBarController.tabBar];
+        }
+	}
+    
+}
+
+- (UIActionSheet *)actionSheet {
+    
+    if (_actionSheet == nil) {
+        
+        NSString *cancelButtonTitle = NSLocalizedString(@"Cancel",nil);
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            cancelButtonTitle = nil;
+        }
+        
+        //        if (_document.reports.count>0){
+        _actionSheet = [[UIActionSheet alloc]
+                        initWithTitle:nil
+                        delegate:self
+                        cancelButtonTitle:cancelButtonTitle
+                        destructiveButtonTitle:nil
+                        otherButtonTitles:NSLocalizedString(@"Webi Document", nil),nil];
+        
+    }
+    
+    return _actionSheet;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (actionSheet.cancelButtonIndex==buttonIndex) return ;
+    switch (buttonIndex) {
+            
+        case 0:
+            [TestFlight passCheckpoint:@"Create New Webi"];
+            //            UITableViewController *tableViewController=[[UIStoryboard storyboardWithName:@"EditWebiDocument" bundle:nil] instantiateViewControllerWithIdentifier:@"ModifyWebiDocument"];
+            
+            
+            EditWebiDocumentViewController *editWebiVC=[[EditWebiDocumentViewController alloc] initWithNibName:@"EditWebiDocumentViewController" bundle:nil];
+            editWebiVC.documentXml=[self createDocumentXmlWithFolderId:_parentObject.objectId];
+            editWebiVC.dataprovidersXml=nil;
+            editWebiVC.folderId=_parentObject.objectId;
+            editWebiVC.currentSession=_currentSession;
+            [self.navigationController pushViewController:editWebiVC animated:YES];
+            
+            break;
+    }
+}
+
+#pragma create new Document in Folder XML
+-(GDataXMLDocument *)createDocumentXmlWithFolderId:(int)folderId
+{
+    GDataXMLElement *root =[GDataXMLNode elementWithName:@"document"];
+    
+    GDataXMLNode *name= [GDataXMLNode elementWithName:@"name" stringValue:nil];
+    [root addChild:name];
+    
+    GDataXMLNode *folder= [GDataXMLNode elementWithName:@"folderId" stringValue:[NSString stringWithFormat:@"%d",folderId]];
+    [root addChild:folder];
+    GDataXMLDocument *doc=[[GDataXMLDocument alloc] initWithRootElement:root];
+    
+#ifdef Trace
+    NSData *xmlData = doc.XMLData;
+    NSString *xmlString = [[NSString alloc]  initWithData:xmlData
+                                                 encoding:NSUTF8StringEncoding];
+    NSLog(@"XML String:%@",xmlString);
+#endif
+    
+    return doc;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        if ([self isPicVisible]) {
+            //            UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
+            //            [pc dismissAnimated:animated];
+            self.picVisible = NO;
+        }
+        
+        if ([self.actionSheet isVisible]) {
+            [self.actionSheet dismissWithClickedButtonIndex:-1 animated:NO];
+        }
+    }
+}
+
 
 -(void)displayHeaderInfoWithInfoObject:(InfoObject *)infoObject
 {
@@ -332,10 +459,10 @@
         
         else if ([infoObject.type isEqualToString:@"Pdf"])
             [cell.imageViewIcon setImage:[UIImage imageNamed:@"Pdf.png"]];
-
+        
         else if ([infoObject.type isEqualToString:@"FullClient"])
             [cell.imageViewIcon setImage:[UIImage imageNamed:@"DeskiDoc_48.png"]];
-
+        
         else if ([infoObject.type isEqualToString:@"Word"]|| [infoObject.type isEqualToString:@"Rtf"])
             [cell.imageViewIcon setImage:[UIImage imageNamed:@"Word.png"]];
         

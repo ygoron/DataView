@@ -8,6 +8,8 @@
 
 #import "UniversesListViewController.h"
 #import "UniverseDetailsViewControllerSolo.h"
+//TODO REMOVE
+#import "SelectWebiFieldsViewController.h"
 #import "TitleLabel.h"
 #import "WebiAppDelegate.h"
 
@@ -24,6 +26,7 @@
 {
     WebiAppDelegate *appDelegate;
     BOOL wasRefreshedAtLeastOnce;
+    NSIndexPath *selectedIndex;
     
 }
 @synthesize sessions;
@@ -62,9 +65,9 @@
         [refreshControl addTarget:self action:@selector(reloadUniverses) forControlEvents:UIControlEventValueChanged];
     }
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(reloadUniverses)
-//                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
+    //    [[NSNotificationCenter defaultCenter] addObserver:self
+    //                                             selector:@selector(reloadUniverses)
+    //                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
     
     
     
@@ -73,7 +76,7 @@
     titelLabel.text=NSLocalizedString(@"Universes",nil);
     [titelLabel sizeToFit];
     
-        [self loadUniverses];
+    [self loadUniverses];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -89,6 +92,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (_isWebiCreation==YES){
+        if (selectedIndex)
+        {
+            Universe *universe=[self.universes objectAtIndex:selectedIndex.row];
+            if (universe){
+                NSLog(@"Selected Universe Id:%d",universe.universeId);
+                [self.delegate UniversesListViewController:self didSelectUniverse:universe];
+            }else{
+                NSLog(@"Universe Not Found");
+            }
+        }
+    }
+    
+}
 
 #pragma mark Reload Universes
 -(void) reloadUniverses{
@@ -213,6 +233,8 @@
             [cell.imageOfUnv setImage:[UIImage imageNamed:@"unv_16-256.png"]];
         else         if ([universe.type isEqualToString:@"unx"])
             [cell.imageOfUnv setImage:[UIImage imageNamed:@"unx_16-256.png"]];
+        
+        if (_isWebiCreation == YES) [cell setAccessoryType:UITableViewCellAccessoryNone];
         return cell;
     }else{
         UniverseCell *cell=[tableView dequeueReusableCellWithIdentifier:@"MoreCell_Ident"];
@@ -243,7 +265,7 @@
 #ifndef Lite
     [super setEditing:editing animated:animated];
 #endif
-
+    
 }
 
 /*
@@ -286,15 +308,54 @@
         offset=self.universes.count;
         [self loadUniverses];
     }else{
-        
-        UniverseDetailsViewControllerSolo *vc=[[UniverseDetailsViewControllerSolo alloc]initWithNibName:@"UniverseDetailsViewControllerSolo" bundle:nil];
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSLog(@"Selected row:%d",[indexPath row]);
-        [TestFlight passCheckpoint:@"Universe Detail Requested"];
-        vc.universe=[self.universes objectAtIndex:[indexPath row]];
-        vc.unvDetails=nil;
-        vc.title=vc.universe.name;
-        [self.navigationController pushViewController:vc animated:YES];
+        if (_isWebiCreation==NO){
+            UniverseDetailsViewControllerSolo *vc=[[UniverseDetailsViewControllerSolo alloc]initWithNibName:@"UniverseDetailsViewControllerSolo" bundle:nil];
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            NSLog(@"Selected row:%d",[indexPath row]);
+            [TestFlight passCheckpoint:@"Universe Detail Requested"];
+            vc.universe=[self.universes objectAtIndex:[indexPath row]];
+            vc.unvDetails=nil;
+            vc.title=vc.universe.name;
+            
+            //TODO REMOVE
+//            [self.navigationController pushViewController:vc animated:YES];
+            SelectWebiFieldsViewController *swf=[[SelectWebiFieldsViewController alloc] initWithNibName:@"SelectWebiFieldsViewController" bundle:nil];
+            swf.universe=[self.universes objectAtIndex:[indexPath row]];
+            [self.navigationController pushViewController:swf animated:YES];
+            
+// END REMOVE
+            
+            
+        }else{
+            UniverseCell *cell=(UniverseCell *)[tableView cellForRowAtIndexPath:indexPath];
+            
+            
+            if (cell.accessoryType==UITableViewCellAccessoryNone){
+                cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            }
+            else{
+                cell.accessoryType=UITableViewCellAccessoryNone;
+            }
+            
+            
+            if (selectedIndex){
+                if (selectedIndex.row!=indexPath.row){
+                    UniverseCell *prevSelectedCell=(UniverseCell *)[tableView cellForRowAtIndexPath:selectedIndex];
+                    [prevSelectedCell setAccessoryType:UITableViewCellAccessoryNone];
+                    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndex] withRowAnimation:UITableViewRowAnimationFade];
+                }else{
+                    
+                }
+            }
+            
+            if (cell.accessoryType==UITableViewCellAccessoryCheckmark){
+                selectedIndex=indexPath;
+            }else{
+                selectedIndex=nil;
+            }
+            
+            
+        }
         
     }
     

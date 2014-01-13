@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DocTitle_ID" id="W9Y-gh-Q8D" customClass="DocTitleCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W9Y-gh-Q8D" id="dJT-4B-tfH">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcj-iz-rbF">
+                        <rect key="frame" x="7" y="13" width="39" height="17"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Document Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7o-5y-W2b">
+                        <rect key="frame" x="158" y="13" width="109" height="17"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Wcj-iz-rbF" firstAttribute="leading" secondItem="dJT-4B-tfH" secondAttribute="leading" constant="7" id="BZ6-xs-edo"/>
+                    <constraint firstItem="u7o-5y-W2b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wcj-iz-rbF" secondAttribute="trailing" constant="8" symbolic="YES" id="Xj0-3v-vDn"/>
+                    <constraint firstAttribute="trailing" secondItem="u7o-5y-W2b" secondAttribute="trailing" constant="20" symbolic="YES" id="bbQ-SP-gje"/>
+                    <constraint firstItem="u7o-5y-W2b" firstAttribute="centerY" secondItem="Wcj-iz-rbF" secondAttribute="centerY" id="l31-mE-ySO"/>
+                    <constraint firstAttribute="centerY" secondItem="Wcj-iz-rbF" secondAttribute="centerY" id="lcw-eR-Wsp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="DocNameActualLabel" destination="u7o-5y-W2b" id="3Lz-zv-Pfv"/>
+                <outlet property="DocNameLabel" destination="Wcj-iz-rbF" id="zmg-hR-DVH"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
