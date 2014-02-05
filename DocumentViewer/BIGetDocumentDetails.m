@@ -212,7 +212,7 @@
         self.document.folderid=[responseDic objectForKey:@"folderId"];
         self.document.id=[responseDic objectForKey:@"id"];
         self.document.lastauthor=[responseDic objectForKey:@"lastAuthor"];
-        self.document.name=[responseDic objectForKey:@"name"];
+        self.document.name=[NSString stringWithFormat:@"%@",[responseDic objectForKey:@"name"]];
         self.document.path=[responseDic objectForKey:@"path"];
         self.document.refreshonopen=[responseDic objectForKey:@"refreshOnOpen"];
         self.document.scheduled=[responseDic objectForKey:@"scheduled"];

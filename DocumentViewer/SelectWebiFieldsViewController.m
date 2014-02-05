@@ -68,9 +68,15 @@
     
     TitleLabel *titelLabel=[[TitleLabel alloc] initWithFrame:CGRectZero];
     self.navigationItem.titleView = titelLabel;
-    titelLabel.text=self.title;
+    //    titelLabel.text=self.title;
+    titelLabel.text=NSLocalizedString(@"Select Fields", nil);
     [titelLabel sizeToFit];
     
+    //    UIBarButtonItem *doneButton         = [[UIBarButtonItem alloc]
+    //                                              initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+    //                                              target:self
+    //                                           action:@selector(closeView)];
+    //        self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:doneButton, nil];
     
     
     NSLog(@"Loading Universe Details");
@@ -83,6 +89,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -115,11 +122,12 @@
             [self fillArrayOfFieldbjects:dictionary resultArray:__availableValues withPath:@""];
         }
         NSLog(@"Total Objects:%d",__availableValues.count);
+        [self initSelectedFiedlsArrayUsingSelectedQueryFields:_selectedQueryFields];
         [self updateValueArrays];
         
         NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
         __availableValues=[[__availableValues sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]] mutableCopy] ;
-
+        
         [self.tableView reloadData];
         
     }
@@ -195,7 +203,7 @@
     cell.lableName.text=field.name;
     cell.labelDescription.text=field.description;
     cell.labelType.text=[NSString stringWithFormat:@"%@%@%@", field.type,@":",field.path];
-
+    
     
     if ([field.type isEqual:@"Dimension"]){
         [cell.myImageView setImage:[UIImage imageNamed:@"dimension.png"]];
@@ -278,7 +286,7 @@
         
         //        [__selectedValues addObject:[NSString stringWithFormat:@"%@", value]];
         if (__selectedValues.count>0){
-            NSString *oldValue=[__selectedValues objectAtIndex:0];
+            QueryField *oldValue=[__selectedValues objectAtIndex:0];
             NSLog(@"Add Old Selected Value %@ to the list of available values",oldValue);
             [__availableValues addObject:oldValue];
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
@@ -288,7 +296,7 @@
         
         NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
         __selectedValues=[[__selectedValues sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]] mutableCopy];
-
+        
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
         [__availableValues removeObject:value];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
@@ -342,8 +350,10 @@
         
         
         
-        [resultArray addObject:field];
-        NSLog(@"Object %@ added. Path:%@",field.name,field.path);
+        if (field.fieldId){
+            [resultArray addObject:field];
+            NSLog(@"Object %@ added. Path:%@ Id:%@",field.name,field.path,field.fieldId);
+        }
         
     }
     
@@ -352,8 +362,37 @@
     
 }
 
+-(QueryField *) findQueryFieldInArray: (NSArray *) array withIdentifier:(NSString *) identifier
+{
+    for (QueryField *queryField in array) {
+        if ([queryField.fieldId isEqualToString:identifier])
+            return  queryField;
+    }
+    return nil;
+}
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.delegate webiFieldsSelected:self withSelectedFields:__selectedValues forDataProviderId:_dataproviderId];
+}
+
+-(void) initSelectedFiedlsArrayUsingSelectedQueryFields: (NSArray *) queryFields
+{
+    for (NSString *identifier in queryFields) {
+        NSLog(@"Check if this field is not already in selected fields");
+        if (![self findQueryFieldInArray:__selectedValues withIdentifier:identifier]){
+            NSLog(@"Find that fiedl in avaiable array");
+            QueryField *selectedQueryField= [self findQueryFieldInArray:__availableValues withIdentifier:identifier];
+            if (selectedQueryField){
+                NSLog(@"Field %@ found. Insert it.",selectedQueryField.name);
+                [__selectedValues addObject:selectedQueryField];
+            }
+        }
+    }
+}
 -(void) updateValueArrays
 {
+    
     for (NSString *value  in __selectedValues) {
         NSLog(@"Index of %@ Eq:%d",value,[__availableValues indexOfObject:value]);
         if ([__availableValues indexOfObject:value]!=NSNotFound){

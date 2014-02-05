@@ -26,6 +26,7 @@
     WebiAppDelegate *appDelegate;
     NSString * __currentToken;
     Document *__document;
+    int __docId;
     Session *__biSession;
     NSError *__connectorError;
     NSString *__boxiError;
@@ -96,8 +97,32 @@
     }
     
 }
+-(void) getPromptsForDocId:(int)docId withSession:(Session *)session
+{
+    
+    NSLog (@"Get Prompts for Document Id:%d",docId);
+    
+    appDelegate = (id)[[UIApplication sharedApplication] delegate];
+    __currentToken=session.cmsToken;
+    
+    __biSession=session;
+    __docId=docId;
+    // Get Token First
+    if (session.cmsToken==nil || [appDelegate.globalSettings.autoLogoff boolValue]==YES){
+        NSLog(@"CMS Token is NULL - create new one");
+        connector=[[BIConnector alloc]init];
+        connector.delegate=self;
+        [connector getCmsTokenWithSession:session];
+    }else{
+        NSLog(@"CMS Token is NOT NULL - Process With Existing Token");
+        [self processHttpRequestForDocumentId:docId];
+        
+    }
+    
+}
 
-#pragma mark Process Http Request for Refreshing Prompts
+
+#pragma mark Process Http Request for Refreshing Prompts (Document)
 -(void) processHttpRequestForPrompt: (WebiPrompt *) webiPrompt forDocument:(Document *) document
 {
     __biSession=document.session;
@@ -152,12 +177,12 @@
     return nil;
 }
 
-#pragma mark Process Http Request for getting prompts
--(void) processHttpRequestForDocument:(Document *) document
+
+#pragma mark Process Http Request for getting prompts (by id)
+-(void) processHttpRequestForDocumentId:(int) docId
 {
-    __biSession=document.session;
     NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",__currentToken,@"\""];
-    NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:[self getPromptsUrl:document]];
+    NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:[self getPromptsUrlById:docId]];
     [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
     NSLog(@"Process with URL: %@",[request URL]);
     NSLog(@"Token:%@",cmsToken);
@@ -173,6 +198,48 @@
     
     
 }
+
+
+#pragma mark Process Http Request for getting prompts (by document)
+-(void) processHttpRequestForDocument:(Document *) document
+{
+    __biSession=document.session;
+    [self processHttpRequestForDocumentId:[document.id intValue]];
+//    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",__currentToken,@"\""];
+//    NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:[self getPromptsUrl:document]];
+//    [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+//    NSLog(@"Process with URL: %@",[request URL]);
+//    NSLog(@"Token:%@",cmsToken);
+//    
+//    NSLog(@"Timeout Preference Value:%@",appDelegate.globalSettings.networkTimeout);
+//    [request setTimeoutInterval:[appDelegate.globalSettings.networkTimeout doubleValue ]];
+//    
+//    [request setHTTPMethod:@"GET"];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+//    [request setValue:cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
+//    (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    
+    
+}
+
+
+# pragma mark getPrompts URL
+
+-(NSURL *) getPromptsUrlById: (int) docId{
+    NSLog (@"GetReports URL For Document id:%d",docId);
+    NSURL *url;
+    NSString *host=[NSString stringWithFormat: @"%@:%@",__biSession.cmsName,__biSession.port] ;
+    if ([__biSession.isHttps integerValue]==1){
+        url=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%d%@",__biSession.webiRestSDKBase,getDocumentsPathPoint,@"/",docId,@"/parameters"]];
+    }
+    else{
+        url=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%d%@",__biSession.webiRestSDKBase,getDocumentsPathPoint,@"/",docId,@"/parameters"]];
+    }
+    NSLog(@"URL:%@",url);
+    return  url;
+}
+
 
 # pragma mark getPrompts URL
 
@@ -391,10 +458,10 @@
                 
                 
                 if ([lovJ objectForKey:@"updated"]) {
-//                    NSDateFormatter *dateFormtter=[[NSDateFormatter alloc] init];
-//                    [dateFormtter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSzzzz"];
-//                    lov.updated=[dateFormtter dateFromString:[lovJ objectForKey:@"updated"]];
-
+                    //                    NSDateFormatter *dateFormtter=[[NSDateFormatter alloc] init];
+                    //                    [dateFormtter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSzzzz"];
+                    //                    lov.updated=[dateFormtter dateFromString:[lovJ objectForKey:@"updated"]];
+                    
                     lov.updated=[SharedUtils getDateFromRaylightJSONString:[lovJ objectForKey:@"updated"]];
                     
                     NSLog(@"Date:%@",lov.updated);
@@ -418,9 +485,10 @@
                                         if ([valuesJ isKindOfClass:[NSArray class]]){
                                             NSMutableArray *values=[[NSMutableArray alloc] init];
                                             [interval setValues:values];
-                                            for (NSString *value in valuesJ) {
-                                                [values addObject:[NSString stringWithFormat:@"%@",value]];
+                                            for (NSObject *value in valuesJ) {
+                                                [values addObject:[self getValueFromObject:value]];
                                             }
+                                            
                                         }
                                     }
                                 }
@@ -439,12 +507,15 @@
                         NSDictionary *valueJ=[[lovJ objectForKey:@"values"] objectForKey:@"value"];
                         
                         if ([valueJ isKindOfClass:[NSArray class]]){
-                            for (NSString *value in valueJ) {
-                                [values addObject:[NSString stringWithFormat:@"%@",value]];
+                            for (NSObject *value in valueJ) {
+                                [values addObject:[self getValueFromObject:value]];
                             }
+                            
+                            
                         }else{
-                            NSString *value=[[lovJ objectForKey:@"values"] objectForKey:@"value"];
-                            [values addObject:[NSString stringWithFormat:@"%@",value]];
+                            NSObject *value=[[lovJ objectForKey:@"values"] objectForKey:@"value"];
+                            [values addObject:[self getValueFromObject:value]];
+                            
                         }
                     }
                 }
@@ -460,12 +531,13 @@
                 NSDictionary *valueJ=[[answerJ objectForKey:@"values"] objectForKey:@"value"];
                 
                 if ([valueJ isKindOfClass:[NSArray class]]){
-                    for (NSString *value in valueJ) {
-                        [values addObject:[NSString stringWithFormat:@"%@",value]];
+                    for (NSObject *value in valueJ) {
+                        [values addObject:[self getValueFromObject:value]];
                     }
+                    
                 }else{
-                    NSString *value=[[answerJ objectForKey:@"values"] objectForKey:@"value"];
-                    [values addObject:[NSString stringWithFormat:@"%@",value]];
+                    NSObject *value=[[answerJ objectForKey:@"values"] objectForKey:@"value"];
+                    [values addObject:[self getValueFromObject:value]];
                 }
             }
             
@@ -474,6 +546,16 @@
     }
     
     return webiprompt;
+    
+}
+-(NSString *) getValueFromObject: (NSObject *) valueObject{
+    
+    if ([valueObject isKindOfClass:[NSDictionary class]]){
+        NSDictionary *dictionary=(NSDictionary *) valueObject;
+        return [dictionary objectForKey:@"$"];
+    } else
+        return [NSString stringWithFormat:@"%@",(NSString *) valueObject];;
+    
     
 }
 -(void) logoOffIfNeeded{

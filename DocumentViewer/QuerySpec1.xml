@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryspec:QuerySpec xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:queryspec="http://com.sap.sl.queryspec" >
+    <queryParameters>
+        <duplicatedRowsProperty activated="true" value="true"/>
+        <maxRetrievalTimeInSecondsProperty value="300"/>
+        <maxRowsRetrievedProperty value="90000"/>
+        <removeEmptyRowsProperty activated="true" value="true"/>
+        <allowOtherUserToEditQueryProperty activated="true" value="true"/>
+        <resetContextOnRefreshProperty activated="true" value="true"/>
+        <stripQueryProperty/>
+        <useBexQueryDefaultValue activated="true" value="true"/>
+    </queryParameters>
+    <propertyBag key="DUPLICATED_ROWS_UNDEFINED_VALUE" value="-1"/>
+    <propertyBag key="RESET_CONTEXT_ON_REFRESH_UNDEFINED_VALUE" value="-1"/>
+    <propertyBag key="ALLOW_THE_USER_TO_EDIT_QUERY_UNDEFINED_VALUE" value="-1"/>
+</queryspec:QuerySpec>

@@ -309,12 +309,15 @@
 "New Webi Document"="New Webi Document";
 "Name"="Name";
 "Document"="Document";
-"Queries"="Queries";
+"Query"="Query";
+"Report"="Report";
 "Add Universe"="Add Universe";
 "Data Providers"="Data Providers";
 "Add"="Add";
 "Document Name"="Document Name";
 "Query Name"="Query Name";
 "Universe"="Universe";
+"Select Fields"="Select Fields";
+"Edit Report Fields"="Edit Report Fields";
 
 

@@ -29,7 +29,7 @@
 
 +(NSURL *)getDocumentsUrlWithSession:(Session *)session
 {
-    NSLog (@"Get Decuments for Session:%@",session);
+    NSLog (@"Get Documents for Session:%@",session);
     NSURL *url;
     NSString *host=[NSString stringWithFormat: @"%@:%@",session.cmsName,session.port] ;
     if ([session.isHttps integerValue]==1){
@@ -47,6 +47,15 @@
     url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%d%@",documentId,@"/dataproviders"]];
     NSLog("DataProviders URL:%@",url);
     return url;
+}
+
++(NSURL *) getUpdateReportSpecsUrlWithSession: (Session *) session forDocumentId: (int) documentId forReportId: (int) reportId
+{
+    NSURL *url=[self getDocumentsUrlWithSession:session];
+    url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%d%@%d%@",documentId,@"/reports/",reportId,@"/specification"]];
+    NSLog("Update Report Spec URL:%@",url);
+    return url;
+    
 }
 -(void) submitRequestForUrl:(NSURL *)url withSession:(Session *)session withHttpMethod:(NSString *)method withXmlDoc:(GDataXMLDocument *)doc withOpCode:(int)opCode
 {
@@ -93,8 +102,6 @@
     NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",__currentToken,@"\""];
     NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:__url];
     [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
-    NSLog(@"Process with URL: %@",[request URL]);
-    NSLog(@"Token:%@",cmsToken);
     
     NSLog(@"Timeout Preference Value:%@",appDelegate.globalSettings.networkTimeout);
     [request setTimeoutInterval:[appDelegate.globalSettings.networkTimeout doubleValue ]];
@@ -102,12 +109,24 @@
     [request setHTTPMethod:__method];
     if (__xmlDoc){
         [request setHTTPBody: __xmlDoc.XMLData];
-        [request setValue:@"application/xml" forHTTPHeaderField:@"Content-Type"];
+        if (!_contentType)
+            [request setValue:@"application/xml" forHTTPHeaderField:@"Content-Type"];
+        else
+            [request setValue:_contentType forHTTPHeaderField:@"Content-Type"];
     }else{
         NSLog(@"No Data");
     }
-    [request setValue:@"application/xml" forHTTPHeaderField:@"Accept"];
+    if (!_accept)
+        [request setValue:@"application/xml" forHTTPHeaderField:@"Accept"];
+    else
+        [request setValue:_accept forHTTPHeaderField:@"Accept"];
     [request setValue:cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
+    
+    
+    
+    NSLog(@"Process Method %@  with URL: %@",[request HTTPMethod],[request URL]);
+    
+    NSLog(@"Token:%@",cmsToken);
     (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
     
 }
@@ -172,7 +191,15 @@
         NSString *errorMessage=nil;
         if (errorNodes.count>0)
             errorMessage=[(GDataXMLElement *)[errorMsgNodes objectAtIndex:0] stringValue];
-        [self.delegate finishedProcessing:self isSuccess:NO  withReturnedXml:returnedXml withErrorText:errorMessage forUrl:__url withMethod:__method withOriginalRequestXml:__xmlDoc withOpCode:__opCode];
+        
+        if ([errorMessage isEqualToString:BOXI_TOKEN_ERROR]){
+            NSLog(@"Token Expired - Create new One and try again");
+            connector=[[BIConnector alloc]init];
+            connector.delegate=self;
+            [connector getCmsTokenWithSession:__biSession];
+        }else
+            
+            [self.delegate finishedProcessing:self isSuccess:NO  withReturnedXml:returnedXml withErrorText:errorMessage forUrl:__url withMethod:__method withOriginalRequestXml:__xmlDoc withOpCode:__opCode];
     }else{
         [self.delegate finishedProcessing:self isSuccess:YES withReturnedXml:returnedXml withErrorText:nil forUrl:__url withMethod:__method withOriginalRequestXml:__xmlDoc withOpCode:__opCode];
     }

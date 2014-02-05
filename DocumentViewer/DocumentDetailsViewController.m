@@ -115,7 +115,7 @@
         self.refreshControl = refreshControl;
         [refreshControl addTarget:self action:@selector(loadDocumentDetails) forControlEvents:UIControlEventValueChanged];
     }
-
+    
     
     if (self.document.session.opendocServer!=nil){
         UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
@@ -154,7 +154,7 @@
     if ([UIRefreshControl class]){
         [self.refreshControl endRefreshing];
     }
-
+    
     [spinner startAnimating];
     
     
@@ -386,7 +386,7 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateStyle:NSDateFormatterMediumStyle];
         [formatter setTimeStyle:NSDateFormatterMediumStyle];
-//        [formatter setDateFormat:@"yyyy-MMM-dd HH:mm:ss"];
+        //        [formatter setDateFormat:@"yyyy-MMM-dd HH:mm:ss"];
         cell.labelUpdated.text=[formatter stringFromDate:self.document.updated] ;
         cell.labelSize.text=[self.document.size stringValue];
         
@@ -592,6 +592,8 @@
     
     NSLog(@"Prompts Received With Success:%d Number of Prompts: %d",isSuccess,webiPrompts.count);
     __webiPrompts=webiPrompts;
+
+#ifdef Trace
     for (WebiPrompt *webiPrompt in webiPrompts) {
         NSLog(@"Prompt Name: %@",webiPrompt.name);
         NSLog(@"Data Provider Id: %@",webiPrompt.dataproviderId);
@@ -608,6 +610,7 @@
                             NSLog(@"Value:%@",value);
                         }
                     }
+                    
                     if (webiPrompt.answer.info.lov.intervals){
                         NSLog(@"Number of Intervals:%d",webiPrompt.answer.info.lov.intervals.count);
                         for (WebiPromptLovInterval *interval in webiPrompt.answer.info.lov.intervals) {
@@ -626,6 +629,7 @@
             }
         }
     }
+#endif
     
 }
 

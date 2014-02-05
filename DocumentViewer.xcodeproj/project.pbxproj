@@ -62,6 +62,8 @@
 		921E2E5C17D52C4E00AEEF16 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E5117D52C4E00AEEF16 /* zip.c */; };
 		921E2E5D17D52C4E00AEEF16 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E5417D52C4E00AEEF16 /* SSZipArchive.m */; };
 		921E2E5E17D52C4E00AEEF16 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E2E5417D52C4E00AEEF16 /* SSZipArchive.m */; };
+		9225AAAC188C60A10043AF9C /* ReportTemplate.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9225AAAB188C60A10043AF9C /* ReportTemplate.xml */; };
+		9225AAAD188C60A10043AF9C /* ReportTemplate.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9225AAAB188C60A10043AF9C /* ReportTemplate.xml */; };
 		92285791175EB962002A8456 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 92285790175EB962002A8456 /* Document.m */; };
 		922D14C8176A96430026B5ED /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922D14CB176A96430026B5ED /* MainStoryboard.storyboard */; };
 		922E169F1746FB9E00D55FF4 /* BrowserObjectActionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922E169D1746FB9E00D55FF4 /* BrowserObjectActionsViewController.m */; };
@@ -192,6 +194,8 @@
 		928289521729702C00CCAB2F /* UnvDoc_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9282894E1729702C00CCAB2F /* UnvDoc_48@2x.png */; };
 		928289531729702C00CCAB2F /* WebiDoc_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9282894F1729702C00CCAB2F /* WebiDoc_48.png */; };
 		928289541729702C00CCAB2F /* WebiDoc_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928289501729702C00CCAB2F /* WebiDoc_48@2x.png */; };
+		928681C6189AAC0100DC5645 /* ReportXml.m in Sources */ = {isa = PBXBuildFile; fileRef = 928681C5189AAC0100DC5645 /* ReportXml.m */; };
+		928681C7189AAC0100DC5645 /* ReportXml.m in Sources */ = {isa = PBXBuildFile; fileRef = 928681C5189AAC0100DC5645 /* ReportXml.m */; };
 		9288AB8F1787A9A50048BCF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ADE96916CB24D70027BD4D /* main.m */; };
 		9288AB901787A9A50048BCF1 /* WebiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ADE96D16CB24D70027BD4D /* WebiAppDelegate.m */; };
 		9288AB911787A9A50048BCF1 /* DocumentViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92ADE97516CB24D70027BD4D /* DocumentViewer.xcdatamodeld */; };
@@ -528,6 +532,12 @@
 		929A3F5E17F8B315009B63B2 /* WebiPromptLov.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F5C17F8B315009B63B2 /* WebiPromptLov.m */; };
 		929A3F6117F8B40A009B63B2 /* WebiPromptValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */; };
 		929A3F6217F8B40A009B63B2 /* WebiPromptValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */; };
+		929A7E501888859100FA874E /* QuerySpec1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 929A7E4F1888859100FA874E /* QuerySpec1.xml */; };
+		929A7E511888859100FA874E /* QuerySpec1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 929A7E4F1888859100FA874E /* QuerySpec1.xml */; };
+		929ADAAB189D9B4A00202188 /* SelectReportFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929ADAA9189D9B4A00202188 /* SelectReportFieldsViewController.m */; };
+		929ADAAC189D9B4A00202188 /* SelectReportFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929ADAA9189D9B4A00202188 /* SelectReportFieldsViewController.m */; };
+		929ADAAD189D9B4A00202188 /* SelectReportFieldsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929ADAAA189D9B4A00202188 /* SelectReportFieldsViewController.xib */; };
+		929ADAAE189D9B4A00202188 /* SelectReportFieldsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929ADAAA189D9B4A00202188 /* SelectReportFieldsViewController.xib */; };
 		929C0364172319E700B28967 /* AdvancedSessionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C0363172319E700B28967 /* AdvancedSessionSettingsViewController.m */; };
 		929C37BA18023E440044F89D /* WebiPromptLovInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C37B918023E440044F89D /* WebiPromptLovInterval.m */; };
 		929C37BB18023E440044F89D /* WebiPromptLovInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C37B918023E440044F89D /* WebiPromptLovInterval.m */; };
@@ -740,6 +750,7 @@
 		921E2E5317D52C4E00AEEF16 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		921E2E5417D52C4E00AEEF16 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		922304A91714411C0039F7F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9225AAAB188C60A10043AF9C /* ReportTemplate.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ReportTemplate.xml; sourceTree = "<group>"; };
 		9228578E175EB7E8002A8456 /* DocumentViewer 8 - SDK Base Points.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 8 - SDK Base Points.xcdatamodel"; sourceTree = "<group>"; };
 		9228578F175EB962002A8456 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
 		92285790175EB962002A8456 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
@@ -914,6 +925,8 @@
 		92828ED61729870B00CCAB2F /* Icon_lite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon_lite@2x.png"; path = "../Icon_lite@2x.png"; sourceTree = "<group>"; };
 		92828ED81729873600CCAB2F /* Icon-72_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72_light.png"; path = "../Icon-72_light.png"; sourceTree = "<group>"; };
 		92828EDA1729873E00CCAB2F /* Icon-72_light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72_light@2x.png"; path = "../Icon-72_light@2x.png"; sourceTree = "<group>"; };
+		928681C4189AAC0100DC5645 /* ReportXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportXml.h; sourceTree = "<group>"; };
+		928681C5189AAC0100DC5645 /* ReportXml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportXml.m; sourceTree = "<group>"; };
 		9288AB8C1787A8D40048BCF1 /* APOS BI Lite copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "APOS BI Lite copy-Info.plist"; path = "/Users/ygoron/Dropbox/Yuri copy/xcode/DocumentViewer/APOS BI Lite copy-Info.plist"; sourceTree = "<absolute>"; };
 		9288AC8B1787A9A50048BCF1 /* APOS BI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APOS BI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9288AC8C1787A9A60048BCF1 /* APOS BI Ext copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "APOS BI Ext copy2-Info.plist"; path = "/Users/ygoron/Dropbox/Yuri copy/xcode/DocumentViewer/APOS BI Ext copy2-Info.plist"; sourceTree = "<absolute>"; };
@@ -1030,6 +1043,10 @@
 		929A3F5C17F8B315009B63B2 /* WebiPromptLov.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPromptLov.m; sourceTree = "<group>"; };
 		929A3F5F17F8B40A009B63B2 /* WebiPromptValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPromptValue.h; sourceTree = "<group>"; };
 		929A3F6017F8B40A009B63B2 /* WebiPromptValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPromptValue.m; sourceTree = "<group>"; };
+		929A7E4F1888859100FA874E /* QuerySpec1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = QuerySpec1.xml; sourceTree = "<group>"; };
+		929ADAA8189D9B4A00202188 /* SelectReportFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectReportFieldsViewController.h; sourceTree = "<group>"; };
+		929ADAA9189D9B4A00202188 /* SelectReportFieldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectReportFieldsViewController.m; sourceTree = "<group>"; };
+		929ADAAA189D9B4A00202188 /* SelectReportFieldsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectReportFieldsViewController.xib; sourceTree = "<group>"; };
 		929C03571722E68800B28967 /* DocumentViewer 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 3.xcdatamodel"; sourceTree = "<group>"; };
 		929C0362172319E700B28967 /* AdvancedSessionSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedSessionSettingsViewController.h; sourceTree = "<group>"; };
 		929C0363172319E700B28967 /* AdvancedSessionSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSessionSettingsViewController.m; sourceTree = "<group>"; };
@@ -1713,6 +1730,15 @@
 			name = Parameters;
 			sourceTree = "<group>";
 		};
+		929A7E4E188884A000FA874E /* TemplateXML */ = {
+			isa = PBXGroup;
+			children = (
+				929A7E4F1888859100FA874E /* QuerySpec1.xml */,
+				9225AAAB188C60A10043AF9C /* ReportTemplate.xml */,
+			);
+			name = TemplateXML;
+			sourceTree = "<group>";
+		};
 		929C035E172318C700B28967 /* Advanced Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -2055,6 +2081,7 @@
 		92EB32E3183AED8F00BFF73B /* Webi Creator */ = {
 			isa = PBXGroup;
 			children = (
+				929A7E4E188884A000FA874E /* TemplateXML */,
 				92383C74184A8B3C004D0B39 /* DocTitleCell.h */,
 				92383C75184A8B3C004D0B39 /* DocTitleCell.m */,
 				92383C7B184A965B004D0B39 /* EditWebiDocumentViewController.h */,
@@ -2077,6 +2104,11 @@
 				92B70B0B188341CE006C85D9 /* SelectWebiFieldsViewController.xib */,
 				92B70B10188345C9006C85D9 /* QueryField.h */,
 				92B70B11188345C9006C85D9 /* QueryField.m */,
+				928681C4189AAC0100DC5645 /* ReportXml.h */,
+				928681C5189AAC0100DC5645 /* ReportXml.m */,
+				929ADAA8189D9B4A00202188 /* SelectReportFieldsViewController.h */,
+				929ADAA9189D9B4A00202188 /* SelectReportFieldsViewController.m */,
+				929ADAAA189D9B4A00202188 /* SelectReportFieldsViewController.xib */,
 			);
 			name = "Webi Creator";
 			sourceTree = "<group>";
@@ -2297,6 +2329,7 @@
 				9288AC261787A9A50048BCF1 /* slider-track.png in Resources */,
 				9288AC271787A9A50048BCF1 /* slider-track@2x.png in Resources */,
 				9288AC281787A9A50048BCF1 /* step-bullet.png in Resources */,
+				929A7E511888859100FA874E /* QuerySpec1.xml in Resources */,
 				9288AC291787A9A50048BCF1 /* step-bullet@2x.png in Resources */,
 				9288AC2A1787A9A50048BCF1 /* switch-off.png in Resources */,
 				9288AC2B1787A9A50048BCF1 /* switch-off@2x.png in Resources */,
@@ -2346,6 +2379,7 @@
 				925ED33517F0C09F00EF7A8E /* tabbar_landscape_ipad-7.png in Resources */,
 				9288AC4F1787A9A50048BCF1 /* Default-568h@2x.png in Resources */,
 				9288AC501787A9A50048BCF1 /* Default@2x.png in Resources */,
+				9225AAAD188C60A10043AF9C /* ReportTemplate.xml in Resources */,
 				9288AC511787A9A50048BCF1 /* Default.png in Resources */,
 				9288AC521787A9A50048BCF1 /* Default-Portrait~ipad.png in Resources */,
 				9288AC531787A9A50048BCF1 /* Default-Portrait@2x~ipad.png in Resources */,
@@ -2371,6 +2405,7 @@
 				9288AC681787A9A50048BCF1 /* Inbox_48@2x.png in Resources */,
 				9288AC691787A9A50048BCF1 /* Folder_48.png in Resources */,
 				9288AC6A1787A9A50048BCF1 /* Folder_48@2x.png in Resources */,
+				929ADAAE189D9B4A00202188 /* SelectReportFieldsViewController.xib in Resources */,
 				9288AC6B1787A9A50048BCF1 /* FolderPersonal_48@2x.png in Resources */,
 				9288AC6C1787A9A50048BCF1 /* CrystalDoc_48.png in Resources */,
 				9288AC6D1787A9A50048BCF1 /* CrystalDoc_48@2x.png in Resources */,
@@ -2505,6 +2540,7 @@
 				928D10C7170F751F00FA2C5D /* slider-track.png in Resources */,
 				928D10C8170F751F00FA2C5D /* slider-track@2x.png in Resources */,
 				928D10C9170F751F00FA2C5D /* step-bullet.png in Resources */,
+				929A7E501888859100FA874E /* QuerySpec1.xml in Resources */,
 				928D10CA170F751F00FA2C5D /* step-bullet@2x.png in Resources */,
 				928D10CB170F751F00FA2C5D /* switch-off.png in Resources */,
 				928D10CC170F751F00FA2C5D /* switch-off@2x.png in Resources */,
@@ -2554,6 +2590,7 @@
 				925ED33417F0C09F00EF7A8E /* tabbar_landscape_ipad-7.png in Resources */,
 				926115701728A0B400973FC3 /* Default-568h@2x.png in Resources */,
 				926115721728A19000973FC3 /* Default@2x.png in Resources */,
+				9225AAAC188C60A10043AF9C /* ReportTemplate.xml in Resources */,
 				926115741728A20F00973FC3 /* Default.png in Resources */,
 				926115761728A85F00973FC3 /* Default-Portrait~ipad.png in Resources */,
 				926115781728A90300973FC3 /* Default-Portrait@2x~ipad.png in Resources */,
@@ -2579,6 +2616,7 @@
 				92D5308E1741763700156923 /* Inbox_48@2x.png in Resources */,
 				92D530901741763700156923 /* Folder_48.png in Resources */,
 				92D530921741763700156923 /* Folder_48@2x.png in Resources */,
+				929ADAAD189D9B4A00202188 /* SelectReportFieldsViewController.xib in Resources */,
 				92D530941741763700156923 /* FolderPersonal_48@2x.png in Resources */,
 				92D530961741763700156923 /* CrystalDoc_48.png in Resources */,
 				92D530981741763700156923 /* CrystalDoc_48@2x.png in Resources */,
@@ -2690,6 +2728,7 @@
 				9288AB8F1787A9A50048BCF1 /* main.m in Sources */,
 				9288AB901787A9A50048BCF1 /* WebiAppDelegate.m in Sources */,
 				9288AB911787A9A50048BCF1 /* DocumentViewer.xcdatamodeld in Sources */,
+				929ADAAC189D9B4A00202188 /* SelectReportFieldsViewController.m in Sources */,
 				9288AB921787A9A50048BCF1 /* CoreDataHelper.m in Sources */,
 				9288AB931787A9A50048BCF1 /* LogonViewController.m in Sources */,
 				9288AB941787A9A50048BCF1 /* SessionsViewController.m in Sources */,
@@ -2702,6 +2741,7 @@
 				92383C7F184A965B004D0B39 /* EditWebiDocumentViewController.m in Sources */,
 				9205443C180C8E85004DD35D /* PromptLovViewController.m in Sources */,
 				9288AB9A1787A9A50048BCF1 /* GetDocuments.m in Sources */,
+				928681C7189AAC0100DC5645 /* ReportXml.m in Sources */,
 				9288AB9B1787A9A50048BCF1 /* DocumentsViewController.m in Sources */,
 				92B70B0D188341CE006C85D9 /* SelectWebiFieldsViewController.m in Sources */,
 				9288AB9C1787A9A50048BCF1 /* DocumentCell.m in Sources */,
@@ -2810,6 +2850,7 @@
 				92ADE96A16CB24D70027BD4D /* main.m in Sources */,
 				92ADE96E16CB24D70027BD4D /* WebiAppDelegate.m in Sources */,
 				92ADE97716CB24D70027BD4D /* DocumentViewer.xcdatamodeld in Sources */,
+				929ADAAB189D9B4A00202188 /* SelectReportFieldsViewController.m in Sources */,
 				92ADE98816CB27080027BD4D /* CoreDataHelper.m in Sources */,
 				92ADE98D16CB2A920027BD4D /* LogonViewController.m in Sources */,
 				92E8C40A16D04FBC00B4D01F /* SessionsViewController.m in Sources */,
@@ -2822,6 +2863,7 @@
 				92383C7E184A965B004D0B39 /* EditWebiDocumentViewController.m in Sources */,
 				9205443B180C8E85004DD35D /* PromptLovViewController.m in Sources */,
 				922F397516D6DDFC009B7761 /* GetDocuments.m in Sources */,
+				928681C6189AAC0100DC5645 /* ReportXml.m in Sources */,
 				922F397816D6E3CE009B7761 /* DocumentsViewController.m in Sources */,
 				92B70B0C188341CE006C85D9 /* SelectWebiFieldsViewController.m in Sources */,
 				921B39C916D816FB00C0CD95 /* DocumentCell.m in Sources */,

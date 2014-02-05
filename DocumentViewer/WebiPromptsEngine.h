@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BIConnector.h"
 #import "WebiPrompt.h"
+#import "Session.h"
 
 @class WebiPromptsEngine;
 
@@ -17,6 +18,7 @@
 
 -(void) didGetPrompts:(WebiPromptsEngine *) webiPromptsEngine isSuccess:(BOOL)  isSuccess withPrompts: (NSArray *) webiPrompts withErrorText:(NSString *) errorText;
 
+@optional
 -(void)  didRefreshPrompt:(WebiPromptsEngine *) webiPromptsEngine isSuccess:(BOOL)  isSuccess refreshedPrompts: (NSArray *) webiPrompts  withErrorText:(NSString *) errorText;
 
 @end
@@ -28,5 +30,6 @@
 -(void) refreshPromptForPrompt: (WebiPrompt *) webiPrompt forDocument: (Document *) document;
 
 -(void) getPrompts: (Document *) document withToken: (NSString *) cmsToken;
+-(void) getPromptsForDocId: (int) docId withSession: (Session *) session;
 
 @end

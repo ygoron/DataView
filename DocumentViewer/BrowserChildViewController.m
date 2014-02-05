@@ -190,7 +190,12 @@
             editWebiVC.dataprovidersXml=nil;
             editWebiVC.folderId=_parentObject.objectId;
             editWebiVC.currentSession=_currentSession;
-            [self.navigationController pushViewController:editWebiVC animated:YES];
+            editWebiVC.isNewWebiDocument=YES;
+
+//            [self.navigationController pushViewController:editWebiVC animated:YES];
+            UINavigationController *cntrol = [[UINavigationController alloc] initWithRootViewController:editWebiVC];
+            [self presentViewController:cntrol animated:YES completion:nil];
+
             
             break;
     }

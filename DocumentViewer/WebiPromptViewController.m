@@ -164,7 +164,20 @@
 {
     NSMutableString *resutlString=[[NSMutableString alloc] init];
     
-    for (NSString *value in webiPrompt.answer.values){
+    //    for (NSString *value in webiPrompt.answer.values){
+    NSString *value;
+    for (NSObject *valueObject in webiPrompt.answer.values){
+        if ([valueObject isKindOfClass:[NSString class ]]){
+            NSLog("Type String");
+            value=(NSString *) valueObject;
+            
+        }else
+            if ([valueObject isKindOfClass:[NSDictionary class ]]){
+                NSDictionary *valueDict= (NSDictionary *) valueObject;
+                value=[valueDict valueForKey:@"$"];
+                NSLog("Type Dictionary");
+            }
+        
         NSLog(@"Value:%@",value);
         if ([webiPrompt.answer.type isEqualToString:@"DateTime"]||[webiPrompt.answer.type isEqualToString:@"Date"] )
         {
@@ -179,6 +192,7 @@
             [resutlString appendFormat:@"%@%@",value,@";"];
         }
     }
+    
     if  ([resutlString hasSuffix:@";"] ) {
         [resutlString deleteCharactersInRange:NSMakeRange([resutlString length]-1, 1)];
     }
@@ -264,7 +278,7 @@
     }else if(indexPath.section==1){
         NSLog(@"Select Refresh Report");
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
-
+        
         ReportViewController *rvc = (ReportViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"ReportView"];
         UINavigationController *cntrol = [[UINavigationController alloc] initWithRootViewController:rvc];
         

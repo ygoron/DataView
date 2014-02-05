@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<REPORT rId="1" name="Report 1">
+    <PAGEDEF>
+        <MARGIN bottom="2835" top="2835" left="2835" right="2835"/>
+        <RECORDS horizontal="20" vertical="100"/>
+    </PAGEDEF>
+    <PAGE_HEADER bId="1"/>
+    <PAGE_BODY bId="2">
+        <CELL bId="4" x="7416" y="432" width="15048" height="1548">
+            <STYLE>
+                <BORDER side="bottom" width="0" style="none"/>
+                <FONT size="16" bold="no" underline="yes"/>
+            </STYLE>
+            <CONTENT>=ReportName()</CONTENT>
+        </CELL>
+        <VTABLE bId="13" name="Block 1" x="450" y="900" verticalAttachTo="4" verticalAttachType="end">
+            <AXIS>
+                <EXPRS>
+                </EXPRS>
+                <HIDE/>
+                <ALTCOLOR frequency="2"/>
+            </AXIS>
+            <DATA/>
+        </VTABLE>
+    </PAGE_BODY>
+    <PAGE_FOOTER bId="3"/>
+</REPORT>
+
