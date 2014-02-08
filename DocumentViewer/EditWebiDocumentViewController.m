@@ -19,6 +19,7 @@
 #import "ReportViewController.h"
 #import "WebiPromptViewController.h"
 #import "WebiAppDelegate.h"
+#import "XmlViewController.h"
 
 
 
@@ -215,7 +216,74 @@
 }
 
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (indexPath.section==1){
+        NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
+        if (indexPath.row<[dataproviders count]) return YES;
+    }
+    
+    return NO;
+}
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+
+{
+    if (indexPath.section==1){
+        
+        NSURL    *url=[__dataproviderUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"%@",[self getDataProviderIdForRow:indexPath.row]]];
+        NSLog(@"URL to Delete Dataprovider:%@",url);
+        XMLRESTProcessor *xmlProcessor=[[XMLRESTProcessor alloc] init];
+        xmlProcessor.delegate=self;
+        [xmlProcessor submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"DELETE" withXmlDoc:nil withOpCode:OP_DELETE_DATA_PROVIDER];
+    }
+    
+}
+
+-(void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==1){
+        NSString *dataProviderId=[self getDataProviderIdForRow:indexPath.row];
+        NSURL *url=[XMLRESTProcessor getDataProvidersUrlWithSession:_currentSession withDocumentId:_docId];
+        url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",@"/",dataProviderId]];
+        XMLRESTProcessor *xmlProcessor=[[XMLRESTProcessor alloc] init];
+        xmlProcessor.delegate=self;
+        [xmlProcessor submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"GET" withXmlDoc:nil withOpCode:OP_GET_DATA_PROVIDER_DETAILS];
+        
+        //        NSString *dataProviderId=[self getDataProviderIdForRow:indexPath.row];
+        //        DataProviderDetailsViewController *dpDetails=[[DataProviderDetailsViewController alloc] init];
+        //        dpDetails.docId=_docId;
+        //        dpDetails.dataProviderId=dataProviderId;
+        //        dpDetails.currentSession=_currentSession;
+        //        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dpDetails];
+        //        [self presentViewController:navController animated:YES completion:nil];
+        
+        
+    }
+}
+
+-(NSString *) getDataProviderNameForRow: (int) row
+{
+    
+    NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
+    GDataXMLElement *element=  (GDataXMLElement *) [dataproviders objectAtIndex:row];
+    NSString *dataproviderName=[[[element elementsForName:@"name"] objectAtIndex:0] stringValue];
+    NSLog(@"Data Provider Id:%@",dataproviderName);
+    return dataproviderName;
+    
+}
+
+-(NSString *) getDataProviderIdForRow: (int) row
+{
+    
+    NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
+    GDataXMLElement *element=  (GDataXMLElement *) [dataproviders objectAtIndex:row];
+    NSString *dataproviderId=[[[element elementsForName:@"id"] objectAtIndex:0] stringValue];
+    NSLog(@"Data Provider Id:%@",dataproviderId);
+    return dataproviderId;
+    
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"DocTitle_ID";
@@ -263,6 +331,8 @@
             NSString *dataProviderId=[[[element elementsForName:@"id"] objectAtIndex:0] stringValue];
             int selectedFieldsCount=[[__selectFieldsForProviderId valueForKey:dataProviderId] count];
             cell.DocNameActualLabel.text=[NSString stringWithFormat:@"%d",selectedFieldsCount];
+            cell.accessoryType=UITableViewCellAccessoryDetailDisclosureButton;
+            cell.shouldIndentWhileEditing=NO;
             
         }else{
             
@@ -388,75 +458,87 @@
         }
         
         
-    }else
+    }else if (indexPath.section==1){
+        NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
         
-        
-        if (indexPath.section==1){
-            NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
+        if (indexPath.row <dataproviders.count){
             
-            if (indexPath.row <dataproviders.count){
-                GDataXMLElement *element=  (GDataXMLElement *) [dataproviders objectAtIndex:indexPath.row];
-                NSString *dataproviderId=[[[element elementsForName:@"id"] objectAtIndex:0] stringValue];
-                NSLog(@"Get Universe id first. Call Get DataProviders details for provider:%@",dataproviderId);
-                
-                NSURL    *url=[__dataproviderUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"%@",dataproviderId]];
-                NSLog(@"Path Components%@",[url pathComponents]);
-                XMLRESTProcessor *xmlProcessor=[[XMLRESTProcessor alloc] init];
-                xmlProcessor.delegate=self;
-                [xmlProcessor submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"GET" withXmlDoc:nil withOpCode:OP_DATA_PROVIDER_DETAIL];
-                
-                
-                
-            }
-            else if(indexPath.section==1){
-                DataProviderSelectorViewController *dpVC= [[DataProviderSelectorViewController alloc] initWithNibName:@"DataProviderSelectorViewController" bundle:nil];
-                dpVC.delegate=self;
-                NSLog(@"Adding Data Provider");
-                [self.navigationController pushViewController:dpVC animated:YES];
-                dpVC.defaultValue=[NSString stringWithFormat:@"%@%d",@"Query ",indexPath.row+1];
-                dpVC.placeHolderText=NSLocalizedString(@"Query Name", nil);
-            }
+            GDataXMLElement *element=  (GDataXMLElement *) [dataproviders objectAtIndex:indexPath.row];
+            NSString *dataproviderId=[[[element elementsForName:@"id"] objectAtIndex:0] stringValue];
             
-        }else if (indexPath.section==2){
-            int reportId=[[__reports objectAtIndex:indexPath.row] reportId];
-            NSLog(@"Edit Report %d",reportId);
-            NSMutableArray *reportFields=[__selectFieldsForReportId valueForKey:[NSString stringWithFormat:@"%d",reportId]];
+            NSLog(@"Get Universe id first. Call Get DataProviders details for provider:%@",dataproviderId);
             
-            SelectReportFieldsViewController *swf=[[SelectReportFieldsViewController alloc] initWithNibName:@"SelectReportFieldsViewController" bundle:nil];
-            swf.selectedQueryFields=reportFields;
-            //TODO Combine fields from all Data Providers;
+            NSURL    *url=[__dataproviderUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"%@",dataproviderId]];
+            NSLog(@"Path Components%@",[url pathComponents]);
+            XMLRESTProcessor *xmlProcessor=[[XMLRESTProcessor alloc] init];
+            xmlProcessor.delegate=self;
+            [xmlProcessor submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"GET" withXmlDoc:nil withOpCode:OP_DATA_PROVIDER_DETAIL];
             
-            NSMutableArray *allAvailableFields=[[NSMutableArray alloc]init];
-            NSArray *providerIds=[__selectFieldsForProviderId allKeys];
-            for (NSString *providerId in providerIds ) {
-                NSArray *fields = [__selectFieldsForProviderId objectForKey:providerId];
-                for (QueryField *queryField in fields) {
-                    [allAvailableFields addObject:queryField];
-                    NSLog(@"Available Field:%@",queryField.name);
-                }
-            }
-            swf.availableQueryFields=allAvailableFields;
-            swf.delegate=self;
-            swf.reportId=reportId;
-            [self.navigationController pushViewController:swf animated:YES];
+            
             
         }
+        else if(indexPath.section==1){
+            //                DataProviderSelectorViewController *dpVC= [[DataProviderSelectorViewController alloc] initWithNibName:@"DataProviderSelectorViewController" bundle:nil];
+            //                dpVC.delegate=self;
+            //                NSLog(@"Adding Data Provider");
+            //                [self.navigationController pushViewController:dpVC animated:YES];
+            //                dpVC.defaultValue=[NSString stringWithFormat:@"%@%d",@"Query ",indexPath.row+1];
+            //                dpVC.placeHolderText=NSLocalizedString(@"Query Name", nil);
+            
+            
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+            UniversesListViewController *unvVC = (UniversesListViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"UniverseList"];
+            unvVC.delegate=self;
+            
+            [unvVC setIsWebiCreation:YES];
+            // Configure the new view controller here.
+            [self.navigationController pushViewController:unvVC animated:YES];
+            
+        }
+        
+    }else if (indexPath.section==2){
+        int reportId=[[__reports objectAtIndex:indexPath.row] reportId];
+        NSLog(@"Edit Report %d",reportId);
+        NSMutableArray *reportFields=[__selectFieldsForReportId valueForKey:[NSString stringWithFormat:@"%d",reportId]];
+        
+        SelectReportFieldsViewController *swf=[[SelectReportFieldsViewController alloc] initWithNibName:@"SelectReportFieldsViewController" bundle:nil];
+        swf.selectedQueryFields=reportFields;
+        //TODO Combine fields from all Data Providers;
+        
+        NSMutableArray *allAvailableFields=[[NSMutableArray alloc]init];
+        NSArray *providerIds=[__selectFieldsForProviderId allKeys];
+        for (NSString *providerId in providerIds ) {
+            NSArray *fields = [__selectFieldsForProviderId objectForKey:providerId];
+            for (QueryField *queryField in fields) {
+                [allAvailableFields addObject:queryField];
+                NSLog(@"Available Field:%@",queryField.name);
+            }
+        }
+        swf.availableQueryFields=allAvailableFields;
+        swf.delegate=self;
+        swf.reportId=reportId;
+        [self.navigationController pushViewController:swf animated:YES];
+        
+    }
     
-        else if (indexPath.section==3){
-            NSLog(@"Select Refresh Report");
-            
-            WebiPromptsEngine *promptEngine=[[WebiPromptsEngine alloc] init];
-            promptEngine.delegate=self;
-            [promptEngine getPromptsForDocId:_docId withSession:_currentSession];
-            
-            
-        }
+    else if (indexPath.section==3){
+        NSLog(@"Select Refresh Report");
+        
+        WebiPromptsEngine *promptEngine=[[WebiPromptsEngine alloc] init];
+        promptEngine.delegate=self;
+        [promptEngine getPromptsForDocId:_docId withSession:_currentSession];
+        
+        
+    }
     
     
     
 }
 
-
+-(void)UniversesListViewController:(UniversesListViewController *)controller didSelectUniverse:(Universe *)universe
+{
+    [self DataProviderSelectorViewController:nil didFinishEditingWithQueryName:[NSString stringWithFormat:@"%@%@%d",universe.name,@"-",universe.universeId] UniverseId:universe.universeId] ;
+}
 -(void)reportFieldsSelected:(SelectReportFieldsViewController *)controller withSelectedFields:(NSArray *)selectedWebiFields
 {
     NSLog(@"Report Updated:%d",controller.reportId);
@@ -616,7 +698,10 @@
             
         }else if (opCode==OP_GET_LIST_OF_DATA_PROVIDERS){
             NSLog(@"Return From updated list of data providers");
+            GDataXMLElement *idElement=[EditWebiDocumentViewController getFirstElementForDocument:xmlDoc withPath:@"/dataproviders/dataprovider/id"];
+            NSLog(@"Data Provider Id:%@",[idElement stringValue]);
             _dataprovidersXml=xmlDoc;
+            __dataproviderId=[idElement stringValue];
             NSLog(@"Refresh Section 1(Providers)");
             
             
@@ -703,6 +788,24 @@
         else if(opCode==OP_SAVE_DOCUMENT){
             NSLog(@"Document Saved");
         }
+        
+        else if(opCode==OP_DELETE_DATA_PROVIDER){
+            NSLog(@"Delete Data Provider");
+            
+            NSString *xpath=[NSString stringWithFormat:@"%@%@%@",@"/dataproviders/dataprovider[id=\"" , [idElement stringValue],@"\"]"] ;
+            NSLog(@"XPath Expression:%@",xpath);
+            GDataXMLElement *providerToDelete=[[_dataprovidersXml nodesForXPath:xpath error:nil] objectAtIndex:0];
+            NSLog(@"XML To Delete:%@",providerToDelete.XMLString);
+            [[_dataprovidersXml rootElement] removeChild:providerToDelete];
+        }else if (opCode==OP_GET_DATA_PROVIDER_DETAILS){
+            NSLog(@"Display Data Provider Details");
+            XmlViewController *xmlViewCtl=[[XmlViewController alloc] init];
+            GDataXMLElement *elementToShow=[[xmlDoc rootElement] copy];
+            xmlViewCtl.xmlElement=elementToShow;
+            UINavigationController *unvc=[[UINavigationController alloc] initWithRootViewController:xmlViewCtl];
+            [self presentViewController:unvc animated:YES completion:nil];
+        }
+        
         
         [self.tableView reloadData];
         

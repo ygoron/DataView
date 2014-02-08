@@ -15,6 +15,7 @@
 #import "SelectWebiFieldsViewController.h"
 #import "SelectReportFieldsViewController.h"
 #import "WebiPromptsEngine.h"
+#import "UniversesListViewController.h"
 
 #define OP_CREATE_WEBI 1
 #define OP_ADD_DATA_PROVIDER 2
@@ -25,11 +26,13 @@
 #define OP_UPDATE_QUERY_SPEC 7
 #define OP_UPDATE_REPORT_SPEC 8
 #define OP_GET_LIST_OF_REPORTS 9
+#define OP_DELETE_DATA_PROVIDER 10
+#define OP_GET_DATA_PROVIDER_DETAILS 11
 #define OP_SAVE_DOCUMENT 99
 
 
 
-@interface EditWebiDocumentViewController : UITableViewController <TextTextEditViewControllerDelegate,XMLRESTProcessorDelegate,DataProviderSelectorDelegate,SelectWebiFieldsDelegate,WebiPromptsEngineDelegate,SelectReportFieldsDelegate>
+@interface EditWebiDocumentViewController : UITableViewController <TextTextEditViewControllerDelegate,XMLRESTProcessorDelegate,DataProviderSelectorDelegate,SelectWebiFieldsDelegate,WebiPromptsEngineDelegate,SelectReportFieldsDelegate,UniversesListViewControllerDelegate>
 
 @property (assign, nonatomic) NSInteger folderId;
 @property (assign, nonatomic) NSInteger docId;
@@ -40,7 +43,11 @@
 @property (assign, nonatomic) BOOL isNewWebiDocument;
 @property (strong,nonatomic) Document *document;
 
+@property (nonatomic, weak) id <UniversesListViewControllerDelegate> delegate;
+
 
 +(GDataXMLElement *) getFirstElementForDocument: (GDataXMLDocument *) docXml withPath:(NSString *) path;
+
+
 
 @end

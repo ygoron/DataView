@@ -25,6 +25,8 @@
 		92054445180C906F004DD35D /* LovValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92054443180C906F004DD35D /* LovValueCell.m */; };
 		92061494184BC5D4005B5F4B /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 92061493184BC5D4005B5F4B /* GDataXMLNode.m */; };
 		92061495184BC5D4005B5F4B /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 92061493184BC5D4005B5F4B /* GDataXMLNode.m */; };
+		920DA78618A6C230002E6FC0 /* ReportTemplateV2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 920DA78518A6C230002E6FC0 /* ReportTemplateV2.xml */; };
+		920DA78718A6C230002E6FC0 /* ReportTemplateV2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 920DA78518A6C230002E6FC0 /* ReportTemplateV2.xml */; };
 		920DB49816E17F3F001D3546 /* BIExportReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 920DB49716E17F3F001D3546 /* BIExportReport.m */; };
 		920DB49E16E18B7F001D3546 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920DB49D16E18B7E001D3546 /* ReportViewController.m */; };
 		920DE680173C829800EC70A5 /* BrowserChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920DE67E173C829800EC70A5 /* BrowserChildViewController.m */; };
@@ -70,6 +72,10 @@
 		922E16A11746FB9E00D55FF4 /* BrowserObjectActionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922E169E1746FB9E00D55FF4 /* BrowserObjectActionsViewController.xib */; };
 		922F397516D6DDFC009B7761 /* GetDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = 922F397416D6DDFC009B7761 /* GetDocuments.m */; };
 		922F397816D6E3CE009B7761 /* DocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922F397716D6E3CE009B7761 /* DocumentsViewController.m */; };
+		9232409918A4400800EDBB52 /* DataProviderDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9232409718A4400800EDBB52 /* DataProviderDetailsViewController.m */; };
+		9232409A18A4400800EDBB52 /* DataProviderDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9232409718A4400800EDBB52 /* DataProviderDetailsViewController.m */; };
+		9232409B18A4400800EDBB52 /* DataProviderDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9232409818A4400800EDBB52 /* DataProviderDetailsViewController.xib */; };
+		9232409C18A4400800EDBB52 /* DataProviderDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9232409818A4400800EDBB52 /* DataProviderDetailsViewController.xib */; };
 		9236AE5416DD9B7900ACCB8E /* BIGetDocumentDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 9236AE5316DD9B7900ACCB8E /* BIGetDocumentDetails.m */; };
 		92383C76184A8B3C004D0B39 /* DocTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92383C75184A8B3C004D0B39 /* DocTitleCell.m */; };
 		92383C77184A8B3C004D0B39 /* DocTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92383C75184A8B3C004D0B39 /* DocTitleCell.m */; };
@@ -651,6 +657,10 @@
 		92E8C40A16D04FBC00B4D01F /* SessionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C40916D04FBC00B4D01F /* SessionsViewController.m */; };
 		92E8C40D16D0503600B4D01F /* SessionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C40C16D0503600B4D01F /* SessionCell.m */; };
 		92E8C41916D118ED00B4D01F /* SessionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8C41816D118ED00B4D01F /* SessionDetailViewController.m */; };
+		92EA261B18A5B922008BAB7B /* XmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EA261918A5B922008BAB7B /* XmlViewController.m */; };
+		92EA261C18A5B922008BAB7B /* XmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EA261918A5B922008BAB7B /* XmlViewController.m */; };
+		92EA261D18A5B922008BAB7B /* XmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EA261A18A5B922008BAB7B /* XmlViewController.xib */; };
+		92EA261E18A5B922008BAB7B /* XmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92EA261A18A5B922008BAB7B /* XmlViewController.xib */; };
 		92ED8CA71724BF380081A14B /* GlobalPreferencesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ED8CA61724BF380081A14B /* GlobalPreferencesConstants.m */; };
 		92F1F54E185A8F67007AC4FD /* DataProviderSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F1F54C185A8F67007AC4FD /* DataProviderSelectorViewController.m */; };
 		92F1F54F185A8F67007AC4FD /* DataProviderSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F1F54C185A8F67007AC4FD /* DataProviderSelectorViewController.m */; };
@@ -699,6 +709,7 @@
 		92054443180C906F004DD35D /* LovValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LovValueCell.m; sourceTree = "<group>"; };
 		92061492184BC5D4005B5F4B /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		92061493184BC5D4005B5F4B /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		920DA78518A6C230002E6FC0 /* ReportTemplateV2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ReportTemplateV2.xml; sourceTree = "<group>"; };
 		920DB49616E17F3F001D3546 /* BIExportReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIExportReport.h; sourceTree = "<group>"; };
 		920DB49716E17F3F001D3546 /* BIExportReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIExportReport.m; sourceTree = "<group>"; };
 		920DB49C16E18B7E001D3546 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
@@ -763,6 +774,9 @@
 		922F397616D6E3CE009B7761 /* DocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentsViewController.h; sourceTree = "<group>"; };
 		922F397716D6E3CE009B7761 /* DocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentsViewController.m; sourceTree = "<group>"; };
 		923014081720C536002A8C34 /* DocumentViewer 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 2.xcdatamodel"; sourceTree = "<group>"; };
+		9232409618A4400800EDBB52 /* DataProviderDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderDetailsViewController.h; sourceTree = "<group>"; };
+		9232409718A4400800EDBB52 /* DataProviderDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderDetailsViewController.m; sourceTree = "<group>"; };
+		9232409818A4400800EDBB52 /* DataProviderDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataProviderDetailsViewController.xib; sourceTree = "<group>"; };
 		9236AE5216DD9B7900ACCB8E /* BIGetDocumentDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIGetDocumentDetails.h; sourceTree = "<group>"; };
 		9236AE5316DD9B7900ACCB8E /* BIGetDocumentDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIGetDocumentDetails.m; sourceTree = "<group>"; };
 		92383C74184A8B3C004D0B39 /* DocTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocTitleCell.h; sourceTree = "<group>"; };
@@ -1182,6 +1196,9 @@
 		92E8C40C16D0503600B4D01F /* SessionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionCell.m; sourceTree = "<group>"; };
 		92E8C41716D118ED00B4D01F /* SessionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailViewController.h; sourceTree = "<group>"; };
 		92E8C41816D118ED00B4D01F /* SessionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailViewController.m; sourceTree = "<group>"; };
+		92EA261818A5B922008BAB7B /* XmlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlViewController.h; sourceTree = "<group>"; };
+		92EA261918A5B922008BAB7B /* XmlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlViewController.m; sourceTree = "<group>"; };
+		92EA261A18A5B922008BAB7B /* XmlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XmlViewController.xib; sourceTree = "<group>"; };
 		92ED8CA01724A2730081A14B /* DocumentViewer 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 5.xcdatamodel"; sourceTree = "<group>"; };
 		92ED8CA51724BF380081A14B /* GlobalPreferencesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalPreferencesConstants.h; sourceTree = "<group>"; };
 		92ED8CA61724BF380081A14B /* GlobalPreferencesConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalPreferencesConstants.m; sourceTree = "<group>"; };
@@ -1735,6 +1752,7 @@
 			children = (
 				929A7E4F1888859100FA874E /* QuerySpec1.xml */,
 				9225AAAB188C60A10043AF9C /* ReportTemplate.xml */,
+				920DA78518A6C230002E6FC0 /* ReportTemplateV2.xml */,
 			);
 			name = TemplateXML;
 			sourceTree = "<group>";
@@ -2081,6 +2099,9 @@
 		92EB32E3183AED8F00BFF73B /* Webi Creator */ = {
 			isa = PBXGroup;
 			children = (
+				92EA261818A5B922008BAB7B /* XmlViewController.h */,
+				92EA261918A5B922008BAB7B /* XmlViewController.m */,
+				92EA261A18A5B922008BAB7B /* XmlViewController.xib */,
 				929A7E4E188884A000FA874E /* TemplateXML */,
 				92383C74184A8B3C004D0B39 /* DocTitleCell.h */,
 				92383C75184A8B3C004D0B39 /* DocTitleCell.m */,
@@ -2109,6 +2130,9 @@
 				929ADAA8189D9B4A00202188 /* SelectReportFieldsViewController.h */,
 				929ADAA9189D9B4A00202188 /* SelectReportFieldsViewController.m */,
 				929ADAAA189D9B4A00202188 /* SelectReportFieldsViewController.xib */,
+				9232409618A4400800EDBB52 /* DataProviderDetailsViewController.h */,
+				9232409718A4400800EDBB52 /* DataProviderDetailsViewController.m */,
+				9232409818A4400800EDBB52 /* DataProviderDetailsViewController.xib */,
 			);
 			name = "Webi Creator";
 			sourceTree = "<group>";
@@ -2310,6 +2334,7 @@
 				924C486217F0771B00C25F8F /* navbar-7.png in Resources */,
 				9288AC111787A9A50048BCF1 /* ipad-menubar-left@2x.png in Resources */,
 				9288AC121787A9A50048BCF1 /* ipad-menubar-right.png in Resources */,
+				92EA261E18A5B922008BAB7B /* XmlViewController.xib in Resources */,
 				9288AC131787A9A50048BCF1 /* ipad-menubar-right@2x.png in Resources */,
 				9288AC141787A9A50048BCF1 /* ipad-tabbar-left.png in Resources */,
 				9288AC151787A9A50048BCF1 /* ipad-tabbar-left@2x.png in Resources */,
@@ -2365,6 +2390,7 @@
 				9288AC441787A9A50048BCF1 /* DocumentsAll_selected.png in Resources */,
 				9288AC451787A9A50048BCF1 /* DocumentsAll_selected@2x.png in Resources */,
 				9288AC461787A9A50048BCF1 /* DocumentsAll_unselected.png in Resources */,
+				920DA78718A6C230002E6FC0 /* ReportTemplateV2.xml in Resources */,
 				9288AC471787A9A50048BCF1 /* DocumentsAll_unselected@2x.png in Resources */,
 				9288AC481787A9A50048BCF1 /* Universe_selected.png in Resources */,
 				9288AC491787A9A50048BCF1 /* Universe_selected@2x.png in Resources */,
@@ -2372,6 +2398,7 @@
 				926D3D4818258F4900868149 /* EditPromptViewController.xib in Resources */,
 				9288AC4A1787A9A50048BCF1 /* Universe_unselected.png in Resources */,
 				9288AC4B1787A9A50048BCF1 /* Universe_unselected@2x.png in Resources */,
+				9232409C18A4400800EDBB52 /* DataProviderDetailsViewController.xib in Resources */,
 				9288AC4C1787A9A50048BCF1 /* webi_16-256.png in Resources */,
 				9288AC4D1787A9A50048BCF1 /* unv_16-256.png in Resources */,
 				924C487A17F0815A00C25F8F /* SettingGears_blue.png in Resources */,
@@ -2521,6 +2548,7 @@
 				924C486117F0771B00C25F8F /* navbar-7.png in Resources */,
 				928D10B2170F751F00FA2C5D /* ipad-menubar-left@2x.png in Resources */,
 				928D10B3170F751F00FA2C5D /* ipad-menubar-right.png in Resources */,
+				92EA261D18A5B922008BAB7B /* XmlViewController.xib in Resources */,
 				928D10B4170F751F00FA2C5D /* ipad-menubar-right@2x.png in Resources */,
 				928D10B5170F751F00FA2C5D /* ipad-tabbar-left.png in Resources */,
 				928D10B6170F751F00FA2C5D /* ipad-tabbar-left@2x.png in Resources */,
@@ -2576,6 +2604,7 @@
 				92CA91FE17283121000AD6DD /* DocumentsAll_selected.png in Resources */,
 				92CA91FF17283121000AD6DD /* DocumentsAll_selected@2x.png in Resources */,
 				92CA920017283121000AD6DD /* DocumentsAll_unselected.png in Resources */,
+				920DA78618A6C230002E6FC0 /* ReportTemplateV2.xml in Resources */,
 				92CA920117283121000AD6DD /* DocumentsAll_unselected@2x.png in Resources */,
 				92CA9206172831DC000AD6DD /* Universe_selected.png in Resources */,
 				92CA9207172831DC000AD6DD /* Universe_selected@2x.png in Resources */,
@@ -2583,6 +2612,7 @@
 				926D3D4718258F4900868149 /* EditPromptViewController.xib in Resources */,
 				92CA9208172831DC000AD6DD /* Universe_unselected.png in Resources */,
 				92CA9209172831DC000AD6DD /* Universe_unselected@2x.png in Resources */,
+				9232409B18A4400800EDBB52 /* DataProviderDetailsViewController.xib in Resources */,
 				92CA920F17283370000AD6DD /* webi_16-256.png in Resources */,
 				92CA921217283459000AD6DD /* unv_16-256.png in Resources */,
 				924C487917F0815A00C25F8F /* SettingGears_blue.png in Resources */,
@@ -2765,10 +2795,12 @@
 				9288ABAB1787A9A50048BCF1 /* DestinationInbox.m in Sources */,
 				9288ABAC1787A9A50048BCF1 /* BIScheduleDocument.m in Sources */,
 				9288ABAD1787A9A50048BCF1 /* ScheduleStatus.m in Sources */,
+				9232409A18A4400800EDBB52 /* DataProviderDetailsViewController.m in Sources */,
 				9288ABAE1787A9A50048BCF1 /* FormatPDF.m in Sources */,
 				9288ABAF1787A9A50048BCF1 /* FormatWebi.m in Sources */,
 				9288ABB01787A9A50048BCF1 /* FormatExcel.m in Sources */,
 				9288ABB11787A9A50048BCF1 /* Destination.m in Sources */,
+				92EA261C18A5B922008BAB7B /* XmlViewController.m in Sources */,
 				9205442A180C2C9F004DD35D /* WebiPromptViewController.m in Sources */,
 				92518A0417E7411400BC7915 /* ExtensionPackViewController.m in Sources */,
 				9288ABB21787A9A50048BCF1 /* Format.m in Sources */,
@@ -2887,10 +2919,12 @@
 				928D564A16F79DDA000DE65D /* DestinationInbox.m in Sources */,
 				928D564D16F79E0D000DE65D /* BIScheduleDocument.m in Sources */,
 				928D565016F7A015000DE65D /* ScheduleStatus.m in Sources */,
+				9232409918A4400800EDBB52 /* DataProviderDetailsViewController.m in Sources */,
 				928D565316F7A22B000DE65D /* FormatPDF.m in Sources */,
 				928D565616F7EF4D000DE65D /* FormatWebi.m in Sources */,
 				928D565916F7EF66000DE65D /* FormatExcel.m in Sources */,
 				928D565C16F7F053000DE65D /* Destination.m in Sources */,
+				92EA261B18A5B922008BAB7B /* XmlViewController.m in Sources */,
 				92054429180C2C9F004DD35D /* WebiPromptViewController.m in Sources */,
 				92518A0317E7411400BC7915 /* ExtensionPackViewController.m in Sources */,
 				928D566016F7F13D000DE65D /* Format.m in Sources */,

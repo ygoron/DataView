@@ -317,14 +317,14 @@
             vc.unvDetails=nil;
             vc.title=vc.universe.name;
             [self.navigationController pushViewController:vc animated:YES];
-
+            
             
             //TODO REMOVE
-//            SelectWebiFieldsViewController *swf=[[SelectWebiFieldsViewController alloc] initWithNibName:@"SelectWebiFieldsViewController" bundle:nil];
-//            swf.universe=[self.universes objectAtIndex:[indexPath row]];
-//            [self.navigationController pushViewController:swf animated:YES];
+            //            SelectWebiFieldsViewController *swf=[[SelectWebiFieldsViewController alloc] initWithNibName:@"SelectWebiFieldsViewController" bundle:nil];
+            //            swf.universe=[self.universes objectAtIndex:[indexPath row]];
+            //            [self.navigationController pushViewController:swf animated:YES];
             
-// END REMOVE
+            // END REMOVE
             
             
         }else{
@@ -351,9 +351,11 @@
             
             if (cell.accessoryType==UITableViewCellAccessoryCheckmark){
                 selectedIndex=indexPath;
+//                [self.navigationController popToRootViewControllerAnimated:YES];
             }else{
                 selectedIndex=nil;
             }
+            
             
             
         }
