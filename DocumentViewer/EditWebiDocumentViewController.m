@@ -168,7 +168,8 @@
             break;
             
         case 1:
-            return [dataproviders count]+1;
+//            return [dataproviders count]+1;
+            return 1;
             break;
             
         case 2:
@@ -219,10 +220,10 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (indexPath.section==1){
-        NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
-        if (indexPath.row<[dataproviders count]) return YES;
-    }
+//    if (indexPath.section==1){
+//        NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
+//        if (indexPath.row<[dataproviders count]) return YES;
+//    }
     
     return NO;
 }
@@ -321,7 +322,8 @@
         NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
         [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
         
-        if (indexPath.row<[dataproviders count]){
+//        if (indexPath.row<[dataproviders count]){
+        if (dataproviders.count >0){
             
             
             
