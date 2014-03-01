@@ -31,6 +31,8 @@ MFMailComposeViewControllerDelegate,UIGestureRecognizerDelegate,BIRefreshDocumen
 @property(nonatomic,strong)   NSString *titleText;
 @property (nonatomic,assign) BOOL isRefreshDocument;
 @property (nonatomic,strong) NSArray *webiPrompts;
+@property (nonatomic,strong) NSURL *url;
+@property (nonatomic,strong) Session *currentSession ;
 
 
 - (IBAction)closeView:(id)sender;

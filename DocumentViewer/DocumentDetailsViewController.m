@@ -26,6 +26,7 @@
 #import "ReportViewController.h"
 #import "BIRefreshDocument.h"
 #import "WebiPromptViewController.h"
+#import "EditWebiDocumentViewController.h"
 @interface DocumentDetailsViewController ()
 
 
@@ -682,10 +683,23 @@
             [TestFlight passCheckpoint:@"Export to Excel"];
             [self exportDocumentWithFormat: FormatEXCEL];
             break;
+        case 3:
+            [TestFlight passCheckpoint:@"Edit Webi"];
             
             
+            EditWebiDocumentViewController *editWebiVC=[[EditWebiDocumentViewController alloc] initWithNibName:@"EditWebiDocumentViewController" bundle:nil];
+            editWebiVC.documentXml=nil;
+            editWebiVC.dataprovidersXml=nil;
+            editWebiVC.folderId=[_document.folderid integerValue];
+            editWebiVC.currentSession=activeSession;
+            editWebiVC.docId=[_document.id integerValue];
+            editWebiVC.document=_document;
+            editWebiVC.isNewWebiDocument=NO;
             
-        default:
+//            [self.navigationController pushViewController:editWebiVC animated:YES];
+            UINavigationController *cntrol = [[UINavigationController alloc] initWithRootViewController:editWebiVC];
+            [self presentViewController:cntrol animated:YES completion:nil];
+            
             break;
     }
 }
@@ -924,7 +938,7 @@
                             delegate:self
                             cancelButtonTitle:cancelButtonTitle
                             destructiveButtonTitle:nil
-                            otherButtonTitles:NSLocalizedString(@"Open Document",@"Use Open Document Call to View document"), NSLocalizedString(@"View Document in PDF",@"Export Document in PDF"),NSLocalizedString(@"Export to Excel",@"Export Document to Excel"),nil];
+                            otherButtonTitles:NSLocalizedString(@"Open Document",@"Use Open Document Call to View document"), NSLocalizedString(@"View Document in PDF",@"Export Document in PDF"),NSLocalizedString(@"Export to Excel",@"Export Document to Excel"),NSLocalizedString(@"Edit",@"Edit"),nil];
         }else{
             _actionSheet = [[UIActionSheet alloc]
                             initWithTitle:nil

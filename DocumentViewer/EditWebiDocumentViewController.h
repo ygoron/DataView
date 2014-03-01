@@ -28,11 +28,12 @@
 #define OP_GET_LIST_OF_REPORTS 9
 #define OP_DELETE_DATA_PROVIDER 10
 #define OP_GET_DATA_PROVIDER_DETAILS 11
+#define OP_GET_DOCUMENT_DETAILS 12
 #define OP_SAVE_DOCUMENT 99
 
 
 
-@interface EditWebiDocumentViewController : UITableViewController <TextTextEditViewControllerDelegate,XMLRESTProcessorDelegate,DataProviderSelectorDelegate,SelectWebiFieldsDelegate,WebiPromptsEngineDelegate,SelectReportFieldsDelegate,UniversesListViewControllerDelegate>
+@interface EditWebiDocumentViewController : UITableViewController <TextTextEditViewControllerDelegate,XMLRESTProcessorDelegate,DataProviderSelectorDelegate,SelectWebiFieldsDelegate,WebiPromptsEngineDelegate,SelectReportFieldsDelegate,UniversesListViewControllerDelegate,BIGetUniverseDetailsDelegate>
 
 @property (assign, nonatomic) NSInteger folderId;
 @property (assign, nonatomic) NSInteger docId;

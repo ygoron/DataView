@@ -76,6 +76,10 @@
 		9232409A18A4400800EDBB52 /* DataProviderDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9232409718A4400800EDBB52 /* DataProviderDetailsViewController.m */; };
 		9232409B18A4400800EDBB52 /* DataProviderDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9232409818A4400800EDBB52 /* DataProviderDetailsViewController.xib */; };
 		9232409C18A4400800EDBB52 /* DataProviderDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9232409818A4400800EDBB52 /* DataProviderDetailsViewController.xib */; };
+		9233283618A83CC200B0D248 /* ReportEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9233283418A83CC200B0D248 /* ReportEditorViewController.m */; };
+		9233283718A83CC200B0D248 /* ReportEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9233283418A83CC200B0D248 /* ReportEditorViewController.m */; };
+		9233283818A83CC200B0D248 /* ReportEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9233283518A83CC200B0D248 /* ReportEditorViewController.xib */; };
+		9233283918A83CC200B0D248 /* ReportEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9233283518A83CC200B0D248 /* ReportEditorViewController.xib */; };
 		9236AE5416DD9B7900ACCB8E /* BIGetDocumentDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 9236AE5316DD9B7900ACCB8E /* BIGetDocumentDetails.m */; };
 		92383C76184A8B3C004D0B39 /* DocTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92383C75184A8B3C004D0B39 /* DocTitleCell.m */; };
 		92383C77184A8B3C004D0B39 /* DocTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92383C75184A8B3C004D0B39 /* DocTitleCell.m */; };
@@ -674,6 +678,10 @@
 		92F30A3A1784F9E00014B290 /* ipad-menubar-right__landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F30A2D1784F9E00014B290 /* ipad-menubar-right__landscape@2x.png */; };
 		92F30A3C1784F9E00014B290 /* ipad-menubar-left__landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F30A2E1784F9E00014B290 /* ipad-menubar-left__landscape@2x.png */; };
 		92F30A3E1784F9E00014B290 /* navbar__landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92F30A2F1784F9E00014B290 /* navbar__landscape@2x.png */; };
+		92F4504A18BC268100378798 /* ReportPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F4504818BC268100378798 /* ReportPreviewController.m */; };
+		92F4504B18BC268100378798 /* ReportPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F4504818BC268100378798 /* ReportPreviewController.m */; };
+		92F4504C18BC268100378798 /* ReportPreviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F4504918BC268100378798 /* ReportPreviewController.xib */; };
+		92F4504D18BC268100378798 /* ReportPreviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F4504918BC268100378798 /* ReportPreviewController.xib */; };
 		92F4677617249F4C0048252B /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F4677517249F4C0048252B /* PreferencesViewController.m */; };
 		92F4EFC317E3A3F3009DAFAC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F4EFC217E3A3F3009DAFAC /* Utils.m */; };
 		92F4EFC417E3A3F3009DAFAC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F4EFC217E3A3F3009DAFAC /* Utils.m */; };
@@ -777,6 +785,9 @@
 		9232409618A4400800EDBB52 /* DataProviderDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProviderDetailsViewController.h; sourceTree = "<group>"; };
 		9232409718A4400800EDBB52 /* DataProviderDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProviderDetailsViewController.m; sourceTree = "<group>"; };
 		9232409818A4400800EDBB52 /* DataProviderDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataProviderDetailsViewController.xib; sourceTree = "<group>"; };
+		9233283318A83CC200B0D248 /* ReportEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportEditorViewController.h; sourceTree = "<group>"; };
+		9233283418A83CC200B0D248 /* ReportEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportEditorViewController.m; sourceTree = "<group>"; };
+		9233283518A83CC200B0D248 /* ReportEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportEditorViewController.xib; sourceTree = "<group>"; };
 		9236AE5216DD9B7900ACCB8E /* BIGetDocumentDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIGetDocumentDetails.h; sourceTree = "<group>"; };
 		9236AE5316DD9B7900ACCB8E /* BIGetDocumentDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIGetDocumentDetails.m; sourceTree = "<group>"; };
 		92383C74184A8B3C004D0B39 /* DocTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocTitleCell.h; sourceTree = "<group>"; };
@@ -1230,6 +1241,9 @@
 		92F30A2D1784F9E00014B290 /* ipad-menubar-right__landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-menubar-right__landscape@2x.png"; sourceTree = "<group>"; };
 		92F30A2E1784F9E00014B290 /* ipad-menubar-left__landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-menubar-left__landscape@2x.png"; sourceTree = "<group>"; };
 		92F30A2F1784F9E00014B290 /* navbar__landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar__landscape@2x.png"; sourceTree = "<group>"; };
+		92F4504718BC268100378798 /* ReportPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportPreviewController.h; sourceTree = "<group>"; };
+		92F4504818BC268100378798 /* ReportPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportPreviewController.m; sourceTree = "<group>"; };
+		92F4504918BC268100378798 /* ReportPreviewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportPreviewController.xib; sourceTree = "<group>"; };
 		92F4676C17248B090048252B /* DocumentViewer 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DocumentViewer 4.xcdatamodel"; sourceTree = "<group>"; };
 		92F4677417249F4C0048252B /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		92F4677517249F4C0048252B /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
@@ -2133,6 +2147,12 @@
 				9232409618A4400800EDBB52 /* DataProviderDetailsViewController.h */,
 				9232409718A4400800EDBB52 /* DataProviderDetailsViewController.m */,
 				9232409818A4400800EDBB52 /* DataProviderDetailsViewController.xib */,
+				9233283318A83CC200B0D248 /* ReportEditorViewController.h */,
+				9233283418A83CC200B0D248 /* ReportEditorViewController.m */,
+				9233283518A83CC200B0D248 /* ReportEditorViewController.xib */,
+				92F4504718BC268100378798 /* ReportPreviewController.h */,
+				92F4504818BC268100378798 /* ReportPreviewController.m */,
+				92F4504918BC268100378798 /* ReportPreviewController.xib */,
 			);
 			name = "Webi Creator";
 			sourceTree = "<group>";
@@ -2295,6 +2315,7 @@
 				9288ABF01787A9A50048BCF1 /* back-button.png in Resources */,
 				9288ABF11787A9A50048BCF1 /* back-button@2x.png in Resources */,
 				92383C87184AA479004D0B39 /* DocTitleCell.xib in Resources */,
+				92F4504D18BC268100378798 /* ReportPreviewController.xib in Resources */,
 				92C1944817FF581E006C027B /* DeskiDoc_48@2x.png in Resources */,
 				924C486E17F07BAB00C25F8F /* navbar_landscape-7b.png in Resources */,
 				9288ABF21787A9A50048BCF1 /* button-pressed.png in Resources */,
@@ -2451,6 +2472,7 @@
 				925ED32917F0AEEE00EF7A8E /* tabbar_landscape_iphone-7.png in Resources */,
 				924C487C17F0815A00C25F8F /* SettingGears_blue@2x.png in Resources */,
 				9288AC771787A9A50048BCF1 /* Word@2x.png in Resources */,
+				9233283918A83CC200B0D248 /* ReportEditorViewController.xib in Resources */,
 				924C486417F0771B00C25F8F /* navbar-7@2x.png in Resources */,
 				9288AC781787A9A50048BCF1 /* Excel.png in Resources */,
 				9288AC791787A9A50048BCF1 /* Excel@2x.png in Resources */,
@@ -2509,6 +2531,7 @@
 				928D1091170F751F00FA2C5D /* back-button.png in Resources */,
 				928D1092170F751F00FA2C5D /* back-button@2x.png in Resources */,
 				92383C86184AA479004D0B39 /* DocTitleCell.xib in Resources */,
+				92F4504C18BC268100378798 /* ReportPreviewController.xib in Resources */,
 				92C1944717FF581E006C027B /* DeskiDoc_48@2x.png in Resources */,
 				924C486D17F07BAB00C25F8F /* navbar_landscape-7b.png in Resources */,
 				928D1093170F751F00FA2C5D /* button-pressed.png in Resources */,
@@ -2665,6 +2688,7 @@
 				925ED32817F0AEEE00EF7A8E /* tabbar_landscape_iphone-7.png in Resources */,
 				924C487B17F0815A00C25F8F /* SettingGears_blue@2x.png in Resources */,
 				9271492D1749B13500851389 /* Word@2x.png in Resources */,
+				9233283818A83CC200B0D248 /* ReportEditorViewController.xib in Resources */,
 				924C486317F0771B00C25F8F /* navbar-7@2x.png in Resources */,
 				9271492F1749B13500851389 /* Excel.png in Resources */,
 				927149311749B13500851389 /* Excel@2x.png in Resources */,
@@ -2772,6 +2796,7 @@
 				9205443C180C8E85004DD35D /* PromptLovViewController.m in Sources */,
 				9288AB9A1787A9A50048BCF1 /* GetDocuments.m in Sources */,
 				928681C7189AAC0100DC5645 /* ReportXml.m in Sources */,
+				9233283718A83CC200B0D248 /* ReportEditorViewController.m in Sources */,
 				9288AB9B1787A9A50048BCF1 /* DocumentsViewController.m in Sources */,
 				92B70B0D188341CE006C85D9 /* SelectWebiFieldsViewController.m in Sources */,
 				9288AB9C1787A9A50048BCF1 /* DocumentCell.m in Sources */,
@@ -2853,6 +2878,7 @@
 				921C0C20179A166C00F41946 /* InAppPurchase.m in Sources */,
 				921C0C26179A1A1000F41946 /* Products.m in Sources */,
 				92E37E14179B223100797DA8 /* IAPHelper.m in Sources */,
+				92F4504B18BC268100378798 /* ReportPreviewController.m in Sources */,
 				92E37E18179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */,
 				92054445180C906F004DD35D /* LovValueCell.m in Sources */,
 				92757F54179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,
@@ -2896,6 +2922,7 @@
 				9205443B180C8E85004DD35D /* PromptLovViewController.m in Sources */,
 				922F397516D6DDFC009B7761 /* GetDocuments.m in Sources */,
 				928681C6189AAC0100DC5645 /* ReportXml.m in Sources */,
+				9233283618A83CC200B0D248 /* ReportEditorViewController.m in Sources */,
 				922F397816D6E3CE009B7761 /* DocumentsViewController.m in Sources */,
 				92B70B0C188341CE006C85D9 /* SelectWebiFieldsViewController.m in Sources */,
 				921B39C916D816FB00C0CD95 /* DocumentCell.m in Sources */,
@@ -2977,6 +3004,7 @@
 				921C0C1F179A166C00F41946 /* InAppPurchase.m in Sources */,
 				921C0C25179A1A1000F41946 /* Products.m in Sources */,
 				92E37E13179B223100797DA8 /* IAPHelper.m in Sources */,
+				92F4504A18BC268100378798 /* ReportPreviewController.m in Sources */,
 				92E37E17179B265A00797DA8 /* BIMobileIAPHelper.m in Sources */,
 				92054444180C906F004DD35D /* LovValueCell.m in Sources */,
 				92757F53179B3A1500C6F93A /* PremiumFeaturesViewController.m in Sources */,

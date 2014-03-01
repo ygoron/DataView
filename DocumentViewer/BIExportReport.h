@@ -44,13 +44,17 @@ typedef enum ReportExportFormat {
 @property   ReportExportFormat exportFormat;
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) NSString *currentToken;
+@property (assign, nonatomic) BOOL isExportWithUrl;
+
 
 
 @property (nonatomic, weak) id <BIExportReportDelegate> delegate;
 
 
++(NSURL *) getExportReportURLForDocumentId: (int) documentId withReportId: (int) reportId withSession:(Session *) session;
 -(void) exportDocument: (Document *) document withFormat: (ReportExportFormat) format;
 -(void) exportReport: (Report *) report withFormat: (ReportExportFormat) format;
+-(void) exportEntityWithUrl: (NSURL *) url withFormat: (ReportExportFormat)format  forSession:(Session *) currentSession;
 -(void) logoOffIfNeeded;
 
 

@@ -134,6 +134,8 @@
     [[UINavigationBar appearance] setBackgroundImage:navBarImage
                                        forBarMetrics:UIBarMetricsDefault];
     
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIColor whiteColor], UITextAttributeTextColor,

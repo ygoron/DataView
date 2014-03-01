@@ -17,6 +17,7 @@
     BIConnector *connector;
     WebiAppDelegate *appDelegate;
     BOOL _isDocument;
+    NSURL *_url;
 }
 
 @synthesize connectorError;
@@ -25,6 +26,48 @@
 @synthesize biSession;
 @synthesize context;
 
+#pragma mark Export With URL
+
+# pragma mark getExportReport URL
+
++(NSURL *) getExportReportURLForDocumentId: (int) documentId withReportId: (int) reportId withSession:(Session *) session{
+    NSLog (@"Export Report URL For Report id:%d",reportId);
+    NSURL *getExportReportUrl;
+    NSString *host=[NSString stringWithFormat: @"%@:%@",session.cmsName,session.port] ;
+    if ([session.isHttps integerValue]==1){
+        getExportReportUrl=[[NSURL alloc]initWithScheme:@"https" host:host path:[NSString stringWithFormat:@"%@%@%@%d%@%d",session.webiRestSDKBase,getDocumentsPathPoint,@"/",documentId,@"/reports/",reportId]];
+    }
+    else{
+        getExportReportUrl=[[NSURL alloc]initWithScheme:@"http" host:host path:[NSString stringWithFormat:@"%@%@%@%d%@%d",session.webiRestSDKBase,getDocumentsPathPoint,@"/",documentId,@"/reports/",reportId]];
+        
+    }
+    NSLog(@"URL:%@",getExportReportUrl);
+    return  getExportReportUrl;
+}
+
+-(void) exportEntityWithUrl:(NSURL *)url withFormat:(ReportExportFormat)format forSession:(Session *)currentSession
+{
+    _isExportWithUrl=YES;
+    _isDocument=NO;
+    appDelegate = (id)[[UIApplication sharedApplication] delegate];
+    _currentToken=currentSession.cmsToken;
+    _exportFormat=format;
+    _url=url;
+    
+    if (currentSession.cmsToken==nil){
+        
+        NSLog(@"CMS Token is NULL - create new one");
+        connector=[[BIConnector alloc]init];
+        connector.delegate=self;
+        [connector getCmsTokenWithSession:currentSession];
+    }else{
+        NSLog(@"CMS Token is NOT NULL - Process With Existing Token");
+        [self processHttpRequestForUrl:url];
+        
+    }
+    
+    
+}
 
 #pragma mark Export Report
 -(void) exportReport:(Report *)report withFormat:(ReportExportFormat)format{
@@ -87,8 +130,14 @@
         NSLog(@"Token Receieved:%@",cmsToken);
         self.currentToken=cmsToken;
         
-            if (_isDocument==NO)[self processHttpRequestForSession:self.report];
-            else          [self processHttpRequestForSessionWithDocument:_document];
+        if (_isDocument==NO){
+            if (_isExportWithUrl==YES)
+                [self processHttpRequestForUrl:_url];
+            else
+                [self processHttpRequestForSession:self.report];
+        }
+        else
+            [self processHttpRequestForSessionWithDocument:_document];
         
         
     }else if (biConnector.connectorError!=nil){
@@ -104,6 +153,7 @@
     }
     
 }
+
 
 
 # pragma mark Export Document
@@ -149,16 +199,13 @@
     
 }
 
-# pragma mark Export Report
-
--(void) processHttpRequestForSession: (Report *) report{
-    self.biSession=report.document.session;
+-(void) processHttpRequestForUrl: (NSURL *) url
+{
+    
     //    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",report.document.session.cmsToken,@"\""];
-    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",self.currentToken,@"\""];
-    NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:[self getExportReportURL:report]];
+    NSMutableURLRequest *request = [NSMutableURLRequest  requestWithURL:url];
     //    [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
     NSLog(@"Process with URL: %@",[request URL]);
-    NSLog(@"Token:%@",cmsToken);
     
     NSLog(@"Timeout Preference Value:%@",appDelegate.globalSettings.networkTimeout);
     [request setTimeoutInterval:[appDelegate.globalSettings.networkTimeout doubleValue ]];
@@ -186,9 +233,19 @@
             break;
     }
     
+    NSString *cmsToken=[[NSString alloc] initWithFormat:@"%@%@%@",@"\"",self.currentToken,@"\""];
+    NSLog(@"Token:%@",cmsToken);
     [request setValue:cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
     (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
     
+}
+
+
+# pragma mark Export Report
+
+-(void) processHttpRequestForSession: (Report *) report{
+    self.biSession=report.document.session;
+    [self processHttpRequestForUrl:[self getExportReportURL:report]];
 }
 
 
@@ -210,6 +267,8 @@
     NSLog(@"URL:%@",getExportDocumentUrl);
     return  getExportDocumentUrl;
 }
+
+
 
 # pragma mark getExportReport URL
 

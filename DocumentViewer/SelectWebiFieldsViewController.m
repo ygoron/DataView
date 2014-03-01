@@ -119,7 +119,7 @@
         NSLog(@"Universe Details Received. Cound=%d",universeDetails.count);
         [_unvDetails addObjectsFromArray:universeDetails];
         for (NSDictionary *dictionary in universeDetails) {
-            [self fillArrayOfFieldbjects:dictionary resultArray:__availableValues withPath:@""];
+            [SelectWebiFieldsViewController fillArrayOfFieldbjects:dictionary resultArray:__availableValues withPath:@""];
         }
         NSLog(@"Total Objects:%d",__availableValues.count);
         [self initSelectedFiedlsArrayUsingSelectedQueryFields:_selectedQueryFields];
@@ -305,7 +305,7 @@
 }
 
 
--(void) fillArrayOfFieldbjects: (NSDictionary *) sourceDictionary resultArray:(NSMutableArray *) resultArray withPath:(NSString *)path
++(void) fillArrayOfFieldbjects: (NSDictionary *) sourceDictionary resultArray:(NSMutableArray *) resultArray withPath:(NSString *)path
 {
     
     
@@ -362,7 +362,7 @@
     
 }
 
--(QueryField *) findQueryFieldInArray: (NSArray *) array withIdentifier:(NSString *) identifier
++(QueryField *) findQueryFieldInArray: (NSArray *) array withIdentifier:(NSString *) identifier
 {
     for (QueryField *queryField in array) {
         if ([queryField.fieldId isEqualToString:identifier])
@@ -380,9 +380,9 @@
 {
     for (NSString *identifier in queryFields) {
         NSLog(@"Check if this field is not already in selected fields");
-        if (![self findQueryFieldInArray:__selectedValues withIdentifier:identifier]){
+        if (![SelectWebiFieldsViewController findQueryFieldInArray:__selectedValues withIdentifier:identifier]){
             NSLog(@"Find that fiedl in avaiable array");
-            QueryField *selectedQueryField= [self findQueryFieldInArray:__availableValues withIdentifier:identifier];
+            QueryField *selectedQueryField= [SelectWebiFieldsViewController findQueryFieldInArray:__availableValues withIdentifier:identifier];
             if (selectedQueryField){
                 NSLog(@"Field %@ found. Insert it.",selectedQueryField.name);
                 [__selectedValues addObject:selectedQueryField];
@@ -390,6 +390,27 @@
         }
     }
 }
+
++(NSMutableArray *) getSelectedFiedlsArrayUsingSelectedQueryFields: (NSArray *) queryFields withAvailableValues:(NSArray *) availableValues
+{
+    NSMutableArray *selectedValues=[[NSMutableArray alloc] init];
+    for (NSString *identifier in queryFields) {
+        NSLog(@"Check if this query field:%@ is not already in selected fields",identifier);
+        if (![self findQueryFieldInArray:selectedValues withIdentifier:identifier]){
+            NSLog(@"Find that field in avaiable array");
+            QueryField *selectedQueryField= [self findQueryFieldInArray:availableValues withIdentifier:identifier];
+            if (selectedQueryField){
+                NSLog(@"Field %@ found. Insert it.",selectedQueryField.name);
+                [selectedValues addObject:selectedQueryField];
+            }else{
+                NSLog(@"Field Not Found");
+            }
+        }
+    }
+    
+    return  selectedValues;
+}
+
 -(void) updateValueArrays
 {
     

@@ -19,6 +19,9 @@
 @end
 @interface SelectWebiFieldsViewController : UITableViewController <BIGetUniverseDetailsDelegate>
 
++(void) fillArrayOfFieldbjects: (NSDictionary *) sourceDictionary resultArray:(NSMutableArray *) resultArray withPath:(NSString *) path;
++(NSMutableArray *) getSelectedFiedlsArrayUsingSelectedQueryFields: (NSArray *) queryFields withAvailableValues:(NSArray *) availableValues;
+
 @property (nonatomic,strong) Universe *universe;
 @property (nonatomic,strong) NSString *dataproviderId;
 
@@ -27,7 +30,6 @@
 
 
 -(void) loadUniverseDetails;
--(void) fillArrayOfFieldbjects: (NSDictionary *) sourceDictionary resultArray:(NSMutableArray *) resultArray withPath:(NSString *) path;
 
 @property (nonatomic, weak) id <SelectWebiFieldsDelegate> delegate;
 

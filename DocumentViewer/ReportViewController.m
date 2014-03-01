@@ -84,24 +84,27 @@
     
     [self.actionButton setEnabled:NO];
     
-    if (_isRefreshDocument==YES){
-        [self refreshDocument];
-    }else{
-        
-        if (_isOpenWholeDocument==NO) {
-            //        titelLabel.text=self.report.name;
-            //        [titelLabel sizeToFit];
-            [self loadWebViewWithReport:self.report];
+    if (_url){
+        [self loadWebViewWithUrl:_url];
+    }else
+        if (_isRefreshDocument==YES){
+            [self refreshDocument];
+        }else{
+            
+            if (_isOpenWholeDocument==NO) {
+                //        titelLabel.text=self.report.name;
+                //        [titelLabel sizeToFit];
+                [self loadWebViewWithReport:self.report];
+            }
+            else {
+                //        titelLabel.text=_document.name;
+                //        [titelLabel sizeToFit];
+                
+                
+                [self loadWebViewWithDocument:_document];
+                
+            }
         }
-        else {
-            //        titelLabel.text=_document.name;
-            //        [titelLabel sizeToFit];
-            
-            
-            [self loadWebViewWithDocument:_document];
-            
-        }
-    }
     
 }
 
@@ -158,6 +161,7 @@
     else
         NSLog(@"View Loaded Title:%@",self.document.name);
     self.webView.scalesPageToFit=YES;
+    self.webView.contentMode = UIViewContentModeScaleAspectFit;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self.actionButton setEnabled:YES];
     
@@ -177,6 +181,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void) loadWebViewWithUrl:(NSURL *) url{
+    [spinner startAnimating];
+    NSLog (@"Load Web View For Format:%d",_exportFormat);
+    BIExportReport *exportReport=[[BIExportReport alloc]init];
+    exportReport.delegate=self;
+    exportReport.exportFormat=_exportFormat;
+    exportReport.biSession=_currentSession;
+    exportReport.isExportWithUrl=YES;
+    //       appDelegate.activeSession.cmsToken=nil; // Fixed Error - The requested URL is not found
+    //    [exportReport exportReport:report withFormat:FormatHTML];
+    [exportReport exportEntityWithUrl:url withFormat:_exportFormat forSession:_currentSession];
 }
 
 

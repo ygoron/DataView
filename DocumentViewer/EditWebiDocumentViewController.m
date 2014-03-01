@@ -20,6 +20,7 @@
 #import "WebiPromptViewController.h"
 #import "WebiAppDelegate.h"
 #import "XmlViewController.h"
+#import "ReportEditorViewController.h"
 
 
 
@@ -40,6 +41,8 @@
     NSMutableDictionary *__selectFieldsForReportId;
     NSMutableArray *__reports;
     NSArray *__webiPrompts;
+    NSArray *__selectedQueryFields;
+    BOOL __isLoadProcess;
     
 }
 
@@ -96,13 +99,45 @@
     
     __selectFieldsForProviderId=[[NSMutableDictionary alloc] init];
     __reports =[[NSMutableArray alloc] init];
+    if (_isNewWebiDocument==NO){
+        __isLoadProcess=YES;
+        [self loadDocumentInfo];
+    }
     
     
 }
 
+-(void) loadDocumentInfo{
+    
+    
+    XMLRESTProcessor *xmlProcessorDocInfo=[[XMLRESTProcessor alloc] init];
+    NSURL *url =[XMLRESTProcessor getDocumentsUrlWithSession:_currentSession];
+    url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%d",_docId]];
+    xmlProcessorDocInfo.delegate=self;
+    [xmlProcessorDocInfo submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"GET" withXmlDoc:nil withOpCode:OP_GET_DOCUMENT_DETAILS];
+    
+    
+    [spinner startAnimating];
+    
+    XMLRESTProcessor *xmlProcessor=[[XMLRESTProcessor alloc] init];
+    url =[XMLRESTProcessor getDataProvidersUrlWithSession:_currentSession withDocumentId:_docId];
+    xmlProcessor.delegate=self;
+    [xmlProcessor submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"GET" withXmlDoc:nil withOpCode:OP_GET_LIST_OF_DATA_PROVIDERS];
+    
+    
+    XMLRESTProcessor *xmlProcessorGetReports=[[XMLRESTProcessor alloc] init];
+    
+    xmlProcessorGetReports.delegate=self;
+    url=[XMLRESTProcessor getDocumentsUrlWithSession:_currentSession];
+    __getReportsUrl=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%d%@",_docId,@"/reports"]];
+    [xmlProcessorGetReports submitRequestForUrl:__getReportsUrl withSession:_currentSession withHttpMethod:@"GET" withXmlDoc:nil withOpCode:OP_GET_LIST_OF_REPORTS];
+    
+    
+}
 -(void) closeView
 {
-    [self saveDocumentWithDelegate:self];
+    //TODO Create check if document was modified and save onoy on this
+//    [self saveDocumentWithDelegate:self];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -115,7 +150,9 @@
         urlForDocument=[urlForDocument URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d",@"/",_docId]];
         XMLRESTProcessor *xmlProcessor=[[XMLRESTProcessor alloc] init];
         xmlProcessor.delegate=delegateObject;
-        [xmlProcessor submitRequestForUrl:urlForDocument withSession:_currentSession withHttpMethod:@"PUT" withXmlDoc:_documentXml withOpCode:OP_SAVE_DOCUMENT];
+        //        [xmlProcessor submitRequestForUrl:urlForDocument withSession:_currentSession withHttpMethod:@"PUT" withXmlDoc:_documentXml withOpCode:OP_SAVE_DOCUMENT];
+        [xmlProcessor submitRequestForUrl:urlForDocument withSession:_currentSession withHttpMethod:@"PUT" withXmlDoc:nil withOpCode:OP_SAVE_DOCUMENT];
+        
         
         
     }
@@ -168,13 +205,15 @@
             break;
             
         case 1:
-//            return [dataproviders count]+1;
+            //            return [dataproviders count]+1;
             return 1;
             break;
             
         case 2:
-            if ([dataproviders count]>0 )
-                return  [__reports count];
+            if (__isLoadProcess==NO){
+                if ([dataproviders count]>0 )
+                    return  [__reports count];
+            }else return  [__reports count];
             break;
             
         case 3:
@@ -220,10 +259,10 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-//    if (indexPath.section==1){
-//        NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
-//        if (indexPath.row<[dataproviders count]) return YES;
-//    }
+    //    if (indexPath.section==1){
+    //        NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
+    //        if (indexPath.row<[dataproviders count]) return YES;
+    //    }
     
     return NO;
 }
@@ -322,7 +361,7 @@
         NSArray *dataproviders=[_dataprovidersXml nodesForXPath:@"/dataproviders/dataprovider" error:nil];
         [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
         
-//        if (indexPath.row<[dataproviders count]){
+        //        if (indexPath.row<[dataproviders count]){
         if (dataproviders.count >0){
             
             
@@ -501,10 +540,10 @@
     }else if (indexPath.section==2){
         int reportId=[[__reports objectAtIndex:indexPath.row] reportId];
         NSLog(@"Edit Report %d",reportId);
+        
+        
         NSMutableArray *reportFields=[__selectFieldsForReportId valueForKey:[NSString stringWithFormat:@"%d",reportId]];
         
-        SelectReportFieldsViewController *swf=[[SelectReportFieldsViewController alloc] initWithNibName:@"SelectReportFieldsViewController" bundle:nil];
-        swf.selectedQueryFields=reportFields;
         //TODO Combine fields from all Data Providers;
         
         NSMutableArray *allAvailableFields=[[NSMutableArray alloc]init];
@@ -516,10 +555,25 @@
                 NSLog(@"Available Field:%@",queryField.name);
             }
         }
-        swf.availableQueryFields=allAvailableFields;
-        swf.delegate=self;
-        swf.reportId=reportId;
-        [self.navigationController pushViewController:swf animated:YES];
+        
+        
+        ReportEditorViewController *rec=[[ReportEditorViewController alloc]init];
+        rec.documentId=_docId;
+        rec.reportId=reportId;
+        rec.availableQueryFields=allAvailableFields;
+        rec.selectedQueryFields=reportFields;
+        rec.currentSession=_currentSession;
+        rec.reportName=[[__reports objectAtIndex:indexPath.row] name];
+        [self.navigationController pushViewController:rec animated:YES];
+        
+        
+        
+        //        SelectReportFieldsViewController *swf=[[SelectReportFieldsViewController alloc] initWithNibName:@"SelectReportFieldsViewController" bundle:nil];
+        //        swf.selectedQueryFields=reportFields;
+        //        swf.availableQueryFields=allAvailableFields;
+        //        swf.delegate=self;
+        //        swf.reportId=reportId;
+        //        [self.navigationController pushViewController:swf animated:YES];
         
     }
     
@@ -544,14 +598,15 @@
 -(void)reportFieldsSelected:(SelectReportFieldsViewController *)controller withSelectedFields:(NSArray *)selectedWebiFields
 {
     NSLog(@"Report Updated:%d",controller.reportId);
-    
-    [__selectFieldsForReportId setValue:selectedWebiFields forKey:[NSString stringWithFormat:@"%d",controller.reportId]];
-    GDataXMLDocument *reportSpecsXml=[self createReportUsingSelectedFields:selectedWebiFields];
-    NSURL *url=[XMLRESTProcessor getUpdateReportSpecsUrlWithSession:_currentSession forDocumentId:_docId forReportId:controller.reportId];
-    
-    XMLRESTProcessor *xmlProcessor=[[XMLRESTProcessor alloc] init];
-    xmlProcessor.delegate=self;
-    [xmlProcessor submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"PUT" withXmlDoc:reportSpecsXml withOpCode:OP_UPDATE_REPORT_SPEC];
+    if (selectedWebiFields.count>0){
+        [__selectFieldsForReportId setValue:selectedWebiFields forKey:[NSString stringWithFormat:@"%d",controller.reportId]];
+        GDataXMLDocument *reportSpecsXml=[self createReportUsingSelectedFields:selectedWebiFields];
+        NSURL *url=[XMLRESTProcessor getUpdateReportSpecsUrlWithSession:_currentSession forDocumentId:_docId forReportId:controller.reportId];
+        
+        XMLRESTProcessor *xmlProcessor=[[XMLRESTProcessor alloc] init];
+        xmlProcessor.delegate=self;
+        [xmlProcessor submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"PUT" withXmlDoc:reportSpecsXml withOpCode:OP_UPDATE_REPORT_SPEC];
+    }
     
 }
 
@@ -670,7 +725,22 @@
             [xmlProcessor submitRequestForUrl:__getReportsUrl withSession:_currentSession withHttpMethod:@"GET" withXmlDoc:nil withOpCode:OP_GET_LIST_OF_REPORTS];
             
             
-        }else if (opCode==OP_GET_LIST_OF_REPORTS){
+        }else if (opCode==OP_GET_DOCUMENT_DETAILS){
+            
+            
+            GDataXMLElement *nameElement=[EditWebiDocumentViewController getFirstElementForDocument:xmlDoc withPath:@"/document/name"];
+            __docName=[nameElement stringValue];
+            TitleLabel *titleLabel= (TitleLabel*) self.navigationItem.titleView;
+            _documentXml=xmlDoc;
+            if (titleLabel){
+                titleLabel.text=__docName;
+                
+            }
+            
+            
+            
+        }
+        else if (opCode==OP_GET_LIST_OF_REPORTS){
             NSLog(@"Return from List of Reports");
             
             NSArray *reportElements=[xmlDoc nodesForXPath:@"/reports/report" error:nil];
@@ -705,6 +775,16 @@
             _dataprovidersXml=xmlDoc;
             __dataproviderId=[idElement stringValue];
             NSLog(@"Refresh Section 1(Providers)");
+            if (__isLoadProcess==YES){
+                
+                __dataproviderUrl=url;
+                url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@",__dataproviderId]];
+                NSLog(@"Path Components%@",[url pathComponents]);
+                XMLRESTProcessor *xmlProcessor=[[XMLRESTProcessor alloc] init];
+                xmlProcessor.delegate=self;
+                [xmlProcessor submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"GET" withXmlDoc:nil withOpCode:OP_DATA_PROVIDER_DETAIL];
+                
+            }
             
             
         }else if (opCode==OP_DATA_PROVIDER_DETAIL){
@@ -717,7 +797,7 @@
             NSLog(@"Selected Data Provider Id:%@",__dataproviderId);
             
             __universeId=[[dataSourceElement stringValue] intValue];
-            NSLog(@"Current Univer Id:%d",__universeId);
+            NSLog(@"Current Universe Id:%d",__universeId);
             
             
             NSURL    *url=[__dataproviderUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"%@",__dataproviderId]];
@@ -735,17 +815,27 @@
         }else if (opCode==OP_GET_QUERY_SPEC){
             NSLog(@"Return From Get Query Spec");
             
-            NSArray *selectedQueryFields=[self getSelectedQueryFieldAndFiltersWithXML:xmlDoc];
+            
+            __selectedQueryFields=[self getSelectedQueryFieldAndFiltersWithXML:xmlDoc];
             
             Universe *universe =[[Universe alloc] init];
             universe.universeId=__universeId;
             universe.session=_currentSession;
-            SelectWebiFieldsViewController *swf=[[SelectWebiFieldsViewController alloc] initWithNibName:@"SelectWebiFieldsViewController" bundle:nil];
-            swf.universe=universe;
-            swf.dataproviderId=__dataproviderId;
-            swf.selectedQueryFields=selectedQueryFields;
-            swf.delegate=self;
-            [self.navigationController pushViewController:swf animated:YES];
+            
+            if(__isLoadProcess==NO){
+                SelectWebiFieldsViewController *swf=[[SelectWebiFieldsViewController alloc] initWithNibName:@"SelectWebiFieldsViewController" bundle:nil];
+                swf.universe=universe;
+                swf.dataproviderId=__dataproviderId;
+                swf.selectedQueryFields=__selectedQueryFields;
+                swf.delegate=self;
+                [self.navigationController pushViewController:swf animated:YES];
+            }else{
+                
+                BIGetUniverseDetails *getUniverseDetails=[[BIGetUniverseDetails alloc] init];
+                getUniverseDetails.delegate=self;
+                [getUniverseDetails getUniverseDetails:universe];
+                
+            }
             
             
         }
@@ -841,6 +931,44 @@
     
     
 }
+
+
+#pragma mark - getUniverseDetails
+
+-(void) getUniverseDetails:(BIGetUniverseDetails *)biGetUniverseDetails isSuccess:(BOOL)isSuccess WithUniverseDetails:(NSMutableArray *)universeDetails{
+    
+    [spinner stopAnimating];
+    if (isSuccess==YES){
+        NSMutableArray *availableValues=[[NSMutableArray alloc] init];
+        
+        NSLog(@"Universe Details Received. Count=%d",universeDetails.count);
+        for (NSDictionary *dictionary in universeDetails) {
+            [SelectWebiFieldsViewController fillArrayOfFieldbjects:dictionary resultArray:availableValues withPath:@""];
+        }
+        NSLog(@"Total Objects:%d",availableValues.count);
+        NSMutableArray *selectedWebiFields=[SelectWebiFieldsViewController getSelectedFiedlsArrayUsingSelectedQueryFields:__selectedQueryFields withAvailableValues:availableValues];
+        [__selectFieldsForProviderId setValue:selectedWebiFields forKey:__dataproviderId];
+        __isLoadProcess=NO;
+        [self.tableView reloadData];
+    }
+    else if (biGetUniverseDetails.connectorError!=nil){
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Load Universe Failed" message:[biGetUniverseDetails.connectorError localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }else if (biGetUniverseDetails.boxiError!=nil){
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Load Universe Failed in BI" message:biGetUniverseDetails.boxiError delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    } else{
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Load Universe Failed" message:@"Server Error" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    
+    
+    
+}
+
 #pragma mark - WebiFieldSelected
 -(void)webiFieldsSelected:(SelectWebiFieldsViewController *)controller withSelectedFields:(NSArray *)selectedWebiFields forDataProviderId:(NSString *)dataProviderId
 {
@@ -848,6 +976,7 @@
     
     NSLog(@"Update Dictionary...");
     [__selectFieldsForProviderId setValue:selectedWebiFields forKey:dataProviderId];
+    if (__isLoadProcess==YES) return;
     
     NSLog(@"Build Query Spec Startig with Template");
     
@@ -1003,7 +1132,10 @@
         [selectedFields addObject:[[resultObject attributeForName:@"identifier"] stringValue]];
     }
     
-    NSArray *conditions = [querySpecsDoc nodesForXPath:@"////children/bOQuery/conditionPart/conditionTree/children/*" error:NULL];
+//    NSArray *conditions = [querySpecsDoc nodesForXPath:@"////children/bOQuery/conditionPart/conditionTree/children/*" error:NULL];
+//        NSArray *conditions = [querySpecsDoc nodesForXPath:@"////children/bOQuery/conditionPart/conditionTree/children/condition/*" error:NULL];
+        NSArray *conditions = [querySpecsDoc nodesForXPath:@"//children/bOQuery//children/condition" error:NULL];
+    
     NSLog(@"Found Conditions:%d",[conditions count]);
     
     for (GDataXMLElement *condition in conditions) {
