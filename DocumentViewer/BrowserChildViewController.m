@@ -188,19 +188,25 @@
             EditWebiDocumentViewController *editWebiVC=[[EditWebiDocumentViewController alloc] initWithNibName:@"EditWebiDocumentViewController" bundle:nil];
             editWebiVC.documentXml=[self createDocumentXmlWithFolderId:_parentObject.objectId];
             editWebiVC.dataprovidersXml=nil;
+            editWebiVC.delegateEditWebi=self;
             editWebiVC.folderId=_parentObject.objectId;
             editWebiVC.currentSession=_currentSession;
             editWebiVC.isNewWebiDocument=YES;
-
-//            [self.navigationController pushViewController:editWebiVC animated:YES];
+            
+            //            [self.navigationController pushViewController:editWebiVC animated:YES];
             UINavigationController *cntrol = [[UINavigationController alloc] initWithRootViewController:editWebiVC];
             [self presentViewController:cntrol animated:YES completion:nil];
-
+            
             
             break;
     }
 }
 
+-(void) EditWebiDocument:(EditWebiDocumentViewController *)editWebiDocument isUpdated:(BOOL)isUpdated
+{
+    NSLog("Return From Edit Document. Is Update Required: %d",isUpdated);
+    if (isUpdated==YES) [self reLoadObjects];
+}
 #pragma create new Document in Folder XML
 -(GDataXMLDocument *)createDocumentXmlWithFolderId:(int)folderId
 {

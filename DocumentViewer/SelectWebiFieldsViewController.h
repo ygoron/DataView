@@ -21,6 +21,7 @@
 
 +(void) fillArrayOfFieldbjects: (NSDictionary *) sourceDictionary resultArray:(NSMutableArray *) resultArray withPath:(NSString *) path;
 +(NSMutableArray *) getSelectedFiedlsArrayUsingSelectedQueryFields: (NSArray *) queryFields withAvailableValues:(NSArray *) availableValues;
++(void) processUnvItemForDictionary: (NSDictionary *) sourceDictionary withResultArray:(NSMutableArray *) resultArray withPath: (NSString *) path;
 
 @property (nonatomic,strong) Universe *universe;
 @property (nonatomic,strong) NSString *dataproviderId;

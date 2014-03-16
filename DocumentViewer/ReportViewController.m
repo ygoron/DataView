@@ -205,7 +205,12 @@
     BIExportReport *exportReport=[[BIExportReport alloc]init];
     exportReport.delegate=self;
     exportReport.exportFormat=_exportFormat;
-    exportReport.biSession=appDelegate.activeSession;
+    
+    if (_currentSession==nil)
+        exportReport.biSession=appDelegate.activeSession;
+    else
+        exportReport.biSession=_currentSession;
+    
     //       appDelegate.activeSession.cmsToken=nil; // Fixed Error - The requested URL is not found
     //    [exportReport exportReport:report withFormat:FormatHTML];
     [exportReport exportReport:report withFormat:_exportFormat];

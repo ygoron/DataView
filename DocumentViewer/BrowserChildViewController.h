@@ -11,8 +11,9 @@
 #import "Session.h"
 #import "TitleLabel.h"
 #import "GDataXMLNode.h"
+#import "EditWebiDocumentViewController.h"
 
-@interface BrowserChildViewController : UITableViewController <CypressSDKDelegate,UIActionSheetDelegate>
+@interface BrowserChildViewController : UITableViewController <CypressSDKDelegate,UIActionSheetDelegate,EditWebiDocumentDelegate>
 @property (nonatomic, strong) NSURL *urlForChildren;
 @property (nonatomic, strong) NSURL *urlForSelectedObject;
 @property (nonatomic, strong) NSMutableArray *infoObjects;
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) UIActionSheet *actionSheet;
 @property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, strong) UIBarButtonItem *actionButton;
+
 
 
 -(void) loadObjects;

@@ -17,7 +17,6 @@
     BIConnector *connector;
     WebiAppDelegate *appDelegate;
     BOOL _isDocument;
-    NSURL *_url;
 }
 
 @synthesize connectorError;
@@ -82,6 +81,7 @@
     self.report=report;
     self.exportFormat=format;
     // Get Token First
+    if (report.document.session.cmsToken==nil) report.document.session.cmsToken=_currentToken;
     if (report.document.session.cmsToken==nil){
         //        if (report.document.session.cmsToken==nil){
         NSLog(@"CMS Token is NULL - create new one");
@@ -237,6 +237,7 @@
     NSLog(@"Token:%@",cmsToken);
     [request setValue:cmsToken forHTTPHeaderField:SAP_HTTP_TOKEN];
     (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSLog(@"Export Report Request Submited");
     
 }
 

@@ -53,6 +53,7 @@
     BOOL isPromptsLoaded;
     NSArray *__webiPrompts;
     BOOL __isRefreshDocument;
+    NSMutableDictionary *reportsDic;
     
     
 }
@@ -276,6 +277,11 @@
         //        [self logoOffIfNeeded];
     }
     self.document.reports=[NSSet setWithArray:receivedReports];
+    reportsDic=[[NSMutableDictionary alloc] init];
+    
+    for (Report *report in receivedReports) {
+        [reportsDic setObject:report.id forKey:report.name];
+    }
     
     
     [self.tableView reloadData];
@@ -695,6 +701,7 @@
             editWebiVC.docId=[_document.id integerValue];
             editWebiVC.document=_document;
             editWebiVC.isNewWebiDocument=NO;
+            editWebiVC.reportsDictionary=reportsDic;
             
 //            [self.navigationController pushViewController:editWebiVC animated:YES];
             UINavigationController *cntrol = [[UINavigationController alloc] initWithRootViewController:editWebiVC];
@@ -735,6 +742,7 @@
             reportExportView.isRefreshDocument=YES;
             reportExportView.webiPrompts=nil;
             reportExportView.document=_document;
+            
             
         }else{
             if (!isOpenWholeDocument==YES){

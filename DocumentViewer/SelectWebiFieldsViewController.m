@@ -308,11 +308,32 @@
 +(void) fillArrayOfFieldbjects: (NSDictionary *) sourceDictionary resultArray:(NSMutableArray *) resultArray withPath:(NSString *)path
 {
     
-    
     if (![sourceDictionary objectForKey:@"@type"]) {
         NSLog(@"Found Folder. Recursive Call");
         if ([sourceDictionary objectForKey:@"name"]){
             path=   [NSString stringWithFormat:@"%@%@%@",path,@"/",[sourceDictionary objectForKey:@"name"]];
+            
+            if ([[sourceDictionary objectForKey:@"folder"] isKindOfClass:[NSArray class]]){
+                NSArray *dicArray=[sourceDictionary objectForKey:@"folder"] ;
+                
+                for (NSDictionary *dictionary in dicArray) {
+                    if ([dictionary isKindOfClass:[NSDictionary class]]){
+                        [self fillArrayOfFieldbjects:dictionary resultArray:resultArray withPath:path];
+                    }else{
+                        NSLog(@"This is not Dictionary");
+                        
+                    }
+                    
+                }
+            }else {
+                NSLog(@"Folder is Not array");
+                
+                NSDictionary *dict=[sourceDictionary objectForKey:@"folder"] ;
+                [self fillArrayOfFieldbjects:dict resultArray:resultArray withPath:path];
+
+            }
+            
+            
         }
         if ([sourceDictionary objectForKey:@"item"]!=nil) {
             if ([[sourceDictionary objectForKey:@"item"] isKindOfClass:[NSArray class]]){
@@ -327,6 +348,16 @@
             
         }
     }
+    
+    
+    [self processUnvItemForDictionary:  sourceDictionary withResultArray: resultArray withPath:  path];
+    
+    
+    
+}
+
++(void) processUnvItemForDictionary: (NSDictionary *) sourceDictionary withResultArray:(NSMutableArray *) resultArray withPath: (NSString *) path
+{
     if ([sourceDictionary objectForKey:@"name"]){
         
         QueryField *field=[[QueryField alloc] init];
@@ -354,11 +385,7 @@
             [resultArray addObject:field];
             NSLog(@"Object %@ added. Path:%@ Id:%@",field.name,field.path,field.fieldId);
         }
-        
     }
-    
-    
-    
     
 }
 

@@ -204,6 +204,10 @@
 		928289521729702C00CCAB2F /* UnvDoc_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9282894E1729702C00CCAB2F /* UnvDoc_48@2x.png */; };
 		928289531729702C00CCAB2F /* WebiDoc_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9282894F1729702C00CCAB2F /* WebiDoc_48.png */; };
 		928289541729702C00CCAB2F /* WebiDoc_48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 928289501729702C00CCAB2F /* WebiDoc_48@2x.png */; };
+		9284144E18D110D800D20F5A /* WebViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9284144C18D110D700D20F5A /* WebViewTableViewCell.m */; };
+		9284144F18D110D800D20F5A /* WebViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9284144C18D110D700D20F5A /* WebViewTableViewCell.m */; };
+		9284145018D110D800D20F5A /* WebViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9284144D18D110D700D20F5A /* WebViewTableViewCell.xib */; };
+		9284145118D110D800D20F5A /* WebViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9284144D18D110D700D20F5A /* WebViewTableViewCell.xib */; };
 		928681C6189AAC0100DC5645 /* ReportXml.m in Sources */ = {isa = PBXBuildFile; fileRef = 928681C5189AAC0100DC5645 /* ReportXml.m */; };
 		928681C7189AAC0100DC5645 /* ReportXml.m in Sources */ = {isa = PBXBuildFile; fileRef = 928681C5189AAC0100DC5645 /* ReportXml.m */; };
 		9288AB8F1787A9A50048BCF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ADE96916CB24D70027BD4D /* main.m */; };
@@ -551,7 +555,14 @@
 		929C0364172319E700B28967 /* AdvancedSessionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C0363172319E700B28967 /* AdvancedSessionSettingsViewController.m */; };
 		929C37BA18023E440044F89D /* WebiPromptLovInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C37B918023E440044F89D /* WebiPromptLovInterval.m */; };
 		929C37BB18023E440044F89D /* WebiPromptLovInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C37B918023E440044F89D /* WebiPromptLovInterval.m */; };
-		929C37BC18023E440044F89D /* WebiPromptLovInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C37B918023E440044F89D /* WebiPromptLovInterval.m */; };
+		929C66C918C3CED7000730FB /* VTableRootEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C66C718C3CED7000730FB /* VTableRootEditViewController.m */; };
+		929C66CA18C3CED7000730FB /* VTableRootEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C66C718C3CED7000730FB /* VTableRootEditViewController.m */; };
+		929C66CB18C3CED7000730FB /* VTableRootEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C66C818C3CED7000730FB /* VTableRootEditViewController.xib */; };
+		929C66CC18C3CED7000730FB /* VTableRootEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C66C818C3CED7000730FB /* VTableRootEditViewController.xib */; };
+		929C66D018C3DD81000730FB /* VTableEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C66CE18C3DD81000730FB /* VTableEditViewController.m */; };
+		929C66D118C3DD81000730FB /* VTableEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C66CE18C3DD81000730FB /* VTableEditViewController.m */; };
+		929C66D218C3DD81000730FB /* VTableEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C66CF18C3DD81000730FB /* VTableEditViewController.xib */; };
+		929C66D318C3DD81000730FB /* VTableEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929C66CF18C3DD81000730FB /* VTableEditViewController.xib */; };
 		929D1CDE173464900027FDFF /* BISDKCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CDD173464900027FDFF /* BISDKCall.m */; };
 		929D1CE2173467860027FDFF /* CypressResponseHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CE1173467860027FDFF /* CypressResponseHeader.m */; };
 		929D1CE6173479730027FDFF /* InfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CE5173479730027FDFF /* InfoObject.m */; };
@@ -590,12 +601,6 @@
 		92B9F28717D37A5D006E7ABC /* MobileBIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F28517D37A5D006E7ABC /* MobileBIService.m */; };
 		92B9F28A17D37B1C006E7ABC /* MobileSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F28917D37B1C006E7ABC /* MobileSession.m */; };
 		92B9F28B17D37B1C006E7ABC /* MobileSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F28917D37B1C006E7ABC /* MobileSession.m */; };
-		92B9F29317D3823A006E7ABC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B9F29217D3823A006E7ABC /* SenTestingKit.framework */; };
-		92B9F29417D3823A006E7ABC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE95B16CB24D60027BD4D /* UIKit.framework */; };
-		92B9F29517D3823A006E7ABC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE95D16CB24D60027BD4D /* Foundation.framework */; };
-		92B9F29B17D3823B006E7ABC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92B9F29917D3823B006E7ABC /* InfoPlist.strings */; };
-		92B9F29E17D3823B006E7ABC /* BIMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9F29D17D3823B006E7ABC /* BIMobileTests.m */; };
-		92B9F2AD17D396D0006E7ABC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE96116CB24D60027BD4D /* CoreData.framework */; };
 		92BB9DA5184BDAB1008FA161 /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BB9DA4184BDAB1008FA161 /* TextEditCell.m */; };
 		92BB9DA6184BDAB1008FA161 /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BB9DA4184BDAB1008FA161 /* TextEditCell.m */; };
 		92BB9DAB184BDAFE008FA161 /* TextEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BB9DAA184BDAFE008FA161 /* TextEditCell.xib */; };
@@ -691,16 +696,6 @@
 		92FC4FBA176798D800284196 /* APOS_Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92FC4FB9176798D800284196 /* APOS_Logo.jpg */; };
 		92FE2E37173F22A500AEEB01 /* BrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FE2E36173F22A500AEEB01 /* BrowserCell.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		92B9F2AA17D38E12006E7ABC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 92ADE95016CB24D60027BD4D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 92ADE95716CB24D60027BD4D;
-			remoteInfo = "APOS BI Ext";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		92054426180C2C9F004DD35D /* WebiPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPromptViewController.h; sourceTree = "<group>"; };
@@ -950,6 +945,9 @@
 		92828ED61729870B00CCAB2F /* Icon_lite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon_lite@2x.png"; path = "../Icon_lite@2x.png"; sourceTree = "<group>"; };
 		92828ED81729873600CCAB2F /* Icon-72_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72_light.png"; path = "../Icon-72_light.png"; sourceTree = "<group>"; };
 		92828EDA1729873E00CCAB2F /* Icon-72_light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72_light@2x.png"; path = "../Icon-72_light@2x.png"; sourceTree = "<group>"; };
+		9284144B18D110D700D20F5A /* WebViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewTableViewCell.h; sourceTree = "<group>"; };
+		9284144C18D110D700D20F5A /* WebViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewTableViewCell.m; sourceTree = "<group>"; };
+		9284144D18D110D700D20F5A /* WebViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewTableViewCell.xib; sourceTree = "<group>"; };
 		928681C4189AAC0100DC5645 /* ReportXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportXml.h; sourceTree = "<group>"; };
 		928681C5189AAC0100DC5645 /* ReportXml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportXml.m; sourceTree = "<group>"; };
 		9288AB8C1787A8D40048BCF1 /* APOS BI Lite copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "APOS BI Lite copy-Info.plist"; path = "/Users/ygoron/Dropbox/Yuri copy/xcode/DocumentViewer/APOS BI Lite copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -1077,6 +1075,12 @@
 		929C0363172319E700B28967 /* AdvancedSessionSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSessionSettingsViewController.m; sourceTree = "<group>"; };
 		929C37B818023E440044F89D /* WebiPromptLovInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebiPromptLovInterval.h; sourceTree = "<group>"; };
 		929C37B918023E440044F89D /* WebiPromptLovInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebiPromptLovInterval.m; sourceTree = "<group>"; };
+		929C66C618C3CED7000730FB /* VTableRootEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTableRootEditViewController.h; sourceTree = "<group>"; };
+		929C66C718C3CED7000730FB /* VTableRootEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTableRootEditViewController.m; sourceTree = "<group>"; };
+		929C66C818C3CED7000730FB /* VTableRootEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTableRootEditViewController.xib; sourceTree = "<group>"; };
+		929C66CD18C3DD81000730FB /* VTableEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTableEditViewController.h; sourceTree = "<group>"; };
+		929C66CE18C3DD81000730FB /* VTableEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTableEditViewController.m; sourceTree = "<group>"; };
+		929C66CF18C3DD81000730FB /* VTableEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTableEditViewController.xib; sourceTree = "<group>"; };
 		929D1CDC173464900027FDFF /* BISDKCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BISDKCall.h; sourceTree = "<group>"; };
 		929D1CDD173464900027FDFF /* BISDKCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BISDKCall.m; sourceTree = "<group>"; };
 		929D1CE0173467860027FDFF /* CypressResponseHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CypressResponseHeader.h; sourceTree = "<group>"; };
@@ -1138,7 +1142,6 @@
 		92B9F28517D37A5D006E7ABC /* MobileBIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileBIService.m; sourceTree = "<group>"; };
 		92B9F28817D37B1C006E7ABC /* MobileSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileSession.h; sourceTree = "<group>"; };
 		92B9F28917D37B1C006E7ABC /* MobileSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileSession.m; sourceTree = "<group>"; };
-		92B9F29117D3823A006E7ABC /* BIMobileTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BIMobileTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B9F29217D3823A006E7ABC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		92B9F29817D3823B006E7ABC /* BIMobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BIMobileTests-Info.plist"; sourceTree = "<group>"; };
 		92B9F29A17D3823B006E7ABC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1292,17 +1295,6 @@
 				92ADE96016CB24D60027BD4D /* CoreGraphics.framework in Frameworks */,
 				92ADE96216CB24D60027BD4D /* CoreData.framework in Frameworks */,
 				9265537E17C5775D001848EA /* libTestFlight.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92B9F28D17D3823A006E7ABC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				92B9F2AD17D396D0006E7ABC /* CoreData.framework in Frameworks */,
-				92B9F29317D3823A006E7ABC /* SenTestingKit.framework in Frameworks */,
-				92B9F29417D3823A006E7ABC /* UIKit.framework in Frameworks */,
-				92B9F29517D3823A006E7ABC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1829,7 +1821,6 @@
 			children = (
 				92ADE95816CB24D60027BD4D /* APOS BI Ext.app */,
 				9288AC8B1787A9A50048BCF1 /* APOS BI.app */,
-				92B9F29117D3823A006E7ABC /* BIMobileTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2113,6 +2104,12 @@
 		92EB32E3183AED8F00BFF73B /* Webi Creator */ = {
 			isa = PBXGroup;
 			children = (
+				929C66CD18C3DD81000730FB /* VTableEditViewController.h */,
+				929C66CE18C3DD81000730FB /* VTableEditViewController.m */,
+				929C66CF18C3DD81000730FB /* VTableEditViewController.xib */,
+				929C66C618C3CED7000730FB /* VTableRootEditViewController.h */,
+				929C66C718C3CED7000730FB /* VTableRootEditViewController.m */,
+				929C66C818C3CED7000730FB /* VTableRootEditViewController.xib */,
 				92EA261818A5B922008BAB7B /* XmlViewController.h */,
 				92EA261918A5B922008BAB7B /* XmlViewController.m */,
 				92EA261A18A5B922008BAB7B /* XmlViewController.xib */,
@@ -2153,6 +2150,9 @@
 				92F4504718BC268100378798 /* ReportPreviewController.h */,
 				92F4504818BC268100378798 /* ReportPreviewController.m */,
 				92F4504918BC268100378798 /* ReportPreviewController.xib */,
+				9284144B18D110D700D20F5A /* WebViewTableViewCell.h */,
+				9284144C18D110D700D20F5A /* WebViewTableViewCell.m */,
+				9284144D18D110D700D20F5A /* WebViewTableViewCell.xib */,
 			);
 			name = "Webi Creator";
 			sourceTree = "<group>";
@@ -2216,25 +2216,6 @@
 			productReference = 92ADE95816CB24D60027BD4D /* APOS BI Ext.app */;
 			productType = "com.apple.product-type.application";
 		};
-		92B9F29017D3823A006E7ABC /* BIMobileTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 92B9F2A017D3823B006E7ABC /* Build configuration list for PBXNativeTarget "BIMobileTests" */;
-			buildPhases = (
-				92B9F28C17D3823A006E7ABC /* Sources */,
-				92B9F28D17D3823A006E7ABC /* Frameworks */,
-				92B9F28E17D3823A006E7ABC /* Resources */,
-				92B9F28F17D3823A006E7ABC /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				92B9F2AB17D38E12006E7ABC /* PBXTargetDependency */,
-			);
-			name = BIMobileTests;
-			productName = BIMobileTests;
-			productReference = 92B9F29117D3823A006E7ABC /* BIMobileTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2242,6 +2223,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Webi;
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "APOS Systems";
 				TargetAttributes = {
@@ -2284,7 +2266,6 @@
 			targets = (
 				92ADE95716CB24D60027BD4D /* APOS BI Ext */,
 				9288AB8D1787A9A50048BCF1 /* APOS BI */,
-				92B9F29017D3823A006E7ABC /* BIMobileTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2326,12 +2307,14 @@
 				9288ABF61787A9A50048BCF1 /* chats.png in Resources */,
 				9288ABF71787A9A50048BCF1 /* chats@2x.png in Resources */,
 				9288ABF81787A9A50048BCF1 /* country.png in Resources */,
+				929C66CC18C3CED7000730FB /* VTableRootEditViewController.xib in Resources */,
 				9288ABF91787A9A50048BCF1 /* country@2x.png in Resources */,
 				9288ABFA1787A9A50048BCF1 /* details-photo-mask.png in Resources */,
 				9288ABFB1787A9A50048BCF1 /* details-photo-mask@2x.png in Resources */,
 				9288ABFC1787A9A50048BCF1 /* friends.png in Resources */,
 				9288ABFD1787A9A50048BCF1 /* friends@2x.png in Resources */,
 				9288ABFE1787A9A50048BCF1 /* icon1.png in Resources */,
+				929C66D318C3DD81000730FB /* VTableEditViewController.xib in Resources */,
 				9288ABFF1787A9A50048BCF1 /* icon1@2x.png in Resources */,
 				9288AC001787A9A50048BCF1 /* icon2.png in Resources */,
 				9288AC011787A9A50048BCF1 /* icon2@2x.png in Resources */,
@@ -2377,6 +2360,7 @@
 				9288AC281787A9A50048BCF1 /* step-bullet.png in Resources */,
 				929A7E511888859100FA874E /* QuerySpec1.xml in Resources */,
 				9288AC291787A9A50048BCF1 /* step-bullet@2x.png in Resources */,
+				9284145118D110D800D20F5A /* WebViewTableViewCell.xib in Resources */,
 				9288AC2A1787A9A50048BCF1 /* switch-off.png in Resources */,
 				9288AC2B1787A9A50048BCF1 /* switch-off@2x.png in Resources */,
 				9288AC2C1787A9A50048BCF1 /* switch-on.png in Resources */,
@@ -2542,12 +2526,14 @@
 				928D1097170F751F00FA2C5D /* chats.png in Resources */,
 				928D1098170F751F00FA2C5D /* chats@2x.png in Resources */,
 				928D1099170F751F00FA2C5D /* country.png in Resources */,
+				929C66CB18C3CED7000730FB /* VTableRootEditViewController.xib in Resources */,
 				928D109A170F751F00FA2C5D /* country@2x.png in Resources */,
 				928D109B170F751F00FA2C5D /* details-photo-mask.png in Resources */,
 				928D109C170F751F00FA2C5D /* details-photo-mask@2x.png in Resources */,
 				928D109D170F751F00FA2C5D /* friends.png in Resources */,
 				928D109E170F751F00FA2C5D /* friends@2x.png in Resources */,
 				928D109F170F751F00FA2C5D /* icon1.png in Resources */,
+				929C66D218C3DD81000730FB /* VTableEditViewController.xib in Resources */,
 				928D10A0170F751F00FA2C5D /* icon1@2x.png in Resources */,
 				928D10A1170F751F00FA2C5D /* icon2.png in Resources */,
 				928D10A2170F751F00FA2C5D /* icon2@2x.png in Resources */,
@@ -2593,6 +2579,7 @@
 				928D10C9170F751F00FA2C5D /* step-bullet.png in Resources */,
 				929A7E501888859100FA874E /* QuerySpec1.xml in Resources */,
 				928D10CA170F751F00FA2C5D /* step-bullet@2x.png in Resources */,
+				9284145018D110D800D20F5A /* WebViewTableViewCell.xib in Resources */,
 				928D10CB170F751F00FA2C5D /* switch-off.png in Resources */,
 				928D10CC170F751F00FA2C5D /* switch-off@2x.png in Resources */,
 				928D10CD170F751F00FA2C5D /* switch-on.png in Resources */,
@@ -2722,14 +2709,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		92B9F28E17D3823A006E7ABC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				92B9F29B17D3823B006E7ABC /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -2758,19 +2737,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
-		};
-		92B9F28F17D3823A006E7ABC /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2816,6 +2782,7 @@
 				9288ABA81787A9A50048BCF1 /* ScheduleDetails.m in Sources */,
 				9288ABA91787A9A50048BCF1 /* ScheduleWebiViewController.m in Sources */,
 				92054437180C3669004DD35D /* PromptCell.m in Sources */,
+				929C66D118C3DD81000730FB /* VTableEditViewController.m in Sources */,
 				9288ABAA1787A9A50048BCF1 /* DestinationViewController.m in Sources */,
 				9288ABAB1787A9A50048BCF1 /* DestinationInbox.m in Sources */,
 				9288ABAC1787A9A50048BCF1 /* BIScheduleDocument.m in Sources */,
@@ -2827,6 +2794,7 @@
 				9288ABB11787A9A50048BCF1 /* Destination.m in Sources */,
 				92EA261C18A5B922008BAB7B /* XmlViewController.m in Sources */,
 				9205442A180C2C9F004DD35D /* WebiPromptViewController.m in Sources */,
+				929C66CA18C3CED7000730FB /* VTableRootEditViewController.m in Sources */,
 				92518A0417E7411400BC7915 /* ExtensionPackViewController.m in Sources */,
 				9288ABB21787A9A50048BCF1 /* Format.m in Sources */,
 				9288ABB31787A9A50048BCF1 /* BIDeleteDocument.m in Sources */,
@@ -2836,6 +2804,7 @@
 				9288ABB51787A9A50048BCF1 /* UniversesListViewController.m in Sources */,
 				9288ABB61787A9A50048BCF1 /* Universe.m in Sources */,
 				9288ABB71787A9A50048BCF1 /* UniverseCell.m in Sources */,
+				9284144F18D110D800D20F5A /* WebViewTableViewCell.m in Sources */,
 				92556297181F3E1F00146E88 /* BISaveDocument.m in Sources */,
 				92D5EBBC184C1262009FAC49 /* XMLRESTProcessor.m in Sources */,
 				92579ACE17E8DE5F00F463A3 /* Response.m in Sources */,
@@ -2942,6 +2911,7 @@
 				92452FCC16E57CA500B8DCFF /* ScheduleDetails.m in Sources */,
 				92F8335D16ECCA4D0074C404 /* ScheduleWebiViewController.m in Sources */,
 				92054436180C3669004DD35D /* PromptCell.m in Sources */,
+				929C66D018C3DD81000730FB /* VTableEditViewController.m in Sources */,
 				926AB73E16F696AA00BC7A08 /* DestinationViewController.m in Sources */,
 				928D564A16F79DDA000DE65D /* DestinationInbox.m in Sources */,
 				928D564D16F79E0D000DE65D /* BIScheduleDocument.m in Sources */,
@@ -2953,6 +2923,7 @@
 				928D565C16F7F053000DE65D /* Destination.m in Sources */,
 				92EA261B18A5B922008BAB7B /* XmlViewController.m in Sources */,
 				92054429180C2C9F004DD35D /* WebiPromptViewController.m in Sources */,
+				929C66C918C3CED7000730FB /* VTableRootEditViewController.m in Sources */,
 				92518A0317E7411400BC7915 /* ExtensionPackViewController.m in Sources */,
 				928D566016F7F13D000DE65D /* Format.m in Sources */,
 				92F90E3616FE2DEA00FA501A /* BIDeleteDocument.m in Sources */,
@@ -2962,6 +2933,7 @@
 				92ADF00317073CD80056B72F /* UniversesListViewController.m in Sources */,
 				92ADF00617073D130056B72F /* Universe.m in Sources */,
 				92ADF00B1707679D0056B72F /* UniverseCell.m in Sources */,
+				9284144E18D110D800D20F5A /* WebViewTableViewCell.m in Sources */,
 				92556296181F3E1F00146E88 /* BISaveDocument.m in Sources */,
 				92D5EBBB184C1262009FAC49 /* XMLRESTProcessor.m in Sources */,
 				92579ACD17E8DE5F00F463A3 /* Response.m in Sources */,
@@ -3027,24 +2999,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		92B9F28C17D3823A006E7ABC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				92B9F29E17D3823B006E7ABC /* BIMobileTests.m in Sources */,
-				929C37BC18023E440044F89D /* WebiPromptLovInterval.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		92B9F2AB17D38E12006E7ABC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 92ADE95716CB24D60027BD4D /* APOS BI Ext */;
-			targetProxy = 92B9F2AA17D38E12006E7ABC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		922D14CB176A96430026B5ED /* MainStoryboard.storyboard */ = {
@@ -3345,42 +3300,6 @@
 			};
 			name = Release;
 		};
-		92B9F2A117D3823B006E7ABC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/APOS BI Ext.app/APOS BI Ext";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BIMobileTests/BIMobileTests-Prefix.pch";
-				INFOPLIST_FILE = "BIMobileTests/BIMobileTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		92B9F2A217D3823B006E7ABC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/APOS BI Ext.app/APOS BI Ext";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BIMobileTests/BIMobileTests-Prefix.pch";
-				INFOPLIST_FILE = "BIMobileTests/BIMobileTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3407,15 +3326,6 @@
 			buildConfigurations = (
 				92ADE97B16CB24D70027BD4D /* Debug */,
 				92ADE97C16CB24D70027BD4D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		92B9F2A017D3823B006E7ABC /* Build configuration list for PBXNativeTarget "BIMobileTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				92B9F2A117D3823B006E7ABC /* Debug */,
-				92B9F2A217D3823B006E7ABC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
