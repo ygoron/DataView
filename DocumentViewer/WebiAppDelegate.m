@@ -122,7 +122,7 @@
      setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
+    
     
     UIImage *navBarImage = [UIImage imageNamed:@"navbar-7.png"];
     if([Utils isVersion6AndBelow]){
@@ -360,7 +360,12 @@
     if (!isOpenDocumentUrl) {
         // Logoff from BOXI
         if ([globalSettings.isLogoffInBackground isEqualToNumber:[NSNumber numberWithInteger:1]])
-            [self biLoggoff];
+        {
+            if (_isWebiCreationInProgress==NO)
+                [self biLoggoff];
+            else
+                NSLog(@"Webi Creation is in progress. Skipped Logoff for now");
+        }
     }else{
         NSLog(@"Skipping Logof - Open Document called");
         isOpenDocumentUrl=NO;

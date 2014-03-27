@@ -23,6 +23,9 @@
 {
     UIActivityIndicatorView *spinner;
     NSMutableDictionary *__tableDict;
+    NSString *__htmlString;
+    BOOL __isWebViewLoaded;
+    
 }
 
 
@@ -68,7 +71,6 @@
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"WebiViewCell_ID"];
     
     
-    [self loadVTable];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -77,22 +79,28 @@
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    __isWebViewLoaded=NO;
+    [self loadVTable];
+}
+
 
 -(void) loadVTable{
     
-
+    
     NSString *xPath=[NSString stringWithFormat:@"%@%d%@",@"//VTABLE[@bId='",_elementId,@"']/ROWGROUP[@type='body']/TR/TDCELL"];
     NSLog(@"XPath:%@",xPath);
     NSArray *columnsBody=[[_xmlReportSpecs nodesForXPath:xPath error:nil] mutableCopy];
-
+    
     
     
     NSString *parentXPath=[NSString stringWithFormat:@"%@%d%@",@"//VTABLE[@bId='",_elementId,@"']/ROWGROUP[@type='header']/TR"];
     NSLog(@"parentXPath:%@",parentXPath);
     int lastIndex=[_xmlReportSpecs nodesForXPath:parentXPath error:nil].count;
-
-//    xPath=[NSString stringWithFormat:@"%@%d%@",@"//VTABLE[@bId='",_elementId,@"']/ROWGROUP[@type='header']/TR/TDCELL"];
-        xPath=[NSString stringWithFormat:@"%@%d%@%d%@",@"//VTABLE[@bId='",_elementId,@"']/ROWGROUP[@type='header']/TR[",lastIndex,@"]/TDCELL"];
+    
+    //    xPath=[NSString stringWithFormat:@"%@%d%@",@"//VTABLE[@bId='",_elementId,@"']/ROWGROUP[@type='header']/TR/TDCELL"];
+    xPath=[NSString stringWithFormat:@"%@%d%@%d%@",@"//VTABLE[@bId='",_elementId,@"']/ROWGROUP[@type='header']/TR[",lastIndex,@"]/TDCELL"];
     NSLog(@"XPath:%@",xPath);
     NSArray *columnsHeader=[[_xmlReportSpecs nodesForXPath:xPath error:nil] mutableCopy];
     
@@ -107,15 +115,17 @@
 }
 -(void) refreshWebView
 {
-    [spinner startAnimating];
-    NSLog (@"Load Web View");
-    BIExportReport *exportReport=[[BIExportReport alloc]init];
-    exportReport.delegate=self;
-    ReportExportFormat formatHtml=FormatHTML;
-    exportReport.exportFormat= formatHtml;
-    exportReport.biSession=_currentSession;
-    exportReport.isExportWithUrl=YES;
-    [exportReport exportEntityWithUrl:_viewUrl withFormat:formatHtml forSession:_currentSession];
+    if (__isWebViewLoaded==NO){
+        [spinner startAnimating];
+        NSLog (@"Load Web View");
+        BIExportReport *exportReport=[[BIExportReport alloc]init];
+        exportReport.delegate=self;
+        ReportExportFormat formatHtml=FormatHTML;
+        exportReport.exportFormat= formatHtml;
+        exportReport.biSession=_currentSession;
+        exportReport.isExportWithUrl=YES;
+        [exportReport exportEntityWithUrl:_viewUrl withFormat:formatHtml forSession:_currentSession];
+    }
     
 }
 -(void) biExportReport:(BIExportReport *)biExportReport isSuccess:(BOOL)isSuccess html:(NSString *)htmlString{
@@ -124,14 +134,15 @@
     
     if (isSuccess==YES){
         NSLog(@"Report Exported");
-        
+        __isWebViewLoaded=YES;
+        __htmlString=htmlString;
         WebViewTableViewCell *cell=  (WebViewTableViewCell *)[self.tableView cellForRowAtIndexPath:    [NSIndexPath indexPathForRow:0 inSection:1]];
         [cell.webView loadHTMLString:htmlString baseURL:nil];
-//        if (__webView){
-//            [__webView loadHTMLString:htmlString baseURL:nil];
-//        }else{
-//            NSLog(@"Web View is not created");
-//        }
+        //        if (__webView){
+        //            [__webView loadHTMLString:htmlString baseURL:nil];
+        //        }else{
+        //            NSLog(@"Web View is not created");
+        //        }
         
         
         
@@ -226,7 +237,7 @@
         }else{
             NSLog(@"Header has different number of columns. Do not update it");
         }
-
+        
         if (isDeleteFooter==YES){
             [self deleteTableColumnForType:@"footer" withSourceIndex:indexPath.row];
         }else{
@@ -250,6 +261,7 @@
         XMLRESTProcessor *xmlProcessor=[[XMLRESTProcessor alloc] init];
         xmlProcessor.delegate=self;
         [xmlProcessor submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"PUT" withXmlDoc:_xmlReportSpecs withOpCode:OP_UPDATE_REPORT_SPEC];
+        __isWebViewLoaded=NO;
         
     }
 }
@@ -353,7 +365,7 @@
     NSLog(@"XPath:%@",xPath);
     NSArray *updatedColumns=[_xmlReportSpecs nodesForXPath:xPath error:nil] ;
     [__tableDict setValue:updatedColumns forKey:type];
-    
+            __isWebViewLoaded=NO;
     
     
 }
@@ -409,6 +421,7 @@
     NSLog(@"XPath:%@",xPath);
     NSArray *updatedColumns=[_xmlReportSpecs nodesForXPath:xPath error:nil] ;
     [__tableDict setValue:updatedColumns forKey:type];
+            __isWebViewLoaded=NO;
     
 }
 
@@ -418,6 +431,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    __htmlString=nil;
+    NSLog(@"Released Resources");
+    
 }
 
 #pragma mark - Table view data source
@@ -472,17 +489,18 @@
         WebViewTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:WebCellIdentifier];
         if (cell==nil){
             cell=[[WebViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:WebCellIdentifier];
+            
         }
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-//        cell.webView.delegate=self;
-
-//        if (!__webView) {
-//            __webView=cell.webView;
-//            __webView.delegate=self;
-//        }
+        //        cell.webView.delegate=self;
+        
+        //        if (!__webView) {
+        //            __webView=cell.webView;
+        //            __webView.delegate=self;
+        //        }
         
         [self refreshWebView];
-
+        
         return cell;
     }
     
@@ -504,8 +522,8 @@
     
     WebViewTableViewCell *cell=  (WebViewTableViewCell *)[self.tableView cellForRowAtIndexPath:    [NSIndexPath indexPathForRow:0 inSection:1]];
     cell.webView.contentMode=UIViewContentModeScaleAspectFit;
-//    __webView.contentMode = UIViewContentModeScaleAspectFit;
-        [spinner stopAnimating];
+    //    __webView.contentMode = UIViewContentModeScaleAspectFit;
+    [spinner stopAnimating];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
 }

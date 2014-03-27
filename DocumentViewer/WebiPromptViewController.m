@@ -61,12 +61,31 @@
     nib=[UINib nibWithNibName:@"ActionCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"ActionCell"];
     
+    if (self.presentingViewController){
+        NSLog(@"Modal Controller");
+        
+        UIBarButtonItem *doneButton         = [[UIBarButtonItem alloc]
+                                               initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                               target:self
+                                               action:@selector(closeView)];
+        
+        self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:doneButton, nil];
+
+    
+    }else{
+        NSLog(@"Push Controller");
+    }
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void) closeView
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) viewWillAppear:(BOOL)animated{

@@ -84,7 +84,7 @@
     __textField.text=_defaultValue;
     
     __textField.enablesReturnKeyAutomatically = YES;
-    __textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    __textField.autocorrectionType = UITextAutocorrectionTypeDefault;
     [__textField setClearButtonMode:UITextFieldViewModeAlways];
     __textField.returnKeyType=UIReturnKeyDone;
     __textField.keyboardType=UIKeyboardTypeDefault;

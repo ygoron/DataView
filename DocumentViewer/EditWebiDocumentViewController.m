@@ -153,6 +153,8 @@
 
 -(void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    WebiAppDelegate   *appDelegate = (id)[[UIApplication sharedApplication] delegate];
+    appDelegate.isWebiCreationInProgress=NO;
     [_delegateEditWebi EditWebiDocument:self isUpdated:__isRefreshRequired];
 }
 
@@ -196,6 +198,12 @@
         self.navigationItem.titleView = titelLabel;
         [titelLabel sizeToFit];
     }
+    
+    WebiAppDelegate   *appDelegate = (id)[[UIApplication sharedApplication] delegate];
+    appDelegate.isWebiCreationInProgress=YES;
+
+    
+    
     
 }
 - (void)didReceiveMemoryWarning
@@ -582,8 +590,8 @@
         }
         
         
-//        ReportEditorViewController *rec=[[ReportEditorViewController alloc]init];
-        _reportEditor=[[ReportEditorViewController alloc]init];
+        //        ReportEditorViewController *rec=[[ReportEditorViewController alloc]init];
+        ReportEditorViewController *_reportEditor=[[ReportEditorViewController alloc]init];
         _reportEditor.documentId=_docId;
         _reportEditor.reportId=reportId;
         _reportEditor.availableQueryFields=allAvailableFields;
@@ -657,7 +665,9 @@
         WebiPromptViewController *promptVC=[[WebiPromptViewController alloc]initWithNibName:@"WebiPromptViewController" bundle:nil];
         promptVC.webiPrompts=__webiPrompts;
         promptVC.document=_document;
-        [self.navigationController pushViewController:promptVC animated:YES];
+        UINavigationController *cntrol = [[UINavigationController alloc] initWithRootViewController:promptVC];
+        [self presentViewController:cntrol animated:YES completion:nil];
+        //        [self.navigationController pushViewController:promptVC animated:YES];
         
     }
     
@@ -1095,6 +1105,7 @@
         
         for (QueryField *queryField  in selectedWebiFields) {
             NSLog(@"Field Type:%@",queryField.type);
+            //            if ([queryField.type isEqualToString:@" "]==NO){
             if ([queryField.type isEqualToString:@"Filter"]==NO){
                 
                 GDataXMLElement *resultObject=[GDataXMLNode elementWithName:@"resultObjects"];

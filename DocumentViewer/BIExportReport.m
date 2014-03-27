@@ -377,6 +377,8 @@
     NSString *receivedString = [[NSString alloc]  initWithData:responseData
                                                       encoding:NSUTF8StringEncoding];
     
+    responseData=nil;
+    
 #ifdef Trace
     int length=([receivedString length])<MAX_DISPLAY_HTTP_STRING?[receivedString length]:MAX_DISPLAY_HTTP_STRING;
     NSLog(@"Get Reports  Data:%@%@",[receivedString substringToIndex:length],@"..." );

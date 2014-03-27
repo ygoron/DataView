@@ -237,4 +237,8 @@
     
 }
 
+-(void) dealloc
+{
+    NSLog(@"XML Processor Destroyed");
+}
 @end

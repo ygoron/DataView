@@ -37,7 +37,6 @@
 @property (assign, nonatomic) BOOL isNewWebiDocument;
 @property (strong,nonatomic) Document *document;
 @property (strong,nonatomic) NSMutableDictionary *reportsDictionary;
-@property (strong,nonatomic) ReportEditorViewController *reportEditor;
 
 @property (nonatomic, weak) id <UniversesListViewControllerDelegate> delegate;
 @property (nonatomic, weak) id <EditWebiDocumentDelegate> delegateEditWebi;

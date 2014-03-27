@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSMutableArray *sessions;
 @property (nonatomic,assign) BOOL isUIRefreshRequred;
 @property (nonatomic, assign) BOOL isOpenDocumentUrl;
+@property (nonatomic, assign) BOOL isWebiCreationInProgress;
 @property (nonatomic, assign) BOOL isCreateSessionAllowed;
 @property (nonatomic, strong) Settings *globalSettings;
 @property (nonatomic, strong) MobileBIService *mobileService;

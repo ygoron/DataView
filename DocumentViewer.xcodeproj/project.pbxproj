@@ -568,6 +568,10 @@
 		929D1CE6173479730027FDFF /* InfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 929D1CE5173479730027FDFF /* InfoObject.m */; };
 		929FC31717090D0500747435 /* Folder-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 929FC31617090D0500747435 /* Folder-1.png */; };
 		92A78303175EBF9700818509 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A78302175EBF9700818509 /* Settings.m */; };
+		92AAD96E18DB7F110033D698 /* CellEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AAD96C18DB7F110033D698 /* CellEditViewController.m */; };
+		92AAD96F18DB7F110033D698 /* CellEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AAD96C18DB7F110033D698 /* CellEditViewController.m */; };
+		92AAD97018DB7F110033D698 /* CellEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AAD96D18DB7F110033D698 /* CellEditViewController.xib */; };
+		92AAD97118DB7F110033D698 /* CellEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AAD96D18DB7F110033D698 /* CellEditViewController.xib */; };
 		92ADE95C16CB24D60027BD4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE95B16CB24D60027BD4D /* UIKit.framework */; };
 		92ADE95E16CB24D60027BD4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE95D16CB24D60027BD4D /* Foundation.framework */; };
 		92ADE96016CB24D60027BD4D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ADE95F16CB24D60027BD4D /* CoreGraphics.framework */; };
@@ -1090,6 +1094,9 @@
 		929FC31617090D0500747435 /* Folder-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-1.png"; sourceTree = "<group>"; };
 		92A78301175EBF9700818509 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		92A78302175EBF9700818509 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		92AAD96B18DB7F110033D698 /* CellEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellEditViewController.h; sourceTree = "<group>"; };
+		92AAD96C18DB7F110033D698 /* CellEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellEditViewController.m; sourceTree = "<group>"; };
+		92AAD96D18DB7F110033D698 /* CellEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellEditViewController.xib; sourceTree = "<group>"; };
 		92ADE95816CB24D60027BD4D /* APOS BI Ext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APOS BI Ext.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ADE95B16CB24D60027BD4D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92ADE95D16CB24D60027BD4D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -2153,6 +2160,9 @@
 				9284144B18D110D700D20F5A /* WebViewTableViewCell.h */,
 				9284144C18D110D700D20F5A /* WebViewTableViewCell.m */,
 				9284144D18D110D700D20F5A /* WebViewTableViewCell.xib */,
+				92AAD96B18DB7F110033D698 /* CellEditViewController.h */,
+				92AAD96C18DB7F110033D698 /* CellEditViewController.m */,
+				92AAD96D18DB7F110033D698 /* CellEditViewController.xib */,
 			);
 			name = "Webi Creator";
 			sourceTree = "<group>";
@@ -2374,6 +2384,7 @@
 				9288AC331787A9A50048BCF1 /* time@2x.png in Resources */,
 				9288AC341787A9A50048BCF1 /* food-large.jpg in Resources */,
 				9288AC351787A9A50048BCF1 /* food.jpg in Resources */,
+				92AAD97118DB7F110033D698 /* CellEditViewController.xib in Resources */,
 				92BB9DB3184BDDC2008FA161 /* TextEditViewController.xib in Resources */,
 				9264D50217F0DD8500F0117A /* Images.xcassets in Resources */,
 				9288AC361787A9A50048BCF1 /* diagram8.png in Resources */,
@@ -2593,6 +2604,7 @@
 				928D10D4170F751F00FA2C5D /* time@2x.png in Resources */,
 				928D10D5170F751F00FA2C5D /* food-large.jpg in Resources */,
 				928D10D6170F751F00FA2C5D /* food.jpg in Resources */,
+				92AAD97018DB7F110033D698 /* CellEditViewController.xib in Resources */,
 				92BB9DB2184BDDC2008FA161 /* TextEditViewController.xib in Resources */,
 				925ED33A17F0D81900EF7A8E /* Images.xcassets in Resources */,
 				928D93DA171359E10010A31B /* diagram8.png in Resources */,
@@ -2814,6 +2826,7 @@
 				92383C77184A8B3C004D0B39 /* DocTitleCell.m in Sources */,
 				9288ABBA1787A9A50048BCF1 /* UniverseDetailsCellSolo.m in Sources */,
 				92061495184BC5D4005B5F4B /* GDataXMLNode.m in Sources */,
+				92AAD96F18DB7F110033D698 /* CellEditViewController.m in Sources */,
 				9288ABBB1787A9A50048BCF1 /* UniverseDetailsViewControllerSolo.m in Sources */,
 				929A3F6217F8B40A009B63B2 /* WebiPromptValue.m in Sources */,
 				9288ABBC1787A9A50048BCF1 /* TitleLabel.m in Sources */,
@@ -2943,6 +2956,7 @@
 				92383C76184A8B3C004D0B39 /* DocTitleCell.m in Sources */,
 				92ADF02F170887C00056B72F /* UniverseDetailsCellSolo.m in Sources */,
 				92061494184BC5D4005B5F4B /* GDataXMLNode.m in Sources */,
+				92AAD96E18DB7F110033D698 /* CellEditViewController.m in Sources */,
 				92ADF035170897970056B72F /* UniverseDetailsViewControllerSolo.m in Sources */,
 				929A3F6117F8B40A009B63B2 /* WebiPromptValue.m in Sources */,
 				928D10DB170F95F100FA2C5D /* TitleLabel.m in Sources */,

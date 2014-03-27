@@ -25,8 +25,9 @@
 @implementation VTableRootEditViewController
 {
     UIActivityIndicatorView *spinner;
-
-
+    BOOL __isWebViewLoaded;
+    
+    
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -63,8 +64,8 @@
     UINib *nib=[UINib nibWithNibName:@"DocTitleCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"DocTitle_ID"];
     
-//    nib=[UINib nibWithNibName:@"ActionCell" bundle:nil];
-//    [[self tableView] registerNib:nib forCellReuseIdentifier:@"ActionCell"];
+    //    nib=[UINib nibWithNibName:@"ActionCell" bundle:nil];
+    //    [[self tableView] registerNib:nib forCellReuseIdentifier:@"ActionCell"];
     
     nib=[UINib nibWithNibName:@"WebViewTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"WebiViewCell_ID"];
@@ -73,9 +74,9 @@
     spinner.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin);
     spinner.center = CGPointMake(self.tableView.bounds.size.width / 2.0f, self.tableView.bounds.size.height / 2.0f);
     [self.view addSubview:spinner];
-
-
-
+    
+    
+    
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -89,37 +90,48 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    WebViewTableViewCell *cell=  (WebViewTableViewCell *)[self.tableView cellForRowAtIndexPath:    [NSIndexPath indexPathForRow:0 inSection:1]];
+    cell=nil;
+    __isWebViewLoaded=YES;
+    NSLog(@"Released Resources");
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    __isWebViewLoaded=NO;
+}
 
 -(void) refreshWebView
 {
-    [spinner startAnimating];
-    NSLog (@"Load Web View");
-    BIExportReport *exportReport=[[BIExportReport alloc]init];
-    exportReport.delegate=self;
-    ReportExportFormat formatHtml=FormatHTML;
-    exportReport.exportFormat= formatHtml;
-    exportReport.biSession=_currentSession;
-    exportReport.isExportWithUrl=YES;
-    NSURL *url= [BIExportReport getExportReportURLForDocumentId:_documentId withReportId:_reportId withSession:_currentSession];
-    url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d", @"/elements/",_elementId]];
-    NSLog(@"URL To Export Element:%@",url.absoluteString);
-    [exportReport exportEntityWithUrl:url withFormat:formatHtml forSession:_currentSession];
+    if (__isWebViewLoaded==NO){
+        [spinner startAnimating];
+        NSLog (@"Load Web View");
+        BIExportReport *exportReport=[[BIExportReport alloc]init];
+        exportReport.delegate=self;
+        ReportExportFormat formatHtml=FormatHTML;
+        exportReport.exportFormat= formatHtml;
+        exportReport.biSession=_currentSession;
+        exportReport.isExportWithUrl=YES;
+        NSURL *url= [BIExportReport getExportReportURLForDocumentId:_documentId withReportId:_reportId withSession:_currentSession];
+        url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d", @"/elements/",_elementId]];
+        NSLog(@"URL To Export Element:%@",url.absoluteString);
+        [exportReport exportEntityWithUrl:url withFormat:formatHtml forSession:_currentSession];
+    }
     
 }
 -(void) biExportReport:(BIExportReport *)biExportReport isSuccess:(BOOL)isSuccess html:(NSString *)htmlString{
     [spinner stopAnimating];
-
+    
     WebViewTableViewCell *cell=  (WebViewTableViewCell *)[self.tableView cellForRowAtIndexPath:    [NSIndexPath indexPathForRow:0 inSection:1]];
     if (isSuccess==YES){
         NSLog(@"Documents Received");
-        
+        __isWebViewLoaded=YES;
         if (cell)
             [cell.webView loadHTMLString:htmlString baseURL:nil];
-//        if (__webView){
-//            [__webView loadHTMLString:htmlString baseURL:nil];
-//        }
+        //        if (__webView){
+        //            [__webView loadHTMLString:htmlString baseURL:nil];
+        //        }
         
         
         
@@ -128,11 +140,11 @@
         NSString* errorString = [NSString stringWithFormat:
                                  @"<html><center><font size=+1 color='black'>%@<br></font></center></html>",
                                  NSLocalizedString(@"Preview not available", nil)];
-
+        
         if (cell)
             [cell.webView loadHTMLString:errorString baseURL:nil];
-
-//        [__webView loadHTMLString:errorString baseURL:nil];
+        
+        //        [__webView loadHTMLString:errorString baseURL:nil];
         
     }
     
@@ -144,7 +156,7 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-//    [self refreshWebView];
+    //    [self refreshWebView];
     [[self tableView]reloadData];
 }
 
@@ -181,10 +193,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifierElement = @"DocTitle_ID";
-//    static NSString *ActionCellIdentifier = @"ActionCell";
+    //    static NSString *ActionCellIdentifier = @"ActionCell";
     static NSString *WebCellIdentifier = @"WebiViewCell_ID";
-
-
+    
+    
     
     
     
@@ -195,35 +207,35 @@
         if (cell == nil) {
             cell = [[DocTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierElement];
         }
-
+        
         if (indexPath.row==0) cell.DocNameLabel.text=NSLocalizedString(@"Columns", nil);
         cell.DocNameActualLabel.text=nil;
         return  cell;
-
+        
     }else if (indexPath.section==1){
-//        ActionCell *cell=[tableView dequeueReusableCellWithIdentifier:ActionCellIdentifier];
-//        if (cell == nil) {
-//            
-//            cell = [[ActionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ActionCellIdentifier];
-//        }
-//
-//        cell.labelActionName.text=NSLocalizedString(@"Preview", nil);
-//        return cell;
+        //        ActionCell *cell=[tableView dequeueReusableCellWithIdentifier:ActionCellIdentifier];
+        //        if (cell == nil) {
+        //
+        //            cell = [[ActionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ActionCellIdentifier];
+        //        }
+        //
+        //        cell.labelActionName.text=NSLocalizedString(@"Preview", nil);
+        //        return cell;
         
         WebViewTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:WebCellIdentifier];
         if (cell==nil){
             cell=[[WebViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:WebCellIdentifier];
         }
-//        cell.webView.delegate=self;
-//        if (!__webView) {
-//            __webView=cell.webView;
-//            __webView.delegate=self;
-//        }
+        //        cell.webView.delegate=self;
+        //        if (!__webView) {
+        //            __webView=cell.webView;
+        //            __webView.delegate=self;
+        //        }
         
         [self refreshWebView];
         return  cell;
-
-
+        
+        
     }
     return nil;
 }
@@ -241,11 +253,11 @@
     //    __webView.scalesPageToFit=YES;
     
     WebViewTableViewCell *cell=  (WebViewTableViewCell *)[self.tableView cellForRowAtIndexPath:    [NSIndexPath indexPathForRow:0 inSection:1]];
-
+    
     if (cell)
         cell.webView.contentMode = UIViewContentModeScaleAspectFit;
-
-//    __webView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    //    __webView.contentMode = UIViewContentModeScaleAspectFit;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
 }
@@ -289,50 +301,50 @@
  }
  */
 
- #pragma mark - Table view delegate
- 
- // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
- - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
- {
-     if (indexPath.section==0){
-         if (indexPath.row==0){
-             NSLog(@"Display VTable Columns");
-             NSURL *url= [BIExportReport getExportReportURLForDocumentId:_documentId withReportId:_reportId withSession:_currentSession];
-             url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d", @"/elements/",_elementId]];
-             NSLog(@"URL To Export Element:%@",url.absoluteString);
+#pragma mark - Table view delegate
 
-             VTableEditViewController *vtvc=[[VTableEditViewController alloc]init];
-             vtvc.documentId=_documentId;
-             vtvc.reportId=_reportId;
-             vtvc.currentSession=_currentSession;
-             vtvc.reportName=_reportName;
-             vtvc.xmlReportElements=_xmlReportElements;
-             vtvc.xmlReportSpecs=_xmlReportSpecs;
-             vtvc.elementId=_elementId;
-             vtvc.viewUrl=url;
-             [self.navigationController pushViewController:vtvc animated:YES];
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0){
+        if (indexPath.row==0){
+            NSLog(@"Display VTable Columns");
+            NSURL *url= [BIExportReport getExportReportURLForDocumentId:_documentId withReportId:_reportId withSession:_currentSession];
+            url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d", @"/elements/",_elementId]];
+            NSLog(@"URL To Export Element:%@",url.absoluteString);
+            
+            VTableEditViewController *vtvc=[[VTableEditViewController alloc]init];
+            vtvc.documentId=_documentId;
+            vtvc.reportId=_reportId;
+            vtvc.currentSession=_currentSession;
+            vtvc.reportName=_reportName;
+            vtvc.xmlReportElements=_xmlReportElements;
+            vtvc.xmlReportSpecs=_xmlReportSpecs;
+            vtvc.elementId=_elementId;
+            vtvc.viewUrl=url;
+            [self.navigationController pushViewController:vtvc animated:YES];
+            
+            
+        }
+        
+    }
+    else if (indexPath.section==1){
+        ReportViewController *rpvc = [[ReportViewController alloc] initWithNibName:@"ReportPreviewController" bundle:nil];
+        
+        // Pass the selected object to the new view controller.
+        
+        // Push the view controller.
+        NSURL *url= [BIExportReport getExportReportURLForDocumentId:_documentId withReportId:_reportId withSession:_currentSession];
+        url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d", @"/elements/",_elementId]];
+        NSLog(@"URL To Export Element:%@",url.absoluteString);
+        rpvc.url=url;
+        rpvc.exportFormat=FormatHTML;
+        rpvc.titleText = _reportName;
+        rpvc.currentSession=_currentSession;
+        [self.navigationController pushViewController:rpvc animated:YES];
+    }
+    
+}
 
-             
-         }
-         
-     }
-     else if (indexPath.section==1){
-         ReportViewController *rpvc = [[ReportViewController alloc] initWithNibName:@"ReportPreviewController" bundle:nil];
-         
-         // Pass the selected object to the new view controller.
-         
-         // Push the view controller.
-         NSURL *url= [BIExportReport getExportReportURLForDocumentId:_documentId withReportId:_reportId withSession:_currentSession];
-         url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d", @"/elements/",_elementId]];
-         NSLog(@"URL To Export Element:%@",url.absoluteString);
-         rpvc.url=url;
-         rpvc.exportFormat=FormatHTML;
-         rpvc.titleText = _reportName;
-         rpvc.currentSession=_currentSession;
-         [self.navigationController pushViewController:rpvc animated:YES];
-     }
- 
- }
- 
 
 @end

@@ -45,7 +45,7 @@ typedef enum ReportExportFormat {
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) NSString *currentToken;
 @property (assign, nonatomic) BOOL isExportWithUrl;
-@property (assign, nonatomic) NSURL *url;
+@property (strong, nonatomic) NSURL *url;
 
 
 

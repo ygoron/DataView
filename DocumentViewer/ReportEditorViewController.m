@@ -16,6 +16,7 @@
 #import "ActionCell.h"
 #import "WebViewTableViewCell.h"
 #import "BIExportReport.h"
+#import "CellEditViewController.h"
 
 
 
@@ -32,9 +33,7 @@
     GDataXMLDocument *currentXmlDocReportElements;
     NSArray *__reportElements;
     int __restCallsCounter;
-    
-    
-    
+    BOOL __isWebViewLoaded;
     
 }
 UIActivityIndicatorView *spinner;
@@ -107,9 +106,40 @@ UIActivityIndicatorView *spinner;
     //    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     
+    __isWebViewLoaded=NO;
+    _isUpdated=YES;
     
-    self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:addButton,editButton,nil];
+    if (_elementParentId>0)
+        self.navigationItem.rightBarButtonItems =[NSArray arrayWithObjects:addButton,editButton,nil];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+        __isWebViewLoaded=NO;
+    NSLog(@"View Will Appear");
+    if (_isUpdated==YES)
     [self getReportStructure];
+    
+}
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+    
+    currentXmlDocReportSpecs=nil;
+    currentXmlDocReportElements=nil;
+    _biExport=nil;
+    WebViewTableViewCell *cell=  (WebViewTableViewCell *)[self.tableView cellForRowAtIndexPath:    [NSIndexPath indexPathForRow:0 inSection:1]];
+    [cell.webView loadHTMLString:@"<html></html>" baseURL:nil];
+    [cell.webView stopLoading];
+    [cell.webView setDelegate:nil];
+    cell=nil;
+    __isWebViewLoaded=NO;
 }
 
 -(void) getReportStructure{
@@ -117,14 +147,14 @@ UIActivityIndicatorView *spinner;
     if (_xmlReportSpecs==nil){
         __restCallsCounter=0;
         NSURL *url=[basUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d%@%d%@",@"/",_documentId,@"/reports/",_reportId,@"/specification"]];
-        XMLRESTProcessor *xmlProcessor1=[[XMLRESTProcessor alloc] init];
+        XMLRESTProcessor    *xmlProcessor1=[[XMLRESTProcessor alloc] init];
         xmlProcessor1.delegate=self;
         xmlProcessor1.accept=@"text/xml";
         [xmlProcessor1 submitRequestForUrl:url withSession:_currentSession withHttpMethod:@"GET" withXmlDoc:nil withOpCode:OP_UPDATE_REPORT_SPEC];
         
         
         NSURL *url2=[basUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d%@%d%@",@"/",_documentId,@"/reports/",_reportId,@"/elements"]];
-        XMLRESTProcessor *xmlProcessor2=[[XMLRESTProcessor alloc] init];
+        XMLRESTProcessor    *xmlProcessor2=[[XMLRESTProcessor alloc] init];
         xmlProcessor2.delegate=self;
         xmlProcessor2.accept=@"application/xml";
         [xmlProcessor2 submitRequestForUrl:url2 withSession:_currentSession withHttpMethod:@"GET" withXmlDoc:nil withOpCode:OP_GET_REPORT_ELEMENTS];
@@ -135,30 +165,36 @@ UIActivityIndicatorView *spinner;
 
 -(void) refreshWebView
 {
-    [spinner startAnimating];
-    NSLog (@"Load Web View");
-    BIExportReport *exportReport=[[BIExportReport alloc] init];
-    exportReport.delegate=self;
-    ReportExportFormat formatHtml=FormatHTML;
-    exportReport.exportFormat= formatHtml;
-    exportReport.biSession=_currentSession;
-    exportReport.isExportWithUrl=YES;
-    NSURL *url=[BIExportReport getExportReportURLForDocumentId:_documentId withReportId:_reportId withSession:_currentSession];
-    if (_elementParentId>0){
-        NSLog(@"Export Report Element");
-        url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d",@"/elements/",_elementParentId]];
+    if (__isWebViewLoaded==NO){
+        [spinner startAnimating];
+        NSLog (@"Load Web View");
+        //    BIExportReport *exportReport=[[BIExportReport alloc] init];
+        if (_biExport==nil) _biExport=[[BIExportReport alloc] init];
+        _biExport.delegate=self;
+        ReportExportFormat formatHtml=FormatHTML;
+        _biExport.exportFormat= formatHtml;
+        _biExport.biSession=_currentSession;
+        _biExport.isExportWithUrl=YES;
+        NSURL *url=[BIExportReport getExportReportURLForDocumentId:_documentId withReportId:_reportId withSession:_currentSession];
+        if (_elementParentId>0){
+            NSLog(@"Export Report Element");
+            url=[url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%d",@"/elements/",_elementParentId]];
+        }
+        
+        [_biExport exportEntityWithUrl:url withFormat:formatHtml forSession:_currentSession];
     }
-    
-    [exportReport exportEntityWithUrl:url withFormat:formatHtml forSession:_currentSession];
     
 }
 -(void) biExportReport:(BIExportReport *)biExportReport isSuccess:(BOOL)isSuccess html:(NSString *)htmlString{
     [spinner stopAnimating];
     
+    WebViewTableViewCell *cell=  (WebViewTableViewCell *)[self.tableView cellForRowAtIndexPath:    [NSIndexPath indexPathForRow:0 inSection:1]];
+    
     if (isSuccess==YES){
         NSLog(@"Report Exported");
+        __isWebViewLoaded=YES;
+        _isUpdated=NO;
         _prevWorkedUrl=biExportReport.url;
-        WebViewTableViewCell *cell=  (WebViewTableViewCell *)[self.tableView cellForRowAtIndexPath:    [NSIndexPath indexPathForRow:0 inSection:1]];
         if (cell){
             [cell.webView loadHTMLString:htmlString baseURL:nil];
         }
@@ -168,7 +204,6 @@ UIActivityIndicatorView *spinner;
         //        }
         
         
-        
     }else{
         
         //                NSString* errorString = [NSString stringWithFormat:
@@ -176,14 +211,22 @@ UIActivityIndicatorView *spinner;
         //                                         NSLocalizedString(@"Preview not available", nil)];
         //                [_webView loadHTMLString:errorString baseURL:nil];
         NSLog(@"Error Loading the preview. Trying previuos working URL");
-        if (_prevWorkedUrl){
-            if (spinner)
-                [spinner startAnimating];
-            if (biExportReport){
-                biExportReport.delegate=self;
-                [biExportReport exportEntityWithUrl:_prevWorkedUrl withFormat:FormatHTML forSession:_currentSession];
-            }
-        }
+//        if (_prevHtmlString)
+//            if (cell){
+//                [cell.webView loadHTMLString:_prevHtmlString baseURL:nil];
+//                __isWebViewLoaded=YES;
+//            }
+        
+               if (_prevWorkedUrl){
+                   NSURL *url=[[NSURL alloc] initWithString:_prevWorkedUrl.absoluteString];
+                   _prevWorkedUrl=nil;
+                   if (spinner)
+                       [spinner startAnimating];
+                    if (biExportReport){
+                        biExportReport.delegate=self;
+                        [biExportReport exportEntityWithUrl:url withFormat:FormatHTML forSession:_currentSession];
+                    }
+                }
         
     }
     
@@ -206,6 +249,16 @@ UIActivityIndicatorView *spinner;
 -(void)biExportReportExternalFormat:(BIExportReport *)biExportReport isSuccess:(BOOL)isSuccess filePath:(NSString *)filePath WithFormat:(ReportExportFormat)format
 {
     
+}
+
+-(void)finishEditing:(CellEditViewController *)cellEditViewController isSuccess:(BOOL)isSuccess isRefreshRequired:(BOOL)isRefreshRequired
+{
+    if (isSuccess==YES && isRefreshRequired==YES) {
+        __isWebViewLoaded=NO;
+        _isUpdated=YES;
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:1],nil] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    }
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -232,14 +285,9 @@ UIActivityIndicatorView *spinner;
     // /elements/element[not(parentId)]
     if (__restCallsCounter==2){
         NSLog(@"Refresh Table");
-        [self.tableView reloadData];
+//        [self.tableView reloadData];
     }
     
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -350,6 +398,7 @@ UIActivityIndicatorView *spinner;
         WebViewTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:WebCellIdentifier];
         if (cell==nil){
             cell=[[WebViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:WebCellIdentifier];
+            
         }
         //        if (!_webView) {
         //            _webView=cell.webView;
@@ -358,6 +407,7 @@ UIActivityIndicatorView *spinner;
         //        cell.webView.delegate=self;
         
         [self refreshWebView];
+        
         
         return cell;
         
@@ -447,6 +497,17 @@ UIActivityIndicatorView *spinner;
             vtrc.xmlReportSpecs=_xmlReportSpecs;
             vtrc.elementId=elementId;
             [self.navigationController pushViewController:vtrc animated:YES];
+        } else if ([type isEqualToString:@"Cell"]){
+            CellEditViewController *cellEdit=[[CellEditViewController alloc]init];
+            cellEdit.documentId=_documentId;
+            cellEdit.reportId=_reportId;
+            cellEdit.elementId=elementId;
+            cellEdit.elementName=elementName;
+            cellEdit.elementText=@"qq";
+            cellEdit.currentSession=_currentSession;
+            cellEdit.delegate=self;
+            [self.navigationController pushViewController:cellEdit animated:YES];
+            
         }else{
             ReportEditorViewController *revc=[[ReportEditorViewController alloc] init];
             revc.documentId=_documentId;
